@@ -1,5 +1,5 @@
 cimport cython
-from ...lib cimport _ss
+from .. cimport _ss
 
 
 @cython.final
