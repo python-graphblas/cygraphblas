@@ -191,7 +191,6 @@ cdef BinaryOp TIMES_UINT16
 cdef BinaryOp TIMES_UINT32
 cdef BinaryOp TIMES_UINT64
 cdef BinaryOp TIMES_UINT8
-
 cdef Descriptor DESC_C
 cdef Descriptor DESC_CT0
 cdef Descriptor DESC_CT0T1
@@ -223,7 +222,6 @@ cdef Descriptor DESC_ST1
 cdef Descriptor DESC_T0
 cdef Descriptor DESC_T0T1
 cdef Descriptor DESC_T1
-
 cdef Monoid LAND_MONOID_BOOL
 cdef Monoid LOR_MONOID_BOOL
 cdef Monoid LXNOR_MONOID_BOOL
@@ -268,7 +266,6 @@ cdef Monoid TIMES_MONOID_UINT16
 cdef Monoid TIMES_MONOID_UINT32
 cdef Monoid TIMES_MONOID_UINT64
 cdef Monoid TIMES_MONOID_UINT8
-
 cdef Semiring LAND_LOR_SEMIRING_BOOL
 cdef Semiring LOR_LAND_SEMIRING_BOOL
 cdef Semiring LXNOR_LOR_SEMIRING_BOOL
@@ -393,7 +390,17 @@ cdef Semiring PLUS_TIMES_SEMIRING_UINT16
 cdef Semiring PLUS_TIMES_SEMIRING_UINT32
 cdef Semiring PLUS_TIMES_SEMIRING_UINT64
 cdef Semiring PLUS_TIMES_SEMIRING_UINT8
-
+cdef Type BOOL
+cdef Type FP32
+cdef Type FP64
+cdef Type INT16
+cdef Type INT32
+cdef Type INT64
+cdef Type INT8
+cdef Type UINT16
+cdef Type UINT32
+cdef Type UINT64
+cdef Type UINT8
 cdef UnaryOp ABS_BOOL
 cdef UnaryOp ABS_FP32
 cdef UnaryOp ABS_FP64
@@ -447,15 +454,3 @@ cdef UnaryOp MINV_UINT16
 cdef UnaryOp MINV_UINT32
 cdef UnaryOp MINV_UINT64
 cdef UnaryOp MINV_UINT8
-
-cdef Type BOOL
-cdef Type FP32
-cdef Type FP64
-cdef Type INT16
-cdef Type INT32
-cdef Type INT64
-cdef Type INT8
-cdef Type UINT16
-cdef Type UINT32
-cdef Type UINT64
-cdef Type UINT8
