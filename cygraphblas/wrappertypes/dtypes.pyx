@@ -11,3 +11,5 @@ cdef class Type:
         obj.name = name
         return obj
 
+    cdef void set_ss(self, _ss.GrB_Type ss_obj):
+        self.ss_obj = ss_obj

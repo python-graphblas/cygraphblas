@@ -9,3 +9,4 @@ cdef class Semiring:
 
     @staticmethod
     cdef Semiring _new(str name)
+    cdef void set_ss(self, _ss.GrB_Semiring ss_obj)

@@ -340,10 +340,14 @@ def main(basedir):
     text = [
         AUTO,
         'from .wrappertypes cimport BinaryOp, Descriptor, Monoid, Semiring, UnaryOp, Type',
-        '',
     ]
     group = [info for info in groups['GrB objects'] if 'GxB' not in info['text']]
+    prev_pytype = None
     for info in group:
+        if info['pytype'] != prev_pytype:
+            prev_pytype = info['pytype']
+            text.append('')
+            text.append(f'# {prev_pytype}')
         text.append(f'cdef {info["pytype"]} {info["pyname"]}')
 
     filename = os.path.join(basedir, 'cygraphblas', '_lib.pxd')
@@ -356,13 +360,13 @@ def main(basedir):
         ('descriptor', 'Descriptor'),
         ('monoid', 'Monoid'),
         ('semiring', 'Semiring'),
-        ('unary', 'UnaryOp'),
         ('dtypes', 'Type'),
+        ('unary', 'UnaryOp'),
     ]
     for name, pytype in object_info:
         text = [
             AUTO,
-            'from . cimport _lib',
+            'from .. cimport _lib',
             '',
         ]
         for info in group:
@@ -372,6 +376,29 @@ def main(basedir):
         print(f'Writing {filename}')
         with open(filename, 'w') as f:
             f.write('\n'.join(text))
+
+    text = [
+        AUTO,
+        'from cygraphblas cimport _lib as lib',
+        'from . cimport graphblas as ss',
+    ]
+    prev_pytype = None
+    i = 0
+    for info in group:
+        if info['pytype'] != prev_pytype:
+            prev_pytype = info['pytype']
+            text.append('')
+            text.append(f'# {prev_pytype}')
+
+        text.append(f'lib.{info["pyname"]}.set_ss(ss.{info["cname"]})')
+        # It would sure be nice to be able to do this
+        # text.append(f'lib.{info["pyname"]}._ss = ss.{info["cname"]}')
+        i += 1
+
+    filename = os.path.join(basedir, 'cygraphblas_ss', 'initialize.pyx')
+    print(f'Writing {filename}')
+    with open(filename, 'w') as f:
+        f.write('\n'.join(text))
 
 
 if __name__ == '__main__':

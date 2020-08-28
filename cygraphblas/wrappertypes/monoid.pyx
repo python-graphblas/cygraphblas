@@ -11,3 +11,5 @@ cdef class Monoid:
         obj.name = name
         return obj
 
+    cdef void set_ss(self, _ss.GrB_Monoid ss_obj):
+        self.ss_obj = ss_obj

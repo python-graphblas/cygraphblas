@@ -9,3 +9,4 @@ cdef class BinaryOp:
 
     @staticmethod
     cdef BinaryOp _new(str name)
+    cdef void set_ss(self, _ss.GrB_BinaryOp ss_obj)
