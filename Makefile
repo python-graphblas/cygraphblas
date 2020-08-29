@@ -2,9 +2,7 @@ SHELL= /bin/bash
 PYTHON ?= python
 
 gen:
-	pushd scripts
-	$(PYTHON) automate.py
-	popd
+	$(PYTHON) scripts/automate.py
 
 cy:
 	$(PYTHON) setup.py build_ext --inplace
@@ -15,5 +13,8 @@ ss:
 inplace: cy ss
 
 clean:
+	rm -rf build/
+	rm -rf cygraphblas/__pycache__/ cygraphblas/*/__pycache__/ cygraphblas/*/*/__pycache__/
+	rm -rf cygraphblas_ss/__pycache__/
 	rm -f cygraphblas/*.c cygraphblas/*.so cygraphblas/*/*.c cygraphblas/*/*.so cygraphblas/*/*/*.c cygraphblas/*/*/*.so
-	rm -rf build/ cygraphblas/__pycache__/ cygraphblas/*/__pycache__/ cygraphblas/*/*/__pycache__/
+	rm -f cygraphblas_ss/*.c cygraphblas_ss/*.so

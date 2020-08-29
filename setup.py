@@ -14,10 +14,10 @@ else:
     suffix = '.c'
 
 ext_modules = [
-    Extension(
-        'cygraphblas.*',
-        [f'cygraphblas/*{suffix}'],
-    ),
+    # Extension(
+    #     'cygraphblas.*',
+    #     [f'cygraphblas/*{suffix}'],
+    # ),
     Extension(
         'cygraphblas.*.*',
         [f'cygraphblas/*/*{suffix}'],

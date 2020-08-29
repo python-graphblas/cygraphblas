@@ -337,23 +337,51 @@ def main(basedir):
     with open(filename, 'w') as f:
         f.write(pxd)
 
-    text = [
-        AUTO,
-        'from .wrappertypes cimport BinaryOp, Descriptor, Monoid, Semiring, UnaryOp, Type',
-    ]
-    group = [info for info in groups['GrB objects'] if 'GxB' not in info['text']]
-    prev_pytype = None
-    for info in group:
-        if info['pytype'] != prev_pytype:
-            prev_pytype = info['pytype']
-            text.append('')
-            text.append(f'# {prev_pytype}')
-        text.append(f'cdef {info["pytype"]} {info["pyname"]}')
+    def handle_lib(group, is_pyx=False):
+        text = [
+            AUTO,
+            'from cygraphblas.wrappertypes cimport BinaryOp, Descriptor, Monoid, Semiring, UnaryOp, Type',
+        ]
+        prev_pytype = None
+        for info in group:
+            if info['pytype'] != prev_pytype:
+                prev_pytype = info['pytype']
+                text.append('')
+                text.append(f'# {prev_pytype}')
+            if is_pyx:
+                text.append(f'cdef {info["pytype"]} {info["pyname"]} = {info["pytype"]}._new("{info["cname"]}")')
+            else:
+                text.append(f'cdef {info["pytype"]} {info["pyname"]}')
+        return text
 
-    filename = os.path.join(basedir, 'cygraphblas', '_lib.pxd')
+    group = [info for info in groups['GrB objects'] if 'GxB' not in info['text']]
+    text = handle_lib(group, is_pyx=False)
+    filename = os.path.join(basedir, 'cygraphblas', '_lib', '__init__.pxd')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
+
+    text = handle_lib(group, is_pyx=True)
+    filename = os.path.join(basedir, 'cygraphblas', '_lib', '__init__.pyx')
+    print(f'Writing {filename}')
+    with open(filename, 'w') as f:
+        f.write('\n'.join(text))
+
+    def handle_lib_object(group, pytype, submodule=None):
+        group = [info for info in group if info['pytype'] == pytype]
+        if not group:
+            return
+        text = [
+            AUTO,
+        ]
+        if submodule is None:
+            text.append('from cygraphblas cimport _lib as lib')
+        else:
+            text.append(f'from cygraphblas._lib cimport {submodule} as lib')
+        text.append('')
+        for info in group:
+            text.append(f'{info["pyname"]} = lib.{info["pyname"]}')
+        return text
 
     object_info = [
         ('binary', 'BinaryOp'),
@@ -364,38 +392,67 @@ def main(basedir):
         ('unary', 'UnaryOp'),
     ]
     for name, pytype in object_info:
-        text = [
-            AUTO,
-            'from .. cimport _lib',
-            '',
-        ]
-        for info in group:
-            if info['pytype'] == pytype:
-                text.append(f'{info["pyname"]} = _lib.{info["pyname"]}')
-        filename = os.path.join(basedir, 'cygraphblas', 'lib', f'{name}.pyx')
+        text = handle_lib_object(group, pytype)
+        if not text:
+            continue
+        filename = os.path.join(basedir, 'cygraphblas', 'lib', name, '__init__.pyx')
         print(f'Writing {filename}')
         with open(filename, 'w') as f:
             f.write('\n'.join(text))
 
-    text = [
-        AUTO,
-        'from cygraphblas cimport _lib as lib',
-        'from . cimport graphblas as ss',
-    ]
-    prev_pytype = None
-    i = 0
-    for info in group:
-        if info['pytype'] != prev_pytype:
-            prev_pytype = info['pytype']
-            text.append('')
-            text.append(f'# {prev_pytype}')
+    def handle_init(group, submodule=None):
+        text = [
+            AUTO,
+        ]
+        if submodule is None:
+            text.append('from cygraphblas cimport _lib as lib')
+        else:
+            text.append(f'from cygraphblas._lib cimport {submodule} as lib')
+        text.append('from . cimport graphblas as ss')
+        prev_pytype = None
+        for info in group:
+            if info['pytype'] != prev_pytype:
+                prev_pytype = info['pytype']
+                text.append('')
+                text.append(f'# {prev_pytype}')
 
-        text.append(f'lib.{info["pyname"]}.set_ss(ss.{info["cname"]})')
-        # It would sure be nice to be able to do this
-        # text.append(f'lib.{info["pyname"]}._ss = ss.{info["cname"]}')
-        i += 1
+            text.append(f'lib.{info["pyname"]}.set_ss(ss.{info["cname"]})')
+            # It would sure be nice to be able to do this:
+            # text.append(f'lib.{info["pyname"]}._ss = ss.{info["cname"]}')
+        return text
 
+    text = handle_init(group)
     filename = os.path.join(basedir, 'cygraphblas_ss', 'initialize.pyx')
+    print(f'Writing {filename}')
+    with open(filename, 'w') as f:
+        f.write('\n'.join(text))
+
+    # Now do SuiteSparse-specific things
+    # Suitesparse GxB extensions of GrB objects
+    group = [info for info in groups['GrB objects'] if 'GxB' in info['text']]
+    text = handle_lib(group, is_pyx=False)
+    filename = os.path.join(basedir, 'cygraphblas', '_lib', 'ss.pxd')
+    print(f'Writing {filename}')
+    with open(filename, 'w') as f:
+        f.write('\n'.join(text))
+
+    text = handle_lib(group, is_pyx=True)
+    filename = os.path.join(basedir, 'cygraphblas', '_lib', 'ss.pyx')
+    print(f'Writing {filename}')
+    with open(filename, 'w') as f:
+        f.write('\n'.join(text))
+
+    for name, pytype in object_info:
+        text = handle_lib_object(group, pytype, submodule='ss')
+        if not text:
+            continue
+        filename = os.path.join(basedir, 'cygraphblas', 'lib', name, 'ss.pyx')
+        print(f'Writing {filename}')
+        with open(filename, 'w') as f:
+            f.write('\n'.join(text))
+
+    text = handle_init(group, submodule='ss')
+    filename = os.path.join(basedir, 'cygraphblas_ss', 'initialize_ss.pyx')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
