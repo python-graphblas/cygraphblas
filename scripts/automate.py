@@ -337,11 +337,14 @@ def main(basedir):
     with open(filename, 'w') as f:
         f.write(pxd)
 
-    def handle_lib(group, is_pyx=False):
+    def handle_lib(group, is_pyx=False, extra_import=None):
         text = [
             AUTO,
-            'from cygraphblas.wrappertypes cimport BinaryOp, Descriptor, Monoid, Semiring, UnaryOp, Type',
         ]
+        if not is_pyx:
+            text.append('from cygraphblas.wrappertypes cimport BinaryOp, Descriptor, Monoid, Semiring, UnaryOp, Type')
+        if extra_import is not None:
+            text.append(extra_import)
         prev_pytype = None
         for info in group:
             if info['pytype'] != prev_pytype:
@@ -408,7 +411,7 @@ def main(basedir):
             text.append('from cygraphblas cimport _lib as lib')
         else:
             text.append(f'from cygraphblas._lib cimport {submodule} as lib')
-        text.append('from . cimport graphblas as ss')
+        text.append('from cygraphblas_ss cimport graphblas as ss')
         prev_pytype = None
         for info in group:
             if info['pytype'] != prev_pytype:
@@ -428,20 +431,23 @@ def main(basedir):
         f.write('\n'.join(text))
 
     # Now do SuiteSparse-specific things
-    # Suitesparse GxB extensions of GrB objects
+    # XXX: Perhaps these should all be in `cygraphblas_ss`!
     group = [info for info in groups['GrB objects'] if 'GxB' in info['text']]
-    text = handle_lib(group, is_pyx=False)
+    gxb_group = sorted(group + groups['GxB objects'], key=lambda info: info['pytype'])
+    extra_import = 'from cygraphblas.wrappertypes.ss cimport SelectOp'
+    text = handle_lib(gxb_group, is_pyx=False, extra_import=extra_import)
     filename = os.path.join(basedir, 'cygraphblas', '_lib', 'ss.pxd')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
 
-    text = handle_lib(group, is_pyx=True)
+    text = handle_lib(gxb_group, is_pyx=True)#, extra_import=extra_import)
     filename = os.path.join(basedir, 'cygraphblas', '_lib', 'ss.pyx')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
 
+    # Suitesparse GxB extensions of GrB objects
     for name, pytype in object_info:
         text = handle_lib_object(group, pytype, submodule='ss')
         if not text:
@@ -451,7 +457,7 @@ def main(basedir):
         with open(filename, 'w') as f:
             f.write('\n'.join(text))
 
-    text = handle_init(group, submodule='ss')
+    text = handle_init(gxb_group, submodule='ss')
     filename = os.path.join(basedir, 'cygraphblas_ss', 'initialize_ss.pyx')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:

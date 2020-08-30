@@ -1,5 +1,5 @@
 cimport cython
-from . cimport _ss
+from cygraphblas.wrappertypes cimport _ss
 
 
 @cython.final
