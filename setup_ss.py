@@ -19,11 +19,11 @@ ext_modules = [
         [f'cygraphblas_ss/*{suffix}'],
         libraries=['graphblas'],
     ),
-    # Extension(
-    #     'cygraphblas_ss.*.*',
-    #     [f'cygraphblas_ss/*/*{suffix}'],
-    #     libraries=['graphblas'],
-    # ),
+    Extension(
+        'cygraphblas_ss.*.*',
+        [f'cygraphblas_ss/*/*{suffix}'],
+        libraries=['graphblas'],
+    ),
     # Extension(
     #     'cygraphblas_ss.*.*.*',
     #     [f'cygraphblas_ss/*/*/*{suffix}'],

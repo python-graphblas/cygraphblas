@@ -11,5 +11,5 @@ cdef class SelectOp:
         obj.name = name
         return obj
 
-    cdef void set_ss(self, _ss.GxB_SelectOp ss_obj):
+    cdef void set_ss(self, GxB_SelectOp ss_obj):
         self.ss_obj = ss_obj

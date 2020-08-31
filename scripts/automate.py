@@ -359,28 +359,30 @@ def main(basedir):
 
     group = [info for info in groups['GrB objects'] if 'GxB' not in info['text']]
     text = handle_lib(group, is_pyx=False)
-    filename = os.path.join(basedir, 'cygraphblas', '_lib', '__init__.pxd')
+    filename = os.path.join(basedir, 'cygraphblas', '_lib.pxd')
+    # filename = os.path.join(basedir, 'cygraphblas', '_lib', '__init__.pxd')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
 
     text = handle_lib(group, is_pyx=True)
-    filename = os.path.join(basedir, 'cygraphblas', '_lib', '__init__.pyx')
+    # filename = os.path.join(basedir, 'cygraphblas', '_lib', '__init__.pyx')
+    filename = os.path.join(basedir, 'cygraphblas', '_lib.pyx')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
 
-    def handle_lib_object(group, pytype, submodule=None):
+    def handle_lib_object(group, pytype, altimport=None):
         group = [info for info in group if info['pytype'] == pytype]
-        if not group:
-            return
         text = [
             AUTO,
         ]
-        if submodule is None:
+        if not group:
+            return text
+        if altimport is None:
             text.append('from cygraphblas cimport _lib as lib')
         else:
-            text.append(f'from cygraphblas._lib cimport {submodule} as lib')
+            text.append(altimport)
         text.append('')
         for info in group:
             text.append(f'{info["pyname"]} = lib.{info["pyname"]}')
@@ -403,14 +405,15 @@ def main(basedir):
         with open(filename, 'w') as f:
             f.write('\n'.join(text))
 
-    def handle_init(group, submodule=None):
+    def handle_init(group, altimport=None):
         text = [
             AUTO,
         ]
-        if submodule is None:
+        if altimport is None:
             text.append('from cygraphblas cimport _lib as lib')
         else:
-            text.append(f'from cygraphblas._lib cimport {submodule} as lib')
+            text.append(altimport)
+            # text.append(f'from cygraphblas._lib cimport {submodule} as lib')
         text.append('from cygraphblas_ss cimport graphblas as ss')
         prev_pytype = None
         for info in group:
@@ -430,34 +433,32 @@ def main(basedir):
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
 
-    # Now do SuiteSparse-specific things
-    # XXX: Perhaps these should all be in `cygraphblas_ss`!
+    # Now do SuiteSparse-specific things (in cygraphblas_ss!)
     group = [info for info in groups['GrB objects'] if 'GxB' in info['text']]
     gxb_group = sorted(group + groups['GxB objects'], key=lambda info: info['pytype'])
-    extra_import = 'from cygraphblas.wrappertypes.ss cimport SelectOp'
+    extra_import = 'from cygraphblas_ss.wrappertypes cimport SelectOp'
     text = handle_lib(gxb_group, is_pyx=False, extra_import=extra_import)
-    filename = os.path.join(basedir, 'cygraphblas', '_lib', 'ss.pxd')
+    filename = os.path.join(basedir, 'cygraphblas_ss', '_lib.pxd')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
 
-    text = handle_lib(gxb_group, is_pyx=True)#, extra_import=extra_import)
-    filename = os.path.join(basedir, 'cygraphblas', '_lib', 'ss.pyx')
+    text = handle_lib(gxb_group, is_pyx=True)  #, extra_import=extra_import)
+    filename = os.path.join(basedir, 'cygraphblas_ss', '_lib.pyx')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
 
     # Suitesparse GxB extensions of GrB objects
-    for name, pytype in object_info:
-        text = handle_lib_object(group, pytype, submodule='ss')
-        if not text:
-            continue
-        filename = os.path.join(basedir, 'cygraphblas', 'lib', name, 'ss.pyx')
+    altimport = 'from cygraphblas_ss cimport _lib as lib'
+    for name, pytype in object_info + [('selectop', 'SelectOp')]:
+        text = handle_lib_object(gxb_group, pytype, altimport=altimport)
+        filename = os.path.join(basedir, 'cygraphblas_ss', 'lib', f'{name}.pyx')
         print(f'Writing {filename}')
         with open(filename, 'w') as f:
             f.write('\n'.join(text))
 
-    text = handle_init(gxb_group, submodule='ss')
+    text = handle_init(gxb_group, altimport=altimport)
     filename = os.path.join(basedir, 'cygraphblas_ss', 'initialize_ss.pyx')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
