@@ -11,5 +11,6 @@ cdef class Semiring:
         obj.name = name
         return obj
 
-    cdef void set_ss(self, _ss.GrB_Semiring ss_obj):
-        self.ss_obj = ss_obj
+    IF CYGB_SS:
+        cdef void set_ss(self, _ss.GrB_Semiring ss_obj):
+            self.ss_obj = ss_obj
