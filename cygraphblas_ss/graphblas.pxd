@@ -3,6 +3,8 @@ from libc.stdint cimport int64_t, uint64_t
 
 cdef extern from "GraphBLAS.h" nogil:
     # #defines
+    const int64_t GRB_SUBVERSION
+    const int64_t GRB_VERSION
     const char *GxB_IMPLEMENTATION_ABOUT
     const char *GxB_IMPLEMENTATION_DATE
     const char *GxB_IMPLEMENTATION_LICENSE
