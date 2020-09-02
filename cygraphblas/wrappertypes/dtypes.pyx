@@ -10,7 +10,3 @@ cdef class Type:
         cdef Type obj = Type.__new__(Type)
         obj.name = name
         return obj
-
-    IF CYGB_SS:
-        cdef void set_ss(self, _ss.GrB_Type ss_obj):
-            self.ss_obj = ss_obj

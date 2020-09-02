@@ -27,6 +27,10 @@ ext_modules = [
         'cygraphblas.*.*.*',
         [f'cygraphblas/*/*/*{suffix}'],
     ),
+    Extension(
+        'cygraphblas.*.*.*.*',
+        [f'cygraphblas/*/*/*/*{suffix}'],
+    ),
 ]
 if use_cython:
     ext_modules = cythonize(ext_modules, compile_time_env={'CYGB_SS': support_ss})

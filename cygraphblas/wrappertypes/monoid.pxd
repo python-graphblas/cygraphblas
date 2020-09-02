@@ -11,5 +11,3 @@ cdef class Monoid:
 
     @staticmethod
     cdef Monoid _new(str name)
-    IF CYGB_SS:
-        cdef void set_ss(self, _ss.GrB_Monoid ss_obj)

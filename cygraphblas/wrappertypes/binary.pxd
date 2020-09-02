@@ -11,5 +11,3 @@ cdef class BinaryOp:
 
     @staticmethod
     cdef BinaryOp _new(str name)
-    IF CYGB_SS:
-        cdef void set_ss(self, _ss.GrB_BinaryOp ss_obj)

@@ -11,5 +11,3 @@ cdef class Descriptor:
 
     @staticmethod
     cdef Descriptor _new(str name)
-    IF CYGB_SS:
-        cdef void set_ss(self, _ss.GrB_Descriptor ss_obj)

@@ -25,11 +25,11 @@ ext_modules = [
         [f'cygraphblas_ss/*/*{suffix}'],
         libraries=['graphblas'],
     ),
-    # Extension(
-    #     'cygraphblas_ss.*.*.*',
-    #     [f'cygraphblas_ss/*/*/*{suffix}'],
-    #     libraries=['graphblas'],
-    # ),
+    Extension(
+        'cygraphblas_ss.*.*.*',
+        [f'cygraphblas_ss/*/*/*{suffix}'],
+        libraries=['graphblas'],
+    ),
 ]
 if use_cython:
     # TODO: get `compile_time_env` from cygraphblas

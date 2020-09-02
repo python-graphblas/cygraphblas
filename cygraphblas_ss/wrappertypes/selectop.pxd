@@ -9,4 +9,3 @@ cdef class SelectOp:
 
     @staticmethod
     cdef SelectOp _new(str name)
-    cdef void set_ss(self, GxB_SelectOp ss_obj)

@@ -10,7 +10,3 @@ cdef class BinaryOp:
         cdef BinaryOp obj = BinaryOp.__new__(BinaryOp)
         obj.name = name
         return obj
-
-    IF CYGB_SS:
-        cdef void set_ss(self, _ss.GrB_BinaryOp ss_obj):
-            self.ss_obj = ss_obj

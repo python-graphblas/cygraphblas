@@ -11,5 +11,3 @@ cdef class Semiring:
 
     @staticmethod
     cdef Semiring _new(str name)
-    IF CYGB_SS:
-        cdef void set_ss(self, _ss.GrB_Semiring ss_obj)

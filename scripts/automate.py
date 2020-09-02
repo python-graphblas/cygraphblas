@@ -217,6 +217,7 @@ def get_group_info(groups):
                     'pyname': pyname(cfieldname),
                     'value': val,
                     'text': field,
+                    'pytype': pyname(cname),
                 }
                 new_fields.append(fieldinfo)
             info = {
@@ -341,16 +342,27 @@ def main(basedir):
     with open(filename, 'w') as f:
         f.write(pxd)
 
-    def handle_lib(group, is_pyx=False, extra_import=None):
+    def handle_lib(objects, enums, is_pyx=False, extra_import=None):
         text = [
             AUTO,
         ]
         if not is_pyx:
             text.append('from cygraphblas.wrappertypes cimport BinaryOp, Descriptor, Monoid, Semiring, UnaryOp, Type')
+            text.append('from cygraphblas.wrappertypes.constants cimport Desc_Field, Desc_Value, Info, Mode')
         if extra_import is not None:
             text.append(extra_import)
+
+        text.append('')
+        text.append('# Enums')
+        for info in sorted(enums, key=lambda x: x['pyname']):
+            for field in info['fields']:
+                if is_pyx:
+                    text.append(f'cdef {field["pytype"]} {field["pyname"]} = {field["pytype"]}._new("{field["cname"]}")')
+                else:
+                    text.append(f'cdef {field["pytype"]} {field["pyname"]}')
+
         prev_pytype = None
-        for info in group:
+        for info in objects:
             if info['pytype'] != prev_pytype:
                 prev_pytype = info['pytype']
                 text.append('')
@@ -361,15 +373,24 @@ def main(basedir):
                 text.append(f'cdef {info["pytype"]} {info["pyname"]}')
         return text
 
+    def get_enums(group, field_filter):
+        rv = []
+        for info in group:
+            val = dict(info)
+            val['fields'] = sorted((val for val in info['fields'] if val['cname'].startswith(field_filter)), key=lambda x: x['pyname'])
+            rv.append(val)
+        return rv
+
     group = [info for info in groups['GrB objects'] if 'GxB' not in info['text']]
-    text = handle_lib(group, is_pyx=False)
+    enums = get_enums(groups['GrB typedef enums'], 'GrB')
+    text = handle_lib(group, enums, is_pyx=False)
     filename = os.path.join(basedir, 'cygraphblas', '_clib.pxd')
     # filename = os.path.join(basedir, 'cygraphblas', '_clib', '__init__.pxd')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
 
-    text = handle_lib(group, is_pyx=True)
+    text = handle_lib(group, enums, is_pyx=True)
     # filename = os.path.join(basedir, 'cygraphblas', '_clib', '__init__.pyx')
     filename = os.path.join(basedir, 'cygraphblas', '_clib.pyx')
     print(f'Writing {filename}')
@@ -409,6 +430,14 @@ def main(basedir):
         with open(filename, 'w') as f:
             f.write('\n'.join(text))
 
+    for info in enums:
+        text = handle_lib_object(info['fields'], info['pyname'])
+        filename = os.path.join(basedir, 'cygraphblas', 'lib', 'constants', info['pyname'].lower(), '__init__.pyx')
+        print(f'Writing {filename}')
+        with open(filename, 'w') as f:
+            f.write('\n'.join(text))
+
+    # Now do SuiteSparse-specific things (in cygraphblas_ss!)
     def handle_init(group, altimport=None):
         text = [
             AUTO,
@@ -424,29 +453,36 @@ def main(basedir):
                 prev_pytype = info['pytype']
                 text.append('')
                 text.append(f'# {prev_pytype}')
-
-            text.append(f'clib.{info["pyname"]}.set_ss(ss.{info["cname"]})')
-            # It would sure be nice to be able to do this:
-            # text.append(f'lib.{info["pyname"]}._ss = ss.{info["cname"]}')
+            text.append(f'clib.{info["pyname"]}.ss_obj = ss.{info["cname"]}')
         return text
 
-    text = handle_init(group)
+    grb_enums = []
+    for info in enums:
+        grb_enums.extend(info['fields'])
+
+    text = handle_init(grb_enums + group)
     filename = os.path.join(basedir, 'cygraphblas_ss', 'initialize.pyx')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
 
-    # Now do SuiteSparse-specific things (in cygraphblas_ss!)
     group = [info for info in groups['GrB objects'] if 'GxB' in info['text']]
     gxb_group = sorted(group + groups['GxB objects'], key=lambda info: info['pytype'])
-    extra_import = 'from cygraphblas_ss.wrappertypes cimport SelectOp'
-    text = handle_lib(gxb_group, is_pyx=False, extra_import=extra_import)
+    extra_import = (
+        'from cygraphblas_ss.wrappertypes cimport SelectOp\n'
+        'from cygraphblas_ss.wrappertypes.constants cimport Format_Value, Option_Field, Print_Level, Thread_Model'
+    )
+    enums = (
+        get_enums(groups['GrB typedef enums'], 'GxB')
+        + get_enums(groups['GxB typedef enums'], 'GxB')
+    )
+    text = handle_lib(gxb_group, enums, is_pyx=False, extra_import=extra_import)
     filename = os.path.join(basedir, 'cygraphblas_ss', '_clib.pxd')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
 
-    text = handle_lib(gxb_group, is_pyx=True)  #, extra_import=extra_import)
+    text = handle_lib(gxb_group, enums, is_pyx=True)  #, extra_import=extra_import)
     filename = os.path.join(basedir, 'cygraphblas_ss', '_clib.pyx')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
@@ -461,11 +497,22 @@ def main(basedir):
         with open(filename, 'w') as f:
             f.write('\n'.join(text))
 
-    text = handle_init(gxb_group, altimport=altimport)
+    gxb_enums = []
+    for info in enums:
+        gxb_enums.extend(info['fields'])
+
+    text = handle_init(gxb_enums + gxb_group, altimport=altimport)
     filename = os.path.join(basedir, 'cygraphblas_ss', 'initialize_ss.pyx')
     print(f'Writing {filename}')
     with open(filename, 'w') as f:
         f.write('\n'.join(text))
+
+    for info in enums:
+        text = handle_lib_object(info['fields'], info['pyname'], altimport=altimport)
+        filename = os.path.join(basedir, 'cygraphblas_ss', 'lib', 'constants', f"{info['pyname'].lower()}.pyx")
+        print(f'Writing {filename}')
+        with open(filename, 'w') as f:
+            f.write('\n'.join(text))
 
 
 if __name__ == '__main__':

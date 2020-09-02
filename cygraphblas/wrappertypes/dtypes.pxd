@@ -11,5 +11,3 @@ cdef class Type:
 
     @staticmethod
     cdef Type _new(str name)
-    IF CYGB_SS:
-        cdef void set_ss(self, _ss.GrB_Type ss_obj)

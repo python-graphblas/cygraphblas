@@ -2,1988 +2,2053 @@
 from cygraphblas_ss cimport _clib as clib
 from cygraphblas_ss cimport graphblas as ss
 
+# Desc_Field
+clib.AxB_METHOD.ss_obj = ss.GxB_AxB_METHOD
+clib.DESCRIPTOR_CHUNK.ss_obj = ss.GxB_DESCRIPTOR_CHUNK
+clib.DESCRIPTOR_GPU_CHUNK.ss_obj = ss.GxB_DESCRIPTOR_GPU_CHUNK
+clib.DESCRIPTOR_GPU_CONTROL.ss_obj = ss.GxB_DESCRIPTOR_GPU_CONTROL
+clib.DESCRIPTOR_MKL.ss_obj = ss.GxB_DESCRIPTOR_MKL
+clib.DESCRIPTOR_NTHREADS.ss_obj = ss.GxB_DESCRIPTOR_NTHREADS
+
+# Desc_Value
+clib.AxB_DOT.ss_obj = ss.GxB_AxB_DOT
+clib.AxB_GUSTAVSON.ss_obj = ss.GxB_AxB_GUSTAVSON
+clib.AxB_HASH.ss_obj = ss.GxB_AxB_HASH
+clib.AxB_HEAP.ss_obj = ss.GxB_AxB_HEAP
+clib.AxB_SAXPY.ss_obj = ss.GxB_AxB_SAXPY
+clib.DEFAULT.ss_obj = ss.GxB_DEFAULT
+clib.GPU_ALWAYS.ss_obj = ss.GxB_GPU_ALWAYS
+clib.GPU_NEVER.ss_obj = ss.GxB_GPU_NEVER
+
+# Format_Value
+clib.BY_COL.ss_obj = ss.GxB_BY_COL
+clib.BY_ROW.ss_obj = ss.GxB_BY_ROW
+clib.NO_FORMAT.ss_obj = ss.GxB_NO_FORMAT
+
+# Option_Field
+clib.API_ABOUT.ss_obj = ss.GxB_API_ABOUT
+clib.API_DATE.ss_obj = ss.GxB_API_DATE
+clib.API_URL.ss_obj = ss.GxB_API_URL
+clib.API_VERSION.ss_obj = ss.GxB_API_VERSION
+clib.BURBLE.ss_obj = ss.GxB_BURBLE
+clib.FORMAT.ss_obj = ss.GxB_FORMAT
+clib.GLOBAL_CHUNK.ss_obj = ss.GxB_GLOBAL_CHUNK
+clib.GLOBAL_GPU_CHUNK.ss_obj = ss.GxB_GLOBAL_GPU_CHUNK
+clib.GLOBAL_GPU_CONTROL.ss_obj = ss.GxB_GLOBAL_GPU_CONTROL
+clib.GLOBAL_MKL.ss_obj = ss.GxB_GLOBAL_MKL
+clib.GLOBAL_NTHREADS.ss_obj = ss.GxB_GLOBAL_NTHREADS
+clib.GPU_COUNT.ss_obj = ss.GxB_GPU_COUNT
+clib.HYPER.ss_obj = ss.GxB_HYPER
+clib.IS_HYPER.ss_obj = ss.GxB_IS_HYPER
+clib.LIBRARY_ABOUT.ss_obj = ss.GxB_LIBRARY_ABOUT
+clib.LIBRARY_COMPILE_DATE.ss_obj = ss.GxB_LIBRARY_COMPILE_DATE
+clib.LIBRARY_COMPILE_TIME.ss_obj = ss.GxB_LIBRARY_COMPILE_TIME
+clib.LIBRARY_DATE.ss_obj = ss.GxB_LIBRARY_DATE
+clib.LIBRARY_LICENSE.ss_obj = ss.GxB_LIBRARY_LICENSE
+clib.LIBRARY_NAME.ss_obj = ss.GxB_LIBRARY_NAME
+clib.LIBRARY_URL.ss_obj = ss.GxB_LIBRARY_URL
+clib.LIBRARY_VERSION.ss_obj = ss.GxB_LIBRARY_VERSION
+clib.MODE.ss_obj = ss.GxB_MODE
+clib.THREADING.ss_obj = ss.GxB_THREADING
+clib.THREAD_SAFETY.ss_obj = ss.GxB_THREAD_SAFETY
+
+# Print_Level
+clib.COMPLETE.ss_obj = ss.GxB_COMPLETE
+clib.COMPLETE_VERBOSE.ss_obj = ss.GxB_COMPLETE_VERBOSE
+clib.SHORT.ss_obj = ss.GxB_SHORT
+clib.SHORT_VERBOSE.ss_obj = ss.GxB_SHORT_VERBOSE
+clib.SILENT.ss_obj = ss.GxB_SILENT
+clib.SUMMARY.ss_obj = ss.GxB_SUMMARY
+
+# Thread_Model
+clib.THREAD_ANSI.ss_obj = ss.GxB_THREAD_ANSI
+clib.THREAD_NONE.ss_obj = ss.GxB_THREAD_NONE
+clib.THREAD_OPENMP.ss_obj = ss.GxB_THREAD_OPENMP
+clib.THREAD_POSIX.ss_obj = ss.GxB_THREAD_POSIX
+clib.THREAD_WINDOWS.ss_obj = ss.GxB_THREAD_WINDOWS
+
 # BinaryOp
-clib.ANY_BOOL.set_ss(ss.GxB_ANY_BOOL)
-clib.ANY_FC32.set_ss(ss.GxB_ANY_FC32)
-clib.ANY_FC64.set_ss(ss.GxB_ANY_FC64)
-clib.ANY_FP32.set_ss(ss.GxB_ANY_FP32)
-clib.ANY_FP64.set_ss(ss.GxB_ANY_FP64)
-clib.ANY_INT16.set_ss(ss.GxB_ANY_INT16)
-clib.ANY_INT32.set_ss(ss.GxB_ANY_INT32)
-clib.ANY_INT64.set_ss(ss.GxB_ANY_INT64)
-clib.ANY_INT8.set_ss(ss.GxB_ANY_INT8)
-clib.ANY_UINT16.set_ss(ss.GxB_ANY_UINT16)
-clib.ANY_UINT32.set_ss(ss.GxB_ANY_UINT32)
-clib.ANY_UINT64.set_ss(ss.GxB_ANY_UINT64)
-clib.ANY_UINT8.set_ss(ss.GxB_ANY_UINT8)
-clib.ATAN2_FP32.set_ss(ss.GxB_ATAN2_FP32)
-clib.ATAN2_FP64.set_ss(ss.GxB_ATAN2_FP64)
-clib.BCLR_INT16.set_ss(ss.GxB_BCLR_INT16)
-clib.BCLR_INT32.set_ss(ss.GxB_BCLR_INT32)
-clib.BCLR_INT64.set_ss(ss.GxB_BCLR_INT64)
-clib.BCLR_INT8.set_ss(ss.GxB_BCLR_INT8)
-clib.BCLR_UINT16.set_ss(ss.GxB_BCLR_UINT16)
-clib.BCLR_UINT32.set_ss(ss.GxB_BCLR_UINT32)
-clib.BCLR_UINT64.set_ss(ss.GxB_BCLR_UINT64)
-clib.BCLR_UINT8.set_ss(ss.GxB_BCLR_UINT8)
-clib.BGET_INT16.set_ss(ss.GxB_BGET_INT16)
-clib.BGET_INT32.set_ss(ss.GxB_BGET_INT32)
-clib.BGET_INT64.set_ss(ss.GxB_BGET_INT64)
-clib.BGET_INT8.set_ss(ss.GxB_BGET_INT8)
-clib.BGET_UINT16.set_ss(ss.GxB_BGET_UINT16)
-clib.BGET_UINT32.set_ss(ss.GxB_BGET_UINT32)
-clib.BGET_UINT64.set_ss(ss.GxB_BGET_UINT64)
-clib.BGET_UINT8.set_ss(ss.GxB_BGET_UINT8)
-clib.BSET_INT16.set_ss(ss.GxB_BSET_INT16)
-clib.BSET_INT32.set_ss(ss.GxB_BSET_INT32)
-clib.BSET_INT64.set_ss(ss.GxB_BSET_INT64)
-clib.BSET_INT8.set_ss(ss.GxB_BSET_INT8)
-clib.BSET_UINT16.set_ss(ss.GxB_BSET_UINT16)
-clib.BSET_UINT32.set_ss(ss.GxB_BSET_UINT32)
-clib.BSET_UINT64.set_ss(ss.GxB_BSET_UINT64)
-clib.BSET_UINT8.set_ss(ss.GxB_BSET_UINT8)
-clib.BSHIFT_INT16.set_ss(ss.GxB_BSHIFT_INT16)
-clib.BSHIFT_INT32.set_ss(ss.GxB_BSHIFT_INT32)
-clib.BSHIFT_INT64.set_ss(ss.GxB_BSHIFT_INT64)
-clib.BSHIFT_INT8.set_ss(ss.GxB_BSHIFT_INT8)
-clib.BSHIFT_UINT16.set_ss(ss.GxB_BSHIFT_UINT16)
-clib.BSHIFT_UINT32.set_ss(ss.GxB_BSHIFT_UINT32)
-clib.BSHIFT_UINT64.set_ss(ss.GxB_BSHIFT_UINT64)
-clib.BSHIFT_UINT8.set_ss(ss.GxB_BSHIFT_UINT8)
-clib.CMPLX_FP32.set_ss(ss.GxB_CMPLX_FP32)
-clib.CMPLX_FP64.set_ss(ss.GxB_CMPLX_FP64)
-clib.COPYSIGN_FP32.set_ss(ss.GxB_COPYSIGN_FP32)
-clib.COPYSIGN_FP64.set_ss(ss.GxB_COPYSIGN_FP64)
-clib.DIV_FC32.set_ss(ss.GxB_DIV_FC32)
-clib.DIV_FC64.set_ss(ss.GxB_DIV_FC64)
-clib.EQ_FC32.set_ss(ss.GxB_EQ_FC32)
-clib.EQ_FC64.set_ss(ss.GxB_EQ_FC64)
-clib.FIRST_FC32.set_ss(ss.GxB_FIRST_FC32)
-clib.FIRST_FC64.set_ss(ss.GxB_FIRST_FC64)
-clib.FMOD_FP32.set_ss(ss.GxB_FMOD_FP32)
-clib.FMOD_FP64.set_ss(ss.GxB_FMOD_FP64)
-clib.HYPOT_FP32.set_ss(ss.GxB_HYPOT_FP32)
-clib.HYPOT_FP64.set_ss(ss.GxB_HYPOT_FP64)
-clib.ISEQ_BOOL.set_ss(ss.GxB_ISEQ_BOOL)
-clib.ISEQ_FC32.set_ss(ss.GxB_ISEQ_FC32)
-clib.ISEQ_FC64.set_ss(ss.GxB_ISEQ_FC64)
-clib.ISEQ_FP32.set_ss(ss.GxB_ISEQ_FP32)
-clib.ISEQ_FP64.set_ss(ss.GxB_ISEQ_FP64)
-clib.ISEQ_INT16.set_ss(ss.GxB_ISEQ_INT16)
-clib.ISEQ_INT32.set_ss(ss.GxB_ISEQ_INT32)
-clib.ISEQ_INT64.set_ss(ss.GxB_ISEQ_INT64)
-clib.ISEQ_INT8.set_ss(ss.GxB_ISEQ_INT8)
-clib.ISEQ_UINT16.set_ss(ss.GxB_ISEQ_UINT16)
-clib.ISEQ_UINT32.set_ss(ss.GxB_ISEQ_UINT32)
-clib.ISEQ_UINT64.set_ss(ss.GxB_ISEQ_UINT64)
-clib.ISEQ_UINT8.set_ss(ss.GxB_ISEQ_UINT8)
-clib.ISGE_BOOL.set_ss(ss.GxB_ISGE_BOOL)
-clib.ISGE_FP32.set_ss(ss.GxB_ISGE_FP32)
-clib.ISGE_FP64.set_ss(ss.GxB_ISGE_FP64)
-clib.ISGE_INT16.set_ss(ss.GxB_ISGE_INT16)
-clib.ISGE_INT32.set_ss(ss.GxB_ISGE_INT32)
-clib.ISGE_INT64.set_ss(ss.GxB_ISGE_INT64)
-clib.ISGE_INT8.set_ss(ss.GxB_ISGE_INT8)
-clib.ISGE_UINT16.set_ss(ss.GxB_ISGE_UINT16)
-clib.ISGE_UINT32.set_ss(ss.GxB_ISGE_UINT32)
-clib.ISGE_UINT64.set_ss(ss.GxB_ISGE_UINT64)
-clib.ISGE_UINT8.set_ss(ss.GxB_ISGE_UINT8)
-clib.ISGT_BOOL.set_ss(ss.GxB_ISGT_BOOL)
-clib.ISGT_FP32.set_ss(ss.GxB_ISGT_FP32)
-clib.ISGT_FP64.set_ss(ss.GxB_ISGT_FP64)
-clib.ISGT_INT16.set_ss(ss.GxB_ISGT_INT16)
-clib.ISGT_INT32.set_ss(ss.GxB_ISGT_INT32)
-clib.ISGT_INT64.set_ss(ss.GxB_ISGT_INT64)
-clib.ISGT_INT8.set_ss(ss.GxB_ISGT_INT8)
-clib.ISGT_UINT16.set_ss(ss.GxB_ISGT_UINT16)
-clib.ISGT_UINT32.set_ss(ss.GxB_ISGT_UINT32)
-clib.ISGT_UINT64.set_ss(ss.GxB_ISGT_UINT64)
-clib.ISGT_UINT8.set_ss(ss.GxB_ISGT_UINT8)
-clib.ISLE_BOOL.set_ss(ss.GxB_ISLE_BOOL)
-clib.ISLE_FP32.set_ss(ss.GxB_ISLE_FP32)
-clib.ISLE_FP64.set_ss(ss.GxB_ISLE_FP64)
-clib.ISLE_INT16.set_ss(ss.GxB_ISLE_INT16)
-clib.ISLE_INT32.set_ss(ss.GxB_ISLE_INT32)
-clib.ISLE_INT64.set_ss(ss.GxB_ISLE_INT64)
-clib.ISLE_INT8.set_ss(ss.GxB_ISLE_INT8)
-clib.ISLE_UINT16.set_ss(ss.GxB_ISLE_UINT16)
-clib.ISLE_UINT32.set_ss(ss.GxB_ISLE_UINT32)
-clib.ISLE_UINT64.set_ss(ss.GxB_ISLE_UINT64)
-clib.ISLE_UINT8.set_ss(ss.GxB_ISLE_UINT8)
-clib.ISLT_BOOL.set_ss(ss.GxB_ISLT_BOOL)
-clib.ISLT_FP32.set_ss(ss.GxB_ISLT_FP32)
-clib.ISLT_FP64.set_ss(ss.GxB_ISLT_FP64)
-clib.ISLT_INT16.set_ss(ss.GxB_ISLT_INT16)
-clib.ISLT_INT32.set_ss(ss.GxB_ISLT_INT32)
-clib.ISLT_INT64.set_ss(ss.GxB_ISLT_INT64)
-clib.ISLT_INT8.set_ss(ss.GxB_ISLT_INT8)
-clib.ISLT_UINT16.set_ss(ss.GxB_ISLT_UINT16)
-clib.ISLT_UINT32.set_ss(ss.GxB_ISLT_UINT32)
-clib.ISLT_UINT64.set_ss(ss.GxB_ISLT_UINT64)
-clib.ISLT_UINT8.set_ss(ss.GxB_ISLT_UINT8)
-clib.ISNE_BOOL.set_ss(ss.GxB_ISNE_BOOL)
-clib.ISNE_FC32.set_ss(ss.GxB_ISNE_FC32)
-clib.ISNE_FC64.set_ss(ss.GxB_ISNE_FC64)
-clib.ISNE_FP32.set_ss(ss.GxB_ISNE_FP32)
-clib.ISNE_FP64.set_ss(ss.GxB_ISNE_FP64)
-clib.ISNE_INT16.set_ss(ss.GxB_ISNE_INT16)
-clib.ISNE_INT32.set_ss(ss.GxB_ISNE_INT32)
-clib.ISNE_INT64.set_ss(ss.GxB_ISNE_INT64)
-clib.ISNE_INT8.set_ss(ss.GxB_ISNE_INT8)
-clib.ISNE_UINT16.set_ss(ss.GxB_ISNE_UINT16)
-clib.ISNE_UINT32.set_ss(ss.GxB_ISNE_UINT32)
-clib.ISNE_UINT64.set_ss(ss.GxB_ISNE_UINT64)
-clib.ISNE_UINT8.set_ss(ss.GxB_ISNE_UINT8)
-clib.LAND_BOOL.set_ss(ss.GxB_LAND_BOOL)
-clib.LAND_FP32.set_ss(ss.GxB_LAND_FP32)
-clib.LAND_FP64.set_ss(ss.GxB_LAND_FP64)
-clib.LAND_INT16.set_ss(ss.GxB_LAND_INT16)
-clib.LAND_INT32.set_ss(ss.GxB_LAND_INT32)
-clib.LAND_INT64.set_ss(ss.GxB_LAND_INT64)
-clib.LAND_INT8.set_ss(ss.GxB_LAND_INT8)
-clib.LAND_UINT16.set_ss(ss.GxB_LAND_UINT16)
-clib.LAND_UINT32.set_ss(ss.GxB_LAND_UINT32)
-clib.LAND_UINT64.set_ss(ss.GxB_LAND_UINT64)
-clib.LAND_UINT8.set_ss(ss.GxB_LAND_UINT8)
-clib.LDEXP_FP32.set_ss(ss.GxB_LDEXP_FP32)
-clib.LDEXP_FP64.set_ss(ss.GxB_LDEXP_FP64)
-clib.LOR_BOOL.set_ss(ss.GxB_LOR_BOOL)
-clib.LOR_FP32.set_ss(ss.GxB_LOR_FP32)
-clib.LOR_FP64.set_ss(ss.GxB_LOR_FP64)
-clib.LOR_INT16.set_ss(ss.GxB_LOR_INT16)
-clib.LOR_INT32.set_ss(ss.GxB_LOR_INT32)
-clib.LOR_INT64.set_ss(ss.GxB_LOR_INT64)
-clib.LOR_INT8.set_ss(ss.GxB_LOR_INT8)
-clib.LOR_UINT16.set_ss(ss.GxB_LOR_UINT16)
-clib.LOR_UINT32.set_ss(ss.GxB_LOR_UINT32)
-clib.LOR_UINT64.set_ss(ss.GxB_LOR_UINT64)
-clib.LOR_UINT8.set_ss(ss.GxB_LOR_UINT8)
-clib.LXOR_BOOL.set_ss(ss.GxB_LXOR_BOOL)
-clib.LXOR_FP32.set_ss(ss.GxB_LXOR_FP32)
-clib.LXOR_FP64.set_ss(ss.GxB_LXOR_FP64)
-clib.LXOR_INT16.set_ss(ss.GxB_LXOR_INT16)
-clib.LXOR_INT32.set_ss(ss.GxB_LXOR_INT32)
-clib.LXOR_INT64.set_ss(ss.GxB_LXOR_INT64)
-clib.LXOR_INT8.set_ss(ss.GxB_LXOR_INT8)
-clib.LXOR_UINT16.set_ss(ss.GxB_LXOR_UINT16)
-clib.LXOR_UINT32.set_ss(ss.GxB_LXOR_UINT32)
-clib.LXOR_UINT64.set_ss(ss.GxB_LXOR_UINT64)
-clib.LXOR_UINT8.set_ss(ss.GxB_LXOR_UINT8)
-clib.MINUS_FC32.set_ss(ss.GxB_MINUS_FC32)
-clib.MINUS_FC64.set_ss(ss.GxB_MINUS_FC64)
-clib.NE_FC32.set_ss(ss.GxB_NE_FC32)
-clib.NE_FC64.set_ss(ss.GxB_NE_FC64)
-clib.PAIR_BOOL.set_ss(ss.GxB_PAIR_BOOL)
-clib.PAIR_FC32.set_ss(ss.GxB_PAIR_FC32)
-clib.PAIR_FC64.set_ss(ss.GxB_PAIR_FC64)
-clib.PAIR_FP32.set_ss(ss.GxB_PAIR_FP32)
-clib.PAIR_FP64.set_ss(ss.GxB_PAIR_FP64)
-clib.PAIR_INT16.set_ss(ss.GxB_PAIR_INT16)
-clib.PAIR_INT32.set_ss(ss.GxB_PAIR_INT32)
-clib.PAIR_INT64.set_ss(ss.GxB_PAIR_INT64)
-clib.PAIR_INT8.set_ss(ss.GxB_PAIR_INT8)
-clib.PAIR_UINT16.set_ss(ss.GxB_PAIR_UINT16)
-clib.PAIR_UINT32.set_ss(ss.GxB_PAIR_UINT32)
-clib.PAIR_UINT64.set_ss(ss.GxB_PAIR_UINT64)
-clib.PAIR_UINT8.set_ss(ss.GxB_PAIR_UINT8)
-clib.PLUS_FC32.set_ss(ss.GxB_PLUS_FC32)
-clib.PLUS_FC64.set_ss(ss.GxB_PLUS_FC64)
-clib.POW_BOOL.set_ss(ss.GxB_POW_BOOL)
-clib.POW_FC32.set_ss(ss.GxB_POW_FC32)
-clib.POW_FC64.set_ss(ss.GxB_POW_FC64)
-clib.POW_FP32.set_ss(ss.GxB_POW_FP32)
-clib.POW_FP64.set_ss(ss.GxB_POW_FP64)
-clib.POW_INT16.set_ss(ss.GxB_POW_INT16)
-clib.POW_INT32.set_ss(ss.GxB_POW_INT32)
-clib.POW_INT64.set_ss(ss.GxB_POW_INT64)
-clib.POW_INT8.set_ss(ss.GxB_POW_INT8)
-clib.POW_UINT16.set_ss(ss.GxB_POW_UINT16)
-clib.POW_UINT32.set_ss(ss.GxB_POW_UINT32)
-clib.POW_UINT64.set_ss(ss.GxB_POW_UINT64)
-clib.POW_UINT8.set_ss(ss.GxB_POW_UINT8)
-clib.RDIV_BOOL.set_ss(ss.GxB_RDIV_BOOL)
-clib.RDIV_FC32.set_ss(ss.GxB_RDIV_FC32)
-clib.RDIV_FC64.set_ss(ss.GxB_RDIV_FC64)
-clib.RDIV_FP32.set_ss(ss.GxB_RDIV_FP32)
-clib.RDIV_FP64.set_ss(ss.GxB_RDIV_FP64)
-clib.RDIV_INT16.set_ss(ss.GxB_RDIV_INT16)
-clib.RDIV_INT32.set_ss(ss.GxB_RDIV_INT32)
-clib.RDIV_INT64.set_ss(ss.GxB_RDIV_INT64)
-clib.RDIV_INT8.set_ss(ss.GxB_RDIV_INT8)
-clib.RDIV_UINT16.set_ss(ss.GxB_RDIV_UINT16)
-clib.RDIV_UINT32.set_ss(ss.GxB_RDIV_UINT32)
-clib.RDIV_UINT64.set_ss(ss.GxB_RDIV_UINT64)
-clib.RDIV_UINT8.set_ss(ss.GxB_RDIV_UINT8)
-clib.REMAINDER_FP32.set_ss(ss.GxB_REMAINDER_FP32)
-clib.REMAINDER_FP64.set_ss(ss.GxB_REMAINDER_FP64)
-clib.RMINUS_BOOL.set_ss(ss.GxB_RMINUS_BOOL)
-clib.RMINUS_FC32.set_ss(ss.GxB_RMINUS_FC32)
-clib.RMINUS_FC64.set_ss(ss.GxB_RMINUS_FC64)
-clib.RMINUS_FP32.set_ss(ss.GxB_RMINUS_FP32)
-clib.RMINUS_FP64.set_ss(ss.GxB_RMINUS_FP64)
-clib.RMINUS_INT16.set_ss(ss.GxB_RMINUS_INT16)
-clib.RMINUS_INT32.set_ss(ss.GxB_RMINUS_INT32)
-clib.RMINUS_INT64.set_ss(ss.GxB_RMINUS_INT64)
-clib.RMINUS_INT8.set_ss(ss.GxB_RMINUS_INT8)
-clib.RMINUS_UINT16.set_ss(ss.GxB_RMINUS_UINT16)
-clib.RMINUS_UINT32.set_ss(ss.GxB_RMINUS_UINT32)
-clib.RMINUS_UINT64.set_ss(ss.GxB_RMINUS_UINT64)
-clib.RMINUS_UINT8.set_ss(ss.GxB_RMINUS_UINT8)
-clib.SECOND_FC32.set_ss(ss.GxB_SECOND_FC32)
-clib.SECOND_FC64.set_ss(ss.GxB_SECOND_FC64)
-clib.TIMES_FC32.set_ss(ss.GxB_TIMES_FC32)
-clib.TIMES_FC64.set_ss(ss.GxB_TIMES_FC64)
+clib.ANY_BOOL.ss_obj = ss.GxB_ANY_BOOL
+clib.ANY_FC32.ss_obj = ss.GxB_ANY_FC32
+clib.ANY_FC64.ss_obj = ss.GxB_ANY_FC64
+clib.ANY_FP32.ss_obj = ss.GxB_ANY_FP32
+clib.ANY_FP64.ss_obj = ss.GxB_ANY_FP64
+clib.ANY_INT16.ss_obj = ss.GxB_ANY_INT16
+clib.ANY_INT32.ss_obj = ss.GxB_ANY_INT32
+clib.ANY_INT64.ss_obj = ss.GxB_ANY_INT64
+clib.ANY_INT8.ss_obj = ss.GxB_ANY_INT8
+clib.ANY_UINT16.ss_obj = ss.GxB_ANY_UINT16
+clib.ANY_UINT32.ss_obj = ss.GxB_ANY_UINT32
+clib.ANY_UINT64.ss_obj = ss.GxB_ANY_UINT64
+clib.ANY_UINT8.ss_obj = ss.GxB_ANY_UINT8
+clib.ATAN2_FP32.ss_obj = ss.GxB_ATAN2_FP32
+clib.ATAN2_FP64.ss_obj = ss.GxB_ATAN2_FP64
+clib.BCLR_INT16.ss_obj = ss.GxB_BCLR_INT16
+clib.BCLR_INT32.ss_obj = ss.GxB_BCLR_INT32
+clib.BCLR_INT64.ss_obj = ss.GxB_BCLR_INT64
+clib.BCLR_INT8.ss_obj = ss.GxB_BCLR_INT8
+clib.BCLR_UINT16.ss_obj = ss.GxB_BCLR_UINT16
+clib.BCLR_UINT32.ss_obj = ss.GxB_BCLR_UINT32
+clib.BCLR_UINT64.ss_obj = ss.GxB_BCLR_UINT64
+clib.BCLR_UINT8.ss_obj = ss.GxB_BCLR_UINT8
+clib.BGET_INT16.ss_obj = ss.GxB_BGET_INT16
+clib.BGET_INT32.ss_obj = ss.GxB_BGET_INT32
+clib.BGET_INT64.ss_obj = ss.GxB_BGET_INT64
+clib.BGET_INT8.ss_obj = ss.GxB_BGET_INT8
+clib.BGET_UINT16.ss_obj = ss.GxB_BGET_UINT16
+clib.BGET_UINT32.ss_obj = ss.GxB_BGET_UINT32
+clib.BGET_UINT64.ss_obj = ss.GxB_BGET_UINT64
+clib.BGET_UINT8.ss_obj = ss.GxB_BGET_UINT8
+clib.BSET_INT16.ss_obj = ss.GxB_BSET_INT16
+clib.BSET_INT32.ss_obj = ss.GxB_BSET_INT32
+clib.BSET_INT64.ss_obj = ss.GxB_BSET_INT64
+clib.BSET_INT8.ss_obj = ss.GxB_BSET_INT8
+clib.BSET_UINT16.ss_obj = ss.GxB_BSET_UINT16
+clib.BSET_UINT32.ss_obj = ss.GxB_BSET_UINT32
+clib.BSET_UINT64.ss_obj = ss.GxB_BSET_UINT64
+clib.BSET_UINT8.ss_obj = ss.GxB_BSET_UINT8
+clib.BSHIFT_INT16.ss_obj = ss.GxB_BSHIFT_INT16
+clib.BSHIFT_INT32.ss_obj = ss.GxB_BSHIFT_INT32
+clib.BSHIFT_INT64.ss_obj = ss.GxB_BSHIFT_INT64
+clib.BSHIFT_INT8.ss_obj = ss.GxB_BSHIFT_INT8
+clib.BSHIFT_UINT16.ss_obj = ss.GxB_BSHIFT_UINT16
+clib.BSHIFT_UINT32.ss_obj = ss.GxB_BSHIFT_UINT32
+clib.BSHIFT_UINT64.ss_obj = ss.GxB_BSHIFT_UINT64
+clib.BSHIFT_UINT8.ss_obj = ss.GxB_BSHIFT_UINT8
+clib.CMPLX_FP32.ss_obj = ss.GxB_CMPLX_FP32
+clib.CMPLX_FP64.ss_obj = ss.GxB_CMPLX_FP64
+clib.COPYSIGN_FP32.ss_obj = ss.GxB_COPYSIGN_FP32
+clib.COPYSIGN_FP64.ss_obj = ss.GxB_COPYSIGN_FP64
+clib.DIV_FC32.ss_obj = ss.GxB_DIV_FC32
+clib.DIV_FC64.ss_obj = ss.GxB_DIV_FC64
+clib.EQ_FC32.ss_obj = ss.GxB_EQ_FC32
+clib.EQ_FC64.ss_obj = ss.GxB_EQ_FC64
+clib.FIRST_FC32.ss_obj = ss.GxB_FIRST_FC32
+clib.FIRST_FC64.ss_obj = ss.GxB_FIRST_FC64
+clib.FMOD_FP32.ss_obj = ss.GxB_FMOD_FP32
+clib.FMOD_FP64.ss_obj = ss.GxB_FMOD_FP64
+clib.HYPOT_FP32.ss_obj = ss.GxB_HYPOT_FP32
+clib.HYPOT_FP64.ss_obj = ss.GxB_HYPOT_FP64
+clib.ISEQ_BOOL.ss_obj = ss.GxB_ISEQ_BOOL
+clib.ISEQ_FC32.ss_obj = ss.GxB_ISEQ_FC32
+clib.ISEQ_FC64.ss_obj = ss.GxB_ISEQ_FC64
+clib.ISEQ_FP32.ss_obj = ss.GxB_ISEQ_FP32
+clib.ISEQ_FP64.ss_obj = ss.GxB_ISEQ_FP64
+clib.ISEQ_INT16.ss_obj = ss.GxB_ISEQ_INT16
+clib.ISEQ_INT32.ss_obj = ss.GxB_ISEQ_INT32
+clib.ISEQ_INT64.ss_obj = ss.GxB_ISEQ_INT64
+clib.ISEQ_INT8.ss_obj = ss.GxB_ISEQ_INT8
+clib.ISEQ_UINT16.ss_obj = ss.GxB_ISEQ_UINT16
+clib.ISEQ_UINT32.ss_obj = ss.GxB_ISEQ_UINT32
+clib.ISEQ_UINT64.ss_obj = ss.GxB_ISEQ_UINT64
+clib.ISEQ_UINT8.ss_obj = ss.GxB_ISEQ_UINT8
+clib.ISGE_BOOL.ss_obj = ss.GxB_ISGE_BOOL
+clib.ISGE_FP32.ss_obj = ss.GxB_ISGE_FP32
+clib.ISGE_FP64.ss_obj = ss.GxB_ISGE_FP64
+clib.ISGE_INT16.ss_obj = ss.GxB_ISGE_INT16
+clib.ISGE_INT32.ss_obj = ss.GxB_ISGE_INT32
+clib.ISGE_INT64.ss_obj = ss.GxB_ISGE_INT64
+clib.ISGE_INT8.ss_obj = ss.GxB_ISGE_INT8
+clib.ISGE_UINT16.ss_obj = ss.GxB_ISGE_UINT16
+clib.ISGE_UINT32.ss_obj = ss.GxB_ISGE_UINT32
+clib.ISGE_UINT64.ss_obj = ss.GxB_ISGE_UINT64
+clib.ISGE_UINT8.ss_obj = ss.GxB_ISGE_UINT8
+clib.ISGT_BOOL.ss_obj = ss.GxB_ISGT_BOOL
+clib.ISGT_FP32.ss_obj = ss.GxB_ISGT_FP32
+clib.ISGT_FP64.ss_obj = ss.GxB_ISGT_FP64
+clib.ISGT_INT16.ss_obj = ss.GxB_ISGT_INT16
+clib.ISGT_INT32.ss_obj = ss.GxB_ISGT_INT32
+clib.ISGT_INT64.ss_obj = ss.GxB_ISGT_INT64
+clib.ISGT_INT8.ss_obj = ss.GxB_ISGT_INT8
+clib.ISGT_UINT16.ss_obj = ss.GxB_ISGT_UINT16
+clib.ISGT_UINT32.ss_obj = ss.GxB_ISGT_UINT32
+clib.ISGT_UINT64.ss_obj = ss.GxB_ISGT_UINT64
+clib.ISGT_UINT8.ss_obj = ss.GxB_ISGT_UINT8
+clib.ISLE_BOOL.ss_obj = ss.GxB_ISLE_BOOL
+clib.ISLE_FP32.ss_obj = ss.GxB_ISLE_FP32
+clib.ISLE_FP64.ss_obj = ss.GxB_ISLE_FP64
+clib.ISLE_INT16.ss_obj = ss.GxB_ISLE_INT16
+clib.ISLE_INT32.ss_obj = ss.GxB_ISLE_INT32
+clib.ISLE_INT64.ss_obj = ss.GxB_ISLE_INT64
+clib.ISLE_INT8.ss_obj = ss.GxB_ISLE_INT8
+clib.ISLE_UINT16.ss_obj = ss.GxB_ISLE_UINT16
+clib.ISLE_UINT32.ss_obj = ss.GxB_ISLE_UINT32
+clib.ISLE_UINT64.ss_obj = ss.GxB_ISLE_UINT64
+clib.ISLE_UINT8.ss_obj = ss.GxB_ISLE_UINT8
+clib.ISLT_BOOL.ss_obj = ss.GxB_ISLT_BOOL
+clib.ISLT_FP32.ss_obj = ss.GxB_ISLT_FP32
+clib.ISLT_FP64.ss_obj = ss.GxB_ISLT_FP64
+clib.ISLT_INT16.ss_obj = ss.GxB_ISLT_INT16
+clib.ISLT_INT32.ss_obj = ss.GxB_ISLT_INT32
+clib.ISLT_INT64.ss_obj = ss.GxB_ISLT_INT64
+clib.ISLT_INT8.ss_obj = ss.GxB_ISLT_INT8
+clib.ISLT_UINT16.ss_obj = ss.GxB_ISLT_UINT16
+clib.ISLT_UINT32.ss_obj = ss.GxB_ISLT_UINT32
+clib.ISLT_UINT64.ss_obj = ss.GxB_ISLT_UINT64
+clib.ISLT_UINT8.ss_obj = ss.GxB_ISLT_UINT8
+clib.ISNE_BOOL.ss_obj = ss.GxB_ISNE_BOOL
+clib.ISNE_FC32.ss_obj = ss.GxB_ISNE_FC32
+clib.ISNE_FC64.ss_obj = ss.GxB_ISNE_FC64
+clib.ISNE_FP32.ss_obj = ss.GxB_ISNE_FP32
+clib.ISNE_FP64.ss_obj = ss.GxB_ISNE_FP64
+clib.ISNE_INT16.ss_obj = ss.GxB_ISNE_INT16
+clib.ISNE_INT32.ss_obj = ss.GxB_ISNE_INT32
+clib.ISNE_INT64.ss_obj = ss.GxB_ISNE_INT64
+clib.ISNE_INT8.ss_obj = ss.GxB_ISNE_INT8
+clib.ISNE_UINT16.ss_obj = ss.GxB_ISNE_UINT16
+clib.ISNE_UINT32.ss_obj = ss.GxB_ISNE_UINT32
+clib.ISNE_UINT64.ss_obj = ss.GxB_ISNE_UINT64
+clib.ISNE_UINT8.ss_obj = ss.GxB_ISNE_UINT8
+clib.LAND_BOOL.ss_obj = ss.GxB_LAND_BOOL
+clib.LAND_FP32.ss_obj = ss.GxB_LAND_FP32
+clib.LAND_FP64.ss_obj = ss.GxB_LAND_FP64
+clib.LAND_INT16.ss_obj = ss.GxB_LAND_INT16
+clib.LAND_INT32.ss_obj = ss.GxB_LAND_INT32
+clib.LAND_INT64.ss_obj = ss.GxB_LAND_INT64
+clib.LAND_INT8.ss_obj = ss.GxB_LAND_INT8
+clib.LAND_UINT16.ss_obj = ss.GxB_LAND_UINT16
+clib.LAND_UINT32.ss_obj = ss.GxB_LAND_UINT32
+clib.LAND_UINT64.ss_obj = ss.GxB_LAND_UINT64
+clib.LAND_UINT8.ss_obj = ss.GxB_LAND_UINT8
+clib.LDEXP_FP32.ss_obj = ss.GxB_LDEXP_FP32
+clib.LDEXP_FP64.ss_obj = ss.GxB_LDEXP_FP64
+clib.LOR_BOOL.ss_obj = ss.GxB_LOR_BOOL
+clib.LOR_FP32.ss_obj = ss.GxB_LOR_FP32
+clib.LOR_FP64.ss_obj = ss.GxB_LOR_FP64
+clib.LOR_INT16.ss_obj = ss.GxB_LOR_INT16
+clib.LOR_INT32.ss_obj = ss.GxB_LOR_INT32
+clib.LOR_INT64.ss_obj = ss.GxB_LOR_INT64
+clib.LOR_INT8.ss_obj = ss.GxB_LOR_INT8
+clib.LOR_UINT16.ss_obj = ss.GxB_LOR_UINT16
+clib.LOR_UINT32.ss_obj = ss.GxB_LOR_UINT32
+clib.LOR_UINT64.ss_obj = ss.GxB_LOR_UINT64
+clib.LOR_UINT8.ss_obj = ss.GxB_LOR_UINT8
+clib.LXOR_BOOL.ss_obj = ss.GxB_LXOR_BOOL
+clib.LXOR_FP32.ss_obj = ss.GxB_LXOR_FP32
+clib.LXOR_FP64.ss_obj = ss.GxB_LXOR_FP64
+clib.LXOR_INT16.ss_obj = ss.GxB_LXOR_INT16
+clib.LXOR_INT32.ss_obj = ss.GxB_LXOR_INT32
+clib.LXOR_INT64.ss_obj = ss.GxB_LXOR_INT64
+clib.LXOR_INT8.ss_obj = ss.GxB_LXOR_INT8
+clib.LXOR_UINT16.ss_obj = ss.GxB_LXOR_UINT16
+clib.LXOR_UINT32.ss_obj = ss.GxB_LXOR_UINT32
+clib.LXOR_UINT64.ss_obj = ss.GxB_LXOR_UINT64
+clib.LXOR_UINT8.ss_obj = ss.GxB_LXOR_UINT8
+clib.MINUS_FC32.ss_obj = ss.GxB_MINUS_FC32
+clib.MINUS_FC64.ss_obj = ss.GxB_MINUS_FC64
+clib.NE_FC32.ss_obj = ss.GxB_NE_FC32
+clib.NE_FC64.ss_obj = ss.GxB_NE_FC64
+clib.PAIR_BOOL.ss_obj = ss.GxB_PAIR_BOOL
+clib.PAIR_FC32.ss_obj = ss.GxB_PAIR_FC32
+clib.PAIR_FC64.ss_obj = ss.GxB_PAIR_FC64
+clib.PAIR_FP32.ss_obj = ss.GxB_PAIR_FP32
+clib.PAIR_FP64.ss_obj = ss.GxB_PAIR_FP64
+clib.PAIR_INT16.ss_obj = ss.GxB_PAIR_INT16
+clib.PAIR_INT32.ss_obj = ss.GxB_PAIR_INT32
+clib.PAIR_INT64.ss_obj = ss.GxB_PAIR_INT64
+clib.PAIR_INT8.ss_obj = ss.GxB_PAIR_INT8
+clib.PAIR_UINT16.ss_obj = ss.GxB_PAIR_UINT16
+clib.PAIR_UINT32.ss_obj = ss.GxB_PAIR_UINT32
+clib.PAIR_UINT64.ss_obj = ss.GxB_PAIR_UINT64
+clib.PAIR_UINT8.ss_obj = ss.GxB_PAIR_UINT8
+clib.PLUS_FC32.ss_obj = ss.GxB_PLUS_FC32
+clib.PLUS_FC64.ss_obj = ss.GxB_PLUS_FC64
+clib.POW_BOOL.ss_obj = ss.GxB_POW_BOOL
+clib.POW_FC32.ss_obj = ss.GxB_POW_FC32
+clib.POW_FC64.ss_obj = ss.GxB_POW_FC64
+clib.POW_FP32.ss_obj = ss.GxB_POW_FP32
+clib.POW_FP64.ss_obj = ss.GxB_POW_FP64
+clib.POW_INT16.ss_obj = ss.GxB_POW_INT16
+clib.POW_INT32.ss_obj = ss.GxB_POW_INT32
+clib.POW_INT64.ss_obj = ss.GxB_POW_INT64
+clib.POW_INT8.ss_obj = ss.GxB_POW_INT8
+clib.POW_UINT16.ss_obj = ss.GxB_POW_UINT16
+clib.POW_UINT32.ss_obj = ss.GxB_POW_UINT32
+clib.POW_UINT64.ss_obj = ss.GxB_POW_UINT64
+clib.POW_UINT8.ss_obj = ss.GxB_POW_UINT8
+clib.RDIV_BOOL.ss_obj = ss.GxB_RDIV_BOOL
+clib.RDIV_FC32.ss_obj = ss.GxB_RDIV_FC32
+clib.RDIV_FC64.ss_obj = ss.GxB_RDIV_FC64
+clib.RDIV_FP32.ss_obj = ss.GxB_RDIV_FP32
+clib.RDIV_FP64.ss_obj = ss.GxB_RDIV_FP64
+clib.RDIV_INT16.ss_obj = ss.GxB_RDIV_INT16
+clib.RDIV_INT32.ss_obj = ss.GxB_RDIV_INT32
+clib.RDIV_INT64.ss_obj = ss.GxB_RDIV_INT64
+clib.RDIV_INT8.ss_obj = ss.GxB_RDIV_INT8
+clib.RDIV_UINT16.ss_obj = ss.GxB_RDIV_UINT16
+clib.RDIV_UINT32.ss_obj = ss.GxB_RDIV_UINT32
+clib.RDIV_UINT64.ss_obj = ss.GxB_RDIV_UINT64
+clib.RDIV_UINT8.ss_obj = ss.GxB_RDIV_UINT8
+clib.REMAINDER_FP32.ss_obj = ss.GxB_REMAINDER_FP32
+clib.REMAINDER_FP64.ss_obj = ss.GxB_REMAINDER_FP64
+clib.RMINUS_BOOL.ss_obj = ss.GxB_RMINUS_BOOL
+clib.RMINUS_FC32.ss_obj = ss.GxB_RMINUS_FC32
+clib.RMINUS_FC64.ss_obj = ss.GxB_RMINUS_FC64
+clib.RMINUS_FP32.ss_obj = ss.GxB_RMINUS_FP32
+clib.RMINUS_FP64.ss_obj = ss.GxB_RMINUS_FP64
+clib.RMINUS_INT16.ss_obj = ss.GxB_RMINUS_INT16
+clib.RMINUS_INT32.ss_obj = ss.GxB_RMINUS_INT32
+clib.RMINUS_INT64.ss_obj = ss.GxB_RMINUS_INT64
+clib.RMINUS_INT8.ss_obj = ss.GxB_RMINUS_INT8
+clib.RMINUS_UINT16.ss_obj = ss.GxB_RMINUS_UINT16
+clib.RMINUS_UINT32.ss_obj = ss.GxB_RMINUS_UINT32
+clib.RMINUS_UINT64.ss_obj = ss.GxB_RMINUS_UINT64
+clib.RMINUS_UINT8.ss_obj = ss.GxB_RMINUS_UINT8
+clib.SECOND_FC32.ss_obj = ss.GxB_SECOND_FC32
+clib.SECOND_FC64.ss_obj = ss.GxB_SECOND_FC64
+clib.TIMES_FC32.ss_obj = ss.GxB_TIMES_FC32
+clib.TIMES_FC64.ss_obj = ss.GxB_TIMES_FC64
 
 # Monoid
-clib.ANY_BOOL_MONOID.set_ss(ss.GxB_ANY_BOOL_MONOID)
-clib.ANY_FC32_MONOID.set_ss(ss.GxB_ANY_FC32_MONOID)
-clib.ANY_FC64_MONOID.set_ss(ss.GxB_ANY_FC64_MONOID)
-clib.ANY_FP32_MONOID.set_ss(ss.GxB_ANY_FP32_MONOID)
-clib.ANY_FP64_MONOID.set_ss(ss.GxB_ANY_FP64_MONOID)
-clib.ANY_INT16_MONOID.set_ss(ss.GxB_ANY_INT16_MONOID)
-clib.ANY_INT32_MONOID.set_ss(ss.GxB_ANY_INT32_MONOID)
-clib.ANY_INT64_MONOID.set_ss(ss.GxB_ANY_INT64_MONOID)
-clib.ANY_INT8_MONOID.set_ss(ss.GxB_ANY_INT8_MONOID)
-clib.ANY_UINT16_MONOID.set_ss(ss.GxB_ANY_UINT16_MONOID)
-clib.ANY_UINT32_MONOID.set_ss(ss.GxB_ANY_UINT32_MONOID)
-clib.ANY_UINT64_MONOID.set_ss(ss.GxB_ANY_UINT64_MONOID)
-clib.ANY_UINT8_MONOID.set_ss(ss.GxB_ANY_UINT8_MONOID)
-clib.BAND_UINT16_MONOID.set_ss(ss.GxB_BAND_UINT16_MONOID)
-clib.BAND_UINT32_MONOID.set_ss(ss.GxB_BAND_UINT32_MONOID)
-clib.BAND_UINT64_MONOID.set_ss(ss.GxB_BAND_UINT64_MONOID)
-clib.BAND_UINT8_MONOID.set_ss(ss.GxB_BAND_UINT8_MONOID)
-clib.BOR_UINT16_MONOID.set_ss(ss.GxB_BOR_UINT16_MONOID)
-clib.BOR_UINT32_MONOID.set_ss(ss.GxB_BOR_UINT32_MONOID)
-clib.BOR_UINT64_MONOID.set_ss(ss.GxB_BOR_UINT64_MONOID)
-clib.BOR_UINT8_MONOID.set_ss(ss.GxB_BOR_UINT8_MONOID)
-clib.BXNOR_UINT16_MONOID.set_ss(ss.GxB_BXNOR_UINT16_MONOID)
-clib.BXNOR_UINT32_MONOID.set_ss(ss.GxB_BXNOR_UINT32_MONOID)
-clib.BXNOR_UINT64_MONOID.set_ss(ss.GxB_BXNOR_UINT64_MONOID)
-clib.BXNOR_UINT8_MONOID.set_ss(ss.GxB_BXNOR_UINT8_MONOID)
-clib.BXOR_UINT16_MONOID.set_ss(ss.GxB_BXOR_UINT16_MONOID)
-clib.BXOR_UINT32_MONOID.set_ss(ss.GxB_BXOR_UINT32_MONOID)
-clib.BXOR_UINT64_MONOID.set_ss(ss.GxB_BXOR_UINT64_MONOID)
-clib.BXOR_UINT8_MONOID.set_ss(ss.GxB_BXOR_UINT8_MONOID)
-clib.EQ_BOOL_MONOID.set_ss(ss.GxB_EQ_BOOL_MONOID)
-clib.LAND_BOOL_MONOID.set_ss(ss.GxB_LAND_BOOL_MONOID)
-clib.LOR_BOOL_MONOID.set_ss(ss.GxB_LOR_BOOL_MONOID)
-clib.LXNOR_BOOL_MONOID.set_ss(ss.GxB_LXNOR_BOOL_MONOID)
-clib.LXOR_BOOL_MONOID.set_ss(ss.GxB_LXOR_BOOL_MONOID)
-clib.MAX_FP32_MONOID.set_ss(ss.GxB_MAX_FP32_MONOID)
-clib.MAX_FP64_MONOID.set_ss(ss.GxB_MAX_FP64_MONOID)
-clib.MAX_INT16_MONOID.set_ss(ss.GxB_MAX_INT16_MONOID)
-clib.MAX_INT32_MONOID.set_ss(ss.GxB_MAX_INT32_MONOID)
-clib.MAX_INT64_MONOID.set_ss(ss.GxB_MAX_INT64_MONOID)
-clib.MAX_INT8_MONOID.set_ss(ss.GxB_MAX_INT8_MONOID)
-clib.MAX_UINT16_MONOID.set_ss(ss.GxB_MAX_UINT16_MONOID)
-clib.MAX_UINT32_MONOID.set_ss(ss.GxB_MAX_UINT32_MONOID)
-clib.MAX_UINT64_MONOID.set_ss(ss.GxB_MAX_UINT64_MONOID)
-clib.MAX_UINT8_MONOID.set_ss(ss.GxB_MAX_UINT8_MONOID)
-clib.MIN_FP32_MONOID.set_ss(ss.GxB_MIN_FP32_MONOID)
-clib.MIN_FP64_MONOID.set_ss(ss.GxB_MIN_FP64_MONOID)
-clib.MIN_INT16_MONOID.set_ss(ss.GxB_MIN_INT16_MONOID)
-clib.MIN_INT32_MONOID.set_ss(ss.GxB_MIN_INT32_MONOID)
-clib.MIN_INT64_MONOID.set_ss(ss.GxB_MIN_INT64_MONOID)
-clib.MIN_INT8_MONOID.set_ss(ss.GxB_MIN_INT8_MONOID)
-clib.MIN_UINT16_MONOID.set_ss(ss.GxB_MIN_UINT16_MONOID)
-clib.MIN_UINT32_MONOID.set_ss(ss.GxB_MIN_UINT32_MONOID)
-clib.MIN_UINT64_MONOID.set_ss(ss.GxB_MIN_UINT64_MONOID)
-clib.MIN_UINT8_MONOID.set_ss(ss.GxB_MIN_UINT8_MONOID)
-clib.PLUS_FC32_MONOID.set_ss(ss.GxB_PLUS_FC32_MONOID)
-clib.PLUS_FC64_MONOID.set_ss(ss.GxB_PLUS_FC64_MONOID)
-clib.PLUS_FP32_MONOID.set_ss(ss.GxB_PLUS_FP32_MONOID)
-clib.PLUS_FP64_MONOID.set_ss(ss.GxB_PLUS_FP64_MONOID)
-clib.PLUS_INT16_MONOID.set_ss(ss.GxB_PLUS_INT16_MONOID)
-clib.PLUS_INT32_MONOID.set_ss(ss.GxB_PLUS_INT32_MONOID)
-clib.PLUS_INT64_MONOID.set_ss(ss.GxB_PLUS_INT64_MONOID)
-clib.PLUS_INT8_MONOID.set_ss(ss.GxB_PLUS_INT8_MONOID)
-clib.PLUS_UINT16_MONOID.set_ss(ss.GxB_PLUS_UINT16_MONOID)
-clib.PLUS_UINT32_MONOID.set_ss(ss.GxB_PLUS_UINT32_MONOID)
-clib.PLUS_UINT64_MONOID.set_ss(ss.GxB_PLUS_UINT64_MONOID)
-clib.PLUS_UINT8_MONOID.set_ss(ss.GxB_PLUS_UINT8_MONOID)
-clib.TIMES_FC32_MONOID.set_ss(ss.GxB_TIMES_FC32_MONOID)
-clib.TIMES_FC64_MONOID.set_ss(ss.GxB_TIMES_FC64_MONOID)
-clib.TIMES_FP32_MONOID.set_ss(ss.GxB_TIMES_FP32_MONOID)
-clib.TIMES_FP64_MONOID.set_ss(ss.GxB_TIMES_FP64_MONOID)
-clib.TIMES_INT16_MONOID.set_ss(ss.GxB_TIMES_INT16_MONOID)
-clib.TIMES_INT32_MONOID.set_ss(ss.GxB_TIMES_INT32_MONOID)
-clib.TIMES_INT64_MONOID.set_ss(ss.GxB_TIMES_INT64_MONOID)
-clib.TIMES_INT8_MONOID.set_ss(ss.GxB_TIMES_INT8_MONOID)
-clib.TIMES_UINT16_MONOID.set_ss(ss.GxB_TIMES_UINT16_MONOID)
-clib.TIMES_UINT32_MONOID.set_ss(ss.GxB_TIMES_UINT32_MONOID)
-clib.TIMES_UINT64_MONOID.set_ss(ss.GxB_TIMES_UINT64_MONOID)
-clib.TIMES_UINT8_MONOID.set_ss(ss.GxB_TIMES_UINT8_MONOID)
+clib.ANY_BOOL_MONOID.ss_obj = ss.GxB_ANY_BOOL_MONOID
+clib.ANY_FC32_MONOID.ss_obj = ss.GxB_ANY_FC32_MONOID
+clib.ANY_FC64_MONOID.ss_obj = ss.GxB_ANY_FC64_MONOID
+clib.ANY_FP32_MONOID.ss_obj = ss.GxB_ANY_FP32_MONOID
+clib.ANY_FP64_MONOID.ss_obj = ss.GxB_ANY_FP64_MONOID
+clib.ANY_INT16_MONOID.ss_obj = ss.GxB_ANY_INT16_MONOID
+clib.ANY_INT32_MONOID.ss_obj = ss.GxB_ANY_INT32_MONOID
+clib.ANY_INT64_MONOID.ss_obj = ss.GxB_ANY_INT64_MONOID
+clib.ANY_INT8_MONOID.ss_obj = ss.GxB_ANY_INT8_MONOID
+clib.ANY_UINT16_MONOID.ss_obj = ss.GxB_ANY_UINT16_MONOID
+clib.ANY_UINT32_MONOID.ss_obj = ss.GxB_ANY_UINT32_MONOID
+clib.ANY_UINT64_MONOID.ss_obj = ss.GxB_ANY_UINT64_MONOID
+clib.ANY_UINT8_MONOID.ss_obj = ss.GxB_ANY_UINT8_MONOID
+clib.BAND_UINT16_MONOID.ss_obj = ss.GxB_BAND_UINT16_MONOID
+clib.BAND_UINT32_MONOID.ss_obj = ss.GxB_BAND_UINT32_MONOID
+clib.BAND_UINT64_MONOID.ss_obj = ss.GxB_BAND_UINT64_MONOID
+clib.BAND_UINT8_MONOID.ss_obj = ss.GxB_BAND_UINT8_MONOID
+clib.BOR_UINT16_MONOID.ss_obj = ss.GxB_BOR_UINT16_MONOID
+clib.BOR_UINT32_MONOID.ss_obj = ss.GxB_BOR_UINT32_MONOID
+clib.BOR_UINT64_MONOID.ss_obj = ss.GxB_BOR_UINT64_MONOID
+clib.BOR_UINT8_MONOID.ss_obj = ss.GxB_BOR_UINT8_MONOID
+clib.BXNOR_UINT16_MONOID.ss_obj = ss.GxB_BXNOR_UINT16_MONOID
+clib.BXNOR_UINT32_MONOID.ss_obj = ss.GxB_BXNOR_UINT32_MONOID
+clib.BXNOR_UINT64_MONOID.ss_obj = ss.GxB_BXNOR_UINT64_MONOID
+clib.BXNOR_UINT8_MONOID.ss_obj = ss.GxB_BXNOR_UINT8_MONOID
+clib.BXOR_UINT16_MONOID.ss_obj = ss.GxB_BXOR_UINT16_MONOID
+clib.BXOR_UINT32_MONOID.ss_obj = ss.GxB_BXOR_UINT32_MONOID
+clib.BXOR_UINT64_MONOID.ss_obj = ss.GxB_BXOR_UINT64_MONOID
+clib.BXOR_UINT8_MONOID.ss_obj = ss.GxB_BXOR_UINT8_MONOID
+clib.EQ_BOOL_MONOID.ss_obj = ss.GxB_EQ_BOOL_MONOID
+clib.LAND_BOOL_MONOID.ss_obj = ss.GxB_LAND_BOOL_MONOID
+clib.LOR_BOOL_MONOID.ss_obj = ss.GxB_LOR_BOOL_MONOID
+clib.LXNOR_BOOL_MONOID.ss_obj = ss.GxB_LXNOR_BOOL_MONOID
+clib.LXOR_BOOL_MONOID.ss_obj = ss.GxB_LXOR_BOOL_MONOID
+clib.MAX_FP32_MONOID.ss_obj = ss.GxB_MAX_FP32_MONOID
+clib.MAX_FP64_MONOID.ss_obj = ss.GxB_MAX_FP64_MONOID
+clib.MAX_INT16_MONOID.ss_obj = ss.GxB_MAX_INT16_MONOID
+clib.MAX_INT32_MONOID.ss_obj = ss.GxB_MAX_INT32_MONOID
+clib.MAX_INT64_MONOID.ss_obj = ss.GxB_MAX_INT64_MONOID
+clib.MAX_INT8_MONOID.ss_obj = ss.GxB_MAX_INT8_MONOID
+clib.MAX_UINT16_MONOID.ss_obj = ss.GxB_MAX_UINT16_MONOID
+clib.MAX_UINT32_MONOID.ss_obj = ss.GxB_MAX_UINT32_MONOID
+clib.MAX_UINT64_MONOID.ss_obj = ss.GxB_MAX_UINT64_MONOID
+clib.MAX_UINT8_MONOID.ss_obj = ss.GxB_MAX_UINT8_MONOID
+clib.MIN_FP32_MONOID.ss_obj = ss.GxB_MIN_FP32_MONOID
+clib.MIN_FP64_MONOID.ss_obj = ss.GxB_MIN_FP64_MONOID
+clib.MIN_INT16_MONOID.ss_obj = ss.GxB_MIN_INT16_MONOID
+clib.MIN_INT32_MONOID.ss_obj = ss.GxB_MIN_INT32_MONOID
+clib.MIN_INT64_MONOID.ss_obj = ss.GxB_MIN_INT64_MONOID
+clib.MIN_INT8_MONOID.ss_obj = ss.GxB_MIN_INT8_MONOID
+clib.MIN_UINT16_MONOID.ss_obj = ss.GxB_MIN_UINT16_MONOID
+clib.MIN_UINT32_MONOID.ss_obj = ss.GxB_MIN_UINT32_MONOID
+clib.MIN_UINT64_MONOID.ss_obj = ss.GxB_MIN_UINT64_MONOID
+clib.MIN_UINT8_MONOID.ss_obj = ss.GxB_MIN_UINT8_MONOID
+clib.PLUS_FC32_MONOID.ss_obj = ss.GxB_PLUS_FC32_MONOID
+clib.PLUS_FC64_MONOID.ss_obj = ss.GxB_PLUS_FC64_MONOID
+clib.PLUS_FP32_MONOID.ss_obj = ss.GxB_PLUS_FP32_MONOID
+clib.PLUS_FP64_MONOID.ss_obj = ss.GxB_PLUS_FP64_MONOID
+clib.PLUS_INT16_MONOID.ss_obj = ss.GxB_PLUS_INT16_MONOID
+clib.PLUS_INT32_MONOID.ss_obj = ss.GxB_PLUS_INT32_MONOID
+clib.PLUS_INT64_MONOID.ss_obj = ss.GxB_PLUS_INT64_MONOID
+clib.PLUS_INT8_MONOID.ss_obj = ss.GxB_PLUS_INT8_MONOID
+clib.PLUS_UINT16_MONOID.ss_obj = ss.GxB_PLUS_UINT16_MONOID
+clib.PLUS_UINT32_MONOID.ss_obj = ss.GxB_PLUS_UINT32_MONOID
+clib.PLUS_UINT64_MONOID.ss_obj = ss.GxB_PLUS_UINT64_MONOID
+clib.PLUS_UINT8_MONOID.ss_obj = ss.GxB_PLUS_UINT8_MONOID
+clib.TIMES_FC32_MONOID.ss_obj = ss.GxB_TIMES_FC32_MONOID
+clib.TIMES_FC64_MONOID.ss_obj = ss.GxB_TIMES_FC64_MONOID
+clib.TIMES_FP32_MONOID.ss_obj = ss.GxB_TIMES_FP32_MONOID
+clib.TIMES_FP64_MONOID.ss_obj = ss.GxB_TIMES_FP64_MONOID
+clib.TIMES_INT16_MONOID.ss_obj = ss.GxB_TIMES_INT16_MONOID
+clib.TIMES_INT32_MONOID.ss_obj = ss.GxB_TIMES_INT32_MONOID
+clib.TIMES_INT64_MONOID.ss_obj = ss.GxB_TIMES_INT64_MONOID
+clib.TIMES_INT8_MONOID.ss_obj = ss.GxB_TIMES_INT8_MONOID
+clib.TIMES_UINT16_MONOID.ss_obj = ss.GxB_TIMES_UINT16_MONOID
+clib.TIMES_UINT32_MONOID.ss_obj = ss.GxB_TIMES_UINT32_MONOID
+clib.TIMES_UINT64_MONOID.ss_obj = ss.GxB_TIMES_UINT64_MONOID
+clib.TIMES_UINT8_MONOID.ss_obj = ss.GxB_TIMES_UINT8_MONOID
 
 # SelectOp
-clib.DIAG.set_ss(ss.GxB_DIAG)
-clib.EQ_THUNK.set_ss(ss.GxB_EQ_THUNK)
-clib.EQ_ZERO.set_ss(ss.GxB_EQ_ZERO)
-clib.GE_THUNK.set_ss(ss.GxB_GE_THUNK)
-clib.GE_ZERO.set_ss(ss.GxB_GE_ZERO)
-clib.GT_THUNK.set_ss(ss.GxB_GT_THUNK)
-clib.GT_ZERO.set_ss(ss.GxB_GT_ZERO)
-clib.LE_THUNK.set_ss(ss.GxB_LE_THUNK)
-clib.LE_ZERO.set_ss(ss.GxB_LE_ZERO)
-clib.LT_THUNK.set_ss(ss.GxB_LT_THUNK)
-clib.LT_ZERO.set_ss(ss.GxB_LT_ZERO)
-clib.NE_THUNK.set_ss(ss.GxB_NE_THUNK)
-clib.NONZERO.set_ss(ss.GxB_NONZERO)
-clib.OFFDIAG.set_ss(ss.GxB_OFFDIAG)
-clib.TRIL.set_ss(ss.GxB_TRIL)
-clib.TRIU.set_ss(ss.GxB_TRIU)
+clib.DIAG.ss_obj = ss.GxB_DIAG
+clib.EQ_THUNK.ss_obj = ss.GxB_EQ_THUNK
+clib.EQ_ZERO.ss_obj = ss.GxB_EQ_ZERO
+clib.GE_THUNK.ss_obj = ss.GxB_GE_THUNK
+clib.GE_ZERO.ss_obj = ss.GxB_GE_ZERO
+clib.GT_THUNK.ss_obj = ss.GxB_GT_THUNK
+clib.GT_ZERO.ss_obj = ss.GxB_GT_ZERO
+clib.LE_THUNK.ss_obj = ss.GxB_LE_THUNK
+clib.LE_ZERO.ss_obj = ss.GxB_LE_ZERO
+clib.LT_THUNK.ss_obj = ss.GxB_LT_THUNK
+clib.LT_ZERO.ss_obj = ss.GxB_LT_ZERO
+clib.NE_THUNK.ss_obj = ss.GxB_NE_THUNK
+clib.NONZERO.ss_obj = ss.GxB_NONZERO
+clib.OFFDIAG.ss_obj = ss.GxB_OFFDIAG
+clib.TRIL.ss_obj = ss.GxB_TRIL
+clib.TRIU.ss_obj = ss.GxB_TRIU
 
 # Semiring
-clib.ANY_DIV_FC32.set_ss(ss.GxB_ANY_DIV_FC32)
-clib.ANY_DIV_FC64.set_ss(ss.GxB_ANY_DIV_FC64)
-clib.ANY_DIV_FP32.set_ss(ss.GxB_ANY_DIV_FP32)
-clib.ANY_DIV_FP64.set_ss(ss.GxB_ANY_DIV_FP64)
-clib.ANY_DIV_INT16.set_ss(ss.GxB_ANY_DIV_INT16)
-clib.ANY_DIV_INT32.set_ss(ss.GxB_ANY_DIV_INT32)
-clib.ANY_DIV_INT64.set_ss(ss.GxB_ANY_DIV_INT64)
-clib.ANY_DIV_INT8.set_ss(ss.GxB_ANY_DIV_INT8)
-clib.ANY_DIV_UINT16.set_ss(ss.GxB_ANY_DIV_UINT16)
-clib.ANY_DIV_UINT32.set_ss(ss.GxB_ANY_DIV_UINT32)
-clib.ANY_DIV_UINT64.set_ss(ss.GxB_ANY_DIV_UINT64)
-clib.ANY_DIV_UINT8.set_ss(ss.GxB_ANY_DIV_UINT8)
-clib.ANY_EQ_BOOL.set_ss(ss.GxB_ANY_EQ_BOOL)
-clib.ANY_EQ_FP32.set_ss(ss.GxB_ANY_EQ_FP32)
-clib.ANY_EQ_FP64.set_ss(ss.GxB_ANY_EQ_FP64)
-clib.ANY_EQ_INT16.set_ss(ss.GxB_ANY_EQ_INT16)
-clib.ANY_EQ_INT32.set_ss(ss.GxB_ANY_EQ_INT32)
-clib.ANY_EQ_INT64.set_ss(ss.GxB_ANY_EQ_INT64)
-clib.ANY_EQ_INT8.set_ss(ss.GxB_ANY_EQ_INT8)
-clib.ANY_EQ_UINT16.set_ss(ss.GxB_ANY_EQ_UINT16)
-clib.ANY_EQ_UINT32.set_ss(ss.GxB_ANY_EQ_UINT32)
-clib.ANY_EQ_UINT64.set_ss(ss.GxB_ANY_EQ_UINT64)
-clib.ANY_EQ_UINT8.set_ss(ss.GxB_ANY_EQ_UINT8)
-clib.ANY_FIRST_BOOL.set_ss(ss.GxB_ANY_FIRST_BOOL)
-clib.ANY_FIRST_FC32.set_ss(ss.GxB_ANY_FIRST_FC32)
-clib.ANY_FIRST_FC64.set_ss(ss.GxB_ANY_FIRST_FC64)
-clib.ANY_FIRST_FP32.set_ss(ss.GxB_ANY_FIRST_FP32)
-clib.ANY_FIRST_FP64.set_ss(ss.GxB_ANY_FIRST_FP64)
-clib.ANY_FIRST_INT16.set_ss(ss.GxB_ANY_FIRST_INT16)
-clib.ANY_FIRST_INT32.set_ss(ss.GxB_ANY_FIRST_INT32)
-clib.ANY_FIRST_INT64.set_ss(ss.GxB_ANY_FIRST_INT64)
-clib.ANY_FIRST_INT8.set_ss(ss.GxB_ANY_FIRST_INT8)
-clib.ANY_FIRST_UINT16.set_ss(ss.GxB_ANY_FIRST_UINT16)
-clib.ANY_FIRST_UINT32.set_ss(ss.GxB_ANY_FIRST_UINT32)
-clib.ANY_FIRST_UINT64.set_ss(ss.GxB_ANY_FIRST_UINT64)
-clib.ANY_FIRST_UINT8.set_ss(ss.GxB_ANY_FIRST_UINT8)
-clib.ANY_GE_BOOL.set_ss(ss.GxB_ANY_GE_BOOL)
-clib.ANY_GE_FP32.set_ss(ss.GxB_ANY_GE_FP32)
-clib.ANY_GE_FP64.set_ss(ss.GxB_ANY_GE_FP64)
-clib.ANY_GE_INT16.set_ss(ss.GxB_ANY_GE_INT16)
-clib.ANY_GE_INT32.set_ss(ss.GxB_ANY_GE_INT32)
-clib.ANY_GE_INT64.set_ss(ss.GxB_ANY_GE_INT64)
-clib.ANY_GE_INT8.set_ss(ss.GxB_ANY_GE_INT8)
-clib.ANY_GE_UINT16.set_ss(ss.GxB_ANY_GE_UINT16)
-clib.ANY_GE_UINT32.set_ss(ss.GxB_ANY_GE_UINT32)
-clib.ANY_GE_UINT64.set_ss(ss.GxB_ANY_GE_UINT64)
-clib.ANY_GE_UINT8.set_ss(ss.GxB_ANY_GE_UINT8)
-clib.ANY_GT_BOOL.set_ss(ss.GxB_ANY_GT_BOOL)
-clib.ANY_GT_FP32.set_ss(ss.GxB_ANY_GT_FP32)
-clib.ANY_GT_FP64.set_ss(ss.GxB_ANY_GT_FP64)
-clib.ANY_GT_INT16.set_ss(ss.GxB_ANY_GT_INT16)
-clib.ANY_GT_INT32.set_ss(ss.GxB_ANY_GT_INT32)
-clib.ANY_GT_INT64.set_ss(ss.GxB_ANY_GT_INT64)
-clib.ANY_GT_INT8.set_ss(ss.GxB_ANY_GT_INT8)
-clib.ANY_GT_UINT16.set_ss(ss.GxB_ANY_GT_UINT16)
-clib.ANY_GT_UINT32.set_ss(ss.GxB_ANY_GT_UINT32)
-clib.ANY_GT_UINT64.set_ss(ss.GxB_ANY_GT_UINT64)
-clib.ANY_GT_UINT8.set_ss(ss.GxB_ANY_GT_UINT8)
-clib.ANY_ISEQ_FP32.set_ss(ss.GxB_ANY_ISEQ_FP32)
-clib.ANY_ISEQ_FP64.set_ss(ss.GxB_ANY_ISEQ_FP64)
-clib.ANY_ISEQ_INT16.set_ss(ss.GxB_ANY_ISEQ_INT16)
-clib.ANY_ISEQ_INT32.set_ss(ss.GxB_ANY_ISEQ_INT32)
-clib.ANY_ISEQ_INT64.set_ss(ss.GxB_ANY_ISEQ_INT64)
-clib.ANY_ISEQ_INT8.set_ss(ss.GxB_ANY_ISEQ_INT8)
-clib.ANY_ISEQ_UINT16.set_ss(ss.GxB_ANY_ISEQ_UINT16)
-clib.ANY_ISEQ_UINT32.set_ss(ss.GxB_ANY_ISEQ_UINT32)
-clib.ANY_ISEQ_UINT64.set_ss(ss.GxB_ANY_ISEQ_UINT64)
-clib.ANY_ISEQ_UINT8.set_ss(ss.GxB_ANY_ISEQ_UINT8)
-clib.ANY_ISGE_FP32.set_ss(ss.GxB_ANY_ISGE_FP32)
-clib.ANY_ISGE_FP64.set_ss(ss.GxB_ANY_ISGE_FP64)
-clib.ANY_ISGE_INT16.set_ss(ss.GxB_ANY_ISGE_INT16)
-clib.ANY_ISGE_INT32.set_ss(ss.GxB_ANY_ISGE_INT32)
-clib.ANY_ISGE_INT64.set_ss(ss.GxB_ANY_ISGE_INT64)
-clib.ANY_ISGE_INT8.set_ss(ss.GxB_ANY_ISGE_INT8)
-clib.ANY_ISGE_UINT16.set_ss(ss.GxB_ANY_ISGE_UINT16)
-clib.ANY_ISGE_UINT32.set_ss(ss.GxB_ANY_ISGE_UINT32)
-clib.ANY_ISGE_UINT64.set_ss(ss.GxB_ANY_ISGE_UINT64)
-clib.ANY_ISGE_UINT8.set_ss(ss.GxB_ANY_ISGE_UINT8)
-clib.ANY_ISGT_FP32.set_ss(ss.GxB_ANY_ISGT_FP32)
-clib.ANY_ISGT_FP64.set_ss(ss.GxB_ANY_ISGT_FP64)
-clib.ANY_ISGT_INT16.set_ss(ss.GxB_ANY_ISGT_INT16)
-clib.ANY_ISGT_INT32.set_ss(ss.GxB_ANY_ISGT_INT32)
-clib.ANY_ISGT_INT64.set_ss(ss.GxB_ANY_ISGT_INT64)
-clib.ANY_ISGT_INT8.set_ss(ss.GxB_ANY_ISGT_INT8)
-clib.ANY_ISGT_UINT16.set_ss(ss.GxB_ANY_ISGT_UINT16)
-clib.ANY_ISGT_UINT32.set_ss(ss.GxB_ANY_ISGT_UINT32)
-clib.ANY_ISGT_UINT64.set_ss(ss.GxB_ANY_ISGT_UINT64)
-clib.ANY_ISGT_UINT8.set_ss(ss.GxB_ANY_ISGT_UINT8)
-clib.ANY_ISLE_FP32.set_ss(ss.GxB_ANY_ISLE_FP32)
-clib.ANY_ISLE_FP64.set_ss(ss.GxB_ANY_ISLE_FP64)
-clib.ANY_ISLE_INT16.set_ss(ss.GxB_ANY_ISLE_INT16)
-clib.ANY_ISLE_INT32.set_ss(ss.GxB_ANY_ISLE_INT32)
-clib.ANY_ISLE_INT64.set_ss(ss.GxB_ANY_ISLE_INT64)
-clib.ANY_ISLE_INT8.set_ss(ss.GxB_ANY_ISLE_INT8)
-clib.ANY_ISLE_UINT16.set_ss(ss.GxB_ANY_ISLE_UINT16)
-clib.ANY_ISLE_UINT32.set_ss(ss.GxB_ANY_ISLE_UINT32)
-clib.ANY_ISLE_UINT64.set_ss(ss.GxB_ANY_ISLE_UINT64)
-clib.ANY_ISLE_UINT8.set_ss(ss.GxB_ANY_ISLE_UINT8)
-clib.ANY_ISLT_FP32.set_ss(ss.GxB_ANY_ISLT_FP32)
-clib.ANY_ISLT_FP64.set_ss(ss.GxB_ANY_ISLT_FP64)
-clib.ANY_ISLT_INT16.set_ss(ss.GxB_ANY_ISLT_INT16)
-clib.ANY_ISLT_INT32.set_ss(ss.GxB_ANY_ISLT_INT32)
-clib.ANY_ISLT_INT64.set_ss(ss.GxB_ANY_ISLT_INT64)
-clib.ANY_ISLT_INT8.set_ss(ss.GxB_ANY_ISLT_INT8)
-clib.ANY_ISLT_UINT16.set_ss(ss.GxB_ANY_ISLT_UINT16)
-clib.ANY_ISLT_UINT32.set_ss(ss.GxB_ANY_ISLT_UINT32)
-clib.ANY_ISLT_UINT64.set_ss(ss.GxB_ANY_ISLT_UINT64)
-clib.ANY_ISLT_UINT8.set_ss(ss.GxB_ANY_ISLT_UINT8)
-clib.ANY_ISNE_FP32.set_ss(ss.GxB_ANY_ISNE_FP32)
-clib.ANY_ISNE_FP64.set_ss(ss.GxB_ANY_ISNE_FP64)
-clib.ANY_ISNE_INT16.set_ss(ss.GxB_ANY_ISNE_INT16)
-clib.ANY_ISNE_INT32.set_ss(ss.GxB_ANY_ISNE_INT32)
-clib.ANY_ISNE_INT64.set_ss(ss.GxB_ANY_ISNE_INT64)
-clib.ANY_ISNE_INT8.set_ss(ss.GxB_ANY_ISNE_INT8)
-clib.ANY_ISNE_UINT16.set_ss(ss.GxB_ANY_ISNE_UINT16)
-clib.ANY_ISNE_UINT32.set_ss(ss.GxB_ANY_ISNE_UINT32)
-clib.ANY_ISNE_UINT64.set_ss(ss.GxB_ANY_ISNE_UINT64)
-clib.ANY_ISNE_UINT8.set_ss(ss.GxB_ANY_ISNE_UINT8)
-clib.ANY_LAND_BOOL.set_ss(ss.GxB_ANY_LAND_BOOL)
-clib.ANY_LAND_FP32.set_ss(ss.GxB_ANY_LAND_FP32)
-clib.ANY_LAND_FP64.set_ss(ss.GxB_ANY_LAND_FP64)
-clib.ANY_LAND_INT16.set_ss(ss.GxB_ANY_LAND_INT16)
-clib.ANY_LAND_INT32.set_ss(ss.GxB_ANY_LAND_INT32)
-clib.ANY_LAND_INT64.set_ss(ss.GxB_ANY_LAND_INT64)
-clib.ANY_LAND_INT8.set_ss(ss.GxB_ANY_LAND_INT8)
-clib.ANY_LAND_UINT16.set_ss(ss.GxB_ANY_LAND_UINT16)
-clib.ANY_LAND_UINT32.set_ss(ss.GxB_ANY_LAND_UINT32)
-clib.ANY_LAND_UINT64.set_ss(ss.GxB_ANY_LAND_UINT64)
-clib.ANY_LAND_UINT8.set_ss(ss.GxB_ANY_LAND_UINT8)
-clib.ANY_LE_BOOL.set_ss(ss.GxB_ANY_LE_BOOL)
-clib.ANY_LE_FP32.set_ss(ss.GxB_ANY_LE_FP32)
-clib.ANY_LE_FP64.set_ss(ss.GxB_ANY_LE_FP64)
-clib.ANY_LE_INT16.set_ss(ss.GxB_ANY_LE_INT16)
-clib.ANY_LE_INT32.set_ss(ss.GxB_ANY_LE_INT32)
-clib.ANY_LE_INT64.set_ss(ss.GxB_ANY_LE_INT64)
-clib.ANY_LE_INT8.set_ss(ss.GxB_ANY_LE_INT8)
-clib.ANY_LE_UINT16.set_ss(ss.GxB_ANY_LE_UINT16)
-clib.ANY_LE_UINT32.set_ss(ss.GxB_ANY_LE_UINT32)
-clib.ANY_LE_UINT64.set_ss(ss.GxB_ANY_LE_UINT64)
-clib.ANY_LE_UINT8.set_ss(ss.GxB_ANY_LE_UINT8)
-clib.ANY_LOR_BOOL.set_ss(ss.GxB_ANY_LOR_BOOL)
-clib.ANY_LOR_FP32.set_ss(ss.GxB_ANY_LOR_FP32)
-clib.ANY_LOR_FP64.set_ss(ss.GxB_ANY_LOR_FP64)
-clib.ANY_LOR_INT16.set_ss(ss.GxB_ANY_LOR_INT16)
-clib.ANY_LOR_INT32.set_ss(ss.GxB_ANY_LOR_INT32)
-clib.ANY_LOR_INT64.set_ss(ss.GxB_ANY_LOR_INT64)
-clib.ANY_LOR_INT8.set_ss(ss.GxB_ANY_LOR_INT8)
-clib.ANY_LOR_UINT16.set_ss(ss.GxB_ANY_LOR_UINT16)
-clib.ANY_LOR_UINT32.set_ss(ss.GxB_ANY_LOR_UINT32)
-clib.ANY_LOR_UINT64.set_ss(ss.GxB_ANY_LOR_UINT64)
-clib.ANY_LOR_UINT8.set_ss(ss.GxB_ANY_LOR_UINT8)
-clib.ANY_LT_BOOL.set_ss(ss.GxB_ANY_LT_BOOL)
-clib.ANY_LT_FP32.set_ss(ss.GxB_ANY_LT_FP32)
-clib.ANY_LT_FP64.set_ss(ss.GxB_ANY_LT_FP64)
-clib.ANY_LT_INT16.set_ss(ss.GxB_ANY_LT_INT16)
-clib.ANY_LT_INT32.set_ss(ss.GxB_ANY_LT_INT32)
-clib.ANY_LT_INT64.set_ss(ss.GxB_ANY_LT_INT64)
-clib.ANY_LT_INT8.set_ss(ss.GxB_ANY_LT_INT8)
-clib.ANY_LT_UINT16.set_ss(ss.GxB_ANY_LT_UINT16)
-clib.ANY_LT_UINT32.set_ss(ss.GxB_ANY_LT_UINT32)
-clib.ANY_LT_UINT64.set_ss(ss.GxB_ANY_LT_UINT64)
-clib.ANY_LT_UINT8.set_ss(ss.GxB_ANY_LT_UINT8)
-clib.ANY_LXOR_BOOL.set_ss(ss.GxB_ANY_LXOR_BOOL)
-clib.ANY_LXOR_FP32.set_ss(ss.GxB_ANY_LXOR_FP32)
-clib.ANY_LXOR_FP64.set_ss(ss.GxB_ANY_LXOR_FP64)
-clib.ANY_LXOR_INT16.set_ss(ss.GxB_ANY_LXOR_INT16)
-clib.ANY_LXOR_INT32.set_ss(ss.GxB_ANY_LXOR_INT32)
-clib.ANY_LXOR_INT64.set_ss(ss.GxB_ANY_LXOR_INT64)
-clib.ANY_LXOR_INT8.set_ss(ss.GxB_ANY_LXOR_INT8)
-clib.ANY_LXOR_UINT16.set_ss(ss.GxB_ANY_LXOR_UINT16)
-clib.ANY_LXOR_UINT32.set_ss(ss.GxB_ANY_LXOR_UINT32)
-clib.ANY_LXOR_UINT64.set_ss(ss.GxB_ANY_LXOR_UINT64)
-clib.ANY_LXOR_UINT8.set_ss(ss.GxB_ANY_LXOR_UINT8)
-clib.ANY_MAX_FP32.set_ss(ss.GxB_ANY_MAX_FP32)
-clib.ANY_MAX_FP64.set_ss(ss.GxB_ANY_MAX_FP64)
-clib.ANY_MAX_INT16.set_ss(ss.GxB_ANY_MAX_INT16)
-clib.ANY_MAX_INT32.set_ss(ss.GxB_ANY_MAX_INT32)
-clib.ANY_MAX_INT64.set_ss(ss.GxB_ANY_MAX_INT64)
-clib.ANY_MAX_INT8.set_ss(ss.GxB_ANY_MAX_INT8)
-clib.ANY_MAX_UINT16.set_ss(ss.GxB_ANY_MAX_UINT16)
-clib.ANY_MAX_UINT32.set_ss(ss.GxB_ANY_MAX_UINT32)
-clib.ANY_MAX_UINT64.set_ss(ss.GxB_ANY_MAX_UINT64)
-clib.ANY_MAX_UINT8.set_ss(ss.GxB_ANY_MAX_UINT8)
-clib.ANY_MINUS_FC32.set_ss(ss.GxB_ANY_MINUS_FC32)
-clib.ANY_MINUS_FC64.set_ss(ss.GxB_ANY_MINUS_FC64)
-clib.ANY_MINUS_FP32.set_ss(ss.GxB_ANY_MINUS_FP32)
-clib.ANY_MINUS_FP64.set_ss(ss.GxB_ANY_MINUS_FP64)
-clib.ANY_MINUS_INT16.set_ss(ss.GxB_ANY_MINUS_INT16)
-clib.ANY_MINUS_INT32.set_ss(ss.GxB_ANY_MINUS_INT32)
-clib.ANY_MINUS_INT64.set_ss(ss.GxB_ANY_MINUS_INT64)
-clib.ANY_MINUS_INT8.set_ss(ss.GxB_ANY_MINUS_INT8)
-clib.ANY_MINUS_UINT16.set_ss(ss.GxB_ANY_MINUS_UINT16)
-clib.ANY_MINUS_UINT32.set_ss(ss.GxB_ANY_MINUS_UINT32)
-clib.ANY_MINUS_UINT64.set_ss(ss.GxB_ANY_MINUS_UINT64)
-clib.ANY_MINUS_UINT8.set_ss(ss.GxB_ANY_MINUS_UINT8)
-clib.ANY_MIN_FP32.set_ss(ss.GxB_ANY_MIN_FP32)
-clib.ANY_MIN_FP64.set_ss(ss.GxB_ANY_MIN_FP64)
-clib.ANY_MIN_INT16.set_ss(ss.GxB_ANY_MIN_INT16)
-clib.ANY_MIN_INT32.set_ss(ss.GxB_ANY_MIN_INT32)
-clib.ANY_MIN_INT64.set_ss(ss.GxB_ANY_MIN_INT64)
-clib.ANY_MIN_INT8.set_ss(ss.GxB_ANY_MIN_INT8)
-clib.ANY_MIN_UINT16.set_ss(ss.GxB_ANY_MIN_UINT16)
-clib.ANY_MIN_UINT32.set_ss(ss.GxB_ANY_MIN_UINT32)
-clib.ANY_MIN_UINT64.set_ss(ss.GxB_ANY_MIN_UINT64)
-clib.ANY_MIN_UINT8.set_ss(ss.GxB_ANY_MIN_UINT8)
-clib.ANY_NE_FP32.set_ss(ss.GxB_ANY_NE_FP32)
-clib.ANY_NE_FP64.set_ss(ss.GxB_ANY_NE_FP64)
-clib.ANY_NE_INT16.set_ss(ss.GxB_ANY_NE_INT16)
-clib.ANY_NE_INT32.set_ss(ss.GxB_ANY_NE_INT32)
-clib.ANY_NE_INT64.set_ss(ss.GxB_ANY_NE_INT64)
-clib.ANY_NE_INT8.set_ss(ss.GxB_ANY_NE_INT8)
-clib.ANY_NE_UINT16.set_ss(ss.GxB_ANY_NE_UINT16)
-clib.ANY_NE_UINT32.set_ss(ss.GxB_ANY_NE_UINT32)
-clib.ANY_NE_UINT64.set_ss(ss.GxB_ANY_NE_UINT64)
-clib.ANY_NE_UINT8.set_ss(ss.GxB_ANY_NE_UINT8)
-clib.ANY_PAIR_BOOL.set_ss(ss.GxB_ANY_PAIR_BOOL)
-clib.ANY_PAIR_FC32.set_ss(ss.GxB_ANY_PAIR_FC32)
-clib.ANY_PAIR_FC64.set_ss(ss.GxB_ANY_PAIR_FC64)
-clib.ANY_PAIR_FP32.set_ss(ss.GxB_ANY_PAIR_FP32)
-clib.ANY_PAIR_FP64.set_ss(ss.GxB_ANY_PAIR_FP64)
-clib.ANY_PAIR_INT16.set_ss(ss.GxB_ANY_PAIR_INT16)
-clib.ANY_PAIR_INT32.set_ss(ss.GxB_ANY_PAIR_INT32)
-clib.ANY_PAIR_INT64.set_ss(ss.GxB_ANY_PAIR_INT64)
-clib.ANY_PAIR_INT8.set_ss(ss.GxB_ANY_PAIR_INT8)
-clib.ANY_PAIR_UINT16.set_ss(ss.GxB_ANY_PAIR_UINT16)
-clib.ANY_PAIR_UINT32.set_ss(ss.GxB_ANY_PAIR_UINT32)
-clib.ANY_PAIR_UINT64.set_ss(ss.GxB_ANY_PAIR_UINT64)
-clib.ANY_PAIR_UINT8.set_ss(ss.GxB_ANY_PAIR_UINT8)
-clib.ANY_PLUS_FC32.set_ss(ss.GxB_ANY_PLUS_FC32)
-clib.ANY_PLUS_FC64.set_ss(ss.GxB_ANY_PLUS_FC64)
-clib.ANY_PLUS_FP32.set_ss(ss.GxB_ANY_PLUS_FP32)
-clib.ANY_PLUS_FP64.set_ss(ss.GxB_ANY_PLUS_FP64)
-clib.ANY_PLUS_INT16.set_ss(ss.GxB_ANY_PLUS_INT16)
-clib.ANY_PLUS_INT32.set_ss(ss.GxB_ANY_PLUS_INT32)
-clib.ANY_PLUS_INT64.set_ss(ss.GxB_ANY_PLUS_INT64)
-clib.ANY_PLUS_INT8.set_ss(ss.GxB_ANY_PLUS_INT8)
-clib.ANY_PLUS_UINT16.set_ss(ss.GxB_ANY_PLUS_UINT16)
-clib.ANY_PLUS_UINT32.set_ss(ss.GxB_ANY_PLUS_UINT32)
-clib.ANY_PLUS_UINT64.set_ss(ss.GxB_ANY_PLUS_UINT64)
-clib.ANY_PLUS_UINT8.set_ss(ss.GxB_ANY_PLUS_UINT8)
-clib.ANY_RDIV_FC32.set_ss(ss.GxB_ANY_RDIV_FC32)
-clib.ANY_RDIV_FC64.set_ss(ss.GxB_ANY_RDIV_FC64)
-clib.ANY_RDIV_FP32.set_ss(ss.GxB_ANY_RDIV_FP32)
-clib.ANY_RDIV_FP64.set_ss(ss.GxB_ANY_RDIV_FP64)
-clib.ANY_RDIV_INT16.set_ss(ss.GxB_ANY_RDIV_INT16)
-clib.ANY_RDIV_INT32.set_ss(ss.GxB_ANY_RDIV_INT32)
-clib.ANY_RDIV_INT64.set_ss(ss.GxB_ANY_RDIV_INT64)
-clib.ANY_RDIV_INT8.set_ss(ss.GxB_ANY_RDIV_INT8)
-clib.ANY_RDIV_UINT16.set_ss(ss.GxB_ANY_RDIV_UINT16)
-clib.ANY_RDIV_UINT32.set_ss(ss.GxB_ANY_RDIV_UINT32)
-clib.ANY_RDIV_UINT64.set_ss(ss.GxB_ANY_RDIV_UINT64)
-clib.ANY_RDIV_UINT8.set_ss(ss.GxB_ANY_RDIV_UINT8)
-clib.ANY_RMINUS_FC32.set_ss(ss.GxB_ANY_RMINUS_FC32)
-clib.ANY_RMINUS_FC64.set_ss(ss.GxB_ANY_RMINUS_FC64)
-clib.ANY_RMINUS_FP32.set_ss(ss.GxB_ANY_RMINUS_FP32)
-clib.ANY_RMINUS_FP64.set_ss(ss.GxB_ANY_RMINUS_FP64)
-clib.ANY_RMINUS_INT16.set_ss(ss.GxB_ANY_RMINUS_INT16)
-clib.ANY_RMINUS_INT32.set_ss(ss.GxB_ANY_RMINUS_INT32)
-clib.ANY_RMINUS_INT64.set_ss(ss.GxB_ANY_RMINUS_INT64)
-clib.ANY_RMINUS_INT8.set_ss(ss.GxB_ANY_RMINUS_INT8)
-clib.ANY_RMINUS_UINT16.set_ss(ss.GxB_ANY_RMINUS_UINT16)
-clib.ANY_RMINUS_UINT32.set_ss(ss.GxB_ANY_RMINUS_UINT32)
-clib.ANY_RMINUS_UINT64.set_ss(ss.GxB_ANY_RMINUS_UINT64)
-clib.ANY_RMINUS_UINT8.set_ss(ss.GxB_ANY_RMINUS_UINT8)
-clib.ANY_SECOND_BOOL.set_ss(ss.GxB_ANY_SECOND_BOOL)
-clib.ANY_SECOND_FC32.set_ss(ss.GxB_ANY_SECOND_FC32)
-clib.ANY_SECOND_FC64.set_ss(ss.GxB_ANY_SECOND_FC64)
-clib.ANY_SECOND_FP32.set_ss(ss.GxB_ANY_SECOND_FP32)
-clib.ANY_SECOND_FP64.set_ss(ss.GxB_ANY_SECOND_FP64)
-clib.ANY_SECOND_INT16.set_ss(ss.GxB_ANY_SECOND_INT16)
-clib.ANY_SECOND_INT32.set_ss(ss.GxB_ANY_SECOND_INT32)
-clib.ANY_SECOND_INT64.set_ss(ss.GxB_ANY_SECOND_INT64)
-clib.ANY_SECOND_INT8.set_ss(ss.GxB_ANY_SECOND_INT8)
-clib.ANY_SECOND_UINT16.set_ss(ss.GxB_ANY_SECOND_UINT16)
-clib.ANY_SECOND_UINT32.set_ss(ss.GxB_ANY_SECOND_UINT32)
-clib.ANY_SECOND_UINT64.set_ss(ss.GxB_ANY_SECOND_UINT64)
-clib.ANY_SECOND_UINT8.set_ss(ss.GxB_ANY_SECOND_UINT8)
-clib.ANY_TIMES_FC32.set_ss(ss.GxB_ANY_TIMES_FC32)
-clib.ANY_TIMES_FC64.set_ss(ss.GxB_ANY_TIMES_FC64)
-clib.ANY_TIMES_FP32.set_ss(ss.GxB_ANY_TIMES_FP32)
-clib.ANY_TIMES_FP64.set_ss(ss.GxB_ANY_TIMES_FP64)
-clib.ANY_TIMES_INT16.set_ss(ss.GxB_ANY_TIMES_INT16)
-clib.ANY_TIMES_INT32.set_ss(ss.GxB_ANY_TIMES_INT32)
-clib.ANY_TIMES_INT64.set_ss(ss.GxB_ANY_TIMES_INT64)
-clib.ANY_TIMES_INT8.set_ss(ss.GxB_ANY_TIMES_INT8)
-clib.ANY_TIMES_UINT16.set_ss(ss.GxB_ANY_TIMES_UINT16)
-clib.ANY_TIMES_UINT32.set_ss(ss.GxB_ANY_TIMES_UINT32)
-clib.ANY_TIMES_UINT64.set_ss(ss.GxB_ANY_TIMES_UINT64)
-clib.ANY_TIMES_UINT8.set_ss(ss.GxB_ANY_TIMES_UINT8)
-clib.BAND_BAND_UINT16.set_ss(ss.GxB_BAND_BAND_UINT16)
-clib.BAND_BAND_UINT32.set_ss(ss.GxB_BAND_BAND_UINT32)
-clib.BAND_BAND_UINT64.set_ss(ss.GxB_BAND_BAND_UINT64)
-clib.BAND_BAND_UINT8.set_ss(ss.GxB_BAND_BAND_UINT8)
-clib.BAND_BOR_UINT16.set_ss(ss.GxB_BAND_BOR_UINT16)
-clib.BAND_BOR_UINT32.set_ss(ss.GxB_BAND_BOR_UINT32)
-clib.BAND_BOR_UINT64.set_ss(ss.GxB_BAND_BOR_UINT64)
-clib.BAND_BOR_UINT8.set_ss(ss.GxB_BAND_BOR_UINT8)
-clib.BAND_BXNOR_UINT16.set_ss(ss.GxB_BAND_BXNOR_UINT16)
-clib.BAND_BXNOR_UINT32.set_ss(ss.GxB_BAND_BXNOR_UINT32)
-clib.BAND_BXNOR_UINT64.set_ss(ss.GxB_BAND_BXNOR_UINT64)
-clib.BAND_BXNOR_UINT8.set_ss(ss.GxB_BAND_BXNOR_UINT8)
-clib.BAND_BXOR_UINT16.set_ss(ss.GxB_BAND_BXOR_UINT16)
-clib.BAND_BXOR_UINT32.set_ss(ss.GxB_BAND_BXOR_UINT32)
-clib.BAND_BXOR_UINT64.set_ss(ss.GxB_BAND_BXOR_UINT64)
-clib.BAND_BXOR_UINT8.set_ss(ss.GxB_BAND_BXOR_UINT8)
-clib.BOR_BAND_UINT16.set_ss(ss.GxB_BOR_BAND_UINT16)
-clib.BOR_BAND_UINT32.set_ss(ss.GxB_BOR_BAND_UINT32)
-clib.BOR_BAND_UINT64.set_ss(ss.GxB_BOR_BAND_UINT64)
-clib.BOR_BAND_UINT8.set_ss(ss.GxB_BOR_BAND_UINT8)
-clib.BOR_BOR_UINT16.set_ss(ss.GxB_BOR_BOR_UINT16)
-clib.BOR_BOR_UINT32.set_ss(ss.GxB_BOR_BOR_UINT32)
-clib.BOR_BOR_UINT64.set_ss(ss.GxB_BOR_BOR_UINT64)
-clib.BOR_BOR_UINT8.set_ss(ss.GxB_BOR_BOR_UINT8)
-clib.BOR_BXNOR_UINT16.set_ss(ss.GxB_BOR_BXNOR_UINT16)
-clib.BOR_BXNOR_UINT32.set_ss(ss.GxB_BOR_BXNOR_UINT32)
-clib.BOR_BXNOR_UINT64.set_ss(ss.GxB_BOR_BXNOR_UINT64)
-clib.BOR_BXNOR_UINT8.set_ss(ss.GxB_BOR_BXNOR_UINT8)
-clib.BOR_BXOR_UINT16.set_ss(ss.GxB_BOR_BXOR_UINT16)
-clib.BOR_BXOR_UINT32.set_ss(ss.GxB_BOR_BXOR_UINT32)
-clib.BOR_BXOR_UINT64.set_ss(ss.GxB_BOR_BXOR_UINT64)
-clib.BOR_BXOR_UINT8.set_ss(ss.GxB_BOR_BXOR_UINT8)
-clib.BXNOR_BAND_UINT16.set_ss(ss.GxB_BXNOR_BAND_UINT16)
-clib.BXNOR_BAND_UINT32.set_ss(ss.GxB_BXNOR_BAND_UINT32)
-clib.BXNOR_BAND_UINT64.set_ss(ss.GxB_BXNOR_BAND_UINT64)
-clib.BXNOR_BAND_UINT8.set_ss(ss.GxB_BXNOR_BAND_UINT8)
-clib.BXNOR_BOR_UINT16.set_ss(ss.GxB_BXNOR_BOR_UINT16)
-clib.BXNOR_BOR_UINT32.set_ss(ss.GxB_BXNOR_BOR_UINT32)
-clib.BXNOR_BOR_UINT64.set_ss(ss.GxB_BXNOR_BOR_UINT64)
-clib.BXNOR_BOR_UINT8.set_ss(ss.GxB_BXNOR_BOR_UINT8)
-clib.BXNOR_BXNOR_UINT16.set_ss(ss.GxB_BXNOR_BXNOR_UINT16)
-clib.BXNOR_BXNOR_UINT32.set_ss(ss.GxB_BXNOR_BXNOR_UINT32)
-clib.BXNOR_BXNOR_UINT64.set_ss(ss.GxB_BXNOR_BXNOR_UINT64)
-clib.BXNOR_BXNOR_UINT8.set_ss(ss.GxB_BXNOR_BXNOR_UINT8)
-clib.BXNOR_BXOR_UINT16.set_ss(ss.GxB_BXNOR_BXOR_UINT16)
-clib.BXNOR_BXOR_UINT32.set_ss(ss.GxB_BXNOR_BXOR_UINT32)
-clib.BXNOR_BXOR_UINT64.set_ss(ss.GxB_BXNOR_BXOR_UINT64)
-clib.BXNOR_BXOR_UINT8.set_ss(ss.GxB_BXNOR_BXOR_UINT8)
-clib.BXOR_BAND_UINT16.set_ss(ss.GxB_BXOR_BAND_UINT16)
-clib.BXOR_BAND_UINT32.set_ss(ss.GxB_BXOR_BAND_UINT32)
-clib.BXOR_BAND_UINT64.set_ss(ss.GxB_BXOR_BAND_UINT64)
-clib.BXOR_BAND_UINT8.set_ss(ss.GxB_BXOR_BAND_UINT8)
-clib.BXOR_BOR_UINT16.set_ss(ss.GxB_BXOR_BOR_UINT16)
-clib.BXOR_BOR_UINT32.set_ss(ss.GxB_BXOR_BOR_UINT32)
-clib.BXOR_BOR_UINT64.set_ss(ss.GxB_BXOR_BOR_UINT64)
-clib.BXOR_BOR_UINT8.set_ss(ss.GxB_BXOR_BOR_UINT8)
-clib.BXOR_BXNOR_UINT16.set_ss(ss.GxB_BXOR_BXNOR_UINT16)
-clib.BXOR_BXNOR_UINT32.set_ss(ss.GxB_BXOR_BXNOR_UINT32)
-clib.BXOR_BXNOR_UINT64.set_ss(ss.GxB_BXOR_BXNOR_UINT64)
-clib.BXOR_BXNOR_UINT8.set_ss(ss.GxB_BXOR_BXNOR_UINT8)
-clib.BXOR_BXOR_UINT16.set_ss(ss.GxB_BXOR_BXOR_UINT16)
-clib.BXOR_BXOR_UINT32.set_ss(ss.GxB_BXOR_BXOR_UINT32)
-clib.BXOR_BXOR_UINT64.set_ss(ss.GxB_BXOR_BXOR_UINT64)
-clib.BXOR_BXOR_UINT8.set_ss(ss.GxB_BXOR_BXOR_UINT8)
-clib.EQ_EQ_BOOL.set_ss(ss.GxB_EQ_EQ_BOOL)
-clib.EQ_EQ_FP32.set_ss(ss.GxB_EQ_EQ_FP32)
-clib.EQ_EQ_FP64.set_ss(ss.GxB_EQ_EQ_FP64)
-clib.EQ_EQ_INT16.set_ss(ss.GxB_EQ_EQ_INT16)
-clib.EQ_EQ_INT32.set_ss(ss.GxB_EQ_EQ_INT32)
-clib.EQ_EQ_INT64.set_ss(ss.GxB_EQ_EQ_INT64)
-clib.EQ_EQ_INT8.set_ss(ss.GxB_EQ_EQ_INT8)
-clib.EQ_EQ_UINT16.set_ss(ss.GxB_EQ_EQ_UINT16)
-clib.EQ_EQ_UINT32.set_ss(ss.GxB_EQ_EQ_UINT32)
-clib.EQ_EQ_UINT64.set_ss(ss.GxB_EQ_EQ_UINT64)
-clib.EQ_EQ_UINT8.set_ss(ss.GxB_EQ_EQ_UINT8)
-clib.EQ_FIRST_BOOL.set_ss(ss.GxB_EQ_FIRST_BOOL)
-clib.EQ_GE_BOOL.set_ss(ss.GxB_EQ_GE_BOOL)
-clib.EQ_GE_FP32.set_ss(ss.GxB_EQ_GE_FP32)
-clib.EQ_GE_FP64.set_ss(ss.GxB_EQ_GE_FP64)
-clib.EQ_GE_INT16.set_ss(ss.GxB_EQ_GE_INT16)
-clib.EQ_GE_INT32.set_ss(ss.GxB_EQ_GE_INT32)
-clib.EQ_GE_INT64.set_ss(ss.GxB_EQ_GE_INT64)
-clib.EQ_GE_INT8.set_ss(ss.GxB_EQ_GE_INT8)
-clib.EQ_GE_UINT16.set_ss(ss.GxB_EQ_GE_UINT16)
-clib.EQ_GE_UINT32.set_ss(ss.GxB_EQ_GE_UINT32)
-clib.EQ_GE_UINT64.set_ss(ss.GxB_EQ_GE_UINT64)
-clib.EQ_GE_UINT8.set_ss(ss.GxB_EQ_GE_UINT8)
-clib.EQ_GT_BOOL.set_ss(ss.GxB_EQ_GT_BOOL)
-clib.EQ_GT_FP32.set_ss(ss.GxB_EQ_GT_FP32)
-clib.EQ_GT_FP64.set_ss(ss.GxB_EQ_GT_FP64)
-clib.EQ_GT_INT16.set_ss(ss.GxB_EQ_GT_INT16)
-clib.EQ_GT_INT32.set_ss(ss.GxB_EQ_GT_INT32)
-clib.EQ_GT_INT64.set_ss(ss.GxB_EQ_GT_INT64)
-clib.EQ_GT_INT8.set_ss(ss.GxB_EQ_GT_INT8)
-clib.EQ_GT_UINT16.set_ss(ss.GxB_EQ_GT_UINT16)
-clib.EQ_GT_UINT32.set_ss(ss.GxB_EQ_GT_UINT32)
-clib.EQ_GT_UINT64.set_ss(ss.GxB_EQ_GT_UINT64)
-clib.EQ_GT_UINT8.set_ss(ss.GxB_EQ_GT_UINT8)
-clib.EQ_LAND_BOOL.set_ss(ss.GxB_EQ_LAND_BOOL)
-clib.EQ_LE_BOOL.set_ss(ss.GxB_EQ_LE_BOOL)
-clib.EQ_LE_FP32.set_ss(ss.GxB_EQ_LE_FP32)
-clib.EQ_LE_FP64.set_ss(ss.GxB_EQ_LE_FP64)
-clib.EQ_LE_INT16.set_ss(ss.GxB_EQ_LE_INT16)
-clib.EQ_LE_INT32.set_ss(ss.GxB_EQ_LE_INT32)
-clib.EQ_LE_INT64.set_ss(ss.GxB_EQ_LE_INT64)
-clib.EQ_LE_INT8.set_ss(ss.GxB_EQ_LE_INT8)
-clib.EQ_LE_UINT16.set_ss(ss.GxB_EQ_LE_UINT16)
-clib.EQ_LE_UINT32.set_ss(ss.GxB_EQ_LE_UINT32)
-clib.EQ_LE_UINT64.set_ss(ss.GxB_EQ_LE_UINT64)
-clib.EQ_LE_UINT8.set_ss(ss.GxB_EQ_LE_UINT8)
-clib.EQ_LOR_BOOL.set_ss(ss.GxB_EQ_LOR_BOOL)
-clib.EQ_LT_BOOL.set_ss(ss.GxB_EQ_LT_BOOL)
-clib.EQ_LT_FP32.set_ss(ss.GxB_EQ_LT_FP32)
-clib.EQ_LT_FP64.set_ss(ss.GxB_EQ_LT_FP64)
-clib.EQ_LT_INT16.set_ss(ss.GxB_EQ_LT_INT16)
-clib.EQ_LT_INT32.set_ss(ss.GxB_EQ_LT_INT32)
-clib.EQ_LT_INT64.set_ss(ss.GxB_EQ_LT_INT64)
-clib.EQ_LT_INT8.set_ss(ss.GxB_EQ_LT_INT8)
-clib.EQ_LT_UINT16.set_ss(ss.GxB_EQ_LT_UINT16)
-clib.EQ_LT_UINT32.set_ss(ss.GxB_EQ_LT_UINT32)
-clib.EQ_LT_UINT64.set_ss(ss.GxB_EQ_LT_UINT64)
-clib.EQ_LT_UINT8.set_ss(ss.GxB_EQ_LT_UINT8)
-clib.EQ_LXOR_BOOL.set_ss(ss.GxB_EQ_LXOR_BOOL)
-clib.EQ_NE_FP32.set_ss(ss.GxB_EQ_NE_FP32)
-clib.EQ_NE_FP64.set_ss(ss.GxB_EQ_NE_FP64)
-clib.EQ_NE_INT16.set_ss(ss.GxB_EQ_NE_INT16)
-clib.EQ_NE_INT32.set_ss(ss.GxB_EQ_NE_INT32)
-clib.EQ_NE_INT64.set_ss(ss.GxB_EQ_NE_INT64)
-clib.EQ_NE_INT8.set_ss(ss.GxB_EQ_NE_INT8)
-clib.EQ_NE_UINT16.set_ss(ss.GxB_EQ_NE_UINT16)
-clib.EQ_NE_UINT32.set_ss(ss.GxB_EQ_NE_UINT32)
-clib.EQ_NE_UINT64.set_ss(ss.GxB_EQ_NE_UINT64)
-clib.EQ_NE_UINT8.set_ss(ss.GxB_EQ_NE_UINT8)
-clib.EQ_PAIR_BOOL.set_ss(ss.GxB_EQ_PAIR_BOOL)
-clib.EQ_SECOND_BOOL.set_ss(ss.GxB_EQ_SECOND_BOOL)
-clib.LAND_EQ_BOOL.set_ss(ss.GxB_LAND_EQ_BOOL)
-clib.LAND_EQ_FP32.set_ss(ss.GxB_LAND_EQ_FP32)
-clib.LAND_EQ_FP64.set_ss(ss.GxB_LAND_EQ_FP64)
-clib.LAND_EQ_INT16.set_ss(ss.GxB_LAND_EQ_INT16)
-clib.LAND_EQ_INT32.set_ss(ss.GxB_LAND_EQ_INT32)
-clib.LAND_EQ_INT64.set_ss(ss.GxB_LAND_EQ_INT64)
-clib.LAND_EQ_INT8.set_ss(ss.GxB_LAND_EQ_INT8)
-clib.LAND_EQ_UINT16.set_ss(ss.GxB_LAND_EQ_UINT16)
-clib.LAND_EQ_UINT32.set_ss(ss.GxB_LAND_EQ_UINT32)
-clib.LAND_EQ_UINT64.set_ss(ss.GxB_LAND_EQ_UINT64)
-clib.LAND_EQ_UINT8.set_ss(ss.GxB_LAND_EQ_UINT8)
-clib.LAND_FIRST_BOOL.set_ss(ss.GxB_LAND_FIRST_BOOL)
-clib.LAND_GE_BOOL.set_ss(ss.GxB_LAND_GE_BOOL)
-clib.LAND_GE_FP32.set_ss(ss.GxB_LAND_GE_FP32)
-clib.LAND_GE_FP64.set_ss(ss.GxB_LAND_GE_FP64)
-clib.LAND_GE_INT16.set_ss(ss.GxB_LAND_GE_INT16)
-clib.LAND_GE_INT32.set_ss(ss.GxB_LAND_GE_INT32)
-clib.LAND_GE_INT64.set_ss(ss.GxB_LAND_GE_INT64)
-clib.LAND_GE_INT8.set_ss(ss.GxB_LAND_GE_INT8)
-clib.LAND_GE_UINT16.set_ss(ss.GxB_LAND_GE_UINT16)
-clib.LAND_GE_UINT32.set_ss(ss.GxB_LAND_GE_UINT32)
-clib.LAND_GE_UINT64.set_ss(ss.GxB_LAND_GE_UINT64)
-clib.LAND_GE_UINT8.set_ss(ss.GxB_LAND_GE_UINT8)
-clib.LAND_GT_BOOL.set_ss(ss.GxB_LAND_GT_BOOL)
-clib.LAND_GT_FP32.set_ss(ss.GxB_LAND_GT_FP32)
-clib.LAND_GT_FP64.set_ss(ss.GxB_LAND_GT_FP64)
-clib.LAND_GT_INT16.set_ss(ss.GxB_LAND_GT_INT16)
-clib.LAND_GT_INT32.set_ss(ss.GxB_LAND_GT_INT32)
-clib.LAND_GT_INT64.set_ss(ss.GxB_LAND_GT_INT64)
-clib.LAND_GT_INT8.set_ss(ss.GxB_LAND_GT_INT8)
-clib.LAND_GT_UINT16.set_ss(ss.GxB_LAND_GT_UINT16)
-clib.LAND_GT_UINT32.set_ss(ss.GxB_LAND_GT_UINT32)
-clib.LAND_GT_UINT64.set_ss(ss.GxB_LAND_GT_UINT64)
-clib.LAND_GT_UINT8.set_ss(ss.GxB_LAND_GT_UINT8)
-clib.LAND_LAND_BOOL.set_ss(ss.GxB_LAND_LAND_BOOL)
-clib.LAND_LE_BOOL.set_ss(ss.GxB_LAND_LE_BOOL)
-clib.LAND_LE_FP32.set_ss(ss.GxB_LAND_LE_FP32)
-clib.LAND_LE_FP64.set_ss(ss.GxB_LAND_LE_FP64)
-clib.LAND_LE_INT16.set_ss(ss.GxB_LAND_LE_INT16)
-clib.LAND_LE_INT32.set_ss(ss.GxB_LAND_LE_INT32)
-clib.LAND_LE_INT64.set_ss(ss.GxB_LAND_LE_INT64)
-clib.LAND_LE_INT8.set_ss(ss.GxB_LAND_LE_INT8)
-clib.LAND_LE_UINT16.set_ss(ss.GxB_LAND_LE_UINT16)
-clib.LAND_LE_UINT32.set_ss(ss.GxB_LAND_LE_UINT32)
-clib.LAND_LE_UINT64.set_ss(ss.GxB_LAND_LE_UINT64)
-clib.LAND_LE_UINT8.set_ss(ss.GxB_LAND_LE_UINT8)
-clib.LAND_LOR_BOOL.set_ss(ss.GxB_LAND_LOR_BOOL)
-clib.LAND_LT_BOOL.set_ss(ss.GxB_LAND_LT_BOOL)
-clib.LAND_LT_FP32.set_ss(ss.GxB_LAND_LT_FP32)
-clib.LAND_LT_FP64.set_ss(ss.GxB_LAND_LT_FP64)
-clib.LAND_LT_INT16.set_ss(ss.GxB_LAND_LT_INT16)
-clib.LAND_LT_INT32.set_ss(ss.GxB_LAND_LT_INT32)
-clib.LAND_LT_INT64.set_ss(ss.GxB_LAND_LT_INT64)
-clib.LAND_LT_INT8.set_ss(ss.GxB_LAND_LT_INT8)
-clib.LAND_LT_UINT16.set_ss(ss.GxB_LAND_LT_UINT16)
-clib.LAND_LT_UINT32.set_ss(ss.GxB_LAND_LT_UINT32)
-clib.LAND_LT_UINT64.set_ss(ss.GxB_LAND_LT_UINT64)
-clib.LAND_LT_UINT8.set_ss(ss.GxB_LAND_LT_UINT8)
-clib.LAND_LXOR_BOOL.set_ss(ss.GxB_LAND_LXOR_BOOL)
-clib.LAND_NE_FP32.set_ss(ss.GxB_LAND_NE_FP32)
-clib.LAND_NE_FP64.set_ss(ss.GxB_LAND_NE_FP64)
-clib.LAND_NE_INT16.set_ss(ss.GxB_LAND_NE_INT16)
-clib.LAND_NE_INT32.set_ss(ss.GxB_LAND_NE_INT32)
-clib.LAND_NE_INT64.set_ss(ss.GxB_LAND_NE_INT64)
-clib.LAND_NE_INT8.set_ss(ss.GxB_LAND_NE_INT8)
-clib.LAND_NE_UINT16.set_ss(ss.GxB_LAND_NE_UINT16)
-clib.LAND_NE_UINT32.set_ss(ss.GxB_LAND_NE_UINT32)
-clib.LAND_NE_UINT64.set_ss(ss.GxB_LAND_NE_UINT64)
-clib.LAND_NE_UINT8.set_ss(ss.GxB_LAND_NE_UINT8)
-clib.LAND_PAIR_BOOL.set_ss(ss.GxB_LAND_PAIR_BOOL)
-clib.LAND_SECOND_BOOL.set_ss(ss.GxB_LAND_SECOND_BOOL)
-clib.LOR_EQ_BOOL.set_ss(ss.GxB_LOR_EQ_BOOL)
-clib.LOR_EQ_FP32.set_ss(ss.GxB_LOR_EQ_FP32)
-clib.LOR_EQ_FP64.set_ss(ss.GxB_LOR_EQ_FP64)
-clib.LOR_EQ_INT16.set_ss(ss.GxB_LOR_EQ_INT16)
-clib.LOR_EQ_INT32.set_ss(ss.GxB_LOR_EQ_INT32)
-clib.LOR_EQ_INT64.set_ss(ss.GxB_LOR_EQ_INT64)
-clib.LOR_EQ_INT8.set_ss(ss.GxB_LOR_EQ_INT8)
-clib.LOR_EQ_UINT16.set_ss(ss.GxB_LOR_EQ_UINT16)
-clib.LOR_EQ_UINT32.set_ss(ss.GxB_LOR_EQ_UINT32)
-clib.LOR_EQ_UINT64.set_ss(ss.GxB_LOR_EQ_UINT64)
-clib.LOR_EQ_UINT8.set_ss(ss.GxB_LOR_EQ_UINT8)
-clib.LOR_FIRST_BOOL.set_ss(ss.GxB_LOR_FIRST_BOOL)
-clib.LOR_GE_BOOL.set_ss(ss.GxB_LOR_GE_BOOL)
-clib.LOR_GE_FP32.set_ss(ss.GxB_LOR_GE_FP32)
-clib.LOR_GE_FP64.set_ss(ss.GxB_LOR_GE_FP64)
-clib.LOR_GE_INT16.set_ss(ss.GxB_LOR_GE_INT16)
-clib.LOR_GE_INT32.set_ss(ss.GxB_LOR_GE_INT32)
-clib.LOR_GE_INT64.set_ss(ss.GxB_LOR_GE_INT64)
-clib.LOR_GE_INT8.set_ss(ss.GxB_LOR_GE_INT8)
-clib.LOR_GE_UINT16.set_ss(ss.GxB_LOR_GE_UINT16)
-clib.LOR_GE_UINT32.set_ss(ss.GxB_LOR_GE_UINT32)
-clib.LOR_GE_UINT64.set_ss(ss.GxB_LOR_GE_UINT64)
-clib.LOR_GE_UINT8.set_ss(ss.GxB_LOR_GE_UINT8)
-clib.LOR_GT_BOOL.set_ss(ss.GxB_LOR_GT_BOOL)
-clib.LOR_GT_FP32.set_ss(ss.GxB_LOR_GT_FP32)
-clib.LOR_GT_FP64.set_ss(ss.GxB_LOR_GT_FP64)
-clib.LOR_GT_INT16.set_ss(ss.GxB_LOR_GT_INT16)
-clib.LOR_GT_INT32.set_ss(ss.GxB_LOR_GT_INT32)
-clib.LOR_GT_INT64.set_ss(ss.GxB_LOR_GT_INT64)
-clib.LOR_GT_INT8.set_ss(ss.GxB_LOR_GT_INT8)
-clib.LOR_GT_UINT16.set_ss(ss.GxB_LOR_GT_UINT16)
-clib.LOR_GT_UINT32.set_ss(ss.GxB_LOR_GT_UINT32)
-clib.LOR_GT_UINT64.set_ss(ss.GxB_LOR_GT_UINT64)
-clib.LOR_GT_UINT8.set_ss(ss.GxB_LOR_GT_UINT8)
-clib.LOR_LAND_BOOL.set_ss(ss.GxB_LOR_LAND_BOOL)
-clib.LOR_LE_BOOL.set_ss(ss.GxB_LOR_LE_BOOL)
-clib.LOR_LE_FP32.set_ss(ss.GxB_LOR_LE_FP32)
-clib.LOR_LE_FP64.set_ss(ss.GxB_LOR_LE_FP64)
-clib.LOR_LE_INT16.set_ss(ss.GxB_LOR_LE_INT16)
-clib.LOR_LE_INT32.set_ss(ss.GxB_LOR_LE_INT32)
-clib.LOR_LE_INT64.set_ss(ss.GxB_LOR_LE_INT64)
-clib.LOR_LE_INT8.set_ss(ss.GxB_LOR_LE_INT8)
-clib.LOR_LE_UINT16.set_ss(ss.GxB_LOR_LE_UINT16)
-clib.LOR_LE_UINT32.set_ss(ss.GxB_LOR_LE_UINT32)
-clib.LOR_LE_UINT64.set_ss(ss.GxB_LOR_LE_UINT64)
-clib.LOR_LE_UINT8.set_ss(ss.GxB_LOR_LE_UINT8)
-clib.LOR_LOR_BOOL.set_ss(ss.GxB_LOR_LOR_BOOL)
-clib.LOR_LT_BOOL.set_ss(ss.GxB_LOR_LT_BOOL)
-clib.LOR_LT_FP32.set_ss(ss.GxB_LOR_LT_FP32)
-clib.LOR_LT_FP64.set_ss(ss.GxB_LOR_LT_FP64)
-clib.LOR_LT_INT16.set_ss(ss.GxB_LOR_LT_INT16)
-clib.LOR_LT_INT32.set_ss(ss.GxB_LOR_LT_INT32)
-clib.LOR_LT_INT64.set_ss(ss.GxB_LOR_LT_INT64)
-clib.LOR_LT_INT8.set_ss(ss.GxB_LOR_LT_INT8)
-clib.LOR_LT_UINT16.set_ss(ss.GxB_LOR_LT_UINT16)
-clib.LOR_LT_UINT32.set_ss(ss.GxB_LOR_LT_UINT32)
-clib.LOR_LT_UINT64.set_ss(ss.GxB_LOR_LT_UINT64)
-clib.LOR_LT_UINT8.set_ss(ss.GxB_LOR_LT_UINT8)
-clib.LOR_LXOR_BOOL.set_ss(ss.GxB_LOR_LXOR_BOOL)
-clib.LOR_NE_FP32.set_ss(ss.GxB_LOR_NE_FP32)
-clib.LOR_NE_FP64.set_ss(ss.GxB_LOR_NE_FP64)
-clib.LOR_NE_INT16.set_ss(ss.GxB_LOR_NE_INT16)
-clib.LOR_NE_INT32.set_ss(ss.GxB_LOR_NE_INT32)
-clib.LOR_NE_INT64.set_ss(ss.GxB_LOR_NE_INT64)
-clib.LOR_NE_INT8.set_ss(ss.GxB_LOR_NE_INT8)
-clib.LOR_NE_UINT16.set_ss(ss.GxB_LOR_NE_UINT16)
-clib.LOR_NE_UINT32.set_ss(ss.GxB_LOR_NE_UINT32)
-clib.LOR_NE_UINT64.set_ss(ss.GxB_LOR_NE_UINT64)
-clib.LOR_NE_UINT8.set_ss(ss.GxB_LOR_NE_UINT8)
-clib.LOR_PAIR_BOOL.set_ss(ss.GxB_LOR_PAIR_BOOL)
-clib.LOR_SECOND_BOOL.set_ss(ss.GxB_LOR_SECOND_BOOL)
-clib.LXOR_EQ_BOOL.set_ss(ss.GxB_LXOR_EQ_BOOL)
-clib.LXOR_EQ_FP32.set_ss(ss.GxB_LXOR_EQ_FP32)
-clib.LXOR_EQ_FP64.set_ss(ss.GxB_LXOR_EQ_FP64)
-clib.LXOR_EQ_INT16.set_ss(ss.GxB_LXOR_EQ_INT16)
-clib.LXOR_EQ_INT32.set_ss(ss.GxB_LXOR_EQ_INT32)
-clib.LXOR_EQ_INT64.set_ss(ss.GxB_LXOR_EQ_INT64)
-clib.LXOR_EQ_INT8.set_ss(ss.GxB_LXOR_EQ_INT8)
-clib.LXOR_EQ_UINT16.set_ss(ss.GxB_LXOR_EQ_UINT16)
-clib.LXOR_EQ_UINT32.set_ss(ss.GxB_LXOR_EQ_UINT32)
-clib.LXOR_EQ_UINT64.set_ss(ss.GxB_LXOR_EQ_UINT64)
-clib.LXOR_EQ_UINT8.set_ss(ss.GxB_LXOR_EQ_UINT8)
-clib.LXOR_FIRST_BOOL.set_ss(ss.GxB_LXOR_FIRST_BOOL)
-clib.LXOR_GE_BOOL.set_ss(ss.GxB_LXOR_GE_BOOL)
-clib.LXOR_GE_FP32.set_ss(ss.GxB_LXOR_GE_FP32)
-clib.LXOR_GE_FP64.set_ss(ss.GxB_LXOR_GE_FP64)
-clib.LXOR_GE_INT16.set_ss(ss.GxB_LXOR_GE_INT16)
-clib.LXOR_GE_INT32.set_ss(ss.GxB_LXOR_GE_INT32)
-clib.LXOR_GE_INT64.set_ss(ss.GxB_LXOR_GE_INT64)
-clib.LXOR_GE_INT8.set_ss(ss.GxB_LXOR_GE_INT8)
-clib.LXOR_GE_UINT16.set_ss(ss.GxB_LXOR_GE_UINT16)
-clib.LXOR_GE_UINT32.set_ss(ss.GxB_LXOR_GE_UINT32)
-clib.LXOR_GE_UINT64.set_ss(ss.GxB_LXOR_GE_UINT64)
-clib.LXOR_GE_UINT8.set_ss(ss.GxB_LXOR_GE_UINT8)
-clib.LXOR_GT_BOOL.set_ss(ss.GxB_LXOR_GT_BOOL)
-clib.LXOR_GT_FP32.set_ss(ss.GxB_LXOR_GT_FP32)
-clib.LXOR_GT_FP64.set_ss(ss.GxB_LXOR_GT_FP64)
-clib.LXOR_GT_INT16.set_ss(ss.GxB_LXOR_GT_INT16)
-clib.LXOR_GT_INT32.set_ss(ss.GxB_LXOR_GT_INT32)
-clib.LXOR_GT_INT64.set_ss(ss.GxB_LXOR_GT_INT64)
-clib.LXOR_GT_INT8.set_ss(ss.GxB_LXOR_GT_INT8)
-clib.LXOR_GT_UINT16.set_ss(ss.GxB_LXOR_GT_UINT16)
-clib.LXOR_GT_UINT32.set_ss(ss.GxB_LXOR_GT_UINT32)
-clib.LXOR_GT_UINT64.set_ss(ss.GxB_LXOR_GT_UINT64)
-clib.LXOR_GT_UINT8.set_ss(ss.GxB_LXOR_GT_UINT8)
-clib.LXOR_LAND_BOOL.set_ss(ss.GxB_LXOR_LAND_BOOL)
-clib.LXOR_LE_BOOL.set_ss(ss.GxB_LXOR_LE_BOOL)
-clib.LXOR_LE_FP32.set_ss(ss.GxB_LXOR_LE_FP32)
-clib.LXOR_LE_FP64.set_ss(ss.GxB_LXOR_LE_FP64)
-clib.LXOR_LE_INT16.set_ss(ss.GxB_LXOR_LE_INT16)
-clib.LXOR_LE_INT32.set_ss(ss.GxB_LXOR_LE_INT32)
-clib.LXOR_LE_INT64.set_ss(ss.GxB_LXOR_LE_INT64)
-clib.LXOR_LE_INT8.set_ss(ss.GxB_LXOR_LE_INT8)
-clib.LXOR_LE_UINT16.set_ss(ss.GxB_LXOR_LE_UINT16)
-clib.LXOR_LE_UINT32.set_ss(ss.GxB_LXOR_LE_UINT32)
-clib.LXOR_LE_UINT64.set_ss(ss.GxB_LXOR_LE_UINT64)
-clib.LXOR_LE_UINT8.set_ss(ss.GxB_LXOR_LE_UINT8)
-clib.LXOR_LOR_BOOL.set_ss(ss.GxB_LXOR_LOR_BOOL)
-clib.LXOR_LT_BOOL.set_ss(ss.GxB_LXOR_LT_BOOL)
-clib.LXOR_LT_FP32.set_ss(ss.GxB_LXOR_LT_FP32)
-clib.LXOR_LT_FP64.set_ss(ss.GxB_LXOR_LT_FP64)
-clib.LXOR_LT_INT16.set_ss(ss.GxB_LXOR_LT_INT16)
-clib.LXOR_LT_INT32.set_ss(ss.GxB_LXOR_LT_INT32)
-clib.LXOR_LT_INT64.set_ss(ss.GxB_LXOR_LT_INT64)
-clib.LXOR_LT_INT8.set_ss(ss.GxB_LXOR_LT_INT8)
-clib.LXOR_LT_UINT16.set_ss(ss.GxB_LXOR_LT_UINT16)
-clib.LXOR_LT_UINT32.set_ss(ss.GxB_LXOR_LT_UINT32)
-clib.LXOR_LT_UINT64.set_ss(ss.GxB_LXOR_LT_UINT64)
-clib.LXOR_LT_UINT8.set_ss(ss.GxB_LXOR_LT_UINT8)
-clib.LXOR_LXOR_BOOL.set_ss(ss.GxB_LXOR_LXOR_BOOL)
-clib.LXOR_NE_FP32.set_ss(ss.GxB_LXOR_NE_FP32)
-clib.LXOR_NE_FP64.set_ss(ss.GxB_LXOR_NE_FP64)
-clib.LXOR_NE_INT16.set_ss(ss.GxB_LXOR_NE_INT16)
-clib.LXOR_NE_INT32.set_ss(ss.GxB_LXOR_NE_INT32)
-clib.LXOR_NE_INT64.set_ss(ss.GxB_LXOR_NE_INT64)
-clib.LXOR_NE_INT8.set_ss(ss.GxB_LXOR_NE_INT8)
-clib.LXOR_NE_UINT16.set_ss(ss.GxB_LXOR_NE_UINT16)
-clib.LXOR_NE_UINT32.set_ss(ss.GxB_LXOR_NE_UINT32)
-clib.LXOR_NE_UINT64.set_ss(ss.GxB_LXOR_NE_UINT64)
-clib.LXOR_NE_UINT8.set_ss(ss.GxB_LXOR_NE_UINT8)
-clib.LXOR_PAIR_BOOL.set_ss(ss.GxB_LXOR_PAIR_BOOL)
-clib.LXOR_SECOND_BOOL.set_ss(ss.GxB_LXOR_SECOND_BOOL)
-clib.MAX_DIV_FP32.set_ss(ss.GxB_MAX_DIV_FP32)
-clib.MAX_DIV_FP64.set_ss(ss.GxB_MAX_DIV_FP64)
-clib.MAX_DIV_INT16.set_ss(ss.GxB_MAX_DIV_INT16)
-clib.MAX_DIV_INT32.set_ss(ss.GxB_MAX_DIV_INT32)
-clib.MAX_DIV_INT64.set_ss(ss.GxB_MAX_DIV_INT64)
-clib.MAX_DIV_INT8.set_ss(ss.GxB_MAX_DIV_INT8)
-clib.MAX_DIV_UINT16.set_ss(ss.GxB_MAX_DIV_UINT16)
-clib.MAX_DIV_UINT32.set_ss(ss.GxB_MAX_DIV_UINT32)
-clib.MAX_DIV_UINT64.set_ss(ss.GxB_MAX_DIV_UINT64)
-clib.MAX_DIV_UINT8.set_ss(ss.GxB_MAX_DIV_UINT8)
-clib.MAX_FIRST_FP32.set_ss(ss.GxB_MAX_FIRST_FP32)
-clib.MAX_FIRST_FP64.set_ss(ss.GxB_MAX_FIRST_FP64)
-clib.MAX_FIRST_INT16.set_ss(ss.GxB_MAX_FIRST_INT16)
-clib.MAX_FIRST_INT32.set_ss(ss.GxB_MAX_FIRST_INT32)
-clib.MAX_FIRST_INT64.set_ss(ss.GxB_MAX_FIRST_INT64)
-clib.MAX_FIRST_INT8.set_ss(ss.GxB_MAX_FIRST_INT8)
-clib.MAX_FIRST_UINT16.set_ss(ss.GxB_MAX_FIRST_UINT16)
-clib.MAX_FIRST_UINT32.set_ss(ss.GxB_MAX_FIRST_UINT32)
-clib.MAX_FIRST_UINT64.set_ss(ss.GxB_MAX_FIRST_UINT64)
-clib.MAX_FIRST_UINT8.set_ss(ss.GxB_MAX_FIRST_UINT8)
-clib.MAX_ISEQ_FP32.set_ss(ss.GxB_MAX_ISEQ_FP32)
-clib.MAX_ISEQ_FP64.set_ss(ss.GxB_MAX_ISEQ_FP64)
-clib.MAX_ISEQ_INT16.set_ss(ss.GxB_MAX_ISEQ_INT16)
-clib.MAX_ISEQ_INT32.set_ss(ss.GxB_MAX_ISEQ_INT32)
-clib.MAX_ISEQ_INT64.set_ss(ss.GxB_MAX_ISEQ_INT64)
-clib.MAX_ISEQ_INT8.set_ss(ss.GxB_MAX_ISEQ_INT8)
-clib.MAX_ISEQ_UINT16.set_ss(ss.GxB_MAX_ISEQ_UINT16)
-clib.MAX_ISEQ_UINT32.set_ss(ss.GxB_MAX_ISEQ_UINT32)
-clib.MAX_ISEQ_UINT64.set_ss(ss.GxB_MAX_ISEQ_UINT64)
-clib.MAX_ISEQ_UINT8.set_ss(ss.GxB_MAX_ISEQ_UINT8)
-clib.MAX_ISGE_FP32.set_ss(ss.GxB_MAX_ISGE_FP32)
-clib.MAX_ISGE_FP64.set_ss(ss.GxB_MAX_ISGE_FP64)
-clib.MAX_ISGE_INT16.set_ss(ss.GxB_MAX_ISGE_INT16)
-clib.MAX_ISGE_INT32.set_ss(ss.GxB_MAX_ISGE_INT32)
-clib.MAX_ISGE_INT64.set_ss(ss.GxB_MAX_ISGE_INT64)
-clib.MAX_ISGE_INT8.set_ss(ss.GxB_MAX_ISGE_INT8)
-clib.MAX_ISGE_UINT16.set_ss(ss.GxB_MAX_ISGE_UINT16)
-clib.MAX_ISGE_UINT32.set_ss(ss.GxB_MAX_ISGE_UINT32)
-clib.MAX_ISGE_UINT64.set_ss(ss.GxB_MAX_ISGE_UINT64)
-clib.MAX_ISGE_UINT8.set_ss(ss.GxB_MAX_ISGE_UINT8)
-clib.MAX_ISGT_FP32.set_ss(ss.GxB_MAX_ISGT_FP32)
-clib.MAX_ISGT_FP64.set_ss(ss.GxB_MAX_ISGT_FP64)
-clib.MAX_ISGT_INT16.set_ss(ss.GxB_MAX_ISGT_INT16)
-clib.MAX_ISGT_INT32.set_ss(ss.GxB_MAX_ISGT_INT32)
-clib.MAX_ISGT_INT64.set_ss(ss.GxB_MAX_ISGT_INT64)
-clib.MAX_ISGT_INT8.set_ss(ss.GxB_MAX_ISGT_INT8)
-clib.MAX_ISGT_UINT16.set_ss(ss.GxB_MAX_ISGT_UINT16)
-clib.MAX_ISGT_UINT32.set_ss(ss.GxB_MAX_ISGT_UINT32)
-clib.MAX_ISGT_UINT64.set_ss(ss.GxB_MAX_ISGT_UINT64)
-clib.MAX_ISGT_UINT8.set_ss(ss.GxB_MAX_ISGT_UINT8)
-clib.MAX_ISLE_FP32.set_ss(ss.GxB_MAX_ISLE_FP32)
-clib.MAX_ISLE_FP64.set_ss(ss.GxB_MAX_ISLE_FP64)
-clib.MAX_ISLE_INT16.set_ss(ss.GxB_MAX_ISLE_INT16)
-clib.MAX_ISLE_INT32.set_ss(ss.GxB_MAX_ISLE_INT32)
-clib.MAX_ISLE_INT64.set_ss(ss.GxB_MAX_ISLE_INT64)
-clib.MAX_ISLE_INT8.set_ss(ss.GxB_MAX_ISLE_INT8)
-clib.MAX_ISLE_UINT16.set_ss(ss.GxB_MAX_ISLE_UINT16)
-clib.MAX_ISLE_UINT32.set_ss(ss.GxB_MAX_ISLE_UINT32)
-clib.MAX_ISLE_UINT64.set_ss(ss.GxB_MAX_ISLE_UINT64)
-clib.MAX_ISLE_UINT8.set_ss(ss.GxB_MAX_ISLE_UINT8)
-clib.MAX_ISLT_FP32.set_ss(ss.GxB_MAX_ISLT_FP32)
-clib.MAX_ISLT_FP64.set_ss(ss.GxB_MAX_ISLT_FP64)
-clib.MAX_ISLT_INT16.set_ss(ss.GxB_MAX_ISLT_INT16)
-clib.MAX_ISLT_INT32.set_ss(ss.GxB_MAX_ISLT_INT32)
-clib.MAX_ISLT_INT64.set_ss(ss.GxB_MAX_ISLT_INT64)
-clib.MAX_ISLT_INT8.set_ss(ss.GxB_MAX_ISLT_INT8)
-clib.MAX_ISLT_UINT16.set_ss(ss.GxB_MAX_ISLT_UINT16)
-clib.MAX_ISLT_UINT32.set_ss(ss.GxB_MAX_ISLT_UINT32)
-clib.MAX_ISLT_UINT64.set_ss(ss.GxB_MAX_ISLT_UINT64)
-clib.MAX_ISLT_UINT8.set_ss(ss.GxB_MAX_ISLT_UINT8)
-clib.MAX_ISNE_FP32.set_ss(ss.GxB_MAX_ISNE_FP32)
-clib.MAX_ISNE_FP64.set_ss(ss.GxB_MAX_ISNE_FP64)
-clib.MAX_ISNE_INT16.set_ss(ss.GxB_MAX_ISNE_INT16)
-clib.MAX_ISNE_INT32.set_ss(ss.GxB_MAX_ISNE_INT32)
-clib.MAX_ISNE_INT64.set_ss(ss.GxB_MAX_ISNE_INT64)
-clib.MAX_ISNE_INT8.set_ss(ss.GxB_MAX_ISNE_INT8)
-clib.MAX_ISNE_UINT16.set_ss(ss.GxB_MAX_ISNE_UINT16)
-clib.MAX_ISNE_UINT32.set_ss(ss.GxB_MAX_ISNE_UINT32)
-clib.MAX_ISNE_UINT64.set_ss(ss.GxB_MAX_ISNE_UINT64)
-clib.MAX_ISNE_UINT8.set_ss(ss.GxB_MAX_ISNE_UINT8)
-clib.MAX_LAND_FP32.set_ss(ss.GxB_MAX_LAND_FP32)
-clib.MAX_LAND_FP64.set_ss(ss.GxB_MAX_LAND_FP64)
-clib.MAX_LAND_INT16.set_ss(ss.GxB_MAX_LAND_INT16)
-clib.MAX_LAND_INT32.set_ss(ss.GxB_MAX_LAND_INT32)
-clib.MAX_LAND_INT64.set_ss(ss.GxB_MAX_LAND_INT64)
-clib.MAX_LAND_INT8.set_ss(ss.GxB_MAX_LAND_INT8)
-clib.MAX_LAND_UINT16.set_ss(ss.GxB_MAX_LAND_UINT16)
-clib.MAX_LAND_UINT32.set_ss(ss.GxB_MAX_LAND_UINT32)
-clib.MAX_LAND_UINT64.set_ss(ss.GxB_MAX_LAND_UINT64)
-clib.MAX_LAND_UINT8.set_ss(ss.GxB_MAX_LAND_UINT8)
-clib.MAX_LOR_FP32.set_ss(ss.GxB_MAX_LOR_FP32)
-clib.MAX_LOR_FP64.set_ss(ss.GxB_MAX_LOR_FP64)
-clib.MAX_LOR_INT16.set_ss(ss.GxB_MAX_LOR_INT16)
-clib.MAX_LOR_INT32.set_ss(ss.GxB_MAX_LOR_INT32)
-clib.MAX_LOR_INT64.set_ss(ss.GxB_MAX_LOR_INT64)
-clib.MAX_LOR_INT8.set_ss(ss.GxB_MAX_LOR_INT8)
-clib.MAX_LOR_UINT16.set_ss(ss.GxB_MAX_LOR_UINT16)
-clib.MAX_LOR_UINT32.set_ss(ss.GxB_MAX_LOR_UINT32)
-clib.MAX_LOR_UINT64.set_ss(ss.GxB_MAX_LOR_UINT64)
-clib.MAX_LOR_UINT8.set_ss(ss.GxB_MAX_LOR_UINT8)
-clib.MAX_LXOR_FP32.set_ss(ss.GxB_MAX_LXOR_FP32)
-clib.MAX_LXOR_FP64.set_ss(ss.GxB_MAX_LXOR_FP64)
-clib.MAX_LXOR_INT16.set_ss(ss.GxB_MAX_LXOR_INT16)
-clib.MAX_LXOR_INT32.set_ss(ss.GxB_MAX_LXOR_INT32)
-clib.MAX_LXOR_INT64.set_ss(ss.GxB_MAX_LXOR_INT64)
-clib.MAX_LXOR_INT8.set_ss(ss.GxB_MAX_LXOR_INT8)
-clib.MAX_LXOR_UINT16.set_ss(ss.GxB_MAX_LXOR_UINT16)
-clib.MAX_LXOR_UINT32.set_ss(ss.GxB_MAX_LXOR_UINT32)
-clib.MAX_LXOR_UINT64.set_ss(ss.GxB_MAX_LXOR_UINT64)
-clib.MAX_LXOR_UINT8.set_ss(ss.GxB_MAX_LXOR_UINT8)
-clib.MAX_MAX_FP32.set_ss(ss.GxB_MAX_MAX_FP32)
-clib.MAX_MAX_FP64.set_ss(ss.GxB_MAX_MAX_FP64)
-clib.MAX_MAX_INT16.set_ss(ss.GxB_MAX_MAX_INT16)
-clib.MAX_MAX_INT32.set_ss(ss.GxB_MAX_MAX_INT32)
-clib.MAX_MAX_INT64.set_ss(ss.GxB_MAX_MAX_INT64)
-clib.MAX_MAX_INT8.set_ss(ss.GxB_MAX_MAX_INT8)
-clib.MAX_MAX_UINT16.set_ss(ss.GxB_MAX_MAX_UINT16)
-clib.MAX_MAX_UINT32.set_ss(ss.GxB_MAX_MAX_UINT32)
-clib.MAX_MAX_UINT64.set_ss(ss.GxB_MAX_MAX_UINT64)
-clib.MAX_MAX_UINT8.set_ss(ss.GxB_MAX_MAX_UINT8)
-clib.MAX_MINUS_FP32.set_ss(ss.GxB_MAX_MINUS_FP32)
-clib.MAX_MINUS_FP64.set_ss(ss.GxB_MAX_MINUS_FP64)
-clib.MAX_MINUS_INT16.set_ss(ss.GxB_MAX_MINUS_INT16)
-clib.MAX_MINUS_INT32.set_ss(ss.GxB_MAX_MINUS_INT32)
-clib.MAX_MINUS_INT64.set_ss(ss.GxB_MAX_MINUS_INT64)
-clib.MAX_MINUS_INT8.set_ss(ss.GxB_MAX_MINUS_INT8)
-clib.MAX_MINUS_UINT16.set_ss(ss.GxB_MAX_MINUS_UINT16)
-clib.MAX_MINUS_UINT32.set_ss(ss.GxB_MAX_MINUS_UINT32)
-clib.MAX_MINUS_UINT64.set_ss(ss.GxB_MAX_MINUS_UINT64)
-clib.MAX_MINUS_UINT8.set_ss(ss.GxB_MAX_MINUS_UINT8)
-clib.MAX_MIN_FP32.set_ss(ss.GxB_MAX_MIN_FP32)
-clib.MAX_MIN_FP64.set_ss(ss.GxB_MAX_MIN_FP64)
-clib.MAX_MIN_INT16.set_ss(ss.GxB_MAX_MIN_INT16)
-clib.MAX_MIN_INT32.set_ss(ss.GxB_MAX_MIN_INT32)
-clib.MAX_MIN_INT64.set_ss(ss.GxB_MAX_MIN_INT64)
-clib.MAX_MIN_INT8.set_ss(ss.GxB_MAX_MIN_INT8)
-clib.MAX_MIN_UINT16.set_ss(ss.GxB_MAX_MIN_UINT16)
-clib.MAX_MIN_UINT32.set_ss(ss.GxB_MAX_MIN_UINT32)
-clib.MAX_MIN_UINT64.set_ss(ss.GxB_MAX_MIN_UINT64)
-clib.MAX_MIN_UINT8.set_ss(ss.GxB_MAX_MIN_UINT8)
-clib.MAX_PAIR_FP32.set_ss(ss.GxB_MAX_PAIR_FP32)
-clib.MAX_PAIR_FP64.set_ss(ss.GxB_MAX_PAIR_FP64)
-clib.MAX_PAIR_INT16.set_ss(ss.GxB_MAX_PAIR_INT16)
-clib.MAX_PAIR_INT32.set_ss(ss.GxB_MAX_PAIR_INT32)
-clib.MAX_PAIR_INT64.set_ss(ss.GxB_MAX_PAIR_INT64)
-clib.MAX_PAIR_INT8.set_ss(ss.GxB_MAX_PAIR_INT8)
-clib.MAX_PAIR_UINT16.set_ss(ss.GxB_MAX_PAIR_UINT16)
-clib.MAX_PAIR_UINT32.set_ss(ss.GxB_MAX_PAIR_UINT32)
-clib.MAX_PAIR_UINT64.set_ss(ss.GxB_MAX_PAIR_UINT64)
-clib.MAX_PAIR_UINT8.set_ss(ss.GxB_MAX_PAIR_UINT8)
-clib.MAX_PLUS_FP32.set_ss(ss.GxB_MAX_PLUS_FP32)
-clib.MAX_PLUS_FP64.set_ss(ss.GxB_MAX_PLUS_FP64)
-clib.MAX_PLUS_INT16.set_ss(ss.GxB_MAX_PLUS_INT16)
-clib.MAX_PLUS_INT32.set_ss(ss.GxB_MAX_PLUS_INT32)
-clib.MAX_PLUS_INT64.set_ss(ss.GxB_MAX_PLUS_INT64)
-clib.MAX_PLUS_INT8.set_ss(ss.GxB_MAX_PLUS_INT8)
-clib.MAX_PLUS_UINT16.set_ss(ss.GxB_MAX_PLUS_UINT16)
-clib.MAX_PLUS_UINT32.set_ss(ss.GxB_MAX_PLUS_UINT32)
-clib.MAX_PLUS_UINT64.set_ss(ss.GxB_MAX_PLUS_UINT64)
-clib.MAX_PLUS_UINT8.set_ss(ss.GxB_MAX_PLUS_UINT8)
-clib.MAX_RDIV_FP32.set_ss(ss.GxB_MAX_RDIV_FP32)
-clib.MAX_RDIV_FP64.set_ss(ss.GxB_MAX_RDIV_FP64)
-clib.MAX_RDIV_INT16.set_ss(ss.GxB_MAX_RDIV_INT16)
-clib.MAX_RDIV_INT32.set_ss(ss.GxB_MAX_RDIV_INT32)
-clib.MAX_RDIV_INT64.set_ss(ss.GxB_MAX_RDIV_INT64)
-clib.MAX_RDIV_INT8.set_ss(ss.GxB_MAX_RDIV_INT8)
-clib.MAX_RDIV_UINT16.set_ss(ss.GxB_MAX_RDIV_UINT16)
-clib.MAX_RDIV_UINT32.set_ss(ss.GxB_MAX_RDIV_UINT32)
-clib.MAX_RDIV_UINT64.set_ss(ss.GxB_MAX_RDIV_UINT64)
-clib.MAX_RDIV_UINT8.set_ss(ss.GxB_MAX_RDIV_UINT8)
-clib.MAX_RMINUS_FP32.set_ss(ss.GxB_MAX_RMINUS_FP32)
-clib.MAX_RMINUS_FP64.set_ss(ss.GxB_MAX_RMINUS_FP64)
-clib.MAX_RMINUS_INT16.set_ss(ss.GxB_MAX_RMINUS_INT16)
-clib.MAX_RMINUS_INT32.set_ss(ss.GxB_MAX_RMINUS_INT32)
-clib.MAX_RMINUS_INT64.set_ss(ss.GxB_MAX_RMINUS_INT64)
-clib.MAX_RMINUS_INT8.set_ss(ss.GxB_MAX_RMINUS_INT8)
-clib.MAX_RMINUS_UINT16.set_ss(ss.GxB_MAX_RMINUS_UINT16)
-clib.MAX_RMINUS_UINT32.set_ss(ss.GxB_MAX_RMINUS_UINT32)
-clib.MAX_RMINUS_UINT64.set_ss(ss.GxB_MAX_RMINUS_UINT64)
-clib.MAX_RMINUS_UINT8.set_ss(ss.GxB_MAX_RMINUS_UINT8)
-clib.MAX_SECOND_FP32.set_ss(ss.GxB_MAX_SECOND_FP32)
-clib.MAX_SECOND_FP64.set_ss(ss.GxB_MAX_SECOND_FP64)
-clib.MAX_SECOND_INT16.set_ss(ss.GxB_MAX_SECOND_INT16)
-clib.MAX_SECOND_INT32.set_ss(ss.GxB_MAX_SECOND_INT32)
-clib.MAX_SECOND_INT64.set_ss(ss.GxB_MAX_SECOND_INT64)
-clib.MAX_SECOND_INT8.set_ss(ss.GxB_MAX_SECOND_INT8)
-clib.MAX_SECOND_UINT16.set_ss(ss.GxB_MAX_SECOND_UINT16)
-clib.MAX_SECOND_UINT32.set_ss(ss.GxB_MAX_SECOND_UINT32)
-clib.MAX_SECOND_UINT64.set_ss(ss.GxB_MAX_SECOND_UINT64)
-clib.MAX_SECOND_UINT8.set_ss(ss.GxB_MAX_SECOND_UINT8)
-clib.MAX_TIMES_FP32.set_ss(ss.GxB_MAX_TIMES_FP32)
-clib.MAX_TIMES_FP64.set_ss(ss.GxB_MAX_TIMES_FP64)
-clib.MAX_TIMES_INT16.set_ss(ss.GxB_MAX_TIMES_INT16)
-clib.MAX_TIMES_INT32.set_ss(ss.GxB_MAX_TIMES_INT32)
-clib.MAX_TIMES_INT64.set_ss(ss.GxB_MAX_TIMES_INT64)
-clib.MAX_TIMES_INT8.set_ss(ss.GxB_MAX_TIMES_INT8)
-clib.MAX_TIMES_UINT16.set_ss(ss.GxB_MAX_TIMES_UINT16)
-clib.MAX_TIMES_UINT32.set_ss(ss.GxB_MAX_TIMES_UINT32)
-clib.MAX_TIMES_UINT64.set_ss(ss.GxB_MAX_TIMES_UINT64)
-clib.MAX_TIMES_UINT8.set_ss(ss.GxB_MAX_TIMES_UINT8)
-clib.MIN_DIV_FP32.set_ss(ss.GxB_MIN_DIV_FP32)
-clib.MIN_DIV_FP64.set_ss(ss.GxB_MIN_DIV_FP64)
-clib.MIN_DIV_INT16.set_ss(ss.GxB_MIN_DIV_INT16)
-clib.MIN_DIV_INT32.set_ss(ss.GxB_MIN_DIV_INT32)
-clib.MIN_DIV_INT64.set_ss(ss.GxB_MIN_DIV_INT64)
-clib.MIN_DIV_INT8.set_ss(ss.GxB_MIN_DIV_INT8)
-clib.MIN_DIV_UINT16.set_ss(ss.GxB_MIN_DIV_UINT16)
-clib.MIN_DIV_UINT32.set_ss(ss.GxB_MIN_DIV_UINT32)
-clib.MIN_DIV_UINT64.set_ss(ss.GxB_MIN_DIV_UINT64)
-clib.MIN_DIV_UINT8.set_ss(ss.GxB_MIN_DIV_UINT8)
-clib.MIN_FIRST_FP32.set_ss(ss.GxB_MIN_FIRST_FP32)
-clib.MIN_FIRST_FP64.set_ss(ss.GxB_MIN_FIRST_FP64)
-clib.MIN_FIRST_INT16.set_ss(ss.GxB_MIN_FIRST_INT16)
-clib.MIN_FIRST_INT32.set_ss(ss.GxB_MIN_FIRST_INT32)
-clib.MIN_FIRST_INT64.set_ss(ss.GxB_MIN_FIRST_INT64)
-clib.MIN_FIRST_INT8.set_ss(ss.GxB_MIN_FIRST_INT8)
-clib.MIN_FIRST_UINT16.set_ss(ss.GxB_MIN_FIRST_UINT16)
-clib.MIN_FIRST_UINT32.set_ss(ss.GxB_MIN_FIRST_UINT32)
-clib.MIN_FIRST_UINT64.set_ss(ss.GxB_MIN_FIRST_UINT64)
-clib.MIN_FIRST_UINT8.set_ss(ss.GxB_MIN_FIRST_UINT8)
-clib.MIN_ISEQ_FP32.set_ss(ss.GxB_MIN_ISEQ_FP32)
-clib.MIN_ISEQ_FP64.set_ss(ss.GxB_MIN_ISEQ_FP64)
-clib.MIN_ISEQ_INT16.set_ss(ss.GxB_MIN_ISEQ_INT16)
-clib.MIN_ISEQ_INT32.set_ss(ss.GxB_MIN_ISEQ_INT32)
-clib.MIN_ISEQ_INT64.set_ss(ss.GxB_MIN_ISEQ_INT64)
-clib.MIN_ISEQ_INT8.set_ss(ss.GxB_MIN_ISEQ_INT8)
-clib.MIN_ISEQ_UINT16.set_ss(ss.GxB_MIN_ISEQ_UINT16)
-clib.MIN_ISEQ_UINT32.set_ss(ss.GxB_MIN_ISEQ_UINT32)
-clib.MIN_ISEQ_UINT64.set_ss(ss.GxB_MIN_ISEQ_UINT64)
-clib.MIN_ISEQ_UINT8.set_ss(ss.GxB_MIN_ISEQ_UINT8)
-clib.MIN_ISGE_FP32.set_ss(ss.GxB_MIN_ISGE_FP32)
-clib.MIN_ISGE_FP64.set_ss(ss.GxB_MIN_ISGE_FP64)
-clib.MIN_ISGE_INT16.set_ss(ss.GxB_MIN_ISGE_INT16)
-clib.MIN_ISGE_INT32.set_ss(ss.GxB_MIN_ISGE_INT32)
-clib.MIN_ISGE_INT64.set_ss(ss.GxB_MIN_ISGE_INT64)
-clib.MIN_ISGE_INT8.set_ss(ss.GxB_MIN_ISGE_INT8)
-clib.MIN_ISGE_UINT16.set_ss(ss.GxB_MIN_ISGE_UINT16)
-clib.MIN_ISGE_UINT32.set_ss(ss.GxB_MIN_ISGE_UINT32)
-clib.MIN_ISGE_UINT64.set_ss(ss.GxB_MIN_ISGE_UINT64)
-clib.MIN_ISGE_UINT8.set_ss(ss.GxB_MIN_ISGE_UINT8)
-clib.MIN_ISGT_FP32.set_ss(ss.GxB_MIN_ISGT_FP32)
-clib.MIN_ISGT_FP64.set_ss(ss.GxB_MIN_ISGT_FP64)
-clib.MIN_ISGT_INT16.set_ss(ss.GxB_MIN_ISGT_INT16)
-clib.MIN_ISGT_INT32.set_ss(ss.GxB_MIN_ISGT_INT32)
-clib.MIN_ISGT_INT64.set_ss(ss.GxB_MIN_ISGT_INT64)
-clib.MIN_ISGT_INT8.set_ss(ss.GxB_MIN_ISGT_INT8)
-clib.MIN_ISGT_UINT16.set_ss(ss.GxB_MIN_ISGT_UINT16)
-clib.MIN_ISGT_UINT32.set_ss(ss.GxB_MIN_ISGT_UINT32)
-clib.MIN_ISGT_UINT64.set_ss(ss.GxB_MIN_ISGT_UINT64)
-clib.MIN_ISGT_UINT8.set_ss(ss.GxB_MIN_ISGT_UINT8)
-clib.MIN_ISLE_FP32.set_ss(ss.GxB_MIN_ISLE_FP32)
-clib.MIN_ISLE_FP64.set_ss(ss.GxB_MIN_ISLE_FP64)
-clib.MIN_ISLE_INT16.set_ss(ss.GxB_MIN_ISLE_INT16)
-clib.MIN_ISLE_INT32.set_ss(ss.GxB_MIN_ISLE_INT32)
-clib.MIN_ISLE_INT64.set_ss(ss.GxB_MIN_ISLE_INT64)
-clib.MIN_ISLE_INT8.set_ss(ss.GxB_MIN_ISLE_INT8)
-clib.MIN_ISLE_UINT16.set_ss(ss.GxB_MIN_ISLE_UINT16)
-clib.MIN_ISLE_UINT32.set_ss(ss.GxB_MIN_ISLE_UINT32)
-clib.MIN_ISLE_UINT64.set_ss(ss.GxB_MIN_ISLE_UINT64)
-clib.MIN_ISLE_UINT8.set_ss(ss.GxB_MIN_ISLE_UINT8)
-clib.MIN_ISLT_FP32.set_ss(ss.GxB_MIN_ISLT_FP32)
-clib.MIN_ISLT_FP64.set_ss(ss.GxB_MIN_ISLT_FP64)
-clib.MIN_ISLT_INT16.set_ss(ss.GxB_MIN_ISLT_INT16)
-clib.MIN_ISLT_INT32.set_ss(ss.GxB_MIN_ISLT_INT32)
-clib.MIN_ISLT_INT64.set_ss(ss.GxB_MIN_ISLT_INT64)
-clib.MIN_ISLT_INT8.set_ss(ss.GxB_MIN_ISLT_INT8)
-clib.MIN_ISLT_UINT16.set_ss(ss.GxB_MIN_ISLT_UINT16)
-clib.MIN_ISLT_UINT32.set_ss(ss.GxB_MIN_ISLT_UINT32)
-clib.MIN_ISLT_UINT64.set_ss(ss.GxB_MIN_ISLT_UINT64)
-clib.MIN_ISLT_UINT8.set_ss(ss.GxB_MIN_ISLT_UINT8)
-clib.MIN_ISNE_FP32.set_ss(ss.GxB_MIN_ISNE_FP32)
-clib.MIN_ISNE_FP64.set_ss(ss.GxB_MIN_ISNE_FP64)
-clib.MIN_ISNE_INT16.set_ss(ss.GxB_MIN_ISNE_INT16)
-clib.MIN_ISNE_INT32.set_ss(ss.GxB_MIN_ISNE_INT32)
-clib.MIN_ISNE_INT64.set_ss(ss.GxB_MIN_ISNE_INT64)
-clib.MIN_ISNE_INT8.set_ss(ss.GxB_MIN_ISNE_INT8)
-clib.MIN_ISNE_UINT16.set_ss(ss.GxB_MIN_ISNE_UINT16)
-clib.MIN_ISNE_UINT32.set_ss(ss.GxB_MIN_ISNE_UINT32)
-clib.MIN_ISNE_UINT64.set_ss(ss.GxB_MIN_ISNE_UINT64)
-clib.MIN_ISNE_UINT8.set_ss(ss.GxB_MIN_ISNE_UINT8)
-clib.MIN_LAND_FP32.set_ss(ss.GxB_MIN_LAND_FP32)
-clib.MIN_LAND_FP64.set_ss(ss.GxB_MIN_LAND_FP64)
-clib.MIN_LAND_INT16.set_ss(ss.GxB_MIN_LAND_INT16)
-clib.MIN_LAND_INT32.set_ss(ss.GxB_MIN_LAND_INT32)
-clib.MIN_LAND_INT64.set_ss(ss.GxB_MIN_LAND_INT64)
-clib.MIN_LAND_INT8.set_ss(ss.GxB_MIN_LAND_INT8)
-clib.MIN_LAND_UINT16.set_ss(ss.GxB_MIN_LAND_UINT16)
-clib.MIN_LAND_UINT32.set_ss(ss.GxB_MIN_LAND_UINT32)
-clib.MIN_LAND_UINT64.set_ss(ss.GxB_MIN_LAND_UINT64)
-clib.MIN_LAND_UINT8.set_ss(ss.GxB_MIN_LAND_UINT8)
-clib.MIN_LOR_FP32.set_ss(ss.GxB_MIN_LOR_FP32)
-clib.MIN_LOR_FP64.set_ss(ss.GxB_MIN_LOR_FP64)
-clib.MIN_LOR_INT16.set_ss(ss.GxB_MIN_LOR_INT16)
-clib.MIN_LOR_INT32.set_ss(ss.GxB_MIN_LOR_INT32)
-clib.MIN_LOR_INT64.set_ss(ss.GxB_MIN_LOR_INT64)
-clib.MIN_LOR_INT8.set_ss(ss.GxB_MIN_LOR_INT8)
-clib.MIN_LOR_UINT16.set_ss(ss.GxB_MIN_LOR_UINT16)
-clib.MIN_LOR_UINT32.set_ss(ss.GxB_MIN_LOR_UINT32)
-clib.MIN_LOR_UINT64.set_ss(ss.GxB_MIN_LOR_UINT64)
-clib.MIN_LOR_UINT8.set_ss(ss.GxB_MIN_LOR_UINT8)
-clib.MIN_LXOR_FP32.set_ss(ss.GxB_MIN_LXOR_FP32)
-clib.MIN_LXOR_FP64.set_ss(ss.GxB_MIN_LXOR_FP64)
-clib.MIN_LXOR_INT16.set_ss(ss.GxB_MIN_LXOR_INT16)
-clib.MIN_LXOR_INT32.set_ss(ss.GxB_MIN_LXOR_INT32)
-clib.MIN_LXOR_INT64.set_ss(ss.GxB_MIN_LXOR_INT64)
-clib.MIN_LXOR_INT8.set_ss(ss.GxB_MIN_LXOR_INT8)
-clib.MIN_LXOR_UINT16.set_ss(ss.GxB_MIN_LXOR_UINT16)
-clib.MIN_LXOR_UINT32.set_ss(ss.GxB_MIN_LXOR_UINT32)
-clib.MIN_LXOR_UINT64.set_ss(ss.GxB_MIN_LXOR_UINT64)
-clib.MIN_LXOR_UINT8.set_ss(ss.GxB_MIN_LXOR_UINT8)
-clib.MIN_MAX_FP32.set_ss(ss.GxB_MIN_MAX_FP32)
-clib.MIN_MAX_FP64.set_ss(ss.GxB_MIN_MAX_FP64)
-clib.MIN_MAX_INT16.set_ss(ss.GxB_MIN_MAX_INT16)
-clib.MIN_MAX_INT32.set_ss(ss.GxB_MIN_MAX_INT32)
-clib.MIN_MAX_INT64.set_ss(ss.GxB_MIN_MAX_INT64)
-clib.MIN_MAX_INT8.set_ss(ss.GxB_MIN_MAX_INT8)
-clib.MIN_MAX_UINT16.set_ss(ss.GxB_MIN_MAX_UINT16)
-clib.MIN_MAX_UINT32.set_ss(ss.GxB_MIN_MAX_UINT32)
-clib.MIN_MAX_UINT64.set_ss(ss.GxB_MIN_MAX_UINT64)
-clib.MIN_MAX_UINT8.set_ss(ss.GxB_MIN_MAX_UINT8)
-clib.MIN_MINUS_FP32.set_ss(ss.GxB_MIN_MINUS_FP32)
-clib.MIN_MINUS_FP64.set_ss(ss.GxB_MIN_MINUS_FP64)
-clib.MIN_MINUS_INT16.set_ss(ss.GxB_MIN_MINUS_INT16)
-clib.MIN_MINUS_INT32.set_ss(ss.GxB_MIN_MINUS_INT32)
-clib.MIN_MINUS_INT64.set_ss(ss.GxB_MIN_MINUS_INT64)
-clib.MIN_MINUS_INT8.set_ss(ss.GxB_MIN_MINUS_INT8)
-clib.MIN_MINUS_UINT16.set_ss(ss.GxB_MIN_MINUS_UINT16)
-clib.MIN_MINUS_UINT32.set_ss(ss.GxB_MIN_MINUS_UINT32)
-clib.MIN_MINUS_UINT64.set_ss(ss.GxB_MIN_MINUS_UINT64)
-clib.MIN_MINUS_UINT8.set_ss(ss.GxB_MIN_MINUS_UINT8)
-clib.MIN_MIN_FP32.set_ss(ss.GxB_MIN_MIN_FP32)
-clib.MIN_MIN_FP64.set_ss(ss.GxB_MIN_MIN_FP64)
-clib.MIN_MIN_INT16.set_ss(ss.GxB_MIN_MIN_INT16)
-clib.MIN_MIN_INT32.set_ss(ss.GxB_MIN_MIN_INT32)
-clib.MIN_MIN_INT64.set_ss(ss.GxB_MIN_MIN_INT64)
-clib.MIN_MIN_INT8.set_ss(ss.GxB_MIN_MIN_INT8)
-clib.MIN_MIN_UINT16.set_ss(ss.GxB_MIN_MIN_UINT16)
-clib.MIN_MIN_UINT32.set_ss(ss.GxB_MIN_MIN_UINT32)
-clib.MIN_MIN_UINT64.set_ss(ss.GxB_MIN_MIN_UINT64)
-clib.MIN_MIN_UINT8.set_ss(ss.GxB_MIN_MIN_UINT8)
-clib.MIN_PAIR_FP32.set_ss(ss.GxB_MIN_PAIR_FP32)
-clib.MIN_PAIR_FP64.set_ss(ss.GxB_MIN_PAIR_FP64)
-clib.MIN_PAIR_INT16.set_ss(ss.GxB_MIN_PAIR_INT16)
-clib.MIN_PAIR_INT32.set_ss(ss.GxB_MIN_PAIR_INT32)
-clib.MIN_PAIR_INT64.set_ss(ss.GxB_MIN_PAIR_INT64)
-clib.MIN_PAIR_INT8.set_ss(ss.GxB_MIN_PAIR_INT8)
-clib.MIN_PAIR_UINT16.set_ss(ss.GxB_MIN_PAIR_UINT16)
-clib.MIN_PAIR_UINT32.set_ss(ss.GxB_MIN_PAIR_UINT32)
-clib.MIN_PAIR_UINT64.set_ss(ss.GxB_MIN_PAIR_UINT64)
-clib.MIN_PAIR_UINT8.set_ss(ss.GxB_MIN_PAIR_UINT8)
-clib.MIN_PLUS_FP32.set_ss(ss.GxB_MIN_PLUS_FP32)
-clib.MIN_PLUS_FP64.set_ss(ss.GxB_MIN_PLUS_FP64)
-clib.MIN_PLUS_INT16.set_ss(ss.GxB_MIN_PLUS_INT16)
-clib.MIN_PLUS_INT32.set_ss(ss.GxB_MIN_PLUS_INT32)
-clib.MIN_PLUS_INT64.set_ss(ss.GxB_MIN_PLUS_INT64)
-clib.MIN_PLUS_INT8.set_ss(ss.GxB_MIN_PLUS_INT8)
-clib.MIN_PLUS_UINT16.set_ss(ss.GxB_MIN_PLUS_UINT16)
-clib.MIN_PLUS_UINT32.set_ss(ss.GxB_MIN_PLUS_UINT32)
-clib.MIN_PLUS_UINT64.set_ss(ss.GxB_MIN_PLUS_UINT64)
-clib.MIN_PLUS_UINT8.set_ss(ss.GxB_MIN_PLUS_UINT8)
-clib.MIN_RDIV_FP32.set_ss(ss.GxB_MIN_RDIV_FP32)
-clib.MIN_RDIV_FP64.set_ss(ss.GxB_MIN_RDIV_FP64)
-clib.MIN_RDIV_INT16.set_ss(ss.GxB_MIN_RDIV_INT16)
-clib.MIN_RDIV_INT32.set_ss(ss.GxB_MIN_RDIV_INT32)
-clib.MIN_RDIV_INT64.set_ss(ss.GxB_MIN_RDIV_INT64)
-clib.MIN_RDIV_INT8.set_ss(ss.GxB_MIN_RDIV_INT8)
-clib.MIN_RDIV_UINT16.set_ss(ss.GxB_MIN_RDIV_UINT16)
-clib.MIN_RDIV_UINT32.set_ss(ss.GxB_MIN_RDIV_UINT32)
-clib.MIN_RDIV_UINT64.set_ss(ss.GxB_MIN_RDIV_UINT64)
-clib.MIN_RDIV_UINT8.set_ss(ss.GxB_MIN_RDIV_UINT8)
-clib.MIN_RMINUS_FP32.set_ss(ss.GxB_MIN_RMINUS_FP32)
-clib.MIN_RMINUS_FP64.set_ss(ss.GxB_MIN_RMINUS_FP64)
-clib.MIN_RMINUS_INT16.set_ss(ss.GxB_MIN_RMINUS_INT16)
-clib.MIN_RMINUS_INT32.set_ss(ss.GxB_MIN_RMINUS_INT32)
-clib.MIN_RMINUS_INT64.set_ss(ss.GxB_MIN_RMINUS_INT64)
-clib.MIN_RMINUS_INT8.set_ss(ss.GxB_MIN_RMINUS_INT8)
-clib.MIN_RMINUS_UINT16.set_ss(ss.GxB_MIN_RMINUS_UINT16)
-clib.MIN_RMINUS_UINT32.set_ss(ss.GxB_MIN_RMINUS_UINT32)
-clib.MIN_RMINUS_UINT64.set_ss(ss.GxB_MIN_RMINUS_UINT64)
-clib.MIN_RMINUS_UINT8.set_ss(ss.GxB_MIN_RMINUS_UINT8)
-clib.MIN_SECOND_FP32.set_ss(ss.GxB_MIN_SECOND_FP32)
-clib.MIN_SECOND_FP64.set_ss(ss.GxB_MIN_SECOND_FP64)
-clib.MIN_SECOND_INT16.set_ss(ss.GxB_MIN_SECOND_INT16)
-clib.MIN_SECOND_INT32.set_ss(ss.GxB_MIN_SECOND_INT32)
-clib.MIN_SECOND_INT64.set_ss(ss.GxB_MIN_SECOND_INT64)
-clib.MIN_SECOND_INT8.set_ss(ss.GxB_MIN_SECOND_INT8)
-clib.MIN_SECOND_UINT16.set_ss(ss.GxB_MIN_SECOND_UINT16)
-clib.MIN_SECOND_UINT32.set_ss(ss.GxB_MIN_SECOND_UINT32)
-clib.MIN_SECOND_UINT64.set_ss(ss.GxB_MIN_SECOND_UINT64)
-clib.MIN_SECOND_UINT8.set_ss(ss.GxB_MIN_SECOND_UINT8)
-clib.MIN_TIMES_FP32.set_ss(ss.GxB_MIN_TIMES_FP32)
-clib.MIN_TIMES_FP64.set_ss(ss.GxB_MIN_TIMES_FP64)
-clib.MIN_TIMES_INT16.set_ss(ss.GxB_MIN_TIMES_INT16)
-clib.MIN_TIMES_INT32.set_ss(ss.GxB_MIN_TIMES_INT32)
-clib.MIN_TIMES_INT64.set_ss(ss.GxB_MIN_TIMES_INT64)
-clib.MIN_TIMES_INT8.set_ss(ss.GxB_MIN_TIMES_INT8)
-clib.MIN_TIMES_UINT16.set_ss(ss.GxB_MIN_TIMES_UINT16)
-clib.MIN_TIMES_UINT32.set_ss(ss.GxB_MIN_TIMES_UINT32)
-clib.MIN_TIMES_UINT64.set_ss(ss.GxB_MIN_TIMES_UINT64)
-clib.MIN_TIMES_UINT8.set_ss(ss.GxB_MIN_TIMES_UINT8)
-clib.PLUS_DIV_FC32.set_ss(ss.GxB_PLUS_DIV_FC32)
-clib.PLUS_DIV_FC64.set_ss(ss.GxB_PLUS_DIV_FC64)
-clib.PLUS_DIV_FP32.set_ss(ss.GxB_PLUS_DIV_FP32)
-clib.PLUS_DIV_FP64.set_ss(ss.GxB_PLUS_DIV_FP64)
-clib.PLUS_DIV_INT16.set_ss(ss.GxB_PLUS_DIV_INT16)
-clib.PLUS_DIV_INT32.set_ss(ss.GxB_PLUS_DIV_INT32)
-clib.PLUS_DIV_INT64.set_ss(ss.GxB_PLUS_DIV_INT64)
-clib.PLUS_DIV_INT8.set_ss(ss.GxB_PLUS_DIV_INT8)
-clib.PLUS_DIV_UINT16.set_ss(ss.GxB_PLUS_DIV_UINT16)
-clib.PLUS_DIV_UINT32.set_ss(ss.GxB_PLUS_DIV_UINT32)
-clib.PLUS_DIV_UINT64.set_ss(ss.GxB_PLUS_DIV_UINT64)
-clib.PLUS_DIV_UINT8.set_ss(ss.GxB_PLUS_DIV_UINT8)
-clib.PLUS_FIRST_FC32.set_ss(ss.GxB_PLUS_FIRST_FC32)
-clib.PLUS_FIRST_FC64.set_ss(ss.GxB_PLUS_FIRST_FC64)
-clib.PLUS_FIRST_FP32.set_ss(ss.GxB_PLUS_FIRST_FP32)
-clib.PLUS_FIRST_FP64.set_ss(ss.GxB_PLUS_FIRST_FP64)
-clib.PLUS_FIRST_INT16.set_ss(ss.GxB_PLUS_FIRST_INT16)
-clib.PLUS_FIRST_INT32.set_ss(ss.GxB_PLUS_FIRST_INT32)
-clib.PLUS_FIRST_INT64.set_ss(ss.GxB_PLUS_FIRST_INT64)
-clib.PLUS_FIRST_INT8.set_ss(ss.GxB_PLUS_FIRST_INT8)
-clib.PLUS_FIRST_UINT16.set_ss(ss.GxB_PLUS_FIRST_UINT16)
-clib.PLUS_FIRST_UINT32.set_ss(ss.GxB_PLUS_FIRST_UINT32)
-clib.PLUS_FIRST_UINT64.set_ss(ss.GxB_PLUS_FIRST_UINT64)
-clib.PLUS_FIRST_UINT8.set_ss(ss.GxB_PLUS_FIRST_UINT8)
-clib.PLUS_ISEQ_FP32.set_ss(ss.GxB_PLUS_ISEQ_FP32)
-clib.PLUS_ISEQ_FP64.set_ss(ss.GxB_PLUS_ISEQ_FP64)
-clib.PLUS_ISEQ_INT16.set_ss(ss.GxB_PLUS_ISEQ_INT16)
-clib.PLUS_ISEQ_INT32.set_ss(ss.GxB_PLUS_ISEQ_INT32)
-clib.PLUS_ISEQ_INT64.set_ss(ss.GxB_PLUS_ISEQ_INT64)
-clib.PLUS_ISEQ_INT8.set_ss(ss.GxB_PLUS_ISEQ_INT8)
-clib.PLUS_ISEQ_UINT16.set_ss(ss.GxB_PLUS_ISEQ_UINT16)
-clib.PLUS_ISEQ_UINT32.set_ss(ss.GxB_PLUS_ISEQ_UINT32)
-clib.PLUS_ISEQ_UINT64.set_ss(ss.GxB_PLUS_ISEQ_UINT64)
-clib.PLUS_ISEQ_UINT8.set_ss(ss.GxB_PLUS_ISEQ_UINT8)
-clib.PLUS_ISGE_FP32.set_ss(ss.GxB_PLUS_ISGE_FP32)
-clib.PLUS_ISGE_FP64.set_ss(ss.GxB_PLUS_ISGE_FP64)
-clib.PLUS_ISGE_INT16.set_ss(ss.GxB_PLUS_ISGE_INT16)
-clib.PLUS_ISGE_INT32.set_ss(ss.GxB_PLUS_ISGE_INT32)
-clib.PLUS_ISGE_INT64.set_ss(ss.GxB_PLUS_ISGE_INT64)
-clib.PLUS_ISGE_INT8.set_ss(ss.GxB_PLUS_ISGE_INT8)
-clib.PLUS_ISGE_UINT16.set_ss(ss.GxB_PLUS_ISGE_UINT16)
-clib.PLUS_ISGE_UINT32.set_ss(ss.GxB_PLUS_ISGE_UINT32)
-clib.PLUS_ISGE_UINT64.set_ss(ss.GxB_PLUS_ISGE_UINT64)
-clib.PLUS_ISGE_UINT8.set_ss(ss.GxB_PLUS_ISGE_UINT8)
-clib.PLUS_ISGT_FP32.set_ss(ss.GxB_PLUS_ISGT_FP32)
-clib.PLUS_ISGT_FP64.set_ss(ss.GxB_PLUS_ISGT_FP64)
-clib.PLUS_ISGT_INT16.set_ss(ss.GxB_PLUS_ISGT_INT16)
-clib.PLUS_ISGT_INT32.set_ss(ss.GxB_PLUS_ISGT_INT32)
-clib.PLUS_ISGT_INT64.set_ss(ss.GxB_PLUS_ISGT_INT64)
-clib.PLUS_ISGT_INT8.set_ss(ss.GxB_PLUS_ISGT_INT8)
-clib.PLUS_ISGT_UINT16.set_ss(ss.GxB_PLUS_ISGT_UINT16)
-clib.PLUS_ISGT_UINT32.set_ss(ss.GxB_PLUS_ISGT_UINT32)
-clib.PLUS_ISGT_UINT64.set_ss(ss.GxB_PLUS_ISGT_UINT64)
-clib.PLUS_ISGT_UINT8.set_ss(ss.GxB_PLUS_ISGT_UINT8)
-clib.PLUS_ISLE_FP32.set_ss(ss.GxB_PLUS_ISLE_FP32)
-clib.PLUS_ISLE_FP64.set_ss(ss.GxB_PLUS_ISLE_FP64)
-clib.PLUS_ISLE_INT16.set_ss(ss.GxB_PLUS_ISLE_INT16)
-clib.PLUS_ISLE_INT32.set_ss(ss.GxB_PLUS_ISLE_INT32)
-clib.PLUS_ISLE_INT64.set_ss(ss.GxB_PLUS_ISLE_INT64)
-clib.PLUS_ISLE_INT8.set_ss(ss.GxB_PLUS_ISLE_INT8)
-clib.PLUS_ISLE_UINT16.set_ss(ss.GxB_PLUS_ISLE_UINT16)
-clib.PLUS_ISLE_UINT32.set_ss(ss.GxB_PLUS_ISLE_UINT32)
-clib.PLUS_ISLE_UINT64.set_ss(ss.GxB_PLUS_ISLE_UINT64)
-clib.PLUS_ISLE_UINT8.set_ss(ss.GxB_PLUS_ISLE_UINT8)
-clib.PLUS_ISLT_FP32.set_ss(ss.GxB_PLUS_ISLT_FP32)
-clib.PLUS_ISLT_FP64.set_ss(ss.GxB_PLUS_ISLT_FP64)
-clib.PLUS_ISLT_INT16.set_ss(ss.GxB_PLUS_ISLT_INT16)
-clib.PLUS_ISLT_INT32.set_ss(ss.GxB_PLUS_ISLT_INT32)
-clib.PLUS_ISLT_INT64.set_ss(ss.GxB_PLUS_ISLT_INT64)
-clib.PLUS_ISLT_INT8.set_ss(ss.GxB_PLUS_ISLT_INT8)
-clib.PLUS_ISLT_UINT16.set_ss(ss.GxB_PLUS_ISLT_UINT16)
-clib.PLUS_ISLT_UINT32.set_ss(ss.GxB_PLUS_ISLT_UINT32)
-clib.PLUS_ISLT_UINT64.set_ss(ss.GxB_PLUS_ISLT_UINT64)
-clib.PLUS_ISLT_UINT8.set_ss(ss.GxB_PLUS_ISLT_UINT8)
-clib.PLUS_ISNE_FP32.set_ss(ss.GxB_PLUS_ISNE_FP32)
-clib.PLUS_ISNE_FP64.set_ss(ss.GxB_PLUS_ISNE_FP64)
-clib.PLUS_ISNE_INT16.set_ss(ss.GxB_PLUS_ISNE_INT16)
-clib.PLUS_ISNE_INT32.set_ss(ss.GxB_PLUS_ISNE_INT32)
-clib.PLUS_ISNE_INT64.set_ss(ss.GxB_PLUS_ISNE_INT64)
-clib.PLUS_ISNE_INT8.set_ss(ss.GxB_PLUS_ISNE_INT8)
-clib.PLUS_ISNE_UINT16.set_ss(ss.GxB_PLUS_ISNE_UINT16)
-clib.PLUS_ISNE_UINT32.set_ss(ss.GxB_PLUS_ISNE_UINT32)
-clib.PLUS_ISNE_UINT64.set_ss(ss.GxB_PLUS_ISNE_UINT64)
-clib.PLUS_ISNE_UINT8.set_ss(ss.GxB_PLUS_ISNE_UINT8)
-clib.PLUS_LAND_FP32.set_ss(ss.GxB_PLUS_LAND_FP32)
-clib.PLUS_LAND_FP64.set_ss(ss.GxB_PLUS_LAND_FP64)
-clib.PLUS_LAND_INT16.set_ss(ss.GxB_PLUS_LAND_INT16)
-clib.PLUS_LAND_INT32.set_ss(ss.GxB_PLUS_LAND_INT32)
-clib.PLUS_LAND_INT64.set_ss(ss.GxB_PLUS_LAND_INT64)
-clib.PLUS_LAND_INT8.set_ss(ss.GxB_PLUS_LAND_INT8)
-clib.PLUS_LAND_UINT16.set_ss(ss.GxB_PLUS_LAND_UINT16)
-clib.PLUS_LAND_UINT32.set_ss(ss.GxB_PLUS_LAND_UINT32)
-clib.PLUS_LAND_UINT64.set_ss(ss.GxB_PLUS_LAND_UINT64)
-clib.PLUS_LAND_UINT8.set_ss(ss.GxB_PLUS_LAND_UINT8)
-clib.PLUS_LOR_FP32.set_ss(ss.GxB_PLUS_LOR_FP32)
-clib.PLUS_LOR_FP64.set_ss(ss.GxB_PLUS_LOR_FP64)
-clib.PLUS_LOR_INT16.set_ss(ss.GxB_PLUS_LOR_INT16)
-clib.PLUS_LOR_INT32.set_ss(ss.GxB_PLUS_LOR_INT32)
-clib.PLUS_LOR_INT64.set_ss(ss.GxB_PLUS_LOR_INT64)
-clib.PLUS_LOR_INT8.set_ss(ss.GxB_PLUS_LOR_INT8)
-clib.PLUS_LOR_UINT16.set_ss(ss.GxB_PLUS_LOR_UINT16)
-clib.PLUS_LOR_UINT32.set_ss(ss.GxB_PLUS_LOR_UINT32)
-clib.PLUS_LOR_UINT64.set_ss(ss.GxB_PLUS_LOR_UINT64)
-clib.PLUS_LOR_UINT8.set_ss(ss.GxB_PLUS_LOR_UINT8)
-clib.PLUS_LXOR_FP32.set_ss(ss.GxB_PLUS_LXOR_FP32)
-clib.PLUS_LXOR_FP64.set_ss(ss.GxB_PLUS_LXOR_FP64)
-clib.PLUS_LXOR_INT16.set_ss(ss.GxB_PLUS_LXOR_INT16)
-clib.PLUS_LXOR_INT32.set_ss(ss.GxB_PLUS_LXOR_INT32)
-clib.PLUS_LXOR_INT64.set_ss(ss.GxB_PLUS_LXOR_INT64)
-clib.PLUS_LXOR_INT8.set_ss(ss.GxB_PLUS_LXOR_INT8)
-clib.PLUS_LXOR_UINT16.set_ss(ss.GxB_PLUS_LXOR_UINT16)
-clib.PLUS_LXOR_UINT32.set_ss(ss.GxB_PLUS_LXOR_UINT32)
-clib.PLUS_LXOR_UINT64.set_ss(ss.GxB_PLUS_LXOR_UINT64)
-clib.PLUS_LXOR_UINT8.set_ss(ss.GxB_PLUS_LXOR_UINT8)
-clib.PLUS_MAX_FP32.set_ss(ss.GxB_PLUS_MAX_FP32)
-clib.PLUS_MAX_FP64.set_ss(ss.GxB_PLUS_MAX_FP64)
-clib.PLUS_MAX_INT16.set_ss(ss.GxB_PLUS_MAX_INT16)
-clib.PLUS_MAX_INT32.set_ss(ss.GxB_PLUS_MAX_INT32)
-clib.PLUS_MAX_INT64.set_ss(ss.GxB_PLUS_MAX_INT64)
-clib.PLUS_MAX_INT8.set_ss(ss.GxB_PLUS_MAX_INT8)
-clib.PLUS_MAX_UINT16.set_ss(ss.GxB_PLUS_MAX_UINT16)
-clib.PLUS_MAX_UINT32.set_ss(ss.GxB_PLUS_MAX_UINT32)
-clib.PLUS_MAX_UINT64.set_ss(ss.GxB_PLUS_MAX_UINT64)
-clib.PLUS_MAX_UINT8.set_ss(ss.GxB_PLUS_MAX_UINT8)
-clib.PLUS_MINUS_FC32.set_ss(ss.GxB_PLUS_MINUS_FC32)
-clib.PLUS_MINUS_FC64.set_ss(ss.GxB_PLUS_MINUS_FC64)
-clib.PLUS_MINUS_FP32.set_ss(ss.GxB_PLUS_MINUS_FP32)
-clib.PLUS_MINUS_FP64.set_ss(ss.GxB_PLUS_MINUS_FP64)
-clib.PLUS_MINUS_INT16.set_ss(ss.GxB_PLUS_MINUS_INT16)
-clib.PLUS_MINUS_INT32.set_ss(ss.GxB_PLUS_MINUS_INT32)
-clib.PLUS_MINUS_INT64.set_ss(ss.GxB_PLUS_MINUS_INT64)
-clib.PLUS_MINUS_INT8.set_ss(ss.GxB_PLUS_MINUS_INT8)
-clib.PLUS_MINUS_UINT16.set_ss(ss.GxB_PLUS_MINUS_UINT16)
-clib.PLUS_MINUS_UINT32.set_ss(ss.GxB_PLUS_MINUS_UINT32)
-clib.PLUS_MINUS_UINT64.set_ss(ss.GxB_PLUS_MINUS_UINT64)
-clib.PLUS_MINUS_UINT8.set_ss(ss.GxB_PLUS_MINUS_UINT8)
-clib.PLUS_MIN_FP32.set_ss(ss.GxB_PLUS_MIN_FP32)
-clib.PLUS_MIN_FP64.set_ss(ss.GxB_PLUS_MIN_FP64)
-clib.PLUS_MIN_INT16.set_ss(ss.GxB_PLUS_MIN_INT16)
-clib.PLUS_MIN_INT32.set_ss(ss.GxB_PLUS_MIN_INT32)
-clib.PLUS_MIN_INT64.set_ss(ss.GxB_PLUS_MIN_INT64)
-clib.PLUS_MIN_INT8.set_ss(ss.GxB_PLUS_MIN_INT8)
-clib.PLUS_MIN_UINT16.set_ss(ss.GxB_PLUS_MIN_UINT16)
-clib.PLUS_MIN_UINT32.set_ss(ss.GxB_PLUS_MIN_UINT32)
-clib.PLUS_MIN_UINT64.set_ss(ss.GxB_PLUS_MIN_UINT64)
-clib.PLUS_MIN_UINT8.set_ss(ss.GxB_PLUS_MIN_UINT8)
-clib.PLUS_PAIR_FC32.set_ss(ss.GxB_PLUS_PAIR_FC32)
-clib.PLUS_PAIR_FC64.set_ss(ss.GxB_PLUS_PAIR_FC64)
-clib.PLUS_PAIR_FP32.set_ss(ss.GxB_PLUS_PAIR_FP32)
-clib.PLUS_PAIR_FP64.set_ss(ss.GxB_PLUS_PAIR_FP64)
-clib.PLUS_PAIR_INT16.set_ss(ss.GxB_PLUS_PAIR_INT16)
-clib.PLUS_PAIR_INT32.set_ss(ss.GxB_PLUS_PAIR_INT32)
-clib.PLUS_PAIR_INT64.set_ss(ss.GxB_PLUS_PAIR_INT64)
-clib.PLUS_PAIR_INT8.set_ss(ss.GxB_PLUS_PAIR_INT8)
-clib.PLUS_PAIR_UINT16.set_ss(ss.GxB_PLUS_PAIR_UINT16)
-clib.PLUS_PAIR_UINT32.set_ss(ss.GxB_PLUS_PAIR_UINT32)
-clib.PLUS_PAIR_UINT64.set_ss(ss.GxB_PLUS_PAIR_UINT64)
-clib.PLUS_PAIR_UINT8.set_ss(ss.GxB_PLUS_PAIR_UINT8)
-clib.PLUS_PLUS_FC32.set_ss(ss.GxB_PLUS_PLUS_FC32)
-clib.PLUS_PLUS_FC64.set_ss(ss.GxB_PLUS_PLUS_FC64)
-clib.PLUS_PLUS_FP32.set_ss(ss.GxB_PLUS_PLUS_FP32)
-clib.PLUS_PLUS_FP64.set_ss(ss.GxB_PLUS_PLUS_FP64)
-clib.PLUS_PLUS_INT16.set_ss(ss.GxB_PLUS_PLUS_INT16)
-clib.PLUS_PLUS_INT32.set_ss(ss.GxB_PLUS_PLUS_INT32)
-clib.PLUS_PLUS_INT64.set_ss(ss.GxB_PLUS_PLUS_INT64)
-clib.PLUS_PLUS_INT8.set_ss(ss.GxB_PLUS_PLUS_INT8)
-clib.PLUS_PLUS_UINT16.set_ss(ss.GxB_PLUS_PLUS_UINT16)
-clib.PLUS_PLUS_UINT32.set_ss(ss.GxB_PLUS_PLUS_UINT32)
-clib.PLUS_PLUS_UINT64.set_ss(ss.GxB_PLUS_PLUS_UINT64)
-clib.PLUS_PLUS_UINT8.set_ss(ss.GxB_PLUS_PLUS_UINT8)
-clib.PLUS_RDIV_FC32.set_ss(ss.GxB_PLUS_RDIV_FC32)
-clib.PLUS_RDIV_FC64.set_ss(ss.GxB_PLUS_RDIV_FC64)
-clib.PLUS_RDIV_FP32.set_ss(ss.GxB_PLUS_RDIV_FP32)
-clib.PLUS_RDIV_FP64.set_ss(ss.GxB_PLUS_RDIV_FP64)
-clib.PLUS_RDIV_INT16.set_ss(ss.GxB_PLUS_RDIV_INT16)
-clib.PLUS_RDIV_INT32.set_ss(ss.GxB_PLUS_RDIV_INT32)
-clib.PLUS_RDIV_INT64.set_ss(ss.GxB_PLUS_RDIV_INT64)
-clib.PLUS_RDIV_INT8.set_ss(ss.GxB_PLUS_RDIV_INT8)
-clib.PLUS_RDIV_UINT16.set_ss(ss.GxB_PLUS_RDIV_UINT16)
-clib.PLUS_RDIV_UINT32.set_ss(ss.GxB_PLUS_RDIV_UINT32)
-clib.PLUS_RDIV_UINT64.set_ss(ss.GxB_PLUS_RDIV_UINT64)
-clib.PLUS_RDIV_UINT8.set_ss(ss.GxB_PLUS_RDIV_UINT8)
-clib.PLUS_RMINUS_FC32.set_ss(ss.GxB_PLUS_RMINUS_FC32)
-clib.PLUS_RMINUS_FC64.set_ss(ss.GxB_PLUS_RMINUS_FC64)
-clib.PLUS_RMINUS_FP32.set_ss(ss.GxB_PLUS_RMINUS_FP32)
-clib.PLUS_RMINUS_FP64.set_ss(ss.GxB_PLUS_RMINUS_FP64)
-clib.PLUS_RMINUS_INT16.set_ss(ss.GxB_PLUS_RMINUS_INT16)
-clib.PLUS_RMINUS_INT32.set_ss(ss.GxB_PLUS_RMINUS_INT32)
-clib.PLUS_RMINUS_INT64.set_ss(ss.GxB_PLUS_RMINUS_INT64)
-clib.PLUS_RMINUS_INT8.set_ss(ss.GxB_PLUS_RMINUS_INT8)
-clib.PLUS_RMINUS_UINT16.set_ss(ss.GxB_PLUS_RMINUS_UINT16)
-clib.PLUS_RMINUS_UINT32.set_ss(ss.GxB_PLUS_RMINUS_UINT32)
-clib.PLUS_RMINUS_UINT64.set_ss(ss.GxB_PLUS_RMINUS_UINT64)
-clib.PLUS_RMINUS_UINT8.set_ss(ss.GxB_PLUS_RMINUS_UINT8)
-clib.PLUS_SECOND_FC32.set_ss(ss.GxB_PLUS_SECOND_FC32)
-clib.PLUS_SECOND_FC64.set_ss(ss.GxB_PLUS_SECOND_FC64)
-clib.PLUS_SECOND_FP32.set_ss(ss.GxB_PLUS_SECOND_FP32)
-clib.PLUS_SECOND_FP64.set_ss(ss.GxB_PLUS_SECOND_FP64)
-clib.PLUS_SECOND_INT16.set_ss(ss.GxB_PLUS_SECOND_INT16)
-clib.PLUS_SECOND_INT32.set_ss(ss.GxB_PLUS_SECOND_INT32)
-clib.PLUS_SECOND_INT64.set_ss(ss.GxB_PLUS_SECOND_INT64)
-clib.PLUS_SECOND_INT8.set_ss(ss.GxB_PLUS_SECOND_INT8)
-clib.PLUS_SECOND_UINT16.set_ss(ss.GxB_PLUS_SECOND_UINT16)
-clib.PLUS_SECOND_UINT32.set_ss(ss.GxB_PLUS_SECOND_UINT32)
-clib.PLUS_SECOND_UINT64.set_ss(ss.GxB_PLUS_SECOND_UINT64)
-clib.PLUS_SECOND_UINT8.set_ss(ss.GxB_PLUS_SECOND_UINT8)
-clib.PLUS_TIMES_FC32.set_ss(ss.GxB_PLUS_TIMES_FC32)
-clib.PLUS_TIMES_FC64.set_ss(ss.GxB_PLUS_TIMES_FC64)
-clib.PLUS_TIMES_FP32.set_ss(ss.GxB_PLUS_TIMES_FP32)
-clib.PLUS_TIMES_FP64.set_ss(ss.GxB_PLUS_TIMES_FP64)
-clib.PLUS_TIMES_INT16.set_ss(ss.GxB_PLUS_TIMES_INT16)
-clib.PLUS_TIMES_INT32.set_ss(ss.GxB_PLUS_TIMES_INT32)
-clib.PLUS_TIMES_INT64.set_ss(ss.GxB_PLUS_TIMES_INT64)
-clib.PLUS_TIMES_INT8.set_ss(ss.GxB_PLUS_TIMES_INT8)
-clib.PLUS_TIMES_UINT16.set_ss(ss.GxB_PLUS_TIMES_UINT16)
-clib.PLUS_TIMES_UINT32.set_ss(ss.GxB_PLUS_TIMES_UINT32)
-clib.PLUS_TIMES_UINT64.set_ss(ss.GxB_PLUS_TIMES_UINT64)
-clib.PLUS_TIMES_UINT8.set_ss(ss.GxB_PLUS_TIMES_UINT8)
-clib.TIMES_DIV_FC32.set_ss(ss.GxB_TIMES_DIV_FC32)
-clib.TIMES_DIV_FC64.set_ss(ss.GxB_TIMES_DIV_FC64)
-clib.TIMES_DIV_FP32.set_ss(ss.GxB_TIMES_DIV_FP32)
-clib.TIMES_DIV_FP64.set_ss(ss.GxB_TIMES_DIV_FP64)
-clib.TIMES_DIV_INT16.set_ss(ss.GxB_TIMES_DIV_INT16)
-clib.TIMES_DIV_INT32.set_ss(ss.GxB_TIMES_DIV_INT32)
-clib.TIMES_DIV_INT64.set_ss(ss.GxB_TIMES_DIV_INT64)
-clib.TIMES_DIV_INT8.set_ss(ss.GxB_TIMES_DIV_INT8)
-clib.TIMES_DIV_UINT16.set_ss(ss.GxB_TIMES_DIV_UINT16)
-clib.TIMES_DIV_UINT32.set_ss(ss.GxB_TIMES_DIV_UINT32)
-clib.TIMES_DIV_UINT64.set_ss(ss.GxB_TIMES_DIV_UINT64)
-clib.TIMES_DIV_UINT8.set_ss(ss.GxB_TIMES_DIV_UINT8)
-clib.TIMES_FIRST_FC32.set_ss(ss.GxB_TIMES_FIRST_FC32)
-clib.TIMES_FIRST_FC64.set_ss(ss.GxB_TIMES_FIRST_FC64)
-clib.TIMES_FIRST_FP32.set_ss(ss.GxB_TIMES_FIRST_FP32)
-clib.TIMES_FIRST_FP64.set_ss(ss.GxB_TIMES_FIRST_FP64)
-clib.TIMES_FIRST_INT16.set_ss(ss.GxB_TIMES_FIRST_INT16)
-clib.TIMES_FIRST_INT32.set_ss(ss.GxB_TIMES_FIRST_INT32)
-clib.TIMES_FIRST_INT64.set_ss(ss.GxB_TIMES_FIRST_INT64)
-clib.TIMES_FIRST_INT8.set_ss(ss.GxB_TIMES_FIRST_INT8)
-clib.TIMES_FIRST_UINT16.set_ss(ss.GxB_TIMES_FIRST_UINT16)
-clib.TIMES_FIRST_UINT32.set_ss(ss.GxB_TIMES_FIRST_UINT32)
-clib.TIMES_FIRST_UINT64.set_ss(ss.GxB_TIMES_FIRST_UINT64)
-clib.TIMES_FIRST_UINT8.set_ss(ss.GxB_TIMES_FIRST_UINT8)
-clib.TIMES_ISEQ_FP32.set_ss(ss.GxB_TIMES_ISEQ_FP32)
-clib.TIMES_ISEQ_FP64.set_ss(ss.GxB_TIMES_ISEQ_FP64)
-clib.TIMES_ISEQ_INT16.set_ss(ss.GxB_TIMES_ISEQ_INT16)
-clib.TIMES_ISEQ_INT32.set_ss(ss.GxB_TIMES_ISEQ_INT32)
-clib.TIMES_ISEQ_INT64.set_ss(ss.GxB_TIMES_ISEQ_INT64)
-clib.TIMES_ISEQ_INT8.set_ss(ss.GxB_TIMES_ISEQ_INT8)
-clib.TIMES_ISEQ_UINT16.set_ss(ss.GxB_TIMES_ISEQ_UINT16)
-clib.TIMES_ISEQ_UINT32.set_ss(ss.GxB_TIMES_ISEQ_UINT32)
-clib.TIMES_ISEQ_UINT64.set_ss(ss.GxB_TIMES_ISEQ_UINT64)
-clib.TIMES_ISEQ_UINT8.set_ss(ss.GxB_TIMES_ISEQ_UINT8)
-clib.TIMES_ISGE_FP32.set_ss(ss.GxB_TIMES_ISGE_FP32)
-clib.TIMES_ISGE_FP64.set_ss(ss.GxB_TIMES_ISGE_FP64)
-clib.TIMES_ISGE_INT16.set_ss(ss.GxB_TIMES_ISGE_INT16)
-clib.TIMES_ISGE_INT32.set_ss(ss.GxB_TIMES_ISGE_INT32)
-clib.TIMES_ISGE_INT64.set_ss(ss.GxB_TIMES_ISGE_INT64)
-clib.TIMES_ISGE_INT8.set_ss(ss.GxB_TIMES_ISGE_INT8)
-clib.TIMES_ISGE_UINT16.set_ss(ss.GxB_TIMES_ISGE_UINT16)
-clib.TIMES_ISGE_UINT32.set_ss(ss.GxB_TIMES_ISGE_UINT32)
-clib.TIMES_ISGE_UINT64.set_ss(ss.GxB_TIMES_ISGE_UINT64)
-clib.TIMES_ISGE_UINT8.set_ss(ss.GxB_TIMES_ISGE_UINT8)
-clib.TIMES_ISGT_FP32.set_ss(ss.GxB_TIMES_ISGT_FP32)
-clib.TIMES_ISGT_FP64.set_ss(ss.GxB_TIMES_ISGT_FP64)
-clib.TIMES_ISGT_INT16.set_ss(ss.GxB_TIMES_ISGT_INT16)
-clib.TIMES_ISGT_INT32.set_ss(ss.GxB_TIMES_ISGT_INT32)
-clib.TIMES_ISGT_INT64.set_ss(ss.GxB_TIMES_ISGT_INT64)
-clib.TIMES_ISGT_INT8.set_ss(ss.GxB_TIMES_ISGT_INT8)
-clib.TIMES_ISGT_UINT16.set_ss(ss.GxB_TIMES_ISGT_UINT16)
-clib.TIMES_ISGT_UINT32.set_ss(ss.GxB_TIMES_ISGT_UINT32)
-clib.TIMES_ISGT_UINT64.set_ss(ss.GxB_TIMES_ISGT_UINT64)
-clib.TIMES_ISGT_UINT8.set_ss(ss.GxB_TIMES_ISGT_UINT8)
-clib.TIMES_ISLE_FP32.set_ss(ss.GxB_TIMES_ISLE_FP32)
-clib.TIMES_ISLE_FP64.set_ss(ss.GxB_TIMES_ISLE_FP64)
-clib.TIMES_ISLE_INT16.set_ss(ss.GxB_TIMES_ISLE_INT16)
-clib.TIMES_ISLE_INT32.set_ss(ss.GxB_TIMES_ISLE_INT32)
-clib.TIMES_ISLE_INT64.set_ss(ss.GxB_TIMES_ISLE_INT64)
-clib.TIMES_ISLE_INT8.set_ss(ss.GxB_TIMES_ISLE_INT8)
-clib.TIMES_ISLE_UINT16.set_ss(ss.GxB_TIMES_ISLE_UINT16)
-clib.TIMES_ISLE_UINT32.set_ss(ss.GxB_TIMES_ISLE_UINT32)
-clib.TIMES_ISLE_UINT64.set_ss(ss.GxB_TIMES_ISLE_UINT64)
-clib.TIMES_ISLE_UINT8.set_ss(ss.GxB_TIMES_ISLE_UINT8)
-clib.TIMES_ISLT_FP32.set_ss(ss.GxB_TIMES_ISLT_FP32)
-clib.TIMES_ISLT_FP64.set_ss(ss.GxB_TIMES_ISLT_FP64)
-clib.TIMES_ISLT_INT16.set_ss(ss.GxB_TIMES_ISLT_INT16)
-clib.TIMES_ISLT_INT32.set_ss(ss.GxB_TIMES_ISLT_INT32)
-clib.TIMES_ISLT_INT64.set_ss(ss.GxB_TIMES_ISLT_INT64)
-clib.TIMES_ISLT_INT8.set_ss(ss.GxB_TIMES_ISLT_INT8)
-clib.TIMES_ISLT_UINT16.set_ss(ss.GxB_TIMES_ISLT_UINT16)
-clib.TIMES_ISLT_UINT32.set_ss(ss.GxB_TIMES_ISLT_UINT32)
-clib.TIMES_ISLT_UINT64.set_ss(ss.GxB_TIMES_ISLT_UINT64)
-clib.TIMES_ISLT_UINT8.set_ss(ss.GxB_TIMES_ISLT_UINT8)
-clib.TIMES_ISNE_FP32.set_ss(ss.GxB_TIMES_ISNE_FP32)
-clib.TIMES_ISNE_FP64.set_ss(ss.GxB_TIMES_ISNE_FP64)
-clib.TIMES_ISNE_INT16.set_ss(ss.GxB_TIMES_ISNE_INT16)
-clib.TIMES_ISNE_INT32.set_ss(ss.GxB_TIMES_ISNE_INT32)
-clib.TIMES_ISNE_INT64.set_ss(ss.GxB_TIMES_ISNE_INT64)
-clib.TIMES_ISNE_INT8.set_ss(ss.GxB_TIMES_ISNE_INT8)
-clib.TIMES_ISNE_UINT16.set_ss(ss.GxB_TIMES_ISNE_UINT16)
-clib.TIMES_ISNE_UINT32.set_ss(ss.GxB_TIMES_ISNE_UINT32)
-clib.TIMES_ISNE_UINT64.set_ss(ss.GxB_TIMES_ISNE_UINT64)
-clib.TIMES_ISNE_UINT8.set_ss(ss.GxB_TIMES_ISNE_UINT8)
-clib.TIMES_LAND_FP32.set_ss(ss.GxB_TIMES_LAND_FP32)
-clib.TIMES_LAND_FP64.set_ss(ss.GxB_TIMES_LAND_FP64)
-clib.TIMES_LAND_INT16.set_ss(ss.GxB_TIMES_LAND_INT16)
-clib.TIMES_LAND_INT32.set_ss(ss.GxB_TIMES_LAND_INT32)
-clib.TIMES_LAND_INT64.set_ss(ss.GxB_TIMES_LAND_INT64)
-clib.TIMES_LAND_INT8.set_ss(ss.GxB_TIMES_LAND_INT8)
-clib.TIMES_LAND_UINT16.set_ss(ss.GxB_TIMES_LAND_UINT16)
-clib.TIMES_LAND_UINT32.set_ss(ss.GxB_TIMES_LAND_UINT32)
-clib.TIMES_LAND_UINT64.set_ss(ss.GxB_TIMES_LAND_UINT64)
-clib.TIMES_LAND_UINT8.set_ss(ss.GxB_TIMES_LAND_UINT8)
-clib.TIMES_LOR_FP32.set_ss(ss.GxB_TIMES_LOR_FP32)
-clib.TIMES_LOR_FP64.set_ss(ss.GxB_TIMES_LOR_FP64)
-clib.TIMES_LOR_INT16.set_ss(ss.GxB_TIMES_LOR_INT16)
-clib.TIMES_LOR_INT32.set_ss(ss.GxB_TIMES_LOR_INT32)
-clib.TIMES_LOR_INT64.set_ss(ss.GxB_TIMES_LOR_INT64)
-clib.TIMES_LOR_INT8.set_ss(ss.GxB_TIMES_LOR_INT8)
-clib.TIMES_LOR_UINT16.set_ss(ss.GxB_TIMES_LOR_UINT16)
-clib.TIMES_LOR_UINT32.set_ss(ss.GxB_TIMES_LOR_UINT32)
-clib.TIMES_LOR_UINT64.set_ss(ss.GxB_TIMES_LOR_UINT64)
-clib.TIMES_LOR_UINT8.set_ss(ss.GxB_TIMES_LOR_UINT8)
-clib.TIMES_LXOR_FP32.set_ss(ss.GxB_TIMES_LXOR_FP32)
-clib.TIMES_LXOR_FP64.set_ss(ss.GxB_TIMES_LXOR_FP64)
-clib.TIMES_LXOR_INT16.set_ss(ss.GxB_TIMES_LXOR_INT16)
-clib.TIMES_LXOR_INT32.set_ss(ss.GxB_TIMES_LXOR_INT32)
-clib.TIMES_LXOR_INT64.set_ss(ss.GxB_TIMES_LXOR_INT64)
-clib.TIMES_LXOR_INT8.set_ss(ss.GxB_TIMES_LXOR_INT8)
-clib.TIMES_LXOR_UINT16.set_ss(ss.GxB_TIMES_LXOR_UINT16)
-clib.TIMES_LXOR_UINT32.set_ss(ss.GxB_TIMES_LXOR_UINT32)
-clib.TIMES_LXOR_UINT64.set_ss(ss.GxB_TIMES_LXOR_UINT64)
-clib.TIMES_LXOR_UINT8.set_ss(ss.GxB_TIMES_LXOR_UINT8)
-clib.TIMES_MAX_FP32.set_ss(ss.GxB_TIMES_MAX_FP32)
-clib.TIMES_MAX_FP64.set_ss(ss.GxB_TIMES_MAX_FP64)
-clib.TIMES_MAX_INT16.set_ss(ss.GxB_TIMES_MAX_INT16)
-clib.TIMES_MAX_INT32.set_ss(ss.GxB_TIMES_MAX_INT32)
-clib.TIMES_MAX_INT64.set_ss(ss.GxB_TIMES_MAX_INT64)
-clib.TIMES_MAX_INT8.set_ss(ss.GxB_TIMES_MAX_INT8)
-clib.TIMES_MAX_UINT16.set_ss(ss.GxB_TIMES_MAX_UINT16)
-clib.TIMES_MAX_UINT32.set_ss(ss.GxB_TIMES_MAX_UINT32)
-clib.TIMES_MAX_UINT64.set_ss(ss.GxB_TIMES_MAX_UINT64)
-clib.TIMES_MAX_UINT8.set_ss(ss.GxB_TIMES_MAX_UINT8)
-clib.TIMES_MINUS_FC32.set_ss(ss.GxB_TIMES_MINUS_FC32)
-clib.TIMES_MINUS_FC64.set_ss(ss.GxB_TIMES_MINUS_FC64)
-clib.TIMES_MINUS_FP32.set_ss(ss.GxB_TIMES_MINUS_FP32)
-clib.TIMES_MINUS_FP64.set_ss(ss.GxB_TIMES_MINUS_FP64)
-clib.TIMES_MINUS_INT16.set_ss(ss.GxB_TIMES_MINUS_INT16)
-clib.TIMES_MINUS_INT32.set_ss(ss.GxB_TIMES_MINUS_INT32)
-clib.TIMES_MINUS_INT64.set_ss(ss.GxB_TIMES_MINUS_INT64)
-clib.TIMES_MINUS_INT8.set_ss(ss.GxB_TIMES_MINUS_INT8)
-clib.TIMES_MINUS_UINT16.set_ss(ss.GxB_TIMES_MINUS_UINT16)
-clib.TIMES_MINUS_UINT32.set_ss(ss.GxB_TIMES_MINUS_UINT32)
-clib.TIMES_MINUS_UINT64.set_ss(ss.GxB_TIMES_MINUS_UINT64)
-clib.TIMES_MINUS_UINT8.set_ss(ss.GxB_TIMES_MINUS_UINT8)
-clib.TIMES_MIN_FP32.set_ss(ss.GxB_TIMES_MIN_FP32)
-clib.TIMES_MIN_FP64.set_ss(ss.GxB_TIMES_MIN_FP64)
-clib.TIMES_MIN_INT16.set_ss(ss.GxB_TIMES_MIN_INT16)
-clib.TIMES_MIN_INT32.set_ss(ss.GxB_TIMES_MIN_INT32)
-clib.TIMES_MIN_INT64.set_ss(ss.GxB_TIMES_MIN_INT64)
-clib.TIMES_MIN_INT8.set_ss(ss.GxB_TIMES_MIN_INT8)
-clib.TIMES_MIN_UINT16.set_ss(ss.GxB_TIMES_MIN_UINT16)
-clib.TIMES_MIN_UINT32.set_ss(ss.GxB_TIMES_MIN_UINT32)
-clib.TIMES_MIN_UINT64.set_ss(ss.GxB_TIMES_MIN_UINT64)
-clib.TIMES_MIN_UINT8.set_ss(ss.GxB_TIMES_MIN_UINT8)
-clib.TIMES_PAIR_FC32.set_ss(ss.GxB_TIMES_PAIR_FC32)
-clib.TIMES_PAIR_FC64.set_ss(ss.GxB_TIMES_PAIR_FC64)
-clib.TIMES_PAIR_FP32.set_ss(ss.GxB_TIMES_PAIR_FP32)
-clib.TIMES_PAIR_FP64.set_ss(ss.GxB_TIMES_PAIR_FP64)
-clib.TIMES_PAIR_INT16.set_ss(ss.GxB_TIMES_PAIR_INT16)
-clib.TIMES_PAIR_INT32.set_ss(ss.GxB_TIMES_PAIR_INT32)
-clib.TIMES_PAIR_INT64.set_ss(ss.GxB_TIMES_PAIR_INT64)
-clib.TIMES_PAIR_INT8.set_ss(ss.GxB_TIMES_PAIR_INT8)
-clib.TIMES_PAIR_UINT16.set_ss(ss.GxB_TIMES_PAIR_UINT16)
-clib.TIMES_PAIR_UINT32.set_ss(ss.GxB_TIMES_PAIR_UINT32)
-clib.TIMES_PAIR_UINT64.set_ss(ss.GxB_TIMES_PAIR_UINT64)
-clib.TIMES_PAIR_UINT8.set_ss(ss.GxB_TIMES_PAIR_UINT8)
-clib.TIMES_PLUS_FC32.set_ss(ss.GxB_TIMES_PLUS_FC32)
-clib.TIMES_PLUS_FC64.set_ss(ss.GxB_TIMES_PLUS_FC64)
-clib.TIMES_PLUS_FP32.set_ss(ss.GxB_TIMES_PLUS_FP32)
-clib.TIMES_PLUS_FP64.set_ss(ss.GxB_TIMES_PLUS_FP64)
-clib.TIMES_PLUS_INT16.set_ss(ss.GxB_TIMES_PLUS_INT16)
-clib.TIMES_PLUS_INT32.set_ss(ss.GxB_TIMES_PLUS_INT32)
-clib.TIMES_PLUS_INT64.set_ss(ss.GxB_TIMES_PLUS_INT64)
-clib.TIMES_PLUS_INT8.set_ss(ss.GxB_TIMES_PLUS_INT8)
-clib.TIMES_PLUS_UINT16.set_ss(ss.GxB_TIMES_PLUS_UINT16)
-clib.TIMES_PLUS_UINT32.set_ss(ss.GxB_TIMES_PLUS_UINT32)
-clib.TIMES_PLUS_UINT64.set_ss(ss.GxB_TIMES_PLUS_UINT64)
-clib.TIMES_PLUS_UINT8.set_ss(ss.GxB_TIMES_PLUS_UINT8)
-clib.TIMES_RDIV_FC32.set_ss(ss.GxB_TIMES_RDIV_FC32)
-clib.TIMES_RDIV_FC64.set_ss(ss.GxB_TIMES_RDIV_FC64)
-clib.TIMES_RDIV_FP32.set_ss(ss.GxB_TIMES_RDIV_FP32)
-clib.TIMES_RDIV_FP64.set_ss(ss.GxB_TIMES_RDIV_FP64)
-clib.TIMES_RDIV_INT16.set_ss(ss.GxB_TIMES_RDIV_INT16)
-clib.TIMES_RDIV_INT32.set_ss(ss.GxB_TIMES_RDIV_INT32)
-clib.TIMES_RDIV_INT64.set_ss(ss.GxB_TIMES_RDIV_INT64)
-clib.TIMES_RDIV_INT8.set_ss(ss.GxB_TIMES_RDIV_INT8)
-clib.TIMES_RDIV_UINT16.set_ss(ss.GxB_TIMES_RDIV_UINT16)
-clib.TIMES_RDIV_UINT32.set_ss(ss.GxB_TIMES_RDIV_UINT32)
-clib.TIMES_RDIV_UINT64.set_ss(ss.GxB_TIMES_RDIV_UINT64)
-clib.TIMES_RDIV_UINT8.set_ss(ss.GxB_TIMES_RDIV_UINT8)
-clib.TIMES_RMINUS_FC32.set_ss(ss.GxB_TIMES_RMINUS_FC32)
-clib.TIMES_RMINUS_FC64.set_ss(ss.GxB_TIMES_RMINUS_FC64)
-clib.TIMES_RMINUS_FP32.set_ss(ss.GxB_TIMES_RMINUS_FP32)
-clib.TIMES_RMINUS_FP64.set_ss(ss.GxB_TIMES_RMINUS_FP64)
-clib.TIMES_RMINUS_INT16.set_ss(ss.GxB_TIMES_RMINUS_INT16)
-clib.TIMES_RMINUS_INT32.set_ss(ss.GxB_TIMES_RMINUS_INT32)
-clib.TIMES_RMINUS_INT64.set_ss(ss.GxB_TIMES_RMINUS_INT64)
-clib.TIMES_RMINUS_INT8.set_ss(ss.GxB_TIMES_RMINUS_INT8)
-clib.TIMES_RMINUS_UINT16.set_ss(ss.GxB_TIMES_RMINUS_UINT16)
-clib.TIMES_RMINUS_UINT32.set_ss(ss.GxB_TIMES_RMINUS_UINT32)
-clib.TIMES_RMINUS_UINT64.set_ss(ss.GxB_TIMES_RMINUS_UINT64)
-clib.TIMES_RMINUS_UINT8.set_ss(ss.GxB_TIMES_RMINUS_UINT8)
-clib.TIMES_SECOND_FC32.set_ss(ss.GxB_TIMES_SECOND_FC32)
-clib.TIMES_SECOND_FC64.set_ss(ss.GxB_TIMES_SECOND_FC64)
-clib.TIMES_SECOND_FP32.set_ss(ss.GxB_TIMES_SECOND_FP32)
-clib.TIMES_SECOND_FP64.set_ss(ss.GxB_TIMES_SECOND_FP64)
-clib.TIMES_SECOND_INT16.set_ss(ss.GxB_TIMES_SECOND_INT16)
-clib.TIMES_SECOND_INT32.set_ss(ss.GxB_TIMES_SECOND_INT32)
-clib.TIMES_SECOND_INT64.set_ss(ss.GxB_TIMES_SECOND_INT64)
-clib.TIMES_SECOND_INT8.set_ss(ss.GxB_TIMES_SECOND_INT8)
-clib.TIMES_SECOND_UINT16.set_ss(ss.GxB_TIMES_SECOND_UINT16)
-clib.TIMES_SECOND_UINT32.set_ss(ss.GxB_TIMES_SECOND_UINT32)
-clib.TIMES_SECOND_UINT64.set_ss(ss.GxB_TIMES_SECOND_UINT64)
-clib.TIMES_SECOND_UINT8.set_ss(ss.GxB_TIMES_SECOND_UINT8)
-clib.TIMES_TIMES_FC32.set_ss(ss.GxB_TIMES_TIMES_FC32)
-clib.TIMES_TIMES_FC64.set_ss(ss.GxB_TIMES_TIMES_FC64)
-clib.TIMES_TIMES_FP32.set_ss(ss.GxB_TIMES_TIMES_FP32)
-clib.TIMES_TIMES_FP64.set_ss(ss.GxB_TIMES_TIMES_FP64)
-clib.TIMES_TIMES_INT16.set_ss(ss.GxB_TIMES_TIMES_INT16)
-clib.TIMES_TIMES_INT32.set_ss(ss.GxB_TIMES_TIMES_INT32)
-clib.TIMES_TIMES_INT64.set_ss(ss.GxB_TIMES_TIMES_INT64)
-clib.TIMES_TIMES_INT8.set_ss(ss.GxB_TIMES_TIMES_INT8)
-clib.TIMES_TIMES_UINT16.set_ss(ss.GxB_TIMES_TIMES_UINT16)
-clib.TIMES_TIMES_UINT32.set_ss(ss.GxB_TIMES_TIMES_UINT32)
-clib.TIMES_TIMES_UINT64.set_ss(ss.GxB_TIMES_TIMES_UINT64)
-clib.TIMES_TIMES_UINT8.set_ss(ss.GxB_TIMES_TIMES_UINT8)
+clib.ANY_DIV_FC32.ss_obj = ss.GxB_ANY_DIV_FC32
+clib.ANY_DIV_FC64.ss_obj = ss.GxB_ANY_DIV_FC64
+clib.ANY_DIV_FP32.ss_obj = ss.GxB_ANY_DIV_FP32
+clib.ANY_DIV_FP64.ss_obj = ss.GxB_ANY_DIV_FP64
+clib.ANY_DIV_INT16.ss_obj = ss.GxB_ANY_DIV_INT16
+clib.ANY_DIV_INT32.ss_obj = ss.GxB_ANY_DIV_INT32
+clib.ANY_DIV_INT64.ss_obj = ss.GxB_ANY_DIV_INT64
+clib.ANY_DIV_INT8.ss_obj = ss.GxB_ANY_DIV_INT8
+clib.ANY_DIV_UINT16.ss_obj = ss.GxB_ANY_DIV_UINT16
+clib.ANY_DIV_UINT32.ss_obj = ss.GxB_ANY_DIV_UINT32
+clib.ANY_DIV_UINT64.ss_obj = ss.GxB_ANY_DIV_UINT64
+clib.ANY_DIV_UINT8.ss_obj = ss.GxB_ANY_DIV_UINT8
+clib.ANY_EQ_BOOL.ss_obj = ss.GxB_ANY_EQ_BOOL
+clib.ANY_EQ_FP32.ss_obj = ss.GxB_ANY_EQ_FP32
+clib.ANY_EQ_FP64.ss_obj = ss.GxB_ANY_EQ_FP64
+clib.ANY_EQ_INT16.ss_obj = ss.GxB_ANY_EQ_INT16
+clib.ANY_EQ_INT32.ss_obj = ss.GxB_ANY_EQ_INT32
+clib.ANY_EQ_INT64.ss_obj = ss.GxB_ANY_EQ_INT64
+clib.ANY_EQ_INT8.ss_obj = ss.GxB_ANY_EQ_INT8
+clib.ANY_EQ_UINT16.ss_obj = ss.GxB_ANY_EQ_UINT16
+clib.ANY_EQ_UINT32.ss_obj = ss.GxB_ANY_EQ_UINT32
+clib.ANY_EQ_UINT64.ss_obj = ss.GxB_ANY_EQ_UINT64
+clib.ANY_EQ_UINT8.ss_obj = ss.GxB_ANY_EQ_UINT8
+clib.ANY_FIRST_BOOL.ss_obj = ss.GxB_ANY_FIRST_BOOL
+clib.ANY_FIRST_FC32.ss_obj = ss.GxB_ANY_FIRST_FC32
+clib.ANY_FIRST_FC64.ss_obj = ss.GxB_ANY_FIRST_FC64
+clib.ANY_FIRST_FP32.ss_obj = ss.GxB_ANY_FIRST_FP32
+clib.ANY_FIRST_FP64.ss_obj = ss.GxB_ANY_FIRST_FP64
+clib.ANY_FIRST_INT16.ss_obj = ss.GxB_ANY_FIRST_INT16
+clib.ANY_FIRST_INT32.ss_obj = ss.GxB_ANY_FIRST_INT32
+clib.ANY_FIRST_INT64.ss_obj = ss.GxB_ANY_FIRST_INT64
+clib.ANY_FIRST_INT8.ss_obj = ss.GxB_ANY_FIRST_INT8
+clib.ANY_FIRST_UINT16.ss_obj = ss.GxB_ANY_FIRST_UINT16
+clib.ANY_FIRST_UINT32.ss_obj = ss.GxB_ANY_FIRST_UINT32
+clib.ANY_FIRST_UINT64.ss_obj = ss.GxB_ANY_FIRST_UINT64
+clib.ANY_FIRST_UINT8.ss_obj = ss.GxB_ANY_FIRST_UINT8
+clib.ANY_GE_BOOL.ss_obj = ss.GxB_ANY_GE_BOOL
+clib.ANY_GE_FP32.ss_obj = ss.GxB_ANY_GE_FP32
+clib.ANY_GE_FP64.ss_obj = ss.GxB_ANY_GE_FP64
+clib.ANY_GE_INT16.ss_obj = ss.GxB_ANY_GE_INT16
+clib.ANY_GE_INT32.ss_obj = ss.GxB_ANY_GE_INT32
+clib.ANY_GE_INT64.ss_obj = ss.GxB_ANY_GE_INT64
+clib.ANY_GE_INT8.ss_obj = ss.GxB_ANY_GE_INT8
+clib.ANY_GE_UINT16.ss_obj = ss.GxB_ANY_GE_UINT16
+clib.ANY_GE_UINT32.ss_obj = ss.GxB_ANY_GE_UINT32
+clib.ANY_GE_UINT64.ss_obj = ss.GxB_ANY_GE_UINT64
+clib.ANY_GE_UINT8.ss_obj = ss.GxB_ANY_GE_UINT8
+clib.ANY_GT_BOOL.ss_obj = ss.GxB_ANY_GT_BOOL
+clib.ANY_GT_FP32.ss_obj = ss.GxB_ANY_GT_FP32
+clib.ANY_GT_FP64.ss_obj = ss.GxB_ANY_GT_FP64
+clib.ANY_GT_INT16.ss_obj = ss.GxB_ANY_GT_INT16
+clib.ANY_GT_INT32.ss_obj = ss.GxB_ANY_GT_INT32
+clib.ANY_GT_INT64.ss_obj = ss.GxB_ANY_GT_INT64
+clib.ANY_GT_INT8.ss_obj = ss.GxB_ANY_GT_INT8
+clib.ANY_GT_UINT16.ss_obj = ss.GxB_ANY_GT_UINT16
+clib.ANY_GT_UINT32.ss_obj = ss.GxB_ANY_GT_UINT32
+clib.ANY_GT_UINT64.ss_obj = ss.GxB_ANY_GT_UINT64
+clib.ANY_GT_UINT8.ss_obj = ss.GxB_ANY_GT_UINT8
+clib.ANY_ISEQ_FP32.ss_obj = ss.GxB_ANY_ISEQ_FP32
+clib.ANY_ISEQ_FP64.ss_obj = ss.GxB_ANY_ISEQ_FP64
+clib.ANY_ISEQ_INT16.ss_obj = ss.GxB_ANY_ISEQ_INT16
+clib.ANY_ISEQ_INT32.ss_obj = ss.GxB_ANY_ISEQ_INT32
+clib.ANY_ISEQ_INT64.ss_obj = ss.GxB_ANY_ISEQ_INT64
+clib.ANY_ISEQ_INT8.ss_obj = ss.GxB_ANY_ISEQ_INT8
+clib.ANY_ISEQ_UINT16.ss_obj = ss.GxB_ANY_ISEQ_UINT16
+clib.ANY_ISEQ_UINT32.ss_obj = ss.GxB_ANY_ISEQ_UINT32
+clib.ANY_ISEQ_UINT64.ss_obj = ss.GxB_ANY_ISEQ_UINT64
+clib.ANY_ISEQ_UINT8.ss_obj = ss.GxB_ANY_ISEQ_UINT8
+clib.ANY_ISGE_FP32.ss_obj = ss.GxB_ANY_ISGE_FP32
+clib.ANY_ISGE_FP64.ss_obj = ss.GxB_ANY_ISGE_FP64
+clib.ANY_ISGE_INT16.ss_obj = ss.GxB_ANY_ISGE_INT16
+clib.ANY_ISGE_INT32.ss_obj = ss.GxB_ANY_ISGE_INT32
+clib.ANY_ISGE_INT64.ss_obj = ss.GxB_ANY_ISGE_INT64
+clib.ANY_ISGE_INT8.ss_obj = ss.GxB_ANY_ISGE_INT8
+clib.ANY_ISGE_UINT16.ss_obj = ss.GxB_ANY_ISGE_UINT16
+clib.ANY_ISGE_UINT32.ss_obj = ss.GxB_ANY_ISGE_UINT32
+clib.ANY_ISGE_UINT64.ss_obj = ss.GxB_ANY_ISGE_UINT64
+clib.ANY_ISGE_UINT8.ss_obj = ss.GxB_ANY_ISGE_UINT8
+clib.ANY_ISGT_FP32.ss_obj = ss.GxB_ANY_ISGT_FP32
+clib.ANY_ISGT_FP64.ss_obj = ss.GxB_ANY_ISGT_FP64
+clib.ANY_ISGT_INT16.ss_obj = ss.GxB_ANY_ISGT_INT16
+clib.ANY_ISGT_INT32.ss_obj = ss.GxB_ANY_ISGT_INT32
+clib.ANY_ISGT_INT64.ss_obj = ss.GxB_ANY_ISGT_INT64
+clib.ANY_ISGT_INT8.ss_obj = ss.GxB_ANY_ISGT_INT8
+clib.ANY_ISGT_UINT16.ss_obj = ss.GxB_ANY_ISGT_UINT16
+clib.ANY_ISGT_UINT32.ss_obj = ss.GxB_ANY_ISGT_UINT32
+clib.ANY_ISGT_UINT64.ss_obj = ss.GxB_ANY_ISGT_UINT64
+clib.ANY_ISGT_UINT8.ss_obj = ss.GxB_ANY_ISGT_UINT8
+clib.ANY_ISLE_FP32.ss_obj = ss.GxB_ANY_ISLE_FP32
+clib.ANY_ISLE_FP64.ss_obj = ss.GxB_ANY_ISLE_FP64
+clib.ANY_ISLE_INT16.ss_obj = ss.GxB_ANY_ISLE_INT16
+clib.ANY_ISLE_INT32.ss_obj = ss.GxB_ANY_ISLE_INT32
+clib.ANY_ISLE_INT64.ss_obj = ss.GxB_ANY_ISLE_INT64
+clib.ANY_ISLE_INT8.ss_obj = ss.GxB_ANY_ISLE_INT8
+clib.ANY_ISLE_UINT16.ss_obj = ss.GxB_ANY_ISLE_UINT16
+clib.ANY_ISLE_UINT32.ss_obj = ss.GxB_ANY_ISLE_UINT32
+clib.ANY_ISLE_UINT64.ss_obj = ss.GxB_ANY_ISLE_UINT64
+clib.ANY_ISLE_UINT8.ss_obj = ss.GxB_ANY_ISLE_UINT8
+clib.ANY_ISLT_FP32.ss_obj = ss.GxB_ANY_ISLT_FP32
+clib.ANY_ISLT_FP64.ss_obj = ss.GxB_ANY_ISLT_FP64
+clib.ANY_ISLT_INT16.ss_obj = ss.GxB_ANY_ISLT_INT16
+clib.ANY_ISLT_INT32.ss_obj = ss.GxB_ANY_ISLT_INT32
+clib.ANY_ISLT_INT64.ss_obj = ss.GxB_ANY_ISLT_INT64
+clib.ANY_ISLT_INT8.ss_obj = ss.GxB_ANY_ISLT_INT8
+clib.ANY_ISLT_UINT16.ss_obj = ss.GxB_ANY_ISLT_UINT16
+clib.ANY_ISLT_UINT32.ss_obj = ss.GxB_ANY_ISLT_UINT32
+clib.ANY_ISLT_UINT64.ss_obj = ss.GxB_ANY_ISLT_UINT64
+clib.ANY_ISLT_UINT8.ss_obj = ss.GxB_ANY_ISLT_UINT8
+clib.ANY_ISNE_FP32.ss_obj = ss.GxB_ANY_ISNE_FP32
+clib.ANY_ISNE_FP64.ss_obj = ss.GxB_ANY_ISNE_FP64
+clib.ANY_ISNE_INT16.ss_obj = ss.GxB_ANY_ISNE_INT16
+clib.ANY_ISNE_INT32.ss_obj = ss.GxB_ANY_ISNE_INT32
+clib.ANY_ISNE_INT64.ss_obj = ss.GxB_ANY_ISNE_INT64
+clib.ANY_ISNE_INT8.ss_obj = ss.GxB_ANY_ISNE_INT8
+clib.ANY_ISNE_UINT16.ss_obj = ss.GxB_ANY_ISNE_UINT16
+clib.ANY_ISNE_UINT32.ss_obj = ss.GxB_ANY_ISNE_UINT32
+clib.ANY_ISNE_UINT64.ss_obj = ss.GxB_ANY_ISNE_UINT64
+clib.ANY_ISNE_UINT8.ss_obj = ss.GxB_ANY_ISNE_UINT8
+clib.ANY_LAND_BOOL.ss_obj = ss.GxB_ANY_LAND_BOOL
+clib.ANY_LAND_FP32.ss_obj = ss.GxB_ANY_LAND_FP32
+clib.ANY_LAND_FP64.ss_obj = ss.GxB_ANY_LAND_FP64
+clib.ANY_LAND_INT16.ss_obj = ss.GxB_ANY_LAND_INT16
+clib.ANY_LAND_INT32.ss_obj = ss.GxB_ANY_LAND_INT32
+clib.ANY_LAND_INT64.ss_obj = ss.GxB_ANY_LAND_INT64
+clib.ANY_LAND_INT8.ss_obj = ss.GxB_ANY_LAND_INT8
+clib.ANY_LAND_UINT16.ss_obj = ss.GxB_ANY_LAND_UINT16
+clib.ANY_LAND_UINT32.ss_obj = ss.GxB_ANY_LAND_UINT32
+clib.ANY_LAND_UINT64.ss_obj = ss.GxB_ANY_LAND_UINT64
+clib.ANY_LAND_UINT8.ss_obj = ss.GxB_ANY_LAND_UINT8
+clib.ANY_LE_BOOL.ss_obj = ss.GxB_ANY_LE_BOOL
+clib.ANY_LE_FP32.ss_obj = ss.GxB_ANY_LE_FP32
+clib.ANY_LE_FP64.ss_obj = ss.GxB_ANY_LE_FP64
+clib.ANY_LE_INT16.ss_obj = ss.GxB_ANY_LE_INT16
+clib.ANY_LE_INT32.ss_obj = ss.GxB_ANY_LE_INT32
+clib.ANY_LE_INT64.ss_obj = ss.GxB_ANY_LE_INT64
+clib.ANY_LE_INT8.ss_obj = ss.GxB_ANY_LE_INT8
+clib.ANY_LE_UINT16.ss_obj = ss.GxB_ANY_LE_UINT16
+clib.ANY_LE_UINT32.ss_obj = ss.GxB_ANY_LE_UINT32
+clib.ANY_LE_UINT64.ss_obj = ss.GxB_ANY_LE_UINT64
+clib.ANY_LE_UINT8.ss_obj = ss.GxB_ANY_LE_UINT8
+clib.ANY_LOR_BOOL.ss_obj = ss.GxB_ANY_LOR_BOOL
+clib.ANY_LOR_FP32.ss_obj = ss.GxB_ANY_LOR_FP32
+clib.ANY_LOR_FP64.ss_obj = ss.GxB_ANY_LOR_FP64
+clib.ANY_LOR_INT16.ss_obj = ss.GxB_ANY_LOR_INT16
+clib.ANY_LOR_INT32.ss_obj = ss.GxB_ANY_LOR_INT32
+clib.ANY_LOR_INT64.ss_obj = ss.GxB_ANY_LOR_INT64
+clib.ANY_LOR_INT8.ss_obj = ss.GxB_ANY_LOR_INT8
+clib.ANY_LOR_UINT16.ss_obj = ss.GxB_ANY_LOR_UINT16
+clib.ANY_LOR_UINT32.ss_obj = ss.GxB_ANY_LOR_UINT32
+clib.ANY_LOR_UINT64.ss_obj = ss.GxB_ANY_LOR_UINT64
+clib.ANY_LOR_UINT8.ss_obj = ss.GxB_ANY_LOR_UINT8
+clib.ANY_LT_BOOL.ss_obj = ss.GxB_ANY_LT_BOOL
+clib.ANY_LT_FP32.ss_obj = ss.GxB_ANY_LT_FP32
+clib.ANY_LT_FP64.ss_obj = ss.GxB_ANY_LT_FP64
+clib.ANY_LT_INT16.ss_obj = ss.GxB_ANY_LT_INT16
+clib.ANY_LT_INT32.ss_obj = ss.GxB_ANY_LT_INT32
+clib.ANY_LT_INT64.ss_obj = ss.GxB_ANY_LT_INT64
+clib.ANY_LT_INT8.ss_obj = ss.GxB_ANY_LT_INT8
+clib.ANY_LT_UINT16.ss_obj = ss.GxB_ANY_LT_UINT16
+clib.ANY_LT_UINT32.ss_obj = ss.GxB_ANY_LT_UINT32
+clib.ANY_LT_UINT64.ss_obj = ss.GxB_ANY_LT_UINT64
+clib.ANY_LT_UINT8.ss_obj = ss.GxB_ANY_LT_UINT8
+clib.ANY_LXOR_BOOL.ss_obj = ss.GxB_ANY_LXOR_BOOL
+clib.ANY_LXOR_FP32.ss_obj = ss.GxB_ANY_LXOR_FP32
+clib.ANY_LXOR_FP64.ss_obj = ss.GxB_ANY_LXOR_FP64
+clib.ANY_LXOR_INT16.ss_obj = ss.GxB_ANY_LXOR_INT16
+clib.ANY_LXOR_INT32.ss_obj = ss.GxB_ANY_LXOR_INT32
+clib.ANY_LXOR_INT64.ss_obj = ss.GxB_ANY_LXOR_INT64
+clib.ANY_LXOR_INT8.ss_obj = ss.GxB_ANY_LXOR_INT8
+clib.ANY_LXOR_UINT16.ss_obj = ss.GxB_ANY_LXOR_UINT16
+clib.ANY_LXOR_UINT32.ss_obj = ss.GxB_ANY_LXOR_UINT32
+clib.ANY_LXOR_UINT64.ss_obj = ss.GxB_ANY_LXOR_UINT64
+clib.ANY_LXOR_UINT8.ss_obj = ss.GxB_ANY_LXOR_UINT8
+clib.ANY_MAX_FP32.ss_obj = ss.GxB_ANY_MAX_FP32
+clib.ANY_MAX_FP64.ss_obj = ss.GxB_ANY_MAX_FP64
+clib.ANY_MAX_INT16.ss_obj = ss.GxB_ANY_MAX_INT16
+clib.ANY_MAX_INT32.ss_obj = ss.GxB_ANY_MAX_INT32
+clib.ANY_MAX_INT64.ss_obj = ss.GxB_ANY_MAX_INT64
+clib.ANY_MAX_INT8.ss_obj = ss.GxB_ANY_MAX_INT8
+clib.ANY_MAX_UINT16.ss_obj = ss.GxB_ANY_MAX_UINT16
+clib.ANY_MAX_UINT32.ss_obj = ss.GxB_ANY_MAX_UINT32
+clib.ANY_MAX_UINT64.ss_obj = ss.GxB_ANY_MAX_UINT64
+clib.ANY_MAX_UINT8.ss_obj = ss.GxB_ANY_MAX_UINT8
+clib.ANY_MINUS_FC32.ss_obj = ss.GxB_ANY_MINUS_FC32
+clib.ANY_MINUS_FC64.ss_obj = ss.GxB_ANY_MINUS_FC64
+clib.ANY_MINUS_FP32.ss_obj = ss.GxB_ANY_MINUS_FP32
+clib.ANY_MINUS_FP64.ss_obj = ss.GxB_ANY_MINUS_FP64
+clib.ANY_MINUS_INT16.ss_obj = ss.GxB_ANY_MINUS_INT16
+clib.ANY_MINUS_INT32.ss_obj = ss.GxB_ANY_MINUS_INT32
+clib.ANY_MINUS_INT64.ss_obj = ss.GxB_ANY_MINUS_INT64
+clib.ANY_MINUS_INT8.ss_obj = ss.GxB_ANY_MINUS_INT8
+clib.ANY_MINUS_UINT16.ss_obj = ss.GxB_ANY_MINUS_UINT16
+clib.ANY_MINUS_UINT32.ss_obj = ss.GxB_ANY_MINUS_UINT32
+clib.ANY_MINUS_UINT64.ss_obj = ss.GxB_ANY_MINUS_UINT64
+clib.ANY_MINUS_UINT8.ss_obj = ss.GxB_ANY_MINUS_UINT8
+clib.ANY_MIN_FP32.ss_obj = ss.GxB_ANY_MIN_FP32
+clib.ANY_MIN_FP64.ss_obj = ss.GxB_ANY_MIN_FP64
+clib.ANY_MIN_INT16.ss_obj = ss.GxB_ANY_MIN_INT16
+clib.ANY_MIN_INT32.ss_obj = ss.GxB_ANY_MIN_INT32
+clib.ANY_MIN_INT64.ss_obj = ss.GxB_ANY_MIN_INT64
+clib.ANY_MIN_INT8.ss_obj = ss.GxB_ANY_MIN_INT8
+clib.ANY_MIN_UINT16.ss_obj = ss.GxB_ANY_MIN_UINT16
+clib.ANY_MIN_UINT32.ss_obj = ss.GxB_ANY_MIN_UINT32
+clib.ANY_MIN_UINT64.ss_obj = ss.GxB_ANY_MIN_UINT64
+clib.ANY_MIN_UINT8.ss_obj = ss.GxB_ANY_MIN_UINT8
+clib.ANY_NE_FP32.ss_obj = ss.GxB_ANY_NE_FP32
+clib.ANY_NE_FP64.ss_obj = ss.GxB_ANY_NE_FP64
+clib.ANY_NE_INT16.ss_obj = ss.GxB_ANY_NE_INT16
+clib.ANY_NE_INT32.ss_obj = ss.GxB_ANY_NE_INT32
+clib.ANY_NE_INT64.ss_obj = ss.GxB_ANY_NE_INT64
+clib.ANY_NE_INT8.ss_obj = ss.GxB_ANY_NE_INT8
+clib.ANY_NE_UINT16.ss_obj = ss.GxB_ANY_NE_UINT16
+clib.ANY_NE_UINT32.ss_obj = ss.GxB_ANY_NE_UINT32
+clib.ANY_NE_UINT64.ss_obj = ss.GxB_ANY_NE_UINT64
+clib.ANY_NE_UINT8.ss_obj = ss.GxB_ANY_NE_UINT8
+clib.ANY_PAIR_BOOL.ss_obj = ss.GxB_ANY_PAIR_BOOL
+clib.ANY_PAIR_FC32.ss_obj = ss.GxB_ANY_PAIR_FC32
+clib.ANY_PAIR_FC64.ss_obj = ss.GxB_ANY_PAIR_FC64
+clib.ANY_PAIR_FP32.ss_obj = ss.GxB_ANY_PAIR_FP32
+clib.ANY_PAIR_FP64.ss_obj = ss.GxB_ANY_PAIR_FP64
+clib.ANY_PAIR_INT16.ss_obj = ss.GxB_ANY_PAIR_INT16
+clib.ANY_PAIR_INT32.ss_obj = ss.GxB_ANY_PAIR_INT32
+clib.ANY_PAIR_INT64.ss_obj = ss.GxB_ANY_PAIR_INT64
+clib.ANY_PAIR_INT8.ss_obj = ss.GxB_ANY_PAIR_INT8
+clib.ANY_PAIR_UINT16.ss_obj = ss.GxB_ANY_PAIR_UINT16
+clib.ANY_PAIR_UINT32.ss_obj = ss.GxB_ANY_PAIR_UINT32
+clib.ANY_PAIR_UINT64.ss_obj = ss.GxB_ANY_PAIR_UINT64
+clib.ANY_PAIR_UINT8.ss_obj = ss.GxB_ANY_PAIR_UINT8
+clib.ANY_PLUS_FC32.ss_obj = ss.GxB_ANY_PLUS_FC32
+clib.ANY_PLUS_FC64.ss_obj = ss.GxB_ANY_PLUS_FC64
+clib.ANY_PLUS_FP32.ss_obj = ss.GxB_ANY_PLUS_FP32
+clib.ANY_PLUS_FP64.ss_obj = ss.GxB_ANY_PLUS_FP64
+clib.ANY_PLUS_INT16.ss_obj = ss.GxB_ANY_PLUS_INT16
+clib.ANY_PLUS_INT32.ss_obj = ss.GxB_ANY_PLUS_INT32
+clib.ANY_PLUS_INT64.ss_obj = ss.GxB_ANY_PLUS_INT64
+clib.ANY_PLUS_INT8.ss_obj = ss.GxB_ANY_PLUS_INT8
+clib.ANY_PLUS_UINT16.ss_obj = ss.GxB_ANY_PLUS_UINT16
+clib.ANY_PLUS_UINT32.ss_obj = ss.GxB_ANY_PLUS_UINT32
+clib.ANY_PLUS_UINT64.ss_obj = ss.GxB_ANY_PLUS_UINT64
+clib.ANY_PLUS_UINT8.ss_obj = ss.GxB_ANY_PLUS_UINT8
+clib.ANY_RDIV_FC32.ss_obj = ss.GxB_ANY_RDIV_FC32
+clib.ANY_RDIV_FC64.ss_obj = ss.GxB_ANY_RDIV_FC64
+clib.ANY_RDIV_FP32.ss_obj = ss.GxB_ANY_RDIV_FP32
+clib.ANY_RDIV_FP64.ss_obj = ss.GxB_ANY_RDIV_FP64
+clib.ANY_RDIV_INT16.ss_obj = ss.GxB_ANY_RDIV_INT16
+clib.ANY_RDIV_INT32.ss_obj = ss.GxB_ANY_RDIV_INT32
+clib.ANY_RDIV_INT64.ss_obj = ss.GxB_ANY_RDIV_INT64
+clib.ANY_RDIV_INT8.ss_obj = ss.GxB_ANY_RDIV_INT8
+clib.ANY_RDIV_UINT16.ss_obj = ss.GxB_ANY_RDIV_UINT16
+clib.ANY_RDIV_UINT32.ss_obj = ss.GxB_ANY_RDIV_UINT32
+clib.ANY_RDIV_UINT64.ss_obj = ss.GxB_ANY_RDIV_UINT64
+clib.ANY_RDIV_UINT8.ss_obj = ss.GxB_ANY_RDIV_UINT8
+clib.ANY_RMINUS_FC32.ss_obj = ss.GxB_ANY_RMINUS_FC32
+clib.ANY_RMINUS_FC64.ss_obj = ss.GxB_ANY_RMINUS_FC64
+clib.ANY_RMINUS_FP32.ss_obj = ss.GxB_ANY_RMINUS_FP32
+clib.ANY_RMINUS_FP64.ss_obj = ss.GxB_ANY_RMINUS_FP64
+clib.ANY_RMINUS_INT16.ss_obj = ss.GxB_ANY_RMINUS_INT16
+clib.ANY_RMINUS_INT32.ss_obj = ss.GxB_ANY_RMINUS_INT32
+clib.ANY_RMINUS_INT64.ss_obj = ss.GxB_ANY_RMINUS_INT64
+clib.ANY_RMINUS_INT8.ss_obj = ss.GxB_ANY_RMINUS_INT8
+clib.ANY_RMINUS_UINT16.ss_obj = ss.GxB_ANY_RMINUS_UINT16
+clib.ANY_RMINUS_UINT32.ss_obj = ss.GxB_ANY_RMINUS_UINT32
+clib.ANY_RMINUS_UINT64.ss_obj = ss.GxB_ANY_RMINUS_UINT64
+clib.ANY_RMINUS_UINT8.ss_obj = ss.GxB_ANY_RMINUS_UINT8
+clib.ANY_SECOND_BOOL.ss_obj = ss.GxB_ANY_SECOND_BOOL
+clib.ANY_SECOND_FC32.ss_obj = ss.GxB_ANY_SECOND_FC32
+clib.ANY_SECOND_FC64.ss_obj = ss.GxB_ANY_SECOND_FC64
+clib.ANY_SECOND_FP32.ss_obj = ss.GxB_ANY_SECOND_FP32
+clib.ANY_SECOND_FP64.ss_obj = ss.GxB_ANY_SECOND_FP64
+clib.ANY_SECOND_INT16.ss_obj = ss.GxB_ANY_SECOND_INT16
+clib.ANY_SECOND_INT32.ss_obj = ss.GxB_ANY_SECOND_INT32
+clib.ANY_SECOND_INT64.ss_obj = ss.GxB_ANY_SECOND_INT64
+clib.ANY_SECOND_INT8.ss_obj = ss.GxB_ANY_SECOND_INT8
+clib.ANY_SECOND_UINT16.ss_obj = ss.GxB_ANY_SECOND_UINT16
+clib.ANY_SECOND_UINT32.ss_obj = ss.GxB_ANY_SECOND_UINT32
+clib.ANY_SECOND_UINT64.ss_obj = ss.GxB_ANY_SECOND_UINT64
+clib.ANY_SECOND_UINT8.ss_obj = ss.GxB_ANY_SECOND_UINT8
+clib.ANY_TIMES_FC32.ss_obj = ss.GxB_ANY_TIMES_FC32
+clib.ANY_TIMES_FC64.ss_obj = ss.GxB_ANY_TIMES_FC64
+clib.ANY_TIMES_FP32.ss_obj = ss.GxB_ANY_TIMES_FP32
+clib.ANY_TIMES_FP64.ss_obj = ss.GxB_ANY_TIMES_FP64
+clib.ANY_TIMES_INT16.ss_obj = ss.GxB_ANY_TIMES_INT16
+clib.ANY_TIMES_INT32.ss_obj = ss.GxB_ANY_TIMES_INT32
+clib.ANY_TIMES_INT64.ss_obj = ss.GxB_ANY_TIMES_INT64
+clib.ANY_TIMES_INT8.ss_obj = ss.GxB_ANY_TIMES_INT8
+clib.ANY_TIMES_UINT16.ss_obj = ss.GxB_ANY_TIMES_UINT16
+clib.ANY_TIMES_UINT32.ss_obj = ss.GxB_ANY_TIMES_UINT32
+clib.ANY_TIMES_UINT64.ss_obj = ss.GxB_ANY_TIMES_UINT64
+clib.ANY_TIMES_UINT8.ss_obj = ss.GxB_ANY_TIMES_UINT8
+clib.BAND_BAND_UINT16.ss_obj = ss.GxB_BAND_BAND_UINT16
+clib.BAND_BAND_UINT32.ss_obj = ss.GxB_BAND_BAND_UINT32
+clib.BAND_BAND_UINT64.ss_obj = ss.GxB_BAND_BAND_UINT64
+clib.BAND_BAND_UINT8.ss_obj = ss.GxB_BAND_BAND_UINT8
+clib.BAND_BOR_UINT16.ss_obj = ss.GxB_BAND_BOR_UINT16
+clib.BAND_BOR_UINT32.ss_obj = ss.GxB_BAND_BOR_UINT32
+clib.BAND_BOR_UINT64.ss_obj = ss.GxB_BAND_BOR_UINT64
+clib.BAND_BOR_UINT8.ss_obj = ss.GxB_BAND_BOR_UINT8
+clib.BAND_BXNOR_UINT16.ss_obj = ss.GxB_BAND_BXNOR_UINT16
+clib.BAND_BXNOR_UINT32.ss_obj = ss.GxB_BAND_BXNOR_UINT32
+clib.BAND_BXNOR_UINT64.ss_obj = ss.GxB_BAND_BXNOR_UINT64
+clib.BAND_BXNOR_UINT8.ss_obj = ss.GxB_BAND_BXNOR_UINT8
+clib.BAND_BXOR_UINT16.ss_obj = ss.GxB_BAND_BXOR_UINT16
+clib.BAND_BXOR_UINT32.ss_obj = ss.GxB_BAND_BXOR_UINT32
+clib.BAND_BXOR_UINT64.ss_obj = ss.GxB_BAND_BXOR_UINT64
+clib.BAND_BXOR_UINT8.ss_obj = ss.GxB_BAND_BXOR_UINT8
+clib.BOR_BAND_UINT16.ss_obj = ss.GxB_BOR_BAND_UINT16
+clib.BOR_BAND_UINT32.ss_obj = ss.GxB_BOR_BAND_UINT32
+clib.BOR_BAND_UINT64.ss_obj = ss.GxB_BOR_BAND_UINT64
+clib.BOR_BAND_UINT8.ss_obj = ss.GxB_BOR_BAND_UINT8
+clib.BOR_BOR_UINT16.ss_obj = ss.GxB_BOR_BOR_UINT16
+clib.BOR_BOR_UINT32.ss_obj = ss.GxB_BOR_BOR_UINT32
+clib.BOR_BOR_UINT64.ss_obj = ss.GxB_BOR_BOR_UINT64
+clib.BOR_BOR_UINT8.ss_obj = ss.GxB_BOR_BOR_UINT8
+clib.BOR_BXNOR_UINT16.ss_obj = ss.GxB_BOR_BXNOR_UINT16
+clib.BOR_BXNOR_UINT32.ss_obj = ss.GxB_BOR_BXNOR_UINT32
+clib.BOR_BXNOR_UINT64.ss_obj = ss.GxB_BOR_BXNOR_UINT64
+clib.BOR_BXNOR_UINT8.ss_obj = ss.GxB_BOR_BXNOR_UINT8
+clib.BOR_BXOR_UINT16.ss_obj = ss.GxB_BOR_BXOR_UINT16
+clib.BOR_BXOR_UINT32.ss_obj = ss.GxB_BOR_BXOR_UINT32
+clib.BOR_BXOR_UINT64.ss_obj = ss.GxB_BOR_BXOR_UINT64
+clib.BOR_BXOR_UINT8.ss_obj = ss.GxB_BOR_BXOR_UINT8
+clib.BXNOR_BAND_UINT16.ss_obj = ss.GxB_BXNOR_BAND_UINT16
+clib.BXNOR_BAND_UINT32.ss_obj = ss.GxB_BXNOR_BAND_UINT32
+clib.BXNOR_BAND_UINT64.ss_obj = ss.GxB_BXNOR_BAND_UINT64
+clib.BXNOR_BAND_UINT8.ss_obj = ss.GxB_BXNOR_BAND_UINT8
+clib.BXNOR_BOR_UINT16.ss_obj = ss.GxB_BXNOR_BOR_UINT16
+clib.BXNOR_BOR_UINT32.ss_obj = ss.GxB_BXNOR_BOR_UINT32
+clib.BXNOR_BOR_UINT64.ss_obj = ss.GxB_BXNOR_BOR_UINT64
+clib.BXNOR_BOR_UINT8.ss_obj = ss.GxB_BXNOR_BOR_UINT8
+clib.BXNOR_BXNOR_UINT16.ss_obj = ss.GxB_BXNOR_BXNOR_UINT16
+clib.BXNOR_BXNOR_UINT32.ss_obj = ss.GxB_BXNOR_BXNOR_UINT32
+clib.BXNOR_BXNOR_UINT64.ss_obj = ss.GxB_BXNOR_BXNOR_UINT64
+clib.BXNOR_BXNOR_UINT8.ss_obj = ss.GxB_BXNOR_BXNOR_UINT8
+clib.BXNOR_BXOR_UINT16.ss_obj = ss.GxB_BXNOR_BXOR_UINT16
+clib.BXNOR_BXOR_UINT32.ss_obj = ss.GxB_BXNOR_BXOR_UINT32
+clib.BXNOR_BXOR_UINT64.ss_obj = ss.GxB_BXNOR_BXOR_UINT64
+clib.BXNOR_BXOR_UINT8.ss_obj = ss.GxB_BXNOR_BXOR_UINT8
+clib.BXOR_BAND_UINT16.ss_obj = ss.GxB_BXOR_BAND_UINT16
+clib.BXOR_BAND_UINT32.ss_obj = ss.GxB_BXOR_BAND_UINT32
+clib.BXOR_BAND_UINT64.ss_obj = ss.GxB_BXOR_BAND_UINT64
+clib.BXOR_BAND_UINT8.ss_obj = ss.GxB_BXOR_BAND_UINT8
+clib.BXOR_BOR_UINT16.ss_obj = ss.GxB_BXOR_BOR_UINT16
+clib.BXOR_BOR_UINT32.ss_obj = ss.GxB_BXOR_BOR_UINT32
+clib.BXOR_BOR_UINT64.ss_obj = ss.GxB_BXOR_BOR_UINT64
+clib.BXOR_BOR_UINT8.ss_obj = ss.GxB_BXOR_BOR_UINT8
+clib.BXOR_BXNOR_UINT16.ss_obj = ss.GxB_BXOR_BXNOR_UINT16
+clib.BXOR_BXNOR_UINT32.ss_obj = ss.GxB_BXOR_BXNOR_UINT32
+clib.BXOR_BXNOR_UINT64.ss_obj = ss.GxB_BXOR_BXNOR_UINT64
+clib.BXOR_BXNOR_UINT8.ss_obj = ss.GxB_BXOR_BXNOR_UINT8
+clib.BXOR_BXOR_UINT16.ss_obj = ss.GxB_BXOR_BXOR_UINT16
+clib.BXOR_BXOR_UINT32.ss_obj = ss.GxB_BXOR_BXOR_UINT32
+clib.BXOR_BXOR_UINT64.ss_obj = ss.GxB_BXOR_BXOR_UINT64
+clib.BXOR_BXOR_UINT8.ss_obj = ss.GxB_BXOR_BXOR_UINT8
+clib.EQ_EQ_BOOL.ss_obj = ss.GxB_EQ_EQ_BOOL
+clib.EQ_EQ_FP32.ss_obj = ss.GxB_EQ_EQ_FP32
+clib.EQ_EQ_FP64.ss_obj = ss.GxB_EQ_EQ_FP64
+clib.EQ_EQ_INT16.ss_obj = ss.GxB_EQ_EQ_INT16
+clib.EQ_EQ_INT32.ss_obj = ss.GxB_EQ_EQ_INT32
+clib.EQ_EQ_INT64.ss_obj = ss.GxB_EQ_EQ_INT64
+clib.EQ_EQ_INT8.ss_obj = ss.GxB_EQ_EQ_INT8
+clib.EQ_EQ_UINT16.ss_obj = ss.GxB_EQ_EQ_UINT16
+clib.EQ_EQ_UINT32.ss_obj = ss.GxB_EQ_EQ_UINT32
+clib.EQ_EQ_UINT64.ss_obj = ss.GxB_EQ_EQ_UINT64
+clib.EQ_EQ_UINT8.ss_obj = ss.GxB_EQ_EQ_UINT8
+clib.EQ_FIRST_BOOL.ss_obj = ss.GxB_EQ_FIRST_BOOL
+clib.EQ_GE_BOOL.ss_obj = ss.GxB_EQ_GE_BOOL
+clib.EQ_GE_FP32.ss_obj = ss.GxB_EQ_GE_FP32
+clib.EQ_GE_FP64.ss_obj = ss.GxB_EQ_GE_FP64
+clib.EQ_GE_INT16.ss_obj = ss.GxB_EQ_GE_INT16
+clib.EQ_GE_INT32.ss_obj = ss.GxB_EQ_GE_INT32
+clib.EQ_GE_INT64.ss_obj = ss.GxB_EQ_GE_INT64
+clib.EQ_GE_INT8.ss_obj = ss.GxB_EQ_GE_INT8
+clib.EQ_GE_UINT16.ss_obj = ss.GxB_EQ_GE_UINT16
+clib.EQ_GE_UINT32.ss_obj = ss.GxB_EQ_GE_UINT32
+clib.EQ_GE_UINT64.ss_obj = ss.GxB_EQ_GE_UINT64
+clib.EQ_GE_UINT8.ss_obj = ss.GxB_EQ_GE_UINT8
+clib.EQ_GT_BOOL.ss_obj = ss.GxB_EQ_GT_BOOL
+clib.EQ_GT_FP32.ss_obj = ss.GxB_EQ_GT_FP32
+clib.EQ_GT_FP64.ss_obj = ss.GxB_EQ_GT_FP64
+clib.EQ_GT_INT16.ss_obj = ss.GxB_EQ_GT_INT16
+clib.EQ_GT_INT32.ss_obj = ss.GxB_EQ_GT_INT32
+clib.EQ_GT_INT64.ss_obj = ss.GxB_EQ_GT_INT64
+clib.EQ_GT_INT8.ss_obj = ss.GxB_EQ_GT_INT8
+clib.EQ_GT_UINT16.ss_obj = ss.GxB_EQ_GT_UINT16
+clib.EQ_GT_UINT32.ss_obj = ss.GxB_EQ_GT_UINT32
+clib.EQ_GT_UINT64.ss_obj = ss.GxB_EQ_GT_UINT64
+clib.EQ_GT_UINT8.ss_obj = ss.GxB_EQ_GT_UINT8
+clib.EQ_LAND_BOOL.ss_obj = ss.GxB_EQ_LAND_BOOL
+clib.EQ_LE_BOOL.ss_obj = ss.GxB_EQ_LE_BOOL
+clib.EQ_LE_FP32.ss_obj = ss.GxB_EQ_LE_FP32
+clib.EQ_LE_FP64.ss_obj = ss.GxB_EQ_LE_FP64
+clib.EQ_LE_INT16.ss_obj = ss.GxB_EQ_LE_INT16
+clib.EQ_LE_INT32.ss_obj = ss.GxB_EQ_LE_INT32
+clib.EQ_LE_INT64.ss_obj = ss.GxB_EQ_LE_INT64
+clib.EQ_LE_INT8.ss_obj = ss.GxB_EQ_LE_INT8
+clib.EQ_LE_UINT16.ss_obj = ss.GxB_EQ_LE_UINT16
+clib.EQ_LE_UINT32.ss_obj = ss.GxB_EQ_LE_UINT32
+clib.EQ_LE_UINT64.ss_obj = ss.GxB_EQ_LE_UINT64
+clib.EQ_LE_UINT8.ss_obj = ss.GxB_EQ_LE_UINT8
+clib.EQ_LOR_BOOL.ss_obj = ss.GxB_EQ_LOR_BOOL
+clib.EQ_LT_BOOL.ss_obj = ss.GxB_EQ_LT_BOOL
+clib.EQ_LT_FP32.ss_obj = ss.GxB_EQ_LT_FP32
+clib.EQ_LT_FP64.ss_obj = ss.GxB_EQ_LT_FP64
+clib.EQ_LT_INT16.ss_obj = ss.GxB_EQ_LT_INT16
+clib.EQ_LT_INT32.ss_obj = ss.GxB_EQ_LT_INT32
+clib.EQ_LT_INT64.ss_obj = ss.GxB_EQ_LT_INT64
+clib.EQ_LT_INT8.ss_obj = ss.GxB_EQ_LT_INT8
+clib.EQ_LT_UINT16.ss_obj = ss.GxB_EQ_LT_UINT16
+clib.EQ_LT_UINT32.ss_obj = ss.GxB_EQ_LT_UINT32
+clib.EQ_LT_UINT64.ss_obj = ss.GxB_EQ_LT_UINT64
+clib.EQ_LT_UINT8.ss_obj = ss.GxB_EQ_LT_UINT8
+clib.EQ_LXOR_BOOL.ss_obj = ss.GxB_EQ_LXOR_BOOL
+clib.EQ_NE_FP32.ss_obj = ss.GxB_EQ_NE_FP32
+clib.EQ_NE_FP64.ss_obj = ss.GxB_EQ_NE_FP64
+clib.EQ_NE_INT16.ss_obj = ss.GxB_EQ_NE_INT16
+clib.EQ_NE_INT32.ss_obj = ss.GxB_EQ_NE_INT32
+clib.EQ_NE_INT64.ss_obj = ss.GxB_EQ_NE_INT64
+clib.EQ_NE_INT8.ss_obj = ss.GxB_EQ_NE_INT8
+clib.EQ_NE_UINT16.ss_obj = ss.GxB_EQ_NE_UINT16
+clib.EQ_NE_UINT32.ss_obj = ss.GxB_EQ_NE_UINT32
+clib.EQ_NE_UINT64.ss_obj = ss.GxB_EQ_NE_UINT64
+clib.EQ_NE_UINT8.ss_obj = ss.GxB_EQ_NE_UINT8
+clib.EQ_PAIR_BOOL.ss_obj = ss.GxB_EQ_PAIR_BOOL
+clib.EQ_SECOND_BOOL.ss_obj = ss.GxB_EQ_SECOND_BOOL
+clib.LAND_EQ_BOOL.ss_obj = ss.GxB_LAND_EQ_BOOL
+clib.LAND_EQ_FP32.ss_obj = ss.GxB_LAND_EQ_FP32
+clib.LAND_EQ_FP64.ss_obj = ss.GxB_LAND_EQ_FP64
+clib.LAND_EQ_INT16.ss_obj = ss.GxB_LAND_EQ_INT16
+clib.LAND_EQ_INT32.ss_obj = ss.GxB_LAND_EQ_INT32
+clib.LAND_EQ_INT64.ss_obj = ss.GxB_LAND_EQ_INT64
+clib.LAND_EQ_INT8.ss_obj = ss.GxB_LAND_EQ_INT8
+clib.LAND_EQ_UINT16.ss_obj = ss.GxB_LAND_EQ_UINT16
+clib.LAND_EQ_UINT32.ss_obj = ss.GxB_LAND_EQ_UINT32
+clib.LAND_EQ_UINT64.ss_obj = ss.GxB_LAND_EQ_UINT64
+clib.LAND_EQ_UINT8.ss_obj = ss.GxB_LAND_EQ_UINT8
+clib.LAND_FIRST_BOOL.ss_obj = ss.GxB_LAND_FIRST_BOOL
+clib.LAND_GE_BOOL.ss_obj = ss.GxB_LAND_GE_BOOL
+clib.LAND_GE_FP32.ss_obj = ss.GxB_LAND_GE_FP32
+clib.LAND_GE_FP64.ss_obj = ss.GxB_LAND_GE_FP64
+clib.LAND_GE_INT16.ss_obj = ss.GxB_LAND_GE_INT16
+clib.LAND_GE_INT32.ss_obj = ss.GxB_LAND_GE_INT32
+clib.LAND_GE_INT64.ss_obj = ss.GxB_LAND_GE_INT64
+clib.LAND_GE_INT8.ss_obj = ss.GxB_LAND_GE_INT8
+clib.LAND_GE_UINT16.ss_obj = ss.GxB_LAND_GE_UINT16
+clib.LAND_GE_UINT32.ss_obj = ss.GxB_LAND_GE_UINT32
+clib.LAND_GE_UINT64.ss_obj = ss.GxB_LAND_GE_UINT64
+clib.LAND_GE_UINT8.ss_obj = ss.GxB_LAND_GE_UINT8
+clib.LAND_GT_BOOL.ss_obj = ss.GxB_LAND_GT_BOOL
+clib.LAND_GT_FP32.ss_obj = ss.GxB_LAND_GT_FP32
+clib.LAND_GT_FP64.ss_obj = ss.GxB_LAND_GT_FP64
+clib.LAND_GT_INT16.ss_obj = ss.GxB_LAND_GT_INT16
+clib.LAND_GT_INT32.ss_obj = ss.GxB_LAND_GT_INT32
+clib.LAND_GT_INT64.ss_obj = ss.GxB_LAND_GT_INT64
+clib.LAND_GT_INT8.ss_obj = ss.GxB_LAND_GT_INT8
+clib.LAND_GT_UINT16.ss_obj = ss.GxB_LAND_GT_UINT16
+clib.LAND_GT_UINT32.ss_obj = ss.GxB_LAND_GT_UINT32
+clib.LAND_GT_UINT64.ss_obj = ss.GxB_LAND_GT_UINT64
+clib.LAND_GT_UINT8.ss_obj = ss.GxB_LAND_GT_UINT8
+clib.LAND_LAND_BOOL.ss_obj = ss.GxB_LAND_LAND_BOOL
+clib.LAND_LE_BOOL.ss_obj = ss.GxB_LAND_LE_BOOL
+clib.LAND_LE_FP32.ss_obj = ss.GxB_LAND_LE_FP32
+clib.LAND_LE_FP64.ss_obj = ss.GxB_LAND_LE_FP64
+clib.LAND_LE_INT16.ss_obj = ss.GxB_LAND_LE_INT16
+clib.LAND_LE_INT32.ss_obj = ss.GxB_LAND_LE_INT32
+clib.LAND_LE_INT64.ss_obj = ss.GxB_LAND_LE_INT64
+clib.LAND_LE_INT8.ss_obj = ss.GxB_LAND_LE_INT8
+clib.LAND_LE_UINT16.ss_obj = ss.GxB_LAND_LE_UINT16
+clib.LAND_LE_UINT32.ss_obj = ss.GxB_LAND_LE_UINT32
+clib.LAND_LE_UINT64.ss_obj = ss.GxB_LAND_LE_UINT64
+clib.LAND_LE_UINT8.ss_obj = ss.GxB_LAND_LE_UINT8
+clib.LAND_LOR_BOOL.ss_obj = ss.GxB_LAND_LOR_BOOL
+clib.LAND_LT_BOOL.ss_obj = ss.GxB_LAND_LT_BOOL
+clib.LAND_LT_FP32.ss_obj = ss.GxB_LAND_LT_FP32
+clib.LAND_LT_FP64.ss_obj = ss.GxB_LAND_LT_FP64
+clib.LAND_LT_INT16.ss_obj = ss.GxB_LAND_LT_INT16
+clib.LAND_LT_INT32.ss_obj = ss.GxB_LAND_LT_INT32
+clib.LAND_LT_INT64.ss_obj = ss.GxB_LAND_LT_INT64
+clib.LAND_LT_INT8.ss_obj = ss.GxB_LAND_LT_INT8
+clib.LAND_LT_UINT16.ss_obj = ss.GxB_LAND_LT_UINT16
+clib.LAND_LT_UINT32.ss_obj = ss.GxB_LAND_LT_UINT32
+clib.LAND_LT_UINT64.ss_obj = ss.GxB_LAND_LT_UINT64
+clib.LAND_LT_UINT8.ss_obj = ss.GxB_LAND_LT_UINT8
+clib.LAND_LXOR_BOOL.ss_obj = ss.GxB_LAND_LXOR_BOOL
+clib.LAND_NE_FP32.ss_obj = ss.GxB_LAND_NE_FP32
+clib.LAND_NE_FP64.ss_obj = ss.GxB_LAND_NE_FP64
+clib.LAND_NE_INT16.ss_obj = ss.GxB_LAND_NE_INT16
+clib.LAND_NE_INT32.ss_obj = ss.GxB_LAND_NE_INT32
+clib.LAND_NE_INT64.ss_obj = ss.GxB_LAND_NE_INT64
+clib.LAND_NE_INT8.ss_obj = ss.GxB_LAND_NE_INT8
+clib.LAND_NE_UINT16.ss_obj = ss.GxB_LAND_NE_UINT16
+clib.LAND_NE_UINT32.ss_obj = ss.GxB_LAND_NE_UINT32
+clib.LAND_NE_UINT64.ss_obj = ss.GxB_LAND_NE_UINT64
+clib.LAND_NE_UINT8.ss_obj = ss.GxB_LAND_NE_UINT8
+clib.LAND_PAIR_BOOL.ss_obj = ss.GxB_LAND_PAIR_BOOL
+clib.LAND_SECOND_BOOL.ss_obj = ss.GxB_LAND_SECOND_BOOL
+clib.LOR_EQ_BOOL.ss_obj = ss.GxB_LOR_EQ_BOOL
+clib.LOR_EQ_FP32.ss_obj = ss.GxB_LOR_EQ_FP32
+clib.LOR_EQ_FP64.ss_obj = ss.GxB_LOR_EQ_FP64
+clib.LOR_EQ_INT16.ss_obj = ss.GxB_LOR_EQ_INT16
+clib.LOR_EQ_INT32.ss_obj = ss.GxB_LOR_EQ_INT32
+clib.LOR_EQ_INT64.ss_obj = ss.GxB_LOR_EQ_INT64
+clib.LOR_EQ_INT8.ss_obj = ss.GxB_LOR_EQ_INT8
+clib.LOR_EQ_UINT16.ss_obj = ss.GxB_LOR_EQ_UINT16
+clib.LOR_EQ_UINT32.ss_obj = ss.GxB_LOR_EQ_UINT32
+clib.LOR_EQ_UINT64.ss_obj = ss.GxB_LOR_EQ_UINT64
+clib.LOR_EQ_UINT8.ss_obj = ss.GxB_LOR_EQ_UINT8
+clib.LOR_FIRST_BOOL.ss_obj = ss.GxB_LOR_FIRST_BOOL
+clib.LOR_GE_BOOL.ss_obj = ss.GxB_LOR_GE_BOOL
+clib.LOR_GE_FP32.ss_obj = ss.GxB_LOR_GE_FP32
+clib.LOR_GE_FP64.ss_obj = ss.GxB_LOR_GE_FP64
+clib.LOR_GE_INT16.ss_obj = ss.GxB_LOR_GE_INT16
+clib.LOR_GE_INT32.ss_obj = ss.GxB_LOR_GE_INT32
+clib.LOR_GE_INT64.ss_obj = ss.GxB_LOR_GE_INT64
+clib.LOR_GE_INT8.ss_obj = ss.GxB_LOR_GE_INT8
+clib.LOR_GE_UINT16.ss_obj = ss.GxB_LOR_GE_UINT16
+clib.LOR_GE_UINT32.ss_obj = ss.GxB_LOR_GE_UINT32
+clib.LOR_GE_UINT64.ss_obj = ss.GxB_LOR_GE_UINT64
+clib.LOR_GE_UINT8.ss_obj = ss.GxB_LOR_GE_UINT8
+clib.LOR_GT_BOOL.ss_obj = ss.GxB_LOR_GT_BOOL
+clib.LOR_GT_FP32.ss_obj = ss.GxB_LOR_GT_FP32
+clib.LOR_GT_FP64.ss_obj = ss.GxB_LOR_GT_FP64
+clib.LOR_GT_INT16.ss_obj = ss.GxB_LOR_GT_INT16
+clib.LOR_GT_INT32.ss_obj = ss.GxB_LOR_GT_INT32
+clib.LOR_GT_INT64.ss_obj = ss.GxB_LOR_GT_INT64
+clib.LOR_GT_INT8.ss_obj = ss.GxB_LOR_GT_INT8
+clib.LOR_GT_UINT16.ss_obj = ss.GxB_LOR_GT_UINT16
+clib.LOR_GT_UINT32.ss_obj = ss.GxB_LOR_GT_UINT32
+clib.LOR_GT_UINT64.ss_obj = ss.GxB_LOR_GT_UINT64
+clib.LOR_GT_UINT8.ss_obj = ss.GxB_LOR_GT_UINT8
+clib.LOR_LAND_BOOL.ss_obj = ss.GxB_LOR_LAND_BOOL
+clib.LOR_LE_BOOL.ss_obj = ss.GxB_LOR_LE_BOOL
+clib.LOR_LE_FP32.ss_obj = ss.GxB_LOR_LE_FP32
+clib.LOR_LE_FP64.ss_obj = ss.GxB_LOR_LE_FP64
+clib.LOR_LE_INT16.ss_obj = ss.GxB_LOR_LE_INT16
+clib.LOR_LE_INT32.ss_obj = ss.GxB_LOR_LE_INT32
+clib.LOR_LE_INT64.ss_obj = ss.GxB_LOR_LE_INT64
+clib.LOR_LE_INT8.ss_obj = ss.GxB_LOR_LE_INT8
+clib.LOR_LE_UINT16.ss_obj = ss.GxB_LOR_LE_UINT16
+clib.LOR_LE_UINT32.ss_obj = ss.GxB_LOR_LE_UINT32
+clib.LOR_LE_UINT64.ss_obj = ss.GxB_LOR_LE_UINT64
+clib.LOR_LE_UINT8.ss_obj = ss.GxB_LOR_LE_UINT8
+clib.LOR_LOR_BOOL.ss_obj = ss.GxB_LOR_LOR_BOOL
+clib.LOR_LT_BOOL.ss_obj = ss.GxB_LOR_LT_BOOL
+clib.LOR_LT_FP32.ss_obj = ss.GxB_LOR_LT_FP32
+clib.LOR_LT_FP64.ss_obj = ss.GxB_LOR_LT_FP64
+clib.LOR_LT_INT16.ss_obj = ss.GxB_LOR_LT_INT16
+clib.LOR_LT_INT32.ss_obj = ss.GxB_LOR_LT_INT32
+clib.LOR_LT_INT64.ss_obj = ss.GxB_LOR_LT_INT64
+clib.LOR_LT_INT8.ss_obj = ss.GxB_LOR_LT_INT8
+clib.LOR_LT_UINT16.ss_obj = ss.GxB_LOR_LT_UINT16
+clib.LOR_LT_UINT32.ss_obj = ss.GxB_LOR_LT_UINT32
+clib.LOR_LT_UINT64.ss_obj = ss.GxB_LOR_LT_UINT64
+clib.LOR_LT_UINT8.ss_obj = ss.GxB_LOR_LT_UINT8
+clib.LOR_LXOR_BOOL.ss_obj = ss.GxB_LOR_LXOR_BOOL
+clib.LOR_NE_FP32.ss_obj = ss.GxB_LOR_NE_FP32
+clib.LOR_NE_FP64.ss_obj = ss.GxB_LOR_NE_FP64
+clib.LOR_NE_INT16.ss_obj = ss.GxB_LOR_NE_INT16
+clib.LOR_NE_INT32.ss_obj = ss.GxB_LOR_NE_INT32
+clib.LOR_NE_INT64.ss_obj = ss.GxB_LOR_NE_INT64
+clib.LOR_NE_INT8.ss_obj = ss.GxB_LOR_NE_INT8
+clib.LOR_NE_UINT16.ss_obj = ss.GxB_LOR_NE_UINT16
+clib.LOR_NE_UINT32.ss_obj = ss.GxB_LOR_NE_UINT32
+clib.LOR_NE_UINT64.ss_obj = ss.GxB_LOR_NE_UINT64
+clib.LOR_NE_UINT8.ss_obj = ss.GxB_LOR_NE_UINT8
+clib.LOR_PAIR_BOOL.ss_obj = ss.GxB_LOR_PAIR_BOOL
+clib.LOR_SECOND_BOOL.ss_obj = ss.GxB_LOR_SECOND_BOOL
+clib.LXOR_EQ_BOOL.ss_obj = ss.GxB_LXOR_EQ_BOOL
+clib.LXOR_EQ_FP32.ss_obj = ss.GxB_LXOR_EQ_FP32
+clib.LXOR_EQ_FP64.ss_obj = ss.GxB_LXOR_EQ_FP64
+clib.LXOR_EQ_INT16.ss_obj = ss.GxB_LXOR_EQ_INT16
+clib.LXOR_EQ_INT32.ss_obj = ss.GxB_LXOR_EQ_INT32
+clib.LXOR_EQ_INT64.ss_obj = ss.GxB_LXOR_EQ_INT64
+clib.LXOR_EQ_INT8.ss_obj = ss.GxB_LXOR_EQ_INT8
+clib.LXOR_EQ_UINT16.ss_obj = ss.GxB_LXOR_EQ_UINT16
+clib.LXOR_EQ_UINT32.ss_obj = ss.GxB_LXOR_EQ_UINT32
+clib.LXOR_EQ_UINT64.ss_obj = ss.GxB_LXOR_EQ_UINT64
+clib.LXOR_EQ_UINT8.ss_obj = ss.GxB_LXOR_EQ_UINT8
+clib.LXOR_FIRST_BOOL.ss_obj = ss.GxB_LXOR_FIRST_BOOL
+clib.LXOR_GE_BOOL.ss_obj = ss.GxB_LXOR_GE_BOOL
+clib.LXOR_GE_FP32.ss_obj = ss.GxB_LXOR_GE_FP32
+clib.LXOR_GE_FP64.ss_obj = ss.GxB_LXOR_GE_FP64
+clib.LXOR_GE_INT16.ss_obj = ss.GxB_LXOR_GE_INT16
+clib.LXOR_GE_INT32.ss_obj = ss.GxB_LXOR_GE_INT32
+clib.LXOR_GE_INT64.ss_obj = ss.GxB_LXOR_GE_INT64
+clib.LXOR_GE_INT8.ss_obj = ss.GxB_LXOR_GE_INT8
+clib.LXOR_GE_UINT16.ss_obj = ss.GxB_LXOR_GE_UINT16
+clib.LXOR_GE_UINT32.ss_obj = ss.GxB_LXOR_GE_UINT32
+clib.LXOR_GE_UINT64.ss_obj = ss.GxB_LXOR_GE_UINT64
+clib.LXOR_GE_UINT8.ss_obj = ss.GxB_LXOR_GE_UINT8
+clib.LXOR_GT_BOOL.ss_obj = ss.GxB_LXOR_GT_BOOL
+clib.LXOR_GT_FP32.ss_obj = ss.GxB_LXOR_GT_FP32
+clib.LXOR_GT_FP64.ss_obj = ss.GxB_LXOR_GT_FP64
+clib.LXOR_GT_INT16.ss_obj = ss.GxB_LXOR_GT_INT16
+clib.LXOR_GT_INT32.ss_obj = ss.GxB_LXOR_GT_INT32
+clib.LXOR_GT_INT64.ss_obj = ss.GxB_LXOR_GT_INT64
+clib.LXOR_GT_INT8.ss_obj = ss.GxB_LXOR_GT_INT8
+clib.LXOR_GT_UINT16.ss_obj = ss.GxB_LXOR_GT_UINT16
+clib.LXOR_GT_UINT32.ss_obj = ss.GxB_LXOR_GT_UINT32
+clib.LXOR_GT_UINT64.ss_obj = ss.GxB_LXOR_GT_UINT64
+clib.LXOR_GT_UINT8.ss_obj = ss.GxB_LXOR_GT_UINT8
+clib.LXOR_LAND_BOOL.ss_obj = ss.GxB_LXOR_LAND_BOOL
+clib.LXOR_LE_BOOL.ss_obj = ss.GxB_LXOR_LE_BOOL
+clib.LXOR_LE_FP32.ss_obj = ss.GxB_LXOR_LE_FP32
+clib.LXOR_LE_FP64.ss_obj = ss.GxB_LXOR_LE_FP64
+clib.LXOR_LE_INT16.ss_obj = ss.GxB_LXOR_LE_INT16
+clib.LXOR_LE_INT32.ss_obj = ss.GxB_LXOR_LE_INT32
+clib.LXOR_LE_INT64.ss_obj = ss.GxB_LXOR_LE_INT64
+clib.LXOR_LE_INT8.ss_obj = ss.GxB_LXOR_LE_INT8
+clib.LXOR_LE_UINT16.ss_obj = ss.GxB_LXOR_LE_UINT16
+clib.LXOR_LE_UINT32.ss_obj = ss.GxB_LXOR_LE_UINT32
+clib.LXOR_LE_UINT64.ss_obj = ss.GxB_LXOR_LE_UINT64
+clib.LXOR_LE_UINT8.ss_obj = ss.GxB_LXOR_LE_UINT8
+clib.LXOR_LOR_BOOL.ss_obj = ss.GxB_LXOR_LOR_BOOL
+clib.LXOR_LT_BOOL.ss_obj = ss.GxB_LXOR_LT_BOOL
+clib.LXOR_LT_FP32.ss_obj = ss.GxB_LXOR_LT_FP32
+clib.LXOR_LT_FP64.ss_obj = ss.GxB_LXOR_LT_FP64
+clib.LXOR_LT_INT16.ss_obj = ss.GxB_LXOR_LT_INT16
+clib.LXOR_LT_INT32.ss_obj = ss.GxB_LXOR_LT_INT32
+clib.LXOR_LT_INT64.ss_obj = ss.GxB_LXOR_LT_INT64
+clib.LXOR_LT_INT8.ss_obj = ss.GxB_LXOR_LT_INT8
+clib.LXOR_LT_UINT16.ss_obj = ss.GxB_LXOR_LT_UINT16
+clib.LXOR_LT_UINT32.ss_obj = ss.GxB_LXOR_LT_UINT32
+clib.LXOR_LT_UINT64.ss_obj = ss.GxB_LXOR_LT_UINT64
+clib.LXOR_LT_UINT8.ss_obj = ss.GxB_LXOR_LT_UINT8
+clib.LXOR_LXOR_BOOL.ss_obj = ss.GxB_LXOR_LXOR_BOOL
+clib.LXOR_NE_FP32.ss_obj = ss.GxB_LXOR_NE_FP32
+clib.LXOR_NE_FP64.ss_obj = ss.GxB_LXOR_NE_FP64
+clib.LXOR_NE_INT16.ss_obj = ss.GxB_LXOR_NE_INT16
+clib.LXOR_NE_INT32.ss_obj = ss.GxB_LXOR_NE_INT32
+clib.LXOR_NE_INT64.ss_obj = ss.GxB_LXOR_NE_INT64
+clib.LXOR_NE_INT8.ss_obj = ss.GxB_LXOR_NE_INT8
+clib.LXOR_NE_UINT16.ss_obj = ss.GxB_LXOR_NE_UINT16
+clib.LXOR_NE_UINT32.ss_obj = ss.GxB_LXOR_NE_UINT32
+clib.LXOR_NE_UINT64.ss_obj = ss.GxB_LXOR_NE_UINT64
+clib.LXOR_NE_UINT8.ss_obj = ss.GxB_LXOR_NE_UINT8
+clib.LXOR_PAIR_BOOL.ss_obj = ss.GxB_LXOR_PAIR_BOOL
+clib.LXOR_SECOND_BOOL.ss_obj = ss.GxB_LXOR_SECOND_BOOL
+clib.MAX_DIV_FP32.ss_obj = ss.GxB_MAX_DIV_FP32
+clib.MAX_DIV_FP64.ss_obj = ss.GxB_MAX_DIV_FP64
+clib.MAX_DIV_INT16.ss_obj = ss.GxB_MAX_DIV_INT16
+clib.MAX_DIV_INT32.ss_obj = ss.GxB_MAX_DIV_INT32
+clib.MAX_DIV_INT64.ss_obj = ss.GxB_MAX_DIV_INT64
+clib.MAX_DIV_INT8.ss_obj = ss.GxB_MAX_DIV_INT8
+clib.MAX_DIV_UINT16.ss_obj = ss.GxB_MAX_DIV_UINT16
+clib.MAX_DIV_UINT32.ss_obj = ss.GxB_MAX_DIV_UINT32
+clib.MAX_DIV_UINT64.ss_obj = ss.GxB_MAX_DIV_UINT64
+clib.MAX_DIV_UINT8.ss_obj = ss.GxB_MAX_DIV_UINT8
+clib.MAX_FIRST_FP32.ss_obj = ss.GxB_MAX_FIRST_FP32
+clib.MAX_FIRST_FP64.ss_obj = ss.GxB_MAX_FIRST_FP64
+clib.MAX_FIRST_INT16.ss_obj = ss.GxB_MAX_FIRST_INT16
+clib.MAX_FIRST_INT32.ss_obj = ss.GxB_MAX_FIRST_INT32
+clib.MAX_FIRST_INT64.ss_obj = ss.GxB_MAX_FIRST_INT64
+clib.MAX_FIRST_INT8.ss_obj = ss.GxB_MAX_FIRST_INT8
+clib.MAX_FIRST_UINT16.ss_obj = ss.GxB_MAX_FIRST_UINT16
+clib.MAX_FIRST_UINT32.ss_obj = ss.GxB_MAX_FIRST_UINT32
+clib.MAX_FIRST_UINT64.ss_obj = ss.GxB_MAX_FIRST_UINT64
+clib.MAX_FIRST_UINT8.ss_obj = ss.GxB_MAX_FIRST_UINT8
+clib.MAX_ISEQ_FP32.ss_obj = ss.GxB_MAX_ISEQ_FP32
+clib.MAX_ISEQ_FP64.ss_obj = ss.GxB_MAX_ISEQ_FP64
+clib.MAX_ISEQ_INT16.ss_obj = ss.GxB_MAX_ISEQ_INT16
+clib.MAX_ISEQ_INT32.ss_obj = ss.GxB_MAX_ISEQ_INT32
+clib.MAX_ISEQ_INT64.ss_obj = ss.GxB_MAX_ISEQ_INT64
+clib.MAX_ISEQ_INT8.ss_obj = ss.GxB_MAX_ISEQ_INT8
+clib.MAX_ISEQ_UINT16.ss_obj = ss.GxB_MAX_ISEQ_UINT16
+clib.MAX_ISEQ_UINT32.ss_obj = ss.GxB_MAX_ISEQ_UINT32
+clib.MAX_ISEQ_UINT64.ss_obj = ss.GxB_MAX_ISEQ_UINT64
+clib.MAX_ISEQ_UINT8.ss_obj = ss.GxB_MAX_ISEQ_UINT8
+clib.MAX_ISGE_FP32.ss_obj = ss.GxB_MAX_ISGE_FP32
+clib.MAX_ISGE_FP64.ss_obj = ss.GxB_MAX_ISGE_FP64
+clib.MAX_ISGE_INT16.ss_obj = ss.GxB_MAX_ISGE_INT16
+clib.MAX_ISGE_INT32.ss_obj = ss.GxB_MAX_ISGE_INT32
+clib.MAX_ISGE_INT64.ss_obj = ss.GxB_MAX_ISGE_INT64
+clib.MAX_ISGE_INT8.ss_obj = ss.GxB_MAX_ISGE_INT8
+clib.MAX_ISGE_UINT16.ss_obj = ss.GxB_MAX_ISGE_UINT16
+clib.MAX_ISGE_UINT32.ss_obj = ss.GxB_MAX_ISGE_UINT32
+clib.MAX_ISGE_UINT64.ss_obj = ss.GxB_MAX_ISGE_UINT64
+clib.MAX_ISGE_UINT8.ss_obj = ss.GxB_MAX_ISGE_UINT8
+clib.MAX_ISGT_FP32.ss_obj = ss.GxB_MAX_ISGT_FP32
+clib.MAX_ISGT_FP64.ss_obj = ss.GxB_MAX_ISGT_FP64
+clib.MAX_ISGT_INT16.ss_obj = ss.GxB_MAX_ISGT_INT16
+clib.MAX_ISGT_INT32.ss_obj = ss.GxB_MAX_ISGT_INT32
+clib.MAX_ISGT_INT64.ss_obj = ss.GxB_MAX_ISGT_INT64
+clib.MAX_ISGT_INT8.ss_obj = ss.GxB_MAX_ISGT_INT8
+clib.MAX_ISGT_UINT16.ss_obj = ss.GxB_MAX_ISGT_UINT16
+clib.MAX_ISGT_UINT32.ss_obj = ss.GxB_MAX_ISGT_UINT32
+clib.MAX_ISGT_UINT64.ss_obj = ss.GxB_MAX_ISGT_UINT64
+clib.MAX_ISGT_UINT8.ss_obj = ss.GxB_MAX_ISGT_UINT8
+clib.MAX_ISLE_FP32.ss_obj = ss.GxB_MAX_ISLE_FP32
+clib.MAX_ISLE_FP64.ss_obj = ss.GxB_MAX_ISLE_FP64
+clib.MAX_ISLE_INT16.ss_obj = ss.GxB_MAX_ISLE_INT16
+clib.MAX_ISLE_INT32.ss_obj = ss.GxB_MAX_ISLE_INT32
+clib.MAX_ISLE_INT64.ss_obj = ss.GxB_MAX_ISLE_INT64
+clib.MAX_ISLE_INT8.ss_obj = ss.GxB_MAX_ISLE_INT8
+clib.MAX_ISLE_UINT16.ss_obj = ss.GxB_MAX_ISLE_UINT16
+clib.MAX_ISLE_UINT32.ss_obj = ss.GxB_MAX_ISLE_UINT32
+clib.MAX_ISLE_UINT64.ss_obj = ss.GxB_MAX_ISLE_UINT64
+clib.MAX_ISLE_UINT8.ss_obj = ss.GxB_MAX_ISLE_UINT8
+clib.MAX_ISLT_FP32.ss_obj = ss.GxB_MAX_ISLT_FP32
+clib.MAX_ISLT_FP64.ss_obj = ss.GxB_MAX_ISLT_FP64
+clib.MAX_ISLT_INT16.ss_obj = ss.GxB_MAX_ISLT_INT16
+clib.MAX_ISLT_INT32.ss_obj = ss.GxB_MAX_ISLT_INT32
+clib.MAX_ISLT_INT64.ss_obj = ss.GxB_MAX_ISLT_INT64
+clib.MAX_ISLT_INT8.ss_obj = ss.GxB_MAX_ISLT_INT8
+clib.MAX_ISLT_UINT16.ss_obj = ss.GxB_MAX_ISLT_UINT16
+clib.MAX_ISLT_UINT32.ss_obj = ss.GxB_MAX_ISLT_UINT32
+clib.MAX_ISLT_UINT64.ss_obj = ss.GxB_MAX_ISLT_UINT64
+clib.MAX_ISLT_UINT8.ss_obj = ss.GxB_MAX_ISLT_UINT8
+clib.MAX_ISNE_FP32.ss_obj = ss.GxB_MAX_ISNE_FP32
+clib.MAX_ISNE_FP64.ss_obj = ss.GxB_MAX_ISNE_FP64
+clib.MAX_ISNE_INT16.ss_obj = ss.GxB_MAX_ISNE_INT16
+clib.MAX_ISNE_INT32.ss_obj = ss.GxB_MAX_ISNE_INT32
+clib.MAX_ISNE_INT64.ss_obj = ss.GxB_MAX_ISNE_INT64
+clib.MAX_ISNE_INT8.ss_obj = ss.GxB_MAX_ISNE_INT8
+clib.MAX_ISNE_UINT16.ss_obj = ss.GxB_MAX_ISNE_UINT16
+clib.MAX_ISNE_UINT32.ss_obj = ss.GxB_MAX_ISNE_UINT32
+clib.MAX_ISNE_UINT64.ss_obj = ss.GxB_MAX_ISNE_UINT64
+clib.MAX_ISNE_UINT8.ss_obj = ss.GxB_MAX_ISNE_UINT8
+clib.MAX_LAND_FP32.ss_obj = ss.GxB_MAX_LAND_FP32
+clib.MAX_LAND_FP64.ss_obj = ss.GxB_MAX_LAND_FP64
+clib.MAX_LAND_INT16.ss_obj = ss.GxB_MAX_LAND_INT16
+clib.MAX_LAND_INT32.ss_obj = ss.GxB_MAX_LAND_INT32
+clib.MAX_LAND_INT64.ss_obj = ss.GxB_MAX_LAND_INT64
+clib.MAX_LAND_INT8.ss_obj = ss.GxB_MAX_LAND_INT8
+clib.MAX_LAND_UINT16.ss_obj = ss.GxB_MAX_LAND_UINT16
+clib.MAX_LAND_UINT32.ss_obj = ss.GxB_MAX_LAND_UINT32
+clib.MAX_LAND_UINT64.ss_obj = ss.GxB_MAX_LAND_UINT64
+clib.MAX_LAND_UINT8.ss_obj = ss.GxB_MAX_LAND_UINT8
+clib.MAX_LOR_FP32.ss_obj = ss.GxB_MAX_LOR_FP32
+clib.MAX_LOR_FP64.ss_obj = ss.GxB_MAX_LOR_FP64
+clib.MAX_LOR_INT16.ss_obj = ss.GxB_MAX_LOR_INT16
+clib.MAX_LOR_INT32.ss_obj = ss.GxB_MAX_LOR_INT32
+clib.MAX_LOR_INT64.ss_obj = ss.GxB_MAX_LOR_INT64
+clib.MAX_LOR_INT8.ss_obj = ss.GxB_MAX_LOR_INT8
+clib.MAX_LOR_UINT16.ss_obj = ss.GxB_MAX_LOR_UINT16
+clib.MAX_LOR_UINT32.ss_obj = ss.GxB_MAX_LOR_UINT32
+clib.MAX_LOR_UINT64.ss_obj = ss.GxB_MAX_LOR_UINT64
+clib.MAX_LOR_UINT8.ss_obj = ss.GxB_MAX_LOR_UINT8
+clib.MAX_LXOR_FP32.ss_obj = ss.GxB_MAX_LXOR_FP32
+clib.MAX_LXOR_FP64.ss_obj = ss.GxB_MAX_LXOR_FP64
+clib.MAX_LXOR_INT16.ss_obj = ss.GxB_MAX_LXOR_INT16
+clib.MAX_LXOR_INT32.ss_obj = ss.GxB_MAX_LXOR_INT32
+clib.MAX_LXOR_INT64.ss_obj = ss.GxB_MAX_LXOR_INT64
+clib.MAX_LXOR_INT8.ss_obj = ss.GxB_MAX_LXOR_INT8
+clib.MAX_LXOR_UINT16.ss_obj = ss.GxB_MAX_LXOR_UINT16
+clib.MAX_LXOR_UINT32.ss_obj = ss.GxB_MAX_LXOR_UINT32
+clib.MAX_LXOR_UINT64.ss_obj = ss.GxB_MAX_LXOR_UINT64
+clib.MAX_LXOR_UINT8.ss_obj = ss.GxB_MAX_LXOR_UINT8
+clib.MAX_MAX_FP32.ss_obj = ss.GxB_MAX_MAX_FP32
+clib.MAX_MAX_FP64.ss_obj = ss.GxB_MAX_MAX_FP64
+clib.MAX_MAX_INT16.ss_obj = ss.GxB_MAX_MAX_INT16
+clib.MAX_MAX_INT32.ss_obj = ss.GxB_MAX_MAX_INT32
+clib.MAX_MAX_INT64.ss_obj = ss.GxB_MAX_MAX_INT64
+clib.MAX_MAX_INT8.ss_obj = ss.GxB_MAX_MAX_INT8
+clib.MAX_MAX_UINT16.ss_obj = ss.GxB_MAX_MAX_UINT16
+clib.MAX_MAX_UINT32.ss_obj = ss.GxB_MAX_MAX_UINT32
+clib.MAX_MAX_UINT64.ss_obj = ss.GxB_MAX_MAX_UINT64
+clib.MAX_MAX_UINT8.ss_obj = ss.GxB_MAX_MAX_UINT8
+clib.MAX_MINUS_FP32.ss_obj = ss.GxB_MAX_MINUS_FP32
+clib.MAX_MINUS_FP64.ss_obj = ss.GxB_MAX_MINUS_FP64
+clib.MAX_MINUS_INT16.ss_obj = ss.GxB_MAX_MINUS_INT16
+clib.MAX_MINUS_INT32.ss_obj = ss.GxB_MAX_MINUS_INT32
+clib.MAX_MINUS_INT64.ss_obj = ss.GxB_MAX_MINUS_INT64
+clib.MAX_MINUS_INT8.ss_obj = ss.GxB_MAX_MINUS_INT8
+clib.MAX_MINUS_UINT16.ss_obj = ss.GxB_MAX_MINUS_UINT16
+clib.MAX_MINUS_UINT32.ss_obj = ss.GxB_MAX_MINUS_UINT32
+clib.MAX_MINUS_UINT64.ss_obj = ss.GxB_MAX_MINUS_UINT64
+clib.MAX_MINUS_UINT8.ss_obj = ss.GxB_MAX_MINUS_UINT8
+clib.MAX_MIN_FP32.ss_obj = ss.GxB_MAX_MIN_FP32
+clib.MAX_MIN_FP64.ss_obj = ss.GxB_MAX_MIN_FP64
+clib.MAX_MIN_INT16.ss_obj = ss.GxB_MAX_MIN_INT16
+clib.MAX_MIN_INT32.ss_obj = ss.GxB_MAX_MIN_INT32
+clib.MAX_MIN_INT64.ss_obj = ss.GxB_MAX_MIN_INT64
+clib.MAX_MIN_INT8.ss_obj = ss.GxB_MAX_MIN_INT8
+clib.MAX_MIN_UINT16.ss_obj = ss.GxB_MAX_MIN_UINT16
+clib.MAX_MIN_UINT32.ss_obj = ss.GxB_MAX_MIN_UINT32
+clib.MAX_MIN_UINT64.ss_obj = ss.GxB_MAX_MIN_UINT64
+clib.MAX_MIN_UINT8.ss_obj = ss.GxB_MAX_MIN_UINT8
+clib.MAX_PAIR_FP32.ss_obj = ss.GxB_MAX_PAIR_FP32
+clib.MAX_PAIR_FP64.ss_obj = ss.GxB_MAX_PAIR_FP64
+clib.MAX_PAIR_INT16.ss_obj = ss.GxB_MAX_PAIR_INT16
+clib.MAX_PAIR_INT32.ss_obj = ss.GxB_MAX_PAIR_INT32
+clib.MAX_PAIR_INT64.ss_obj = ss.GxB_MAX_PAIR_INT64
+clib.MAX_PAIR_INT8.ss_obj = ss.GxB_MAX_PAIR_INT8
+clib.MAX_PAIR_UINT16.ss_obj = ss.GxB_MAX_PAIR_UINT16
+clib.MAX_PAIR_UINT32.ss_obj = ss.GxB_MAX_PAIR_UINT32
+clib.MAX_PAIR_UINT64.ss_obj = ss.GxB_MAX_PAIR_UINT64
+clib.MAX_PAIR_UINT8.ss_obj = ss.GxB_MAX_PAIR_UINT8
+clib.MAX_PLUS_FP32.ss_obj = ss.GxB_MAX_PLUS_FP32
+clib.MAX_PLUS_FP64.ss_obj = ss.GxB_MAX_PLUS_FP64
+clib.MAX_PLUS_INT16.ss_obj = ss.GxB_MAX_PLUS_INT16
+clib.MAX_PLUS_INT32.ss_obj = ss.GxB_MAX_PLUS_INT32
+clib.MAX_PLUS_INT64.ss_obj = ss.GxB_MAX_PLUS_INT64
+clib.MAX_PLUS_INT8.ss_obj = ss.GxB_MAX_PLUS_INT8
+clib.MAX_PLUS_UINT16.ss_obj = ss.GxB_MAX_PLUS_UINT16
+clib.MAX_PLUS_UINT32.ss_obj = ss.GxB_MAX_PLUS_UINT32
+clib.MAX_PLUS_UINT64.ss_obj = ss.GxB_MAX_PLUS_UINT64
+clib.MAX_PLUS_UINT8.ss_obj = ss.GxB_MAX_PLUS_UINT8
+clib.MAX_RDIV_FP32.ss_obj = ss.GxB_MAX_RDIV_FP32
+clib.MAX_RDIV_FP64.ss_obj = ss.GxB_MAX_RDIV_FP64
+clib.MAX_RDIV_INT16.ss_obj = ss.GxB_MAX_RDIV_INT16
+clib.MAX_RDIV_INT32.ss_obj = ss.GxB_MAX_RDIV_INT32
+clib.MAX_RDIV_INT64.ss_obj = ss.GxB_MAX_RDIV_INT64
+clib.MAX_RDIV_INT8.ss_obj = ss.GxB_MAX_RDIV_INT8
+clib.MAX_RDIV_UINT16.ss_obj = ss.GxB_MAX_RDIV_UINT16
+clib.MAX_RDIV_UINT32.ss_obj = ss.GxB_MAX_RDIV_UINT32
+clib.MAX_RDIV_UINT64.ss_obj = ss.GxB_MAX_RDIV_UINT64
+clib.MAX_RDIV_UINT8.ss_obj = ss.GxB_MAX_RDIV_UINT8
+clib.MAX_RMINUS_FP32.ss_obj = ss.GxB_MAX_RMINUS_FP32
+clib.MAX_RMINUS_FP64.ss_obj = ss.GxB_MAX_RMINUS_FP64
+clib.MAX_RMINUS_INT16.ss_obj = ss.GxB_MAX_RMINUS_INT16
+clib.MAX_RMINUS_INT32.ss_obj = ss.GxB_MAX_RMINUS_INT32
+clib.MAX_RMINUS_INT64.ss_obj = ss.GxB_MAX_RMINUS_INT64
+clib.MAX_RMINUS_INT8.ss_obj = ss.GxB_MAX_RMINUS_INT8
+clib.MAX_RMINUS_UINT16.ss_obj = ss.GxB_MAX_RMINUS_UINT16
+clib.MAX_RMINUS_UINT32.ss_obj = ss.GxB_MAX_RMINUS_UINT32
+clib.MAX_RMINUS_UINT64.ss_obj = ss.GxB_MAX_RMINUS_UINT64
+clib.MAX_RMINUS_UINT8.ss_obj = ss.GxB_MAX_RMINUS_UINT8
+clib.MAX_SECOND_FP32.ss_obj = ss.GxB_MAX_SECOND_FP32
+clib.MAX_SECOND_FP64.ss_obj = ss.GxB_MAX_SECOND_FP64
+clib.MAX_SECOND_INT16.ss_obj = ss.GxB_MAX_SECOND_INT16
+clib.MAX_SECOND_INT32.ss_obj = ss.GxB_MAX_SECOND_INT32
+clib.MAX_SECOND_INT64.ss_obj = ss.GxB_MAX_SECOND_INT64
+clib.MAX_SECOND_INT8.ss_obj = ss.GxB_MAX_SECOND_INT8
+clib.MAX_SECOND_UINT16.ss_obj = ss.GxB_MAX_SECOND_UINT16
+clib.MAX_SECOND_UINT32.ss_obj = ss.GxB_MAX_SECOND_UINT32
+clib.MAX_SECOND_UINT64.ss_obj = ss.GxB_MAX_SECOND_UINT64
+clib.MAX_SECOND_UINT8.ss_obj = ss.GxB_MAX_SECOND_UINT8
+clib.MAX_TIMES_FP32.ss_obj = ss.GxB_MAX_TIMES_FP32
+clib.MAX_TIMES_FP64.ss_obj = ss.GxB_MAX_TIMES_FP64
+clib.MAX_TIMES_INT16.ss_obj = ss.GxB_MAX_TIMES_INT16
+clib.MAX_TIMES_INT32.ss_obj = ss.GxB_MAX_TIMES_INT32
+clib.MAX_TIMES_INT64.ss_obj = ss.GxB_MAX_TIMES_INT64
+clib.MAX_TIMES_INT8.ss_obj = ss.GxB_MAX_TIMES_INT8
+clib.MAX_TIMES_UINT16.ss_obj = ss.GxB_MAX_TIMES_UINT16
+clib.MAX_TIMES_UINT32.ss_obj = ss.GxB_MAX_TIMES_UINT32
+clib.MAX_TIMES_UINT64.ss_obj = ss.GxB_MAX_TIMES_UINT64
+clib.MAX_TIMES_UINT8.ss_obj = ss.GxB_MAX_TIMES_UINT8
+clib.MIN_DIV_FP32.ss_obj = ss.GxB_MIN_DIV_FP32
+clib.MIN_DIV_FP64.ss_obj = ss.GxB_MIN_DIV_FP64
+clib.MIN_DIV_INT16.ss_obj = ss.GxB_MIN_DIV_INT16
+clib.MIN_DIV_INT32.ss_obj = ss.GxB_MIN_DIV_INT32
+clib.MIN_DIV_INT64.ss_obj = ss.GxB_MIN_DIV_INT64
+clib.MIN_DIV_INT8.ss_obj = ss.GxB_MIN_DIV_INT8
+clib.MIN_DIV_UINT16.ss_obj = ss.GxB_MIN_DIV_UINT16
+clib.MIN_DIV_UINT32.ss_obj = ss.GxB_MIN_DIV_UINT32
+clib.MIN_DIV_UINT64.ss_obj = ss.GxB_MIN_DIV_UINT64
+clib.MIN_DIV_UINT8.ss_obj = ss.GxB_MIN_DIV_UINT8
+clib.MIN_FIRST_FP32.ss_obj = ss.GxB_MIN_FIRST_FP32
+clib.MIN_FIRST_FP64.ss_obj = ss.GxB_MIN_FIRST_FP64
+clib.MIN_FIRST_INT16.ss_obj = ss.GxB_MIN_FIRST_INT16
+clib.MIN_FIRST_INT32.ss_obj = ss.GxB_MIN_FIRST_INT32
+clib.MIN_FIRST_INT64.ss_obj = ss.GxB_MIN_FIRST_INT64
+clib.MIN_FIRST_INT8.ss_obj = ss.GxB_MIN_FIRST_INT8
+clib.MIN_FIRST_UINT16.ss_obj = ss.GxB_MIN_FIRST_UINT16
+clib.MIN_FIRST_UINT32.ss_obj = ss.GxB_MIN_FIRST_UINT32
+clib.MIN_FIRST_UINT64.ss_obj = ss.GxB_MIN_FIRST_UINT64
+clib.MIN_FIRST_UINT8.ss_obj = ss.GxB_MIN_FIRST_UINT8
+clib.MIN_ISEQ_FP32.ss_obj = ss.GxB_MIN_ISEQ_FP32
+clib.MIN_ISEQ_FP64.ss_obj = ss.GxB_MIN_ISEQ_FP64
+clib.MIN_ISEQ_INT16.ss_obj = ss.GxB_MIN_ISEQ_INT16
+clib.MIN_ISEQ_INT32.ss_obj = ss.GxB_MIN_ISEQ_INT32
+clib.MIN_ISEQ_INT64.ss_obj = ss.GxB_MIN_ISEQ_INT64
+clib.MIN_ISEQ_INT8.ss_obj = ss.GxB_MIN_ISEQ_INT8
+clib.MIN_ISEQ_UINT16.ss_obj = ss.GxB_MIN_ISEQ_UINT16
+clib.MIN_ISEQ_UINT32.ss_obj = ss.GxB_MIN_ISEQ_UINT32
+clib.MIN_ISEQ_UINT64.ss_obj = ss.GxB_MIN_ISEQ_UINT64
+clib.MIN_ISEQ_UINT8.ss_obj = ss.GxB_MIN_ISEQ_UINT8
+clib.MIN_ISGE_FP32.ss_obj = ss.GxB_MIN_ISGE_FP32
+clib.MIN_ISGE_FP64.ss_obj = ss.GxB_MIN_ISGE_FP64
+clib.MIN_ISGE_INT16.ss_obj = ss.GxB_MIN_ISGE_INT16
+clib.MIN_ISGE_INT32.ss_obj = ss.GxB_MIN_ISGE_INT32
+clib.MIN_ISGE_INT64.ss_obj = ss.GxB_MIN_ISGE_INT64
+clib.MIN_ISGE_INT8.ss_obj = ss.GxB_MIN_ISGE_INT8
+clib.MIN_ISGE_UINT16.ss_obj = ss.GxB_MIN_ISGE_UINT16
+clib.MIN_ISGE_UINT32.ss_obj = ss.GxB_MIN_ISGE_UINT32
+clib.MIN_ISGE_UINT64.ss_obj = ss.GxB_MIN_ISGE_UINT64
+clib.MIN_ISGE_UINT8.ss_obj = ss.GxB_MIN_ISGE_UINT8
+clib.MIN_ISGT_FP32.ss_obj = ss.GxB_MIN_ISGT_FP32
+clib.MIN_ISGT_FP64.ss_obj = ss.GxB_MIN_ISGT_FP64
+clib.MIN_ISGT_INT16.ss_obj = ss.GxB_MIN_ISGT_INT16
+clib.MIN_ISGT_INT32.ss_obj = ss.GxB_MIN_ISGT_INT32
+clib.MIN_ISGT_INT64.ss_obj = ss.GxB_MIN_ISGT_INT64
+clib.MIN_ISGT_INT8.ss_obj = ss.GxB_MIN_ISGT_INT8
+clib.MIN_ISGT_UINT16.ss_obj = ss.GxB_MIN_ISGT_UINT16
+clib.MIN_ISGT_UINT32.ss_obj = ss.GxB_MIN_ISGT_UINT32
+clib.MIN_ISGT_UINT64.ss_obj = ss.GxB_MIN_ISGT_UINT64
+clib.MIN_ISGT_UINT8.ss_obj = ss.GxB_MIN_ISGT_UINT8
+clib.MIN_ISLE_FP32.ss_obj = ss.GxB_MIN_ISLE_FP32
+clib.MIN_ISLE_FP64.ss_obj = ss.GxB_MIN_ISLE_FP64
+clib.MIN_ISLE_INT16.ss_obj = ss.GxB_MIN_ISLE_INT16
+clib.MIN_ISLE_INT32.ss_obj = ss.GxB_MIN_ISLE_INT32
+clib.MIN_ISLE_INT64.ss_obj = ss.GxB_MIN_ISLE_INT64
+clib.MIN_ISLE_INT8.ss_obj = ss.GxB_MIN_ISLE_INT8
+clib.MIN_ISLE_UINT16.ss_obj = ss.GxB_MIN_ISLE_UINT16
+clib.MIN_ISLE_UINT32.ss_obj = ss.GxB_MIN_ISLE_UINT32
+clib.MIN_ISLE_UINT64.ss_obj = ss.GxB_MIN_ISLE_UINT64
+clib.MIN_ISLE_UINT8.ss_obj = ss.GxB_MIN_ISLE_UINT8
+clib.MIN_ISLT_FP32.ss_obj = ss.GxB_MIN_ISLT_FP32
+clib.MIN_ISLT_FP64.ss_obj = ss.GxB_MIN_ISLT_FP64
+clib.MIN_ISLT_INT16.ss_obj = ss.GxB_MIN_ISLT_INT16
+clib.MIN_ISLT_INT32.ss_obj = ss.GxB_MIN_ISLT_INT32
+clib.MIN_ISLT_INT64.ss_obj = ss.GxB_MIN_ISLT_INT64
+clib.MIN_ISLT_INT8.ss_obj = ss.GxB_MIN_ISLT_INT8
+clib.MIN_ISLT_UINT16.ss_obj = ss.GxB_MIN_ISLT_UINT16
+clib.MIN_ISLT_UINT32.ss_obj = ss.GxB_MIN_ISLT_UINT32
+clib.MIN_ISLT_UINT64.ss_obj = ss.GxB_MIN_ISLT_UINT64
+clib.MIN_ISLT_UINT8.ss_obj = ss.GxB_MIN_ISLT_UINT8
+clib.MIN_ISNE_FP32.ss_obj = ss.GxB_MIN_ISNE_FP32
+clib.MIN_ISNE_FP64.ss_obj = ss.GxB_MIN_ISNE_FP64
+clib.MIN_ISNE_INT16.ss_obj = ss.GxB_MIN_ISNE_INT16
+clib.MIN_ISNE_INT32.ss_obj = ss.GxB_MIN_ISNE_INT32
+clib.MIN_ISNE_INT64.ss_obj = ss.GxB_MIN_ISNE_INT64
+clib.MIN_ISNE_INT8.ss_obj = ss.GxB_MIN_ISNE_INT8
+clib.MIN_ISNE_UINT16.ss_obj = ss.GxB_MIN_ISNE_UINT16
+clib.MIN_ISNE_UINT32.ss_obj = ss.GxB_MIN_ISNE_UINT32
+clib.MIN_ISNE_UINT64.ss_obj = ss.GxB_MIN_ISNE_UINT64
+clib.MIN_ISNE_UINT8.ss_obj = ss.GxB_MIN_ISNE_UINT8
+clib.MIN_LAND_FP32.ss_obj = ss.GxB_MIN_LAND_FP32
+clib.MIN_LAND_FP64.ss_obj = ss.GxB_MIN_LAND_FP64
+clib.MIN_LAND_INT16.ss_obj = ss.GxB_MIN_LAND_INT16
+clib.MIN_LAND_INT32.ss_obj = ss.GxB_MIN_LAND_INT32
+clib.MIN_LAND_INT64.ss_obj = ss.GxB_MIN_LAND_INT64
+clib.MIN_LAND_INT8.ss_obj = ss.GxB_MIN_LAND_INT8
+clib.MIN_LAND_UINT16.ss_obj = ss.GxB_MIN_LAND_UINT16
+clib.MIN_LAND_UINT32.ss_obj = ss.GxB_MIN_LAND_UINT32
+clib.MIN_LAND_UINT64.ss_obj = ss.GxB_MIN_LAND_UINT64
+clib.MIN_LAND_UINT8.ss_obj = ss.GxB_MIN_LAND_UINT8
+clib.MIN_LOR_FP32.ss_obj = ss.GxB_MIN_LOR_FP32
+clib.MIN_LOR_FP64.ss_obj = ss.GxB_MIN_LOR_FP64
+clib.MIN_LOR_INT16.ss_obj = ss.GxB_MIN_LOR_INT16
+clib.MIN_LOR_INT32.ss_obj = ss.GxB_MIN_LOR_INT32
+clib.MIN_LOR_INT64.ss_obj = ss.GxB_MIN_LOR_INT64
+clib.MIN_LOR_INT8.ss_obj = ss.GxB_MIN_LOR_INT8
+clib.MIN_LOR_UINT16.ss_obj = ss.GxB_MIN_LOR_UINT16
+clib.MIN_LOR_UINT32.ss_obj = ss.GxB_MIN_LOR_UINT32
+clib.MIN_LOR_UINT64.ss_obj = ss.GxB_MIN_LOR_UINT64
+clib.MIN_LOR_UINT8.ss_obj = ss.GxB_MIN_LOR_UINT8
+clib.MIN_LXOR_FP32.ss_obj = ss.GxB_MIN_LXOR_FP32
+clib.MIN_LXOR_FP64.ss_obj = ss.GxB_MIN_LXOR_FP64
+clib.MIN_LXOR_INT16.ss_obj = ss.GxB_MIN_LXOR_INT16
+clib.MIN_LXOR_INT32.ss_obj = ss.GxB_MIN_LXOR_INT32
+clib.MIN_LXOR_INT64.ss_obj = ss.GxB_MIN_LXOR_INT64
+clib.MIN_LXOR_INT8.ss_obj = ss.GxB_MIN_LXOR_INT8
+clib.MIN_LXOR_UINT16.ss_obj = ss.GxB_MIN_LXOR_UINT16
+clib.MIN_LXOR_UINT32.ss_obj = ss.GxB_MIN_LXOR_UINT32
+clib.MIN_LXOR_UINT64.ss_obj = ss.GxB_MIN_LXOR_UINT64
+clib.MIN_LXOR_UINT8.ss_obj = ss.GxB_MIN_LXOR_UINT8
+clib.MIN_MAX_FP32.ss_obj = ss.GxB_MIN_MAX_FP32
+clib.MIN_MAX_FP64.ss_obj = ss.GxB_MIN_MAX_FP64
+clib.MIN_MAX_INT16.ss_obj = ss.GxB_MIN_MAX_INT16
+clib.MIN_MAX_INT32.ss_obj = ss.GxB_MIN_MAX_INT32
+clib.MIN_MAX_INT64.ss_obj = ss.GxB_MIN_MAX_INT64
+clib.MIN_MAX_INT8.ss_obj = ss.GxB_MIN_MAX_INT8
+clib.MIN_MAX_UINT16.ss_obj = ss.GxB_MIN_MAX_UINT16
+clib.MIN_MAX_UINT32.ss_obj = ss.GxB_MIN_MAX_UINT32
+clib.MIN_MAX_UINT64.ss_obj = ss.GxB_MIN_MAX_UINT64
+clib.MIN_MAX_UINT8.ss_obj = ss.GxB_MIN_MAX_UINT8
+clib.MIN_MINUS_FP32.ss_obj = ss.GxB_MIN_MINUS_FP32
+clib.MIN_MINUS_FP64.ss_obj = ss.GxB_MIN_MINUS_FP64
+clib.MIN_MINUS_INT16.ss_obj = ss.GxB_MIN_MINUS_INT16
+clib.MIN_MINUS_INT32.ss_obj = ss.GxB_MIN_MINUS_INT32
+clib.MIN_MINUS_INT64.ss_obj = ss.GxB_MIN_MINUS_INT64
+clib.MIN_MINUS_INT8.ss_obj = ss.GxB_MIN_MINUS_INT8
+clib.MIN_MINUS_UINT16.ss_obj = ss.GxB_MIN_MINUS_UINT16
+clib.MIN_MINUS_UINT32.ss_obj = ss.GxB_MIN_MINUS_UINT32
+clib.MIN_MINUS_UINT64.ss_obj = ss.GxB_MIN_MINUS_UINT64
+clib.MIN_MINUS_UINT8.ss_obj = ss.GxB_MIN_MINUS_UINT8
+clib.MIN_MIN_FP32.ss_obj = ss.GxB_MIN_MIN_FP32
+clib.MIN_MIN_FP64.ss_obj = ss.GxB_MIN_MIN_FP64
+clib.MIN_MIN_INT16.ss_obj = ss.GxB_MIN_MIN_INT16
+clib.MIN_MIN_INT32.ss_obj = ss.GxB_MIN_MIN_INT32
+clib.MIN_MIN_INT64.ss_obj = ss.GxB_MIN_MIN_INT64
+clib.MIN_MIN_INT8.ss_obj = ss.GxB_MIN_MIN_INT8
+clib.MIN_MIN_UINT16.ss_obj = ss.GxB_MIN_MIN_UINT16
+clib.MIN_MIN_UINT32.ss_obj = ss.GxB_MIN_MIN_UINT32
+clib.MIN_MIN_UINT64.ss_obj = ss.GxB_MIN_MIN_UINT64
+clib.MIN_MIN_UINT8.ss_obj = ss.GxB_MIN_MIN_UINT8
+clib.MIN_PAIR_FP32.ss_obj = ss.GxB_MIN_PAIR_FP32
+clib.MIN_PAIR_FP64.ss_obj = ss.GxB_MIN_PAIR_FP64
+clib.MIN_PAIR_INT16.ss_obj = ss.GxB_MIN_PAIR_INT16
+clib.MIN_PAIR_INT32.ss_obj = ss.GxB_MIN_PAIR_INT32
+clib.MIN_PAIR_INT64.ss_obj = ss.GxB_MIN_PAIR_INT64
+clib.MIN_PAIR_INT8.ss_obj = ss.GxB_MIN_PAIR_INT8
+clib.MIN_PAIR_UINT16.ss_obj = ss.GxB_MIN_PAIR_UINT16
+clib.MIN_PAIR_UINT32.ss_obj = ss.GxB_MIN_PAIR_UINT32
+clib.MIN_PAIR_UINT64.ss_obj = ss.GxB_MIN_PAIR_UINT64
+clib.MIN_PAIR_UINT8.ss_obj = ss.GxB_MIN_PAIR_UINT8
+clib.MIN_PLUS_FP32.ss_obj = ss.GxB_MIN_PLUS_FP32
+clib.MIN_PLUS_FP64.ss_obj = ss.GxB_MIN_PLUS_FP64
+clib.MIN_PLUS_INT16.ss_obj = ss.GxB_MIN_PLUS_INT16
+clib.MIN_PLUS_INT32.ss_obj = ss.GxB_MIN_PLUS_INT32
+clib.MIN_PLUS_INT64.ss_obj = ss.GxB_MIN_PLUS_INT64
+clib.MIN_PLUS_INT8.ss_obj = ss.GxB_MIN_PLUS_INT8
+clib.MIN_PLUS_UINT16.ss_obj = ss.GxB_MIN_PLUS_UINT16
+clib.MIN_PLUS_UINT32.ss_obj = ss.GxB_MIN_PLUS_UINT32
+clib.MIN_PLUS_UINT64.ss_obj = ss.GxB_MIN_PLUS_UINT64
+clib.MIN_PLUS_UINT8.ss_obj = ss.GxB_MIN_PLUS_UINT8
+clib.MIN_RDIV_FP32.ss_obj = ss.GxB_MIN_RDIV_FP32
+clib.MIN_RDIV_FP64.ss_obj = ss.GxB_MIN_RDIV_FP64
+clib.MIN_RDIV_INT16.ss_obj = ss.GxB_MIN_RDIV_INT16
+clib.MIN_RDIV_INT32.ss_obj = ss.GxB_MIN_RDIV_INT32
+clib.MIN_RDIV_INT64.ss_obj = ss.GxB_MIN_RDIV_INT64
+clib.MIN_RDIV_INT8.ss_obj = ss.GxB_MIN_RDIV_INT8
+clib.MIN_RDIV_UINT16.ss_obj = ss.GxB_MIN_RDIV_UINT16
+clib.MIN_RDIV_UINT32.ss_obj = ss.GxB_MIN_RDIV_UINT32
+clib.MIN_RDIV_UINT64.ss_obj = ss.GxB_MIN_RDIV_UINT64
+clib.MIN_RDIV_UINT8.ss_obj = ss.GxB_MIN_RDIV_UINT8
+clib.MIN_RMINUS_FP32.ss_obj = ss.GxB_MIN_RMINUS_FP32
+clib.MIN_RMINUS_FP64.ss_obj = ss.GxB_MIN_RMINUS_FP64
+clib.MIN_RMINUS_INT16.ss_obj = ss.GxB_MIN_RMINUS_INT16
+clib.MIN_RMINUS_INT32.ss_obj = ss.GxB_MIN_RMINUS_INT32
+clib.MIN_RMINUS_INT64.ss_obj = ss.GxB_MIN_RMINUS_INT64
+clib.MIN_RMINUS_INT8.ss_obj = ss.GxB_MIN_RMINUS_INT8
+clib.MIN_RMINUS_UINT16.ss_obj = ss.GxB_MIN_RMINUS_UINT16
+clib.MIN_RMINUS_UINT32.ss_obj = ss.GxB_MIN_RMINUS_UINT32
+clib.MIN_RMINUS_UINT64.ss_obj = ss.GxB_MIN_RMINUS_UINT64
+clib.MIN_RMINUS_UINT8.ss_obj = ss.GxB_MIN_RMINUS_UINT8
+clib.MIN_SECOND_FP32.ss_obj = ss.GxB_MIN_SECOND_FP32
+clib.MIN_SECOND_FP64.ss_obj = ss.GxB_MIN_SECOND_FP64
+clib.MIN_SECOND_INT16.ss_obj = ss.GxB_MIN_SECOND_INT16
+clib.MIN_SECOND_INT32.ss_obj = ss.GxB_MIN_SECOND_INT32
+clib.MIN_SECOND_INT64.ss_obj = ss.GxB_MIN_SECOND_INT64
+clib.MIN_SECOND_INT8.ss_obj = ss.GxB_MIN_SECOND_INT8
+clib.MIN_SECOND_UINT16.ss_obj = ss.GxB_MIN_SECOND_UINT16
+clib.MIN_SECOND_UINT32.ss_obj = ss.GxB_MIN_SECOND_UINT32
+clib.MIN_SECOND_UINT64.ss_obj = ss.GxB_MIN_SECOND_UINT64
+clib.MIN_SECOND_UINT8.ss_obj = ss.GxB_MIN_SECOND_UINT8
+clib.MIN_TIMES_FP32.ss_obj = ss.GxB_MIN_TIMES_FP32
+clib.MIN_TIMES_FP64.ss_obj = ss.GxB_MIN_TIMES_FP64
+clib.MIN_TIMES_INT16.ss_obj = ss.GxB_MIN_TIMES_INT16
+clib.MIN_TIMES_INT32.ss_obj = ss.GxB_MIN_TIMES_INT32
+clib.MIN_TIMES_INT64.ss_obj = ss.GxB_MIN_TIMES_INT64
+clib.MIN_TIMES_INT8.ss_obj = ss.GxB_MIN_TIMES_INT8
+clib.MIN_TIMES_UINT16.ss_obj = ss.GxB_MIN_TIMES_UINT16
+clib.MIN_TIMES_UINT32.ss_obj = ss.GxB_MIN_TIMES_UINT32
+clib.MIN_TIMES_UINT64.ss_obj = ss.GxB_MIN_TIMES_UINT64
+clib.MIN_TIMES_UINT8.ss_obj = ss.GxB_MIN_TIMES_UINT8
+clib.PLUS_DIV_FC32.ss_obj = ss.GxB_PLUS_DIV_FC32
+clib.PLUS_DIV_FC64.ss_obj = ss.GxB_PLUS_DIV_FC64
+clib.PLUS_DIV_FP32.ss_obj = ss.GxB_PLUS_DIV_FP32
+clib.PLUS_DIV_FP64.ss_obj = ss.GxB_PLUS_DIV_FP64
+clib.PLUS_DIV_INT16.ss_obj = ss.GxB_PLUS_DIV_INT16
+clib.PLUS_DIV_INT32.ss_obj = ss.GxB_PLUS_DIV_INT32
+clib.PLUS_DIV_INT64.ss_obj = ss.GxB_PLUS_DIV_INT64
+clib.PLUS_DIV_INT8.ss_obj = ss.GxB_PLUS_DIV_INT8
+clib.PLUS_DIV_UINT16.ss_obj = ss.GxB_PLUS_DIV_UINT16
+clib.PLUS_DIV_UINT32.ss_obj = ss.GxB_PLUS_DIV_UINT32
+clib.PLUS_DIV_UINT64.ss_obj = ss.GxB_PLUS_DIV_UINT64
+clib.PLUS_DIV_UINT8.ss_obj = ss.GxB_PLUS_DIV_UINT8
+clib.PLUS_FIRST_FC32.ss_obj = ss.GxB_PLUS_FIRST_FC32
+clib.PLUS_FIRST_FC64.ss_obj = ss.GxB_PLUS_FIRST_FC64
+clib.PLUS_FIRST_FP32.ss_obj = ss.GxB_PLUS_FIRST_FP32
+clib.PLUS_FIRST_FP64.ss_obj = ss.GxB_PLUS_FIRST_FP64
+clib.PLUS_FIRST_INT16.ss_obj = ss.GxB_PLUS_FIRST_INT16
+clib.PLUS_FIRST_INT32.ss_obj = ss.GxB_PLUS_FIRST_INT32
+clib.PLUS_FIRST_INT64.ss_obj = ss.GxB_PLUS_FIRST_INT64
+clib.PLUS_FIRST_INT8.ss_obj = ss.GxB_PLUS_FIRST_INT8
+clib.PLUS_FIRST_UINT16.ss_obj = ss.GxB_PLUS_FIRST_UINT16
+clib.PLUS_FIRST_UINT32.ss_obj = ss.GxB_PLUS_FIRST_UINT32
+clib.PLUS_FIRST_UINT64.ss_obj = ss.GxB_PLUS_FIRST_UINT64
+clib.PLUS_FIRST_UINT8.ss_obj = ss.GxB_PLUS_FIRST_UINT8
+clib.PLUS_ISEQ_FP32.ss_obj = ss.GxB_PLUS_ISEQ_FP32
+clib.PLUS_ISEQ_FP64.ss_obj = ss.GxB_PLUS_ISEQ_FP64
+clib.PLUS_ISEQ_INT16.ss_obj = ss.GxB_PLUS_ISEQ_INT16
+clib.PLUS_ISEQ_INT32.ss_obj = ss.GxB_PLUS_ISEQ_INT32
+clib.PLUS_ISEQ_INT64.ss_obj = ss.GxB_PLUS_ISEQ_INT64
+clib.PLUS_ISEQ_INT8.ss_obj = ss.GxB_PLUS_ISEQ_INT8
+clib.PLUS_ISEQ_UINT16.ss_obj = ss.GxB_PLUS_ISEQ_UINT16
+clib.PLUS_ISEQ_UINT32.ss_obj = ss.GxB_PLUS_ISEQ_UINT32
+clib.PLUS_ISEQ_UINT64.ss_obj = ss.GxB_PLUS_ISEQ_UINT64
+clib.PLUS_ISEQ_UINT8.ss_obj = ss.GxB_PLUS_ISEQ_UINT8
+clib.PLUS_ISGE_FP32.ss_obj = ss.GxB_PLUS_ISGE_FP32
+clib.PLUS_ISGE_FP64.ss_obj = ss.GxB_PLUS_ISGE_FP64
+clib.PLUS_ISGE_INT16.ss_obj = ss.GxB_PLUS_ISGE_INT16
+clib.PLUS_ISGE_INT32.ss_obj = ss.GxB_PLUS_ISGE_INT32
+clib.PLUS_ISGE_INT64.ss_obj = ss.GxB_PLUS_ISGE_INT64
+clib.PLUS_ISGE_INT8.ss_obj = ss.GxB_PLUS_ISGE_INT8
+clib.PLUS_ISGE_UINT16.ss_obj = ss.GxB_PLUS_ISGE_UINT16
+clib.PLUS_ISGE_UINT32.ss_obj = ss.GxB_PLUS_ISGE_UINT32
+clib.PLUS_ISGE_UINT64.ss_obj = ss.GxB_PLUS_ISGE_UINT64
+clib.PLUS_ISGE_UINT8.ss_obj = ss.GxB_PLUS_ISGE_UINT8
+clib.PLUS_ISGT_FP32.ss_obj = ss.GxB_PLUS_ISGT_FP32
+clib.PLUS_ISGT_FP64.ss_obj = ss.GxB_PLUS_ISGT_FP64
+clib.PLUS_ISGT_INT16.ss_obj = ss.GxB_PLUS_ISGT_INT16
+clib.PLUS_ISGT_INT32.ss_obj = ss.GxB_PLUS_ISGT_INT32
+clib.PLUS_ISGT_INT64.ss_obj = ss.GxB_PLUS_ISGT_INT64
+clib.PLUS_ISGT_INT8.ss_obj = ss.GxB_PLUS_ISGT_INT8
+clib.PLUS_ISGT_UINT16.ss_obj = ss.GxB_PLUS_ISGT_UINT16
+clib.PLUS_ISGT_UINT32.ss_obj = ss.GxB_PLUS_ISGT_UINT32
+clib.PLUS_ISGT_UINT64.ss_obj = ss.GxB_PLUS_ISGT_UINT64
+clib.PLUS_ISGT_UINT8.ss_obj = ss.GxB_PLUS_ISGT_UINT8
+clib.PLUS_ISLE_FP32.ss_obj = ss.GxB_PLUS_ISLE_FP32
+clib.PLUS_ISLE_FP64.ss_obj = ss.GxB_PLUS_ISLE_FP64
+clib.PLUS_ISLE_INT16.ss_obj = ss.GxB_PLUS_ISLE_INT16
+clib.PLUS_ISLE_INT32.ss_obj = ss.GxB_PLUS_ISLE_INT32
+clib.PLUS_ISLE_INT64.ss_obj = ss.GxB_PLUS_ISLE_INT64
+clib.PLUS_ISLE_INT8.ss_obj = ss.GxB_PLUS_ISLE_INT8
+clib.PLUS_ISLE_UINT16.ss_obj = ss.GxB_PLUS_ISLE_UINT16
+clib.PLUS_ISLE_UINT32.ss_obj = ss.GxB_PLUS_ISLE_UINT32
+clib.PLUS_ISLE_UINT64.ss_obj = ss.GxB_PLUS_ISLE_UINT64
+clib.PLUS_ISLE_UINT8.ss_obj = ss.GxB_PLUS_ISLE_UINT8
+clib.PLUS_ISLT_FP32.ss_obj = ss.GxB_PLUS_ISLT_FP32
+clib.PLUS_ISLT_FP64.ss_obj = ss.GxB_PLUS_ISLT_FP64
+clib.PLUS_ISLT_INT16.ss_obj = ss.GxB_PLUS_ISLT_INT16
+clib.PLUS_ISLT_INT32.ss_obj = ss.GxB_PLUS_ISLT_INT32
+clib.PLUS_ISLT_INT64.ss_obj = ss.GxB_PLUS_ISLT_INT64
+clib.PLUS_ISLT_INT8.ss_obj = ss.GxB_PLUS_ISLT_INT8
+clib.PLUS_ISLT_UINT16.ss_obj = ss.GxB_PLUS_ISLT_UINT16
+clib.PLUS_ISLT_UINT32.ss_obj = ss.GxB_PLUS_ISLT_UINT32
+clib.PLUS_ISLT_UINT64.ss_obj = ss.GxB_PLUS_ISLT_UINT64
+clib.PLUS_ISLT_UINT8.ss_obj = ss.GxB_PLUS_ISLT_UINT8
+clib.PLUS_ISNE_FP32.ss_obj = ss.GxB_PLUS_ISNE_FP32
+clib.PLUS_ISNE_FP64.ss_obj = ss.GxB_PLUS_ISNE_FP64
+clib.PLUS_ISNE_INT16.ss_obj = ss.GxB_PLUS_ISNE_INT16
+clib.PLUS_ISNE_INT32.ss_obj = ss.GxB_PLUS_ISNE_INT32
+clib.PLUS_ISNE_INT64.ss_obj = ss.GxB_PLUS_ISNE_INT64
+clib.PLUS_ISNE_INT8.ss_obj = ss.GxB_PLUS_ISNE_INT8
+clib.PLUS_ISNE_UINT16.ss_obj = ss.GxB_PLUS_ISNE_UINT16
+clib.PLUS_ISNE_UINT32.ss_obj = ss.GxB_PLUS_ISNE_UINT32
+clib.PLUS_ISNE_UINT64.ss_obj = ss.GxB_PLUS_ISNE_UINT64
+clib.PLUS_ISNE_UINT8.ss_obj = ss.GxB_PLUS_ISNE_UINT8
+clib.PLUS_LAND_FP32.ss_obj = ss.GxB_PLUS_LAND_FP32
+clib.PLUS_LAND_FP64.ss_obj = ss.GxB_PLUS_LAND_FP64
+clib.PLUS_LAND_INT16.ss_obj = ss.GxB_PLUS_LAND_INT16
+clib.PLUS_LAND_INT32.ss_obj = ss.GxB_PLUS_LAND_INT32
+clib.PLUS_LAND_INT64.ss_obj = ss.GxB_PLUS_LAND_INT64
+clib.PLUS_LAND_INT8.ss_obj = ss.GxB_PLUS_LAND_INT8
+clib.PLUS_LAND_UINT16.ss_obj = ss.GxB_PLUS_LAND_UINT16
+clib.PLUS_LAND_UINT32.ss_obj = ss.GxB_PLUS_LAND_UINT32
+clib.PLUS_LAND_UINT64.ss_obj = ss.GxB_PLUS_LAND_UINT64
+clib.PLUS_LAND_UINT8.ss_obj = ss.GxB_PLUS_LAND_UINT8
+clib.PLUS_LOR_FP32.ss_obj = ss.GxB_PLUS_LOR_FP32
+clib.PLUS_LOR_FP64.ss_obj = ss.GxB_PLUS_LOR_FP64
+clib.PLUS_LOR_INT16.ss_obj = ss.GxB_PLUS_LOR_INT16
+clib.PLUS_LOR_INT32.ss_obj = ss.GxB_PLUS_LOR_INT32
+clib.PLUS_LOR_INT64.ss_obj = ss.GxB_PLUS_LOR_INT64
+clib.PLUS_LOR_INT8.ss_obj = ss.GxB_PLUS_LOR_INT8
+clib.PLUS_LOR_UINT16.ss_obj = ss.GxB_PLUS_LOR_UINT16
+clib.PLUS_LOR_UINT32.ss_obj = ss.GxB_PLUS_LOR_UINT32
+clib.PLUS_LOR_UINT64.ss_obj = ss.GxB_PLUS_LOR_UINT64
+clib.PLUS_LOR_UINT8.ss_obj = ss.GxB_PLUS_LOR_UINT8
+clib.PLUS_LXOR_FP32.ss_obj = ss.GxB_PLUS_LXOR_FP32
+clib.PLUS_LXOR_FP64.ss_obj = ss.GxB_PLUS_LXOR_FP64
+clib.PLUS_LXOR_INT16.ss_obj = ss.GxB_PLUS_LXOR_INT16
+clib.PLUS_LXOR_INT32.ss_obj = ss.GxB_PLUS_LXOR_INT32
+clib.PLUS_LXOR_INT64.ss_obj = ss.GxB_PLUS_LXOR_INT64
+clib.PLUS_LXOR_INT8.ss_obj = ss.GxB_PLUS_LXOR_INT8
+clib.PLUS_LXOR_UINT16.ss_obj = ss.GxB_PLUS_LXOR_UINT16
+clib.PLUS_LXOR_UINT32.ss_obj = ss.GxB_PLUS_LXOR_UINT32
+clib.PLUS_LXOR_UINT64.ss_obj = ss.GxB_PLUS_LXOR_UINT64
+clib.PLUS_LXOR_UINT8.ss_obj = ss.GxB_PLUS_LXOR_UINT8
+clib.PLUS_MAX_FP32.ss_obj = ss.GxB_PLUS_MAX_FP32
+clib.PLUS_MAX_FP64.ss_obj = ss.GxB_PLUS_MAX_FP64
+clib.PLUS_MAX_INT16.ss_obj = ss.GxB_PLUS_MAX_INT16
+clib.PLUS_MAX_INT32.ss_obj = ss.GxB_PLUS_MAX_INT32
+clib.PLUS_MAX_INT64.ss_obj = ss.GxB_PLUS_MAX_INT64
+clib.PLUS_MAX_INT8.ss_obj = ss.GxB_PLUS_MAX_INT8
+clib.PLUS_MAX_UINT16.ss_obj = ss.GxB_PLUS_MAX_UINT16
+clib.PLUS_MAX_UINT32.ss_obj = ss.GxB_PLUS_MAX_UINT32
+clib.PLUS_MAX_UINT64.ss_obj = ss.GxB_PLUS_MAX_UINT64
+clib.PLUS_MAX_UINT8.ss_obj = ss.GxB_PLUS_MAX_UINT8
+clib.PLUS_MINUS_FC32.ss_obj = ss.GxB_PLUS_MINUS_FC32
+clib.PLUS_MINUS_FC64.ss_obj = ss.GxB_PLUS_MINUS_FC64
+clib.PLUS_MINUS_FP32.ss_obj = ss.GxB_PLUS_MINUS_FP32
+clib.PLUS_MINUS_FP64.ss_obj = ss.GxB_PLUS_MINUS_FP64
+clib.PLUS_MINUS_INT16.ss_obj = ss.GxB_PLUS_MINUS_INT16
+clib.PLUS_MINUS_INT32.ss_obj = ss.GxB_PLUS_MINUS_INT32
+clib.PLUS_MINUS_INT64.ss_obj = ss.GxB_PLUS_MINUS_INT64
+clib.PLUS_MINUS_INT8.ss_obj = ss.GxB_PLUS_MINUS_INT8
+clib.PLUS_MINUS_UINT16.ss_obj = ss.GxB_PLUS_MINUS_UINT16
+clib.PLUS_MINUS_UINT32.ss_obj = ss.GxB_PLUS_MINUS_UINT32
+clib.PLUS_MINUS_UINT64.ss_obj = ss.GxB_PLUS_MINUS_UINT64
+clib.PLUS_MINUS_UINT8.ss_obj = ss.GxB_PLUS_MINUS_UINT8
+clib.PLUS_MIN_FP32.ss_obj = ss.GxB_PLUS_MIN_FP32
+clib.PLUS_MIN_FP64.ss_obj = ss.GxB_PLUS_MIN_FP64
+clib.PLUS_MIN_INT16.ss_obj = ss.GxB_PLUS_MIN_INT16
+clib.PLUS_MIN_INT32.ss_obj = ss.GxB_PLUS_MIN_INT32
+clib.PLUS_MIN_INT64.ss_obj = ss.GxB_PLUS_MIN_INT64
+clib.PLUS_MIN_INT8.ss_obj = ss.GxB_PLUS_MIN_INT8
+clib.PLUS_MIN_UINT16.ss_obj = ss.GxB_PLUS_MIN_UINT16
+clib.PLUS_MIN_UINT32.ss_obj = ss.GxB_PLUS_MIN_UINT32
+clib.PLUS_MIN_UINT64.ss_obj = ss.GxB_PLUS_MIN_UINT64
+clib.PLUS_MIN_UINT8.ss_obj = ss.GxB_PLUS_MIN_UINT8
+clib.PLUS_PAIR_FC32.ss_obj = ss.GxB_PLUS_PAIR_FC32
+clib.PLUS_PAIR_FC64.ss_obj = ss.GxB_PLUS_PAIR_FC64
+clib.PLUS_PAIR_FP32.ss_obj = ss.GxB_PLUS_PAIR_FP32
+clib.PLUS_PAIR_FP64.ss_obj = ss.GxB_PLUS_PAIR_FP64
+clib.PLUS_PAIR_INT16.ss_obj = ss.GxB_PLUS_PAIR_INT16
+clib.PLUS_PAIR_INT32.ss_obj = ss.GxB_PLUS_PAIR_INT32
+clib.PLUS_PAIR_INT64.ss_obj = ss.GxB_PLUS_PAIR_INT64
+clib.PLUS_PAIR_INT8.ss_obj = ss.GxB_PLUS_PAIR_INT8
+clib.PLUS_PAIR_UINT16.ss_obj = ss.GxB_PLUS_PAIR_UINT16
+clib.PLUS_PAIR_UINT32.ss_obj = ss.GxB_PLUS_PAIR_UINT32
+clib.PLUS_PAIR_UINT64.ss_obj = ss.GxB_PLUS_PAIR_UINT64
+clib.PLUS_PAIR_UINT8.ss_obj = ss.GxB_PLUS_PAIR_UINT8
+clib.PLUS_PLUS_FC32.ss_obj = ss.GxB_PLUS_PLUS_FC32
+clib.PLUS_PLUS_FC64.ss_obj = ss.GxB_PLUS_PLUS_FC64
+clib.PLUS_PLUS_FP32.ss_obj = ss.GxB_PLUS_PLUS_FP32
+clib.PLUS_PLUS_FP64.ss_obj = ss.GxB_PLUS_PLUS_FP64
+clib.PLUS_PLUS_INT16.ss_obj = ss.GxB_PLUS_PLUS_INT16
+clib.PLUS_PLUS_INT32.ss_obj = ss.GxB_PLUS_PLUS_INT32
+clib.PLUS_PLUS_INT64.ss_obj = ss.GxB_PLUS_PLUS_INT64
+clib.PLUS_PLUS_INT8.ss_obj = ss.GxB_PLUS_PLUS_INT8
+clib.PLUS_PLUS_UINT16.ss_obj = ss.GxB_PLUS_PLUS_UINT16
+clib.PLUS_PLUS_UINT32.ss_obj = ss.GxB_PLUS_PLUS_UINT32
+clib.PLUS_PLUS_UINT64.ss_obj = ss.GxB_PLUS_PLUS_UINT64
+clib.PLUS_PLUS_UINT8.ss_obj = ss.GxB_PLUS_PLUS_UINT8
+clib.PLUS_RDIV_FC32.ss_obj = ss.GxB_PLUS_RDIV_FC32
+clib.PLUS_RDIV_FC64.ss_obj = ss.GxB_PLUS_RDIV_FC64
+clib.PLUS_RDIV_FP32.ss_obj = ss.GxB_PLUS_RDIV_FP32
+clib.PLUS_RDIV_FP64.ss_obj = ss.GxB_PLUS_RDIV_FP64
+clib.PLUS_RDIV_INT16.ss_obj = ss.GxB_PLUS_RDIV_INT16
+clib.PLUS_RDIV_INT32.ss_obj = ss.GxB_PLUS_RDIV_INT32
+clib.PLUS_RDIV_INT64.ss_obj = ss.GxB_PLUS_RDIV_INT64
+clib.PLUS_RDIV_INT8.ss_obj = ss.GxB_PLUS_RDIV_INT8
+clib.PLUS_RDIV_UINT16.ss_obj = ss.GxB_PLUS_RDIV_UINT16
+clib.PLUS_RDIV_UINT32.ss_obj = ss.GxB_PLUS_RDIV_UINT32
+clib.PLUS_RDIV_UINT64.ss_obj = ss.GxB_PLUS_RDIV_UINT64
+clib.PLUS_RDIV_UINT8.ss_obj = ss.GxB_PLUS_RDIV_UINT8
+clib.PLUS_RMINUS_FC32.ss_obj = ss.GxB_PLUS_RMINUS_FC32
+clib.PLUS_RMINUS_FC64.ss_obj = ss.GxB_PLUS_RMINUS_FC64
+clib.PLUS_RMINUS_FP32.ss_obj = ss.GxB_PLUS_RMINUS_FP32
+clib.PLUS_RMINUS_FP64.ss_obj = ss.GxB_PLUS_RMINUS_FP64
+clib.PLUS_RMINUS_INT16.ss_obj = ss.GxB_PLUS_RMINUS_INT16
+clib.PLUS_RMINUS_INT32.ss_obj = ss.GxB_PLUS_RMINUS_INT32
+clib.PLUS_RMINUS_INT64.ss_obj = ss.GxB_PLUS_RMINUS_INT64
+clib.PLUS_RMINUS_INT8.ss_obj = ss.GxB_PLUS_RMINUS_INT8
+clib.PLUS_RMINUS_UINT16.ss_obj = ss.GxB_PLUS_RMINUS_UINT16
+clib.PLUS_RMINUS_UINT32.ss_obj = ss.GxB_PLUS_RMINUS_UINT32
+clib.PLUS_RMINUS_UINT64.ss_obj = ss.GxB_PLUS_RMINUS_UINT64
+clib.PLUS_RMINUS_UINT8.ss_obj = ss.GxB_PLUS_RMINUS_UINT8
+clib.PLUS_SECOND_FC32.ss_obj = ss.GxB_PLUS_SECOND_FC32
+clib.PLUS_SECOND_FC64.ss_obj = ss.GxB_PLUS_SECOND_FC64
+clib.PLUS_SECOND_FP32.ss_obj = ss.GxB_PLUS_SECOND_FP32
+clib.PLUS_SECOND_FP64.ss_obj = ss.GxB_PLUS_SECOND_FP64
+clib.PLUS_SECOND_INT16.ss_obj = ss.GxB_PLUS_SECOND_INT16
+clib.PLUS_SECOND_INT32.ss_obj = ss.GxB_PLUS_SECOND_INT32
+clib.PLUS_SECOND_INT64.ss_obj = ss.GxB_PLUS_SECOND_INT64
+clib.PLUS_SECOND_INT8.ss_obj = ss.GxB_PLUS_SECOND_INT8
+clib.PLUS_SECOND_UINT16.ss_obj = ss.GxB_PLUS_SECOND_UINT16
+clib.PLUS_SECOND_UINT32.ss_obj = ss.GxB_PLUS_SECOND_UINT32
+clib.PLUS_SECOND_UINT64.ss_obj = ss.GxB_PLUS_SECOND_UINT64
+clib.PLUS_SECOND_UINT8.ss_obj = ss.GxB_PLUS_SECOND_UINT8
+clib.PLUS_TIMES_FC32.ss_obj = ss.GxB_PLUS_TIMES_FC32
+clib.PLUS_TIMES_FC64.ss_obj = ss.GxB_PLUS_TIMES_FC64
+clib.PLUS_TIMES_FP32.ss_obj = ss.GxB_PLUS_TIMES_FP32
+clib.PLUS_TIMES_FP64.ss_obj = ss.GxB_PLUS_TIMES_FP64
+clib.PLUS_TIMES_INT16.ss_obj = ss.GxB_PLUS_TIMES_INT16
+clib.PLUS_TIMES_INT32.ss_obj = ss.GxB_PLUS_TIMES_INT32
+clib.PLUS_TIMES_INT64.ss_obj = ss.GxB_PLUS_TIMES_INT64
+clib.PLUS_TIMES_INT8.ss_obj = ss.GxB_PLUS_TIMES_INT8
+clib.PLUS_TIMES_UINT16.ss_obj = ss.GxB_PLUS_TIMES_UINT16
+clib.PLUS_TIMES_UINT32.ss_obj = ss.GxB_PLUS_TIMES_UINT32
+clib.PLUS_TIMES_UINT64.ss_obj = ss.GxB_PLUS_TIMES_UINT64
+clib.PLUS_TIMES_UINT8.ss_obj = ss.GxB_PLUS_TIMES_UINT8
+clib.TIMES_DIV_FC32.ss_obj = ss.GxB_TIMES_DIV_FC32
+clib.TIMES_DIV_FC64.ss_obj = ss.GxB_TIMES_DIV_FC64
+clib.TIMES_DIV_FP32.ss_obj = ss.GxB_TIMES_DIV_FP32
+clib.TIMES_DIV_FP64.ss_obj = ss.GxB_TIMES_DIV_FP64
+clib.TIMES_DIV_INT16.ss_obj = ss.GxB_TIMES_DIV_INT16
+clib.TIMES_DIV_INT32.ss_obj = ss.GxB_TIMES_DIV_INT32
+clib.TIMES_DIV_INT64.ss_obj = ss.GxB_TIMES_DIV_INT64
+clib.TIMES_DIV_INT8.ss_obj = ss.GxB_TIMES_DIV_INT8
+clib.TIMES_DIV_UINT16.ss_obj = ss.GxB_TIMES_DIV_UINT16
+clib.TIMES_DIV_UINT32.ss_obj = ss.GxB_TIMES_DIV_UINT32
+clib.TIMES_DIV_UINT64.ss_obj = ss.GxB_TIMES_DIV_UINT64
+clib.TIMES_DIV_UINT8.ss_obj = ss.GxB_TIMES_DIV_UINT8
+clib.TIMES_FIRST_FC32.ss_obj = ss.GxB_TIMES_FIRST_FC32
+clib.TIMES_FIRST_FC64.ss_obj = ss.GxB_TIMES_FIRST_FC64
+clib.TIMES_FIRST_FP32.ss_obj = ss.GxB_TIMES_FIRST_FP32
+clib.TIMES_FIRST_FP64.ss_obj = ss.GxB_TIMES_FIRST_FP64
+clib.TIMES_FIRST_INT16.ss_obj = ss.GxB_TIMES_FIRST_INT16
+clib.TIMES_FIRST_INT32.ss_obj = ss.GxB_TIMES_FIRST_INT32
+clib.TIMES_FIRST_INT64.ss_obj = ss.GxB_TIMES_FIRST_INT64
+clib.TIMES_FIRST_INT8.ss_obj = ss.GxB_TIMES_FIRST_INT8
+clib.TIMES_FIRST_UINT16.ss_obj = ss.GxB_TIMES_FIRST_UINT16
+clib.TIMES_FIRST_UINT32.ss_obj = ss.GxB_TIMES_FIRST_UINT32
+clib.TIMES_FIRST_UINT64.ss_obj = ss.GxB_TIMES_FIRST_UINT64
+clib.TIMES_FIRST_UINT8.ss_obj = ss.GxB_TIMES_FIRST_UINT8
+clib.TIMES_ISEQ_FP32.ss_obj = ss.GxB_TIMES_ISEQ_FP32
+clib.TIMES_ISEQ_FP64.ss_obj = ss.GxB_TIMES_ISEQ_FP64
+clib.TIMES_ISEQ_INT16.ss_obj = ss.GxB_TIMES_ISEQ_INT16
+clib.TIMES_ISEQ_INT32.ss_obj = ss.GxB_TIMES_ISEQ_INT32
+clib.TIMES_ISEQ_INT64.ss_obj = ss.GxB_TIMES_ISEQ_INT64
+clib.TIMES_ISEQ_INT8.ss_obj = ss.GxB_TIMES_ISEQ_INT8
+clib.TIMES_ISEQ_UINT16.ss_obj = ss.GxB_TIMES_ISEQ_UINT16
+clib.TIMES_ISEQ_UINT32.ss_obj = ss.GxB_TIMES_ISEQ_UINT32
+clib.TIMES_ISEQ_UINT64.ss_obj = ss.GxB_TIMES_ISEQ_UINT64
+clib.TIMES_ISEQ_UINT8.ss_obj = ss.GxB_TIMES_ISEQ_UINT8
+clib.TIMES_ISGE_FP32.ss_obj = ss.GxB_TIMES_ISGE_FP32
+clib.TIMES_ISGE_FP64.ss_obj = ss.GxB_TIMES_ISGE_FP64
+clib.TIMES_ISGE_INT16.ss_obj = ss.GxB_TIMES_ISGE_INT16
+clib.TIMES_ISGE_INT32.ss_obj = ss.GxB_TIMES_ISGE_INT32
+clib.TIMES_ISGE_INT64.ss_obj = ss.GxB_TIMES_ISGE_INT64
+clib.TIMES_ISGE_INT8.ss_obj = ss.GxB_TIMES_ISGE_INT8
+clib.TIMES_ISGE_UINT16.ss_obj = ss.GxB_TIMES_ISGE_UINT16
+clib.TIMES_ISGE_UINT32.ss_obj = ss.GxB_TIMES_ISGE_UINT32
+clib.TIMES_ISGE_UINT64.ss_obj = ss.GxB_TIMES_ISGE_UINT64
+clib.TIMES_ISGE_UINT8.ss_obj = ss.GxB_TIMES_ISGE_UINT8
+clib.TIMES_ISGT_FP32.ss_obj = ss.GxB_TIMES_ISGT_FP32
+clib.TIMES_ISGT_FP64.ss_obj = ss.GxB_TIMES_ISGT_FP64
+clib.TIMES_ISGT_INT16.ss_obj = ss.GxB_TIMES_ISGT_INT16
+clib.TIMES_ISGT_INT32.ss_obj = ss.GxB_TIMES_ISGT_INT32
+clib.TIMES_ISGT_INT64.ss_obj = ss.GxB_TIMES_ISGT_INT64
+clib.TIMES_ISGT_INT8.ss_obj = ss.GxB_TIMES_ISGT_INT8
+clib.TIMES_ISGT_UINT16.ss_obj = ss.GxB_TIMES_ISGT_UINT16
+clib.TIMES_ISGT_UINT32.ss_obj = ss.GxB_TIMES_ISGT_UINT32
+clib.TIMES_ISGT_UINT64.ss_obj = ss.GxB_TIMES_ISGT_UINT64
+clib.TIMES_ISGT_UINT8.ss_obj = ss.GxB_TIMES_ISGT_UINT8
+clib.TIMES_ISLE_FP32.ss_obj = ss.GxB_TIMES_ISLE_FP32
+clib.TIMES_ISLE_FP64.ss_obj = ss.GxB_TIMES_ISLE_FP64
+clib.TIMES_ISLE_INT16.ss_obj = ss.GxB_TIMES_ISLE_INT16
+clib.TIMES_ISLE_INT32.ss_obj = ss.GxB_TIMES_ISLE_INT32
+clib.TIMES_ISLE_INT64.ss_obj = ss.GxB_TIMES_ISLE_INT64
+clib.TIMES_ISLE_INT8.ss_obj = ss.GxB_TIMES_ISLE_INT8
+clib.TIMES_ISLE_UINT16.ss_obj = ss.GxB_TIMES_ISLE_UINT16
+clib.TIMES_ISLE_UINT32.ss_obj = ss.GxB_TIMES_ISLE_UINT32
+clib.TIMES_ISLE_UINT64.ss_obj = ss.GxB_TIMES_ISLE_UINT64
+clib.TIMES_ISLE_UINT8.ss_obj = ss.GxB_TIMES_ISLE_UINT8
+clib.TIMES_ISLT_FP32.ss_obj = ss.GxB_TIMES_ISLT_FP32
+clib.TIMES_ISLT_FP64.ss_obj = ss.GxB_TIMES_ISLT_FP64
+clib.TIMES_ISLT_INT16.ss_obj = ss.GxB_TIMES_ISLT_INT16
+clib.TIMES_ISLT_INT32.ss_obj = ss.GxB_TIMES_ISLT_INT32
+clib.TIMES_ISLT_INT64.ss_obj = ss.GxB_TIMES_ISLT_INT64
+clib.TIMES_ISLT_INT8.ss_obj = ss.GxB_TIMES_ISLT_INT8
+clib.TIMES_ISLT_UINT16.ss_obj = ss.GxB_TIMES_ISLT_UINT16
+clib.TIMES_ISLT_UINT32.ss_obj = ss.GxB_TIMES_ISLT_UINT32
+clib.TIMES_ISLT_UINT64.ss_obj = ss.GxB_TIMES_ISLT_UINT64
+clib.TIMES_ISLT_UINT8.ss_obj = ss.GxB_TIMES_ISLT_UINT8
+clib.TIMES_ISNE_FP32.ss_obj = ss.GxB_TIMES_ISNE_FP32
+clib.TIMES_ISNE_FP64.ss_obj = ss.GxB_TIMES_ISNE_FP64
+clib.TIMES_ISNE_INT16.ss_obj = ss.GxB_TIMES_ISNE_INT16
+clib.TIMES_ISNE_INT32.ss_obj = ss.GxB_TIMES_ISNE_INT32
+clib.TIMES_ISNE_INT64.ss_obj = ss.GxB_TIMES_ISNE_INT64
+clib.TIMES_ISNE_INT8.ss_obj = ss.GxB_TIMES_ISNE_INT8
+clib.TIMES_ISNE_UINT16.ss_obj = ss.GxB_TIMES_ISNE_UINT16
+clib.TIMES_ISNE_UINT32.ss_obj = ss.GxB_TIMES_ISNE_UINT32
+clib.TIMES_ISNE_UINT64.ss_obj = ss.GxB_TIMES_ISNE_UINT64
+clib.TIMES_ISNE_UINT8.ss_obj = ss.GxB_TIMES_ISNE_UINT8
+clib.TIMES_LAND_FP32.ss_obj = ss.GxB_TIMES_LAND_FP32
+clib.TIMES_LAND_FP64.ss_obj = ss.GxB_TIMES_LAND_FP64
+clib.TIMES_LAND_INT16.ss_obj = ss.GxB_TIMES_LAND_INT16
+clib.TIMES_LAND_INT32.ss_obj = ss.GxB_TIMES_LAND_INT32
+clib.TIMES_LAND_INT64.ss_obj = ss.GxB_TIMES_LAND_INT64
+clib.TIMES_LAND_INT8.ss_obj = ss.GxB_TIMES_LAND_INT8
+clib.TIMES_LAND_UINT16.ss_obj = ss.GxB_TIMES_LAND_UINT16
+clib.TIMES_LAND_UINT32.ss_obj = ss.GxB_TIMES_LAND_UINT32
+clib.TIMES_LAND_UINT64.ss_obj = ss.GxB_TIMES_LAND_UINT64
+clib.TIMES_LAND_UINT8.ss_obj = ss.GxB_TIMES_LAND_UINT8
+clib.TIMES_LOR_FP32.ss_obj = ss.GxB_TIMES_LOR_FP32
+clib.TIMES_LOR_FP64.ss_obj = ss.GxB_TIMES_LOR_FP64
+clib.TIMES_LOR_INT16.ss_obj = ss.GxB_TIMES_LOR_INT16
+clib.TIMES_LOR_INT32.ss_obj = ss.GxB_TIMES_LOR_INT32
+clib.TIMES_LOR_INT64.ss_obj = ss.GxB_TIMES_LOR_INT64
+clib.TIMES_LOR_INT8.ss_obj = ss.GxB_TIMES_LOR_INT8
+clib.TIMES_LOR_UINT16.ss_obj = ss.GxB_TIMES_LOR_UINT16
+clib.TIMES_LOR_UINT32.ss_obj = ss.GxB_TIMES_LOR_UINT32
+clib.TIMES_LOR_UINT64.ss_obj = ss.GxB_TIMES_LOR_UINT64
+clib.TIMES_LOR_UINT8.ss_obj = ss.GxB_TIMES_LOR_UINT8
+clib.TIMES_LXOR_FP32.ss_obj = ss.GxB_TIMES_LXOR_FP32
+clib.TIMES_LXOR_FP64.ss_obj = ss.GxB_TIMES_LXOR_FP64
+clib.TIMES_LXOR_INT16.ss_obj = ss.GxB_TIMES_LXOR_INT16
+clib.TIMES_LXOR_INT32.ss_obj = ss.GxB_TIMES_LXOR_INT32
+clib.TIMES_LXOR_INT64.ss_obj = ss.GxB_TIMES_LXOR_INT64
+clib.TIMES_LXOR_INT8.ss_obj = ss.GxB_TIMES_LXOR_INT8
+clib.TIMES_LXOR_UINT16.ss_obj = ss.GxB_TIMES_LXOR_UINT16
+clib.TIMES_LXOR_UINT32.ss_obj = ss.GxB_TIMES_LXOR_UINT32
+clib.TIMES_LXOR_UINT64.ss_obj = ss.GxB_TIMES_LXOR_UINT64
+clib.TIMES_LXOR_UINT8.ss_obj = ss.GxB_TIMES_LXOR_UINT8
+clib.TIMES_MAX_FP32.ss_obj = ss.GxB_TIMES_MAX_FP32
+clib.TIMES_MAX_FP64.ss_obj = ss.GxB_TIMES_MAX_FP64
+clib.TIMES_MAX_INT16.ss_obj = ss.GxB_TIMES_MAX_INT16
+clib.TIMES_MAX_INT32.ss_obj = ss.GxB_TIMES_MAX_INT32
+clib.TIMES_MAX_INT64.ss_obj = ss.GxB_TIMES_MAX_INT64
+clib.TIMES_MAX_INT8.ss_obj = ss.GxB_TIMES_MAX_INT8
+clib.TIMES_MAX_UINT16.ss_obj = ss.GxB_TIMES_MAX_UINT16
+clib.TIMES_MAX_UINT32.ss_obj = ss.GxB_TIMES_MAX_UINT32
+clib.TIMES_MAX_UINT64.ss_obj = ss.GxB_TIMES_MAX_UINT64
+clib.TIMES_MAX_UINT8.ss_obj = ss.GxB_TIMES_MAX_UINT8
+clib.TIMES_MINUS_FC32.ss_obj = ss.GxB_TIMES_MINUS_FC32
+clib.TIMES_MINUS_FC64.ss_obj = ss.GxB_TIMES_MINUS_FC64
+clib.TIMES_MINUS_FP32.ss_obj = ss.GxB_TIMES_MINUS_FP32
+clib.TIMES_MINUS_FP64.ss_obj = ss.GxB_TIMES_MINUS_FP64
+clib.TIMES_MINUS_INT16.ss_obj = ss.GxB_TIMES_MINUS_INT16
+clib.TIMES_MINUS_INT32.ss_obj = ss.GxB_TIMES_MINUS_INT32
+clib.TIMES_MINUS_INT64.ss_obj = ss.GxB_TIMES_MINUS_INT64
+clib.TIMES_MINUS_INT8.ss_obj = ss.GxB_TIMES_MINUS_INT8
+clib.TIMES_MINUS_UINT16.ss_obj = ss.GxB_TIMES_MINUS_UINT16
+clib.TIMES_MINUS_UINT32.ss_obj = ss.GxB_TIMES_MINUS_UINT32
+clib.TIMES_MINUS_UINT64.ss_obj = ss.GxB_TIMES_MINUS_UINT64
+clib.TIMES_MINUS_UINT8.ss_obj = ss.GxB_TIMES_MINUS_UINT8
+clib.TIMES_MIN_FP32.ss_obj = ss.GxB_TIMES_MIN_FP32
+clib.TIMES_MIN_FP64.ss_obj = ss.GxB_TIMES_MIN_FP64
+clib.TIMES_MIN_INT16.ss_obj = ss.GxB_TIMES_MIN_INT16
+clib.TIMES_MIN_INT32.ss_obj = ss.GxB_TIMES_MIN_INT32
+clib.TIMES_MIN_INT64.ss_obj = ss.GxB_TIMES_MIN_INT64
+clib.TIMES_MIN_INT8.ss_obj = ss.GxB_TIMES_MIN_INT8
+clib.TIMES_MIN_UINT16.ss_obj = ss.GxB_TIMES_MIN_UINT16
+clib.TIMES_MIN_UINT32.ss_obj = ss.GxB_TIMES_MIN_UINT32
+clib.TIMES_MIN_UINT64.ss_obj = ss.GxB_TIMES_MIN_UINT64
+clib.TIMES_MIN_UINT8.ss_obj = ss.GxB_TIMES_MIN_UINT8
+clib.TIMES_PAIR_FC32.ss_obj = ss.GxB_TIMES_PAIR_FC32
+clib.TIMES_PAIR_FC64.ss_obj = ss.GxB_TIMES_PAIR_FC64
+clib.TIMES_PAIR_FP32.ss_obj = ss.GxB_TIMES_PAIR_FP32
+clib.TIMES_PAIR_FP64.ss_obj = ss.GxB_TIMES_PAIR_FP64
+clib.TIMES_PAIR_INT16.ss_obj = ss.GxB_TIMES_PAIR_INT16
+clib.TIMES_PAIR_INT32.ss_obj = ss.GxB_TIMES_PAIR_INT32
+clib.TIMES_PAIR_INT64.ss_obj = ss.GxB_TIMES_PAIR_INT64
+clib.TIMES_PAIR_INT8.ss_obj = ss.GxB_TIMES_PAIR_INT8
+clib.TIMES_PAIR_UINT16.ss_obj = ss.GxB_TIMES_PAIR_UINT16
+clib.TIMES_PAIR_UINT32.ss_obj = ss.GxB_TIMES_PAIR_UINT32
+clib.TIMES_PAIR_UINT64.ss_obj = ss.GxB_TIMES_PAIR_UINT64
+clib.TIMES_PAIR_UINT8.ss_obj = ss.GxB_TIMES_PAIR_UINT8
+clib.TIMES_PLUS_FC32.ss_obj = ss.GxB_TIMES_PLUS_FC32
+clib.TIMES_PLUS_FC64.ss_obj = ss.GxB_TIMES_PLUS_FC64
+clib.TIMES_PLUS_FP32.ss_obj = ss.GxB_TIMES_PLUS_FP32
+clib.TIMES_PLUS_FP64.ss_obj = ss.GxB_TIMES_PLUS_FP64
+clib.TIMES_PLUS_INT16.ss_obj = ss.GxB_TIMES_PLUS_INT16
+clib.TIMES_PLUS_INT32.ss_obj = ss.GxB_TIMES_PLUS_INT32
+clib.TIMES_PLUS_INT64.ss_obj = ss.GxB_TIMES_PLUS_INT64
+clib.TIMES_PLUS_INT8.ss_obj = ss.GxB_TIMES_PLUS_INT8
+clib.TIMES_PLUS_UINT16.ss_obj = ss.GxB_TIMES_PLUS_UINT16
+clib.TIMES_PLUS_UINT32.ss_obj = ss.GxB_TIMES_PLUS_UINT32
+clib.TIMES_PLUS_UINT64.ss_obj = ss.GxB_TIMES_PLUS_UINT64
+clib.TIMES_PLUS_UINT8.ss_obj = ss.GxB_TIMES_PLUS_UINT8
+clib.TIMES_RDIV_FC32.ss_obj = ss.GxB_TIMES_RDIV_FC32
+clib.TIMES_RDIV_FC64.ss_obj = ss.GxB_TIMES_RDIV_FC64
+clib.TIMES_RDIV_FP32.ss_obj = ss.GxB_TIMES_RDIV_FP32
+clib.TIMES_RDIV_FP64.ss_obj = ss.GxB_TIMES_RDIV_FP64
+clib.TIMES_RDIV_INT16.ss_obj = ss.GxB_TIMES_RDIV_INT16
+clib.TIMES_RDIV_INT32.ss_obj = ss.GxB_TIMES_RDIV_INT32
+clib.TIMES_RDIV_INT64.ss_obj = ss.GxB_TIMES_RDIV_INT64
+clib.TIMES_RDIV_INT8.ss_obj = ss.GxB_TIMES_RDIV_INT8
+clib.TIMES_RDIV_UINT16.ss_obj = ss.GxB_TIMES_RDIV_UINT16
+clib.TIMES_RDIV_UINT32.ss_obj = ss.GxB_TIMES_RDIV_UINT32
+clib.TIMES_RDIV_UINT64.ss_obj = ss.GxB_TIMES_RDIV_UINT64
+clib.TIMES_RDIV_UINT8.ss_obj = ss.GxB_TIMES_RDIV_UINT8
+clib.TIMES_RMINUS_FC32.ss_obj = ss.GxB_TIMES_RMINUS_FC32
+clib.TIMES_RMINUS_FC64.ss_obj = ss.GxB_TIMES_RMINUS_FC64
+clib.TIMES_RMINUS_FP32.ss_obj = ss.GxB_TIMES_RMINUS_FP32
+clib.TIMES_RMINUS_FP64.ss_obj = ss.GxB_TIMES_RMINUS_FP64
+clib.TIMES_RMINUS_INT16.ss_obj = ss.GxB_TIMES_RMINUS_INT16
+clib.TIMES_RMINUS_INT32.ss_obj = ss.GxB_TIMES_RMINUS_INT32
+clib.TIMES_RMINUS_INT64.ss_obj = ss.GxB_TIMES_RMINUS_INT64
+clib.TIMES_RMINUS_INT8.ss_obj = ss.GxB_TIMES_RMINUS_INT8
+clib.TIMES_RMINUS_UINT16.ss_obj = ss.GxB_TIMES_RMINUS_UINT16
+clib.TIMES_RMINUS_UINT32.ss_obj = ss.GxB_TIMES_RMINUS_UINT32
+clib.TIMES_RMINUS_UINT64.ss_obj = ss.GxB_TIMES_RMINUS_UINT64
+clib.TIMES_RMINUS_UINT8.ss_obj = ss.GxB_TIMES_RMINUS_UINT8
+clib.TIMES_SECOND_FC32.ss_obj = ss.GxB_TIMES_SECOND_FC32
+clib.TIMES_SECOND_FC64.ss_obj = ss.GxB_TIMES_SECOND_FC64
+clib.TIMES_SECOND_FP32.ss_obj = ss.GxB_TIMES_SECOND_FP32
+clib.TIMES_SECOND_FP64.ss_obj = ss.GxB_TIMES_SECOND_FP64
+clib.TIMES_SECOND_INT16.ss_obj = ss.GxB_TIMES_SECOND_INT16
+clib.TIMES_SECOND_INT32.ss_obj = ss.GxB_TIMES_SECOND_INT32
+clib.TIMES_SECOND_INT64.ss_obj = ss.GxB_TIMES_SECOND_INT64
+clib.TIMES_SECOND_INT8.ss_obj = ss.GxB_TIMES_SECOND_INT8
+clib.TIMES_SECOND_UINT16.ss_obj = ss.GxB_TIMES_SECOND_UINT16
+clib.TIMES_SECOND_UINT32.ss_obj = ss.GxB_TIMES_SECOND_UINT32
+clib.TIMES_SECOND_UINT64.ss_obj = ss.GxB_TIMES_SECOND_UINT64
+clib.TIMES_SECOND_UINT8.ss_obj = ss.GxB_TIMES_SECOND_UINT8
+clib.TIMES_TIMES_FC32.ss_obj = ss.GxB_TIMES_TIMES_FC32
+clib.TIMES_TIMES_FC64.ss_obj = ss.GxB_TIMES_TIMES_FC64
+clib.TIMES_TIMES_FP32.ss_obj = ss.GxB_TIMES_TIMES_FP32
+clib.TIMES_TIMES_FP64.ss_obj = ss.GxB_TIMES_TIMES_FP64
+clib.TIMES_TIMES_INT16.ss_obj = ss.GxB_TIMES_TIMES_INT16
+clib.TIMES_TIMES_INT32.ss_obj = ss.GxB_TIMES_TIMES_INT32
+clib.TIMES_TIMES_INT64.ss_obj = ss.GxB_TIMES_TIMES_INT64
+clib.TIMES_TIMES_INT8.ss_obj = ss.GxB_TIMES_TIMES_INT8
+clib.TIMES_TIMES_UINT16.ss_obj = ss.GxB_TIMES_TIMES_UINT16
+clib.TIMES_TIMES_UINT32.ss_obj = ss.GxB_TIMES_TIMES_UINT32
+clib.TIMES_TIMES_UINT64.ss_obj = ss.GxB_TIMES_TIMES_UINT64
+clib.TIMES_TIMES_UINT8.ss_obj = ss.GxB_TIMES_TIMES_UINT8
 
 # Type
-clib.FC32.set_ss(ss.GxB_FC32)
-clib.FC64.set_ss(ss.GxB_FC64)
+clib.FC32.ss_obj = ss.GxB_FC32
+clib.FC64.ss_obj = ss.GxB_FC64
 
 # UnaryOp
-clib.ABS_BOOL.set_ss(ss.GxB_ABS_BOOL)
-clib.ABS_FC32.set_ss(ss.GxB_ABS_FC32)
-clib.ABS_FC64.set_ss(ss.GxB_ABS_FC64)
-clib.ABS_FP32.set_ss(ss.GxB_ABS_FP32)
-clib.ABS_FP64.set_ss(ss.GxB_ABS_FP64)
-clib.ABS_INT16.set_ss(ss.GxB_ABS_INT16)
-clib.ABS_INT32.set_ss(ss.GxB_ABS_INT32)
-clib.ABS_INT64.set_ss(ss.GxB_ABS_INT64)
-clib.ABS_INT8.set_ss(ss.GxB_ABS_INT8)
-clib.ABS_UINT16.set_ss(ss.GxB_ABS_UINT16)
-clib.ABS_UINT32.set_ss(ss.GxB_ABS_UINT32)
-clib.ABS_UINT64.set_ss(ss.GxB_ABS_UINT64)
-clib.ABS_UINT8.set_ss(ss.GxB_ABS_UINT8)
-clib.ACOSH_FC32.set_ss(ss.GxB_ACOSH_FC32)
-clib.ACOSH_FC64.set_ss(ss.GxB_ACOSH_FC64)
-clib.ACOSH_FP32.set_ss(ss.GxB_ACOSH_FP32)
-clib.ACOSH_FP64.set_ss(ss.GxB_ACOSH_FP64)
-clib.ACOS_FC32.set_ss(ss.GxB_ACOS_FC32)
-clib.ACOS_FC64.set_ss(ss.GxB_ACOS_FC64)
-clib.ACOS_FP32.set_ss(ss.GxB_ACOS_FP32)
-clib.ACOS_FP64.set_ss(ss.GxB_ACOS_FP64)
-clib.AINV_FC32.set_ss(ss.GxB_AINV_FC32)
-clib.AINV_FC64.set_ss(ss.GxB_AINV_FC64)
-clib.ASINH_FC32.set_ss(ss.GxB_ASINH_FC32)
-clib.ASINH_FC64.set_ss(ss.GxB_ASINH_FC64)
-clib.ASINH_FP32.set_ss(ss.GxB_ASINH_FP32)
-clib.ASINH_FP64.set_ss(ss.GxB_ASINH_FP64)
-clib.ASIN_FC32.set_ss(ss.GxB_ASIN_FC32)
-clib.ASIN_FC64.set_ss(ss.GxB_ASIN_FC64)
-clib.ASIN_FP32.set_ss(ss.GxB_ASIN_FP32)
-clib.ASIN_FP64.set_ss(ss.GxB_ASIN_FP64)
-clib.ATANH_FC32.set_ss(ss.GxB_ATANH_FC32)
-clib.ATANH_FC64.set_ss(ss.GxB_ATANH_FC64)
-clib.ATANH_FP32.set_ss(ss.GxB_ATANH_FP32)
-clib.ATANH_FP64.set_ss(ss.GxB_ATANH_FP64)
-clib.ATAN_FC32.set_ss(ss.GxB_ATAN_FC32)
-clib.ATAN_FC64.set_ss(ss.GxB_ATAN_FC64)
-clib.ATAN_FP32.set_ss(ss.GxB_ATAN_FP32)
-clib.ATAN_FP64.set_ss(ss.GxB_ATAN_FP64)
-clib.CARG_FC32.set_ss(ss.GxB_CARG_FC32)
-clib.CARG_FC64.set_ss(ss.GxB_CARG_FC64)
-clib.CEIL_FC32.set_ss(ss.GxB_CEIL_FC32)
-clib.CEIL_FC64.set_ss(ss.GxB_CEIL_FC64)
-clib.CEIL_FP32.set_ss(ss.GxB_CEIL_FP32)
-clib.CEIL_FP64.set_ss(ss.GxB_CEIL_FP64)
-clib.CIMAG_FC32.set_ss(ss.GxB_CIMAG_FC32)
-clib.CIMAG_FC64.set_ss(ss.GxB_CIMAG_FC64)
-clib.CONJ_FC32.set_ss(ss.GxB_CONJ_FC32)
-clib.CONJ_FC64.set_ss(ss.GxB_CONJ_FC64)
-clib.COSH_FC32.set_ss(ss.GxB_COSH_FC32)
-clib.COSH_FC64.set_ss(ss.GxB_COSH_FC64)
-clib.COSH_FP32.set_ss(ss.GxB_COSH_FP32)
-clib.COSH_FP64.set_ss(ss.GxB_COSH_FP64)
-clib.COS_FC32.set_ss(ss.GxB_COS_FC32)
-clib.COS_FC64.set_ss(ss.GxB_COS_FC64)
-clib.COS_FP32.set_ss(ss.GxB_COS_FP32)
-clib.COS_FP64.set_ss(ss.GxB_COS_FP64)
-clib.CREAL_FC32.set_ss(ss.GxB_CREAL_FC32)
-clib.CREAL_FC64.set_ss(ss.GxB_CREAL_FC64)
-clib.ERFC_FP32.set_ss(ss.GxB_ERFC_FP32)
-clib.ERFC_FP64.set_ss(ss.GxB_ERFC_FP64)
-clib.ERF_FP32.set_ss(ss.GxB_ERF_FP32)
-clib.ERF_FP64.set_ss(ss.GxB_ERF_FP64)
-clib.EXP2_FC32.set_ss(ss.GxB_EXP2_FC32)
-clib.EXP2_FC64.set_ss(ss.GxB_EXP2_FC64)
-clib.EXP2_FP32.set_ss(ss.GxB_EXP2_FP32)
-clib.EXP2_FP64.set_ss(ss.GxB_EXP2_FP64)
-clib.EXPM1_FC32.set_ss(ss.GxB_EXPM1_FC32)
-clib.EXPM1_FC64.set_ss(ss.GxB_EXPM1_FC64)
-clib.EXPM1_FP32.set_ss(ss.GxB_EXPM1_FP32)
-clib.EXPM1_FP64.set_ss(ss.GxB_EXPM1_FP64)
-clib.EXP_FC32.set_ss(ss.GxB_EXP_FC32)
-clib.EXP_FC64.set_ss(ss.GxB_EXP_FC64)
-clib.EXP_FP32.set_ss(ss.GxB_EXP_FP32)
-clib.EXP_FP64.set_ss(ss.GxB_EXP_FP64)
-clib.FLOOR_FC32.set_ss(ss.GxB_FLOOR_FC32)
-clib.FLOOR_FC64.set_ss(ss.GxB_FLOOR_FC64)
-clib.FLOOR_FP32.set_ss(ss.GxB_FLOOR_FP32)
-clib.FLOOR_FP64.set_ss(ss.GxB_FLOOR_FP64)
-clib.FREXPE_FP32.set_ss(ss.GxB_FREXPE_FP32)
-clib.FREXPE_FP64.set_ss(ss.GxB_FREXPE_FP64)
-clib.FREXPX_FP32.set_ss(ss.GxB_FREXPX_FP32)
-clib.FREXPX_FP64.set_ss(ss.GxB_FREXPX_FP64)
-clib.IDENTITY_FC32.set_ss(ss.GxB_IDENTITY_FC32)
-clib.IDENTITY_FC64.set_ss(ss.GxB_IDENTITY_FC64)
-clib.ISFINITE_FC32.set_ss(ss.GxB_ISFINITE_FC32)
-clib.ISFINITE_FC64.set_ss(ss.GxB_ISFINITE_FC64)
-clib.ISFINITE_FP32.set_ss(ss.GxB_ISFINITE_FP32)
-clib.ISFINITE_FP64.set_ss(ss.GxB_ISFINITE_FP64)
-clib.ISINF_FC32.set_ss(ss.GxB_ISINF_FC32)
-clib.ISINF_FC64.set_ss(ss.GxB_ISINF_FC64)
-clib.ISINF_FP32.set_ss(ss.GxB_ISINF_FP32)
-clib.ISINF_FP64.set_ss(ss.GxB_ISINF_FP64)
-clib.ISNAN_FC32.set_ss(ss.GxB_ISNAN_FC32)
-clib.ISNAN_FC64.set_ss(ss.GxB_ISNAN_FC64)
-clib.ISNAN_FP32.set_ss(ss.GxB_ISNAN_FP32)
-clib.ISNAN_FP64.set_ss(ss.GxB_ISNAN_FP64)
-clib.LGAMMA_FP32.set_ss(ss.GxB_LGAMMA_FP32)
-clib.LGAMMA_FP64.set_ss(ss.GxB_LGAMMA_FP64)
-clib.LNOT_BOOL.set_ss(ss.GxB_LNOT_BOOL)
-clib.LNOT_FP32.set_ss(ss.GxB_LNOT_FP32)
-clib.LNOT_FP64.set_ss(ss.GxB_LNOT_FP64)
-clib.LNOT_INT16.set_ss(ss.GxB_LNOT_INT16)
-clib.LNOT_INT32.set_ss(ss.GxB_LNOT_INT32)
-clib.LNOT_INT64.set_ss(ss.GxB_LNOT_INT64)
-clib.LNOT_INT8.set_ss(ss.GxB_LNOT_INT8)
-clib.LNOT_UINT16.set_ss(ss.GxB_LNOT_UINT16)
-clib.LNOT_UINT32.set_ss(ss.GxB_LNOT_UINT32)
-clib.LNOT_UINT64.set_ss(ss.GxB_LNOT_UINT64)
-clib.LNOT_UINT8.set_ss(ss.GxB_LNOT_UINT8)
-clib.LOG10_FC32.set_ss(ss.GxB_LOG10_FC32)
-clib.LOG10_FC64.set_ss(ss.GxB_LOG10_FC64)
-clib.LOG10_FP32.set_ss(ss.GxB_LOG10_FP32)
-clib.LOG10_FP64.set_ss(ss.GxB_LOG10_FP64)
-clib.LOG1P_FC32.set_ss(ss.GxB_LOG1P_FC32)
-clib.LOG1P_FC64.set_ss(ss.GxB_LOG1P_FC64)
-clib.LOG1P_FP32.set_ss(ss.GxB_LOG1P_FP32)
-clib.LOG1P_FP64.set_ss(ss.GxB_LOG1P_FP64)
-clib.LOG2_FC32.set_ss(ss.GxB_LOG2_FC32)
-clib.LOG2_FC64.set_ss(ss.GxB_LOG2_FC64)
-clib.LOG2_FP32.set_ss(ss.GxB_LOG2_FP32)
-clib.LOG2_FP64.set_ss(ss.GxB_LOG2_FP64)
-clib.LOG_FC32.set_ss(ss.GxB_LOG_FC32)
-clib.LOG_FC64.set_ss(ss.GxB_LOG_FC64)
-clib.LOG_FP32.set_ss(ss.GxB_LOG_FP32)
-clib.LOG_FP64.set_ss(ss.GxB_LOG_FP64)
-clib.MINV_FC32.set_ss(ss.GxB_MINV_FC32)
-clib.MINV_FC64.set_ss(ss.GxB_MINV_FC64)
-clib.ONE_BOOL.set_ss(ss.GxB_ONE_BOOL)
-clib.ONE_FC32.set_ss(ss.GxB_ONE_FC32)
-clib.ONE_FC64.set_ss(ss.GxB_ONE_FC64)
-clib.ONE_FP32.set_ss(ss.GxB_ONE_FP32)
-clib.ONE_FP64.set_ss(ss.GxB_ONE_FP64)
-clib.ONE_INT16.set_ss(ss.GxB_ONE_INT16)
-clib.ONE_INT32.set_ss(ss.GxB_ONE_INT32)
-clib.ONE_INT64.set_ss(ss.GxB_ONE_INT64)
-clib.ONE_INT8.set_ss(ss.GxB_ONE_INT8)
-clib.ONE_UINT16.set_ss(ss.GxB_ONE_UINT16)
-clib.ONE_UINT32.set_ss(ss.GxB_ONE_UINT32)
-clib.ONE_UINT64.set_ss(ss.GxB_ONE_UINT64)
-clib.ONE_UINT8.set_ss(ss.GxB_ONE_UINT8)
-clib.ROUND_FC32.set_ss(ss.GxB_ROUND_FC32)
-clib.ROUND_FC64.set_ss(ss.GxB_ROUND_FC64)
-clib.ROUND_FP32.set_ss(ss.GxB_ROUND_FP32)
-clib.ROUND_FP64.set_ss(ss.GxB_ROUND_FP64)
-clib.SIGNUM_FC32.set_ss(ss.GxB_SIGNUM_FC32)
-clib.SIGNUM_FC64.set_ss(ss.GxB_SIGNUM_FC64)
-clib.SIGNUM_FP32.set_ss(ss.GxB_SIGNUM_FP32)
-clib.SIGNUM_FP64.set_ss(ss.GxB_SIGNUM_FP64)
-clib.SINH_FC32.set_ss(ss.GxB_SINH_FC32)
-clib.SINH_FC64.set_ss(ss.GxB_SINH_FC64)
-clib.SINH_FP32.set_ss(ss.GxB_SINH_FP32)
-clib.SINH_FP64.set_ss(ss.GxB_SINH_FP64)
-clib.SIN_FC32.set_ss(ss.GxB_SIN_FC32)
-clib.SIN_FC64.set_ss(ss.GxB_SIN_FC64)
-clib.SIN_FP32.set_ss(ss.GxB_SIN_FP32)
-clib.SIN_FP64.set_ss(ss.GxB_SIN_FP64)
-clib.SQRT_FC32.set_ss(ss.GxB_SQRT_FC32)
-clib.SQRT_FC64.set_ss(ss.GxB_SQRT_FC64)
-clib.SQRT_FP32.set_ss(ss.GxB_SQRT_FP32)
-clib.SQRT_FP64.set_ss(ss.GxB_SQRT_FP64)
-clib.TANH_FC32.set_ss(ss.GxB_TANH_FC32)
-clib.TANH_FC64.set_ss(ss.GxB_TANH_FC64)
-clib.TANH_FP32.set_ss(ss.GxB_TANH_FP32)
-clib.TANH_FP64.set_ss(ss.GxB_TANH_FP64)
-clib.TAN_FC32.set_ss(ss.GxB_TAN_FC32)
-clib.TAN_FC64.set_ss(ss.GxB_TAN_FC64)
-clib.TAN_FP32.set_ss(ss.GxB_TAN_FP32)
-clib.TAN_FP64.set_ss(ss.GxB_TAN_FP64)
-clib.TGAMMA_FP32.set_ss(ss.GxB_TGAMMA_FP32)
-clib.TGAMMA_FP64.set_ss(ss.GxB_TGAMMA_FP64)
-clib.TRUNC_FC32.set_ss(ss.GxB_TRUNC_FC32)
-clib.TRUNC_FC64.set_ss(ss.GxB_TRUNC_FC64)
-clib.TRUNC_FP32.set_ss(ss.GxB_TRUNC_FP32)
-clib.TRUNC_FP64.set_ss(ss.GxB_TRUNC_FP64)
+clib.ABS_BOOL.ss_obj = ss.GxB_ABS_BOOL
+clib.ABS_FC32.ss_obj = ss.GxB_ABS_FC32
+clib.ABS_FC64.ss_obj = ss.GxB_ABS_FC64
+clib.ABS_FP32.ss_obj = ss.GxB_ABS_FP32
+clib.ABS_FP64.ss_obj = ss.GxB_ABS_FP64
+clib.ABS_INT16.ss_obj = ss.GxB_ABS_INT16
+clib.ABS_INT32.ss_obj = ss.GxB_ABS_INT32
+clib.ABS_INT64.ss_obj = ss.GxB_ABS_INT64
+clib.ABS_INT8.ss_obj = ss.GxB_ABS_INT8
+clib.ABS_UINT16.ss_obj = ss.GxB_ABS_UINT16
+clib.ABS_UINT32.ss_obj = ss.GxB_ABS_UINT32
+clib.ABS_UINT64.ss_obj = ss.GxB_ABS_UINT64
+clib.ABS_UINT8.ss_obj = ss.GxB_ABS_UINT8
+clib.ACOSH_FC32.ss_obj = ss.GxB_ACOSH_FC32
+clib.ACOSH_FC64.ss_obj = ss.GxB_ACOSH_FC64
+clib.ACOSH_FP32.ss_obj = ss.GxB_ACOSH_FP32
+clib.ACOSH_FP64.ss_obj = ss.GxB_ACOSH_FP64
+clib.ACOS_FC32.ss_obj = ss.GxB_ACOS_FC32
+clib.ACOS_FC64.ss_obj = ss.GxB_ACOS_FC64
+clib.ACOS_FP32.ss_obj = ss.GxB_ACOS_FP32
+clib.ACOS_FP64.ss_obj = ss.GxB_ACOS_FP64
+clib.AINV_FC32.ss_obj = ss.GxB_AINV_FC32
+clib.AINV_FC64.ss_obj = ss.GxB_AINV_FC64
+clib.ASINH_FC32.ss_obj = ss.GxB_ASINH_FC32
+clib.ASINH_FC64.ss_obj = ss.GxB_ASINH_FC64
+clib.ASINH_FP32.ss_obj = ss.GxB_ASINH_FP32
+clib.ASINH_FP64.ss_obj = ss.GxB_ASINH_FP64
+clib.ASIN_FC32.ss_obj = ss.GxB_ASIN_FC32
+clib.ASIN_FC64.ss_obj = ss.GxB_ASIN_FC64
+clib.ASIN_FP32.ss_obj = ss.GxB_ASIN_FP32
+clib.ASIN_FP64.ss_obj = ss.GxB_ASIN_FP64
+clib.ATANH_FC32.ss_obj = ss.GxB_ATANH_FC32
+clib.ATANH_FC64.ss_obj = ss.GxB_ATANH_FC64
+clib.ATANH_FP32.ss_obj = ss.GxB_ATANH_FP32
+clib.ATANH_FP64.ss_obj = ss.GxB_ATANH_FP64
+clib.ATAN_FC32.ss_obj = ss.GxB_ATAN_FC32
+clib.ATAN_FC64.ss_obj = ss.GxB_ATAN_FC64
+clib.ATAN_FP32.ss_obj = ss.GxB_ATAN_FP32
+clib.ATAN_FP64.ss_obj = ss.GxB_ATAN_FP64
+clib.CARG_FC32.ss_obj = ss.GxB_CARG_FC32
+clib.CARG_FC64.ss_obj = ss.GxB_CARG_FC64
+clib.CEIL_FC32.ss_obj = ss.GxB_CEIL_FC32
+clib.CEIL_FC64.ss_obj = ss.GxB_CEIL_FC64
+clib.CEIL_FP32.ss_obj = ss.GxB_CEIL_FP32
+clib.CEIL_FP64.ss_obj = ss.GxB_CEIL_FP64
+clib.CIMAG_FC32.ss_obj = ss.GxB_CIMAG_FC32
+clib.CIMAG_FC64.ss_obj = ss.GxB_CIMAG_FC64
+clib.CONJ_FC32.ss_obj = ss.GxB_CONJ_FC32
+clib.CONJ_FC64.ss_obj = ss.GxB_CONJ_FC64
+clib.COSH_FC32.ss_obj = ss.GxB_COSH_FC32
+clib.COSH_FC64.ss_obj = ss.GxB_COSH_FC64
+clib.COSH_FP32.ss_obj = ss.GxB_COSH_FP32
+clib.COSH_FP64.ss_obj = ss.GxB_COSH_FP64
+clib.COS_FC32.ss_obj = ss.GxB_COS_FC32
+clib.COS_FC64.ss_obj = ss.GxB_COS_FC64
+clib.COS_FP32.ss_obj = ss.GxB_COS_FP32
+clib.COS_FP64.ss_obj = ss.GxB_COS_FP64
+clib.CREAL_FC32.ss_obj = ss.GxB_CREAL_FC32
+clib.CREAL_FC64.ss_obj = ss.GxB_CREAL_FC64
+clib.ERFC_FP32.ss_obj = ss.GxB_ERFC_FP32
+clib.ERFC_FP64.ss_obj = ss.GxB_ERFC_FP64
+clib.ERF_FP32.ss_obj = ss.GxB_ERF_FP32
+clib.ERF_FP64.ss_obj = ss.GxB_ERF_FP64
+clib.EXP2_FC32.ss_obj = ss.GxB_EXP2_FC32
+clib.EXP2_FC64.ss_obj = ss.GxB_EXP2_FC64
+clib.EXP2_FP32.ss_obj = ss.GxB_EXP2_FP32
+clib.EXP2_FP64.ss_obj = ss.GxB_EXP2_FP64
+clib.EXPM1_FC32.ss_obj = ss.GxB_EXPM1_FC32
+clib.EXPM1_FC64.ss_obj = ss.GxB_EXPM1_FC64
+clib.EXPM1_FP32.ss_obj = ss.GxB_EXPM1_FP32
+clib.EXPM1_FP64.ss_obj = ss.GxB_EXPM1_FP64
+clib.EXP_FC32.ss_obj = ss.GxB_EXP_FC32
+clib.EXP_FC64.ss_obj = ss.GxB_EXP_FC64
+clib.EXP_FP32.ss_obj = ss.GxB_EXP_FP32
+clib.EXP_FP64.ss_obj = ss.GxB_EXP_FP64
+clib.FLOOR_FC32.ss_obj = ss.GxB_FLOOR_FC32
+clib.FLOOR_FC64.ss_obj = ss.GxB_FLOOR_FC64
+clib.FLOOR_FP32.ss_obj = ss.GxB_FLOOR_FP32
+clib.FLOOR_FP64.ss_obj = ss.GxB_FLOOR_FP64
+clib.FREXPE_FP32.ss_obj = ss.GxB_FREXPE_FP32
+clib.FREXPE_FP64.ss_obj = ss.GxB_FREXPE_FP64
+clib.FREXPX_FP32.ss_obj = ss.GxB_FREXPX_FP32
+clib.FREXPX_FP64.ss_obj = ss.GxB_FREXPX_FP64
+clib.IDENTITY_FC32.ss_obj = ss.GxB_IDENTITY_FC32
+clib.IDENTITY_FC64.ss_obj = ss.GxB_IDENTITY_FC64
+clib.ISFINITE_FC32.ss_obj = ss.GxB_ISFINITE_FC32
+clib.ISFINITE_FC64.ss_obj = ss.GxB_ISFINITE_FC64
+clib.ISFINITE_FP32.ss_obj = ss.GxB_ISFINITE_FP32
+clib.ISFINITE_FP64.ss_obj = ss.GxB_ISFINITE_FP64
+clib.ISINF_FC32.ss_obj = ss.GxB_ISINF_FC32
+clib.ISINF_FC64.ss_obj = ss.GxB_ISINF_FC64
+clib.ISINF_FP32.ss_obj = ss.GxB_ISINF_FP32
+clib.ISINF_FP64.ss_obj = ss.GxB_ISINF_FP64
+clib.ISNAN_FC32.ss_obj = ss.GxB_ISNAN_FC32
+clib.ISNAN_FC64.ss_obj = ss.GxB_ISNAN_FC64
+clib.ISNAN_FP32.ss_obj = ss.GxB_ISNAN_FP32
+clib.ISNAN_FP64.ss_obj = ss.GxB_ISNAN_FP64
+clib.LGAMMA_FP32.ss_obj = ss.GxB_LGAMMA_FP32
+clib.LGAMMA_FP64.ss_obj = ss.GxB_LGAMMA_FP64
+clib.LNOT_BOOL.ss_obj = ss.GxB_LNOT_BOOL
+clib.LNOT_FP32.ss_obj = ss.GxB_LNOT_FP32
+clib.LNOT_FP64.ss_obj = ss.GxB_LNOT_FP64
+clib.LNOT_INT16.ss_obj = ss.GxB_LNOT_INT16
+clib.LNOT_INT32.ss_obj = ss.GxB_LNOT_INT32
+clib.LNOT_INT64.ss_obj = ss.GxB_LNOT_INT64
+clib.LNOT_INT8.ss_obj = ss.GxB_LNOT_INT8
+clib.LNOT_UINT16.ss_obj = ss.GxB_LNOT_UINT16
+clib.LNOT_UINT32.ss_obj = ss.GxB_LNOT_UINT32
+clib.LNOT_UINT64.ss_obj = ss.GxB_LNOT_UINT64
+clib.LNOT_UINT8.ss_obj = ss.GxB_LNOT_UINT8
+clib.LOG10_FC32.ss_obj = ss.GxB_LOG10_FC32
+clib.LOG10_FC64.ss_obj = ss.GxB_LOG10_FC64
+clib.LOG10_FP32.ss_obj = ss.GxB_LOG10_FP32
+clib.LOG10_FP64.ss_obj = ss.GxB_LOG10_FP64
+clib.LOG1P_FC32.ss_obj = ss.GxB_LOG1P_FC32
+clib.LOG1P_FC64.ss_obj = ss.GxB_LOG1P_FC64
+clib.LOG1P_FP32.ss_obj = ss.GxB_LOG1P_FP32
+clib.LOG1P_FP64.ss_obj = ss.GxB_LOG1P_FP64
+clib.LOG2_FC32.ss_obj = ss.GxB_LOG2_FC32
+clib.LOG2_FC64.ss_obj = ss.GxB_LOG2_FC64
+clib.LOG2_FP32.ss_obj = ss.GxB_LOG2_FP32
+clib.LOG2_FP64.ss_obj = ss.GxB_LOG2_FP64
+clib.LOG_FC32.ss_obj = ss.GxB_LOG_FC32
+clib.LOG_FC64.ss_obj = ss.GxB_LOG_FC64
+clib.LOG_FP32.ss_obj = ss.GxB_LOG_FP32
+clib.LOG_FP64.ss_obj = ss.GxB_LOG_FP64
+clib.MINV_FC32.ss_obj = ss.GxB_MINV_FC32
+clib.MINV_FC64.ss_obj = ss.GxB_MINV_FC64
+clib.ONE_BOOL.ss_obj = ss.GxB_ONE_BOOL
+clib.ONE_FC32.ss_obj = ss.GxB_ONE_FC32
+clib.ONE_FC64.ss_obj = ss.GxB_ONE_FC64
+clib.ONE_FP32.ss_obj = ss.GxB_ONE_FP32
+clib.ONE_FP64.ss_obj = ss.GxB_ONE_FP64
+clib.ONE_INT16.ss_obj = ss.GxB_ONE_INT16
+clib.ONE_INT32.ss_obj = ss.GxB_ONE_INT32
+clib.ONE_INT64.ss_obj = ss.GxB_ONE_INT64
+clib.ONE_INT8.ss_obj = ss.GxB_ONE_INT8
+clib.ONE_UINT16.ss_obj = ss.GxB_ONE_UINT16
+clib.ONE_UINT32.ss_obj = ss.GxB_ONE_UINT32
+clib.ONE_UINT64.ss_obj = ss.GxB_ONE_UINT64
+clib.ONE_UINT8.ss_obj = ss.GxB_ONE_UINT8
+clib.ROUND_FC32.ss_obj = ss.GxB_ROUND_FC32
+clib.ROUND_FC64.ss_obj = ss.GxB_ROUND_FC64
+clib.ROUND_FP32.ss_obj = ss.GxB_ROUND_FP32
+clib.ROUND_FP64.ss_obj = ss.GxB_ROUND_FP64
+clib.SIGNUM_FC32.ss_obj = ss.GxB_SIGNUM_FC32
+clib.SIGNUM_FC64.ss_obj = ss.GxB_SIGNUM_FC64
+clib.SIGNUM_FP32.ss_obj = ss.GxB_SIGNUM_FP32
+clib.SIGNUM_FP64.ss_obj = ss.GxB_SIGNUM_FP64
+clib.SINH_FC32.ss_obj = ss.GxB_SINH_FC32
+clib.SINH_FC64.ss_obj = ss.GxB_SINH_FC64
+clib.SINH_FP32.ss_obj = ss.GxB_SINH_FP32
+clib.SINH_FP64.ss_obj = ss.GxB_SINH_FP64
+clib.SIN_FC32.ss_obj = ss.GxB_SIN_FC32
+clib.SIN_FC64.ss_obj = ss.GxB_SIN_FC64
+clib.SIN_FP32.ss_obj = ss.GxB_SIN_FP32
+clib.SIN_FP64.ss_obj = ss.GxB_SIN_FP64
+clib.SQRT_FC32.ss_obj = ss.GxB_SQRT_FC32
+clib.SQRT_FC64.ss_obj = ss.GxB_SQRT_FC64
+clib.SQRT_FP32.ss_obj = ss.GxB_SQRT_FP32
+clib.SQRT_FP64.ss_obj = ss.GxB_SQRT_FP64
+clib.TANH_FC32.ss_obj = ss.GxB_TANH_FC32
+clib.TANH_FC64.ss_obj = ss.GxB_TANH_FC64
+clib.TANH_FP32.ss_obj = ss.GxB_TANH_FP32
+clib.TANH_FP64.ss_obj = ss.GxB_TANH_FP64
+clib.TAN_FC32.ss_obj = ss.GxB_TAN_FC32
+clib.TAN_FC64.ss_obj = ss.GxB_TAN_FC64
+clib.TAN_FP32.ss_obj = ss.GxB_TAN_FP32
+clib.TAN_FP64.ss_obj = ss.GxB_TAN_FP64
+clib.TGAMMA_FP32.ss_obj = ss.GxB_TGAMMA_FP32
+clib.TGAMMA_FP64.ss_obj = ss.GxB_TGAMMA_FP64
+clib.TRUNC_FC32.ss_obj = ss.GxB_TRUNC_FC32
+clib.TRUNC_FC64.ss_obj = ss.GxB_TRUNC_FC64
+clib.TRUNC_FP32.ss_obj = ss.GxB_TRUNC_FP32
+clib.TRUNC_FP64.ss_obj = ss.GxB_TRUNC_FP64

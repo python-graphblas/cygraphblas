@@ -10,7 +10,3 @@ cdef class UnaryOp:
         cdef UnaryOp obj = UnaryOp.__new__(UnaryOp)
         obj.name = name
         return obj
-
-    IF CYGB_SS:
-        cdef void set_ss(self, _ss.GrB_UnaryOp ss_obj):
-            self.ss_obj = ss_obj

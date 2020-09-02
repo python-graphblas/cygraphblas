@@ -11,5 +11,3 @@ cdef class UnaryOp:
 
     @staticmethod
     cdef UnaryOp _new(str name)
-    IF CYGB_SS:
-        cdef void set_ss(self, _ss.GrB_UnaryOp ss_obj)

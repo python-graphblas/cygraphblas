@@ -1,4 +1,5 @@
 from . import binary
+from . import constants
 from . import descriptor
 from . import dtypes
 from . import monoid

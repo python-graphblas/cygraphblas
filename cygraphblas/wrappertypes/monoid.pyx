@@ -10,7 +10,3 @@ cdef class Monoid:
         cdef Monoid obj = Monoid.__new__(Monoid)
         obj.name = name
         return obj
-
-    IF CYGB_SS:
-        cdef void set_ss(self, _ss.GrB_Monoid ss_obj):
-            self.ss_obj = ss_obj

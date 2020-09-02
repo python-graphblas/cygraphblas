@@ -10,7 +10,3 @@ cdef class Descriptor:
         cdef Descriptor obj = Descriptor.__new__(Descriptor)
         obj.name = name
         return obj
-
-    IF CYGB_SS:
-        cdef void set_ss(self, _ss.GrB_Descriptor ss_obj):
-            self.ss_obj = ss_obj
