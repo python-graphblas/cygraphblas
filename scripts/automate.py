@@ -39,6 +39,26 @@ SS_SLICING_DEFINES = {
     'GxB_END': 'int64_t',
     'GxB_INC': 'int64_t',
 }
+GrB_DEPRECATED = {
+    'GrB_SCMP',
+    # GrB_wait(void)
+}
+
+SS_DEPRECATED = {
+    'GrB_eWiseMult_Vector_Semiring',
+    'GrB_eWiseMult_Vector_Monoid',
+    'GrB_eWiseMult_Vector_BinaryOp',
+    'GrB_eWiseMult_Matrix_Semiring',
+    'GrB_eWiseMult_Matrix_Monoid',
+    'GrB_eWiseMult_Matrix_BinaryOp',
+    'GrB_eWiseAdd_Vector_Semiring',
+    'GrB_eWiseAdd_Vector_Monoid',
+    'GrB_eWiseAdd_Vector_BinaryOp',
+    'GrB_eWiseAdd_Matrix_Semiring',
+    'GrB_eWiseAdd_Matrix_Monoid',
+    'GrB_eWiseAdd_Matrix_BinaryOp',
+}
+DEPRECATED = GrB_DEPRECATED | SS_DEPRECATED
 
 
 def get_basedir():
@@ -166,6 +186,8 @@ def get_group_info(groups):
             cname = cname[:-1].replace('(void)', '()')
             assert extern == 'extern'
             assert const == 'const'
+            if cname in DEPRECATED:
+                continue
             info = {
                 'ctype': ctype,
                 'cname': cname,
@@ -185,6 +207,8 @@ def get_group_info(groups):
             assert cname.endswith(';')
             cname = cname[:-1]
             assert extern == 'extern'
+            if cname in DEPRECATED:
+                continue
             info = {
                 'ctype': ctype,
                 'cname': cname,
@@ -205,6 +229,8 @@ def get_group_info(groups):
             assert cname.startswith('}')
             assert cname.endswith(';')
             cname = cname[1:-1].strip()
+            if cname in DEPRECATED:
+                continue
             new_fields = []
             for field in fields:
                 if field.endswith(','):
@@ -219,6 +245,8 @@ def get_group_info(groups):
                     'text': field,
                     'pytype': pyname(cname),
                 }
+                if cfieldname in DEPRECATED:
+                    continue
                 new_fields.append(fieldinfo)
             info = {
                 'cname': cname,
@@ -240,6 +268,8 @@ def get_group_info(groups):
             assert typedef == 'typedef'
             assert cname.endswith(';')
             cname = cname[:-1]
+            if cname in DEPRECATED:
+                continue
             info = {
                 'cname': cname,
                 'ctype': ctype,

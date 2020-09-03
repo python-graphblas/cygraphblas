@@ -58,5 +58,3 @@ test_import:
 test_importss:
 	find cygraphblas -name 'ss.py' -print | sed -e 's/.py/"/g' -e 's/^/python -c "import cygraphblas_ss, cygraphblas ; /g' -e 's/\//./g'
 	find cygraphblas -name 'ss.py' -print | sed -e 's/.py/"/g' -e 's/^/python -c "import cygraphblas_ss, cygraphblas ; /g' -e 's/\//./g' | sh
-	find cygraphblas -name 'ss' -print | sed -e 's/$$/"/g' -e 's/^/python -c "import cygraphblas_ss, cygraphblas ; /g' -e 's/\//./g'
-	find cygraphblas -name 'ss' -print | sed -e 's/$$/"/g' -e 's/^/python -c "import cygraphblas_ss, cygraphblas ; /g' -e 's/\//./g' | sh

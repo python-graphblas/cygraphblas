@@ -85,7 +85,6 @@ cdef extern from "GraphBLAS.h" nogil:
         GxB_DEFAULT
         GrB_REPLACE
         GrB_COMP
-        GrB_SCMP
         GrB_STRUCTURE
         GrB_TRAN
         GxB_GPU_ALWAYS

@@ -11,7 +11,6 @@ clib.OUTP.ss_obj = ss.GrB_OUTP
 # Desc_Value
 clib.COMP.ss_obj = ss.GrB_COMP
 clib.REPLACE.ss_obj = ss.GrB_REPLACE
-clib.SCMP.ss_obj = ss.GrB_SCMP
 clib.STRUCTURE.ss_obj = ss.GrB_STRUCTURE
 clib.TRAN.ss_obj = ss.GrB_TRAN
 

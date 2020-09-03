@@ -9,7 +9,6 @@ cdef Desc_Field MASK
 cdef Desc_Field OUTP
 cdef Desc_Value COMP
 cdef Desc_Value REPLACE
-cdef Desc_Value SCMP
 cdef Desc_Value STRUCTURE
 cdef Desc_Value TRAN
 cdef Info DIMENSION_MISMATCH
