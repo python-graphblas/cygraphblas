@@ -1,4 +1,5 @@
 from setuptools import Extension, setup, find_packages
+from glob import glob
 from Cython.Build import cythonize
 from Cython.Compiler.Options import get_directive_defaults
 
@@ -16,20 +17,11 @@ else:
 
 ext_modules = [
     Extension(
-        'cygraphblas_ss.*',
-        [f'cygraphblas_ss/*{suffix}'],
+        name[:-len(suffix)].replace('/', '.'),
+        [name],
         libraries=['graphblas'],
-    ),
-    Extension(
-        'cygraphblas_ss.*.*',
-        [f'cygraphblas_ss/*/*{suffix}'],
-        libraries=['graphblas'],
-    ),
-    Extension(
-        'cygraphblas_ss.*.*.*',
-        [f'cygraphblas_ss/*/*/*{suffix}'],
-        libraries=['graphblas'],
-    ),
+    )
+    for name in glob(f'cygraphblas_ss/**/*{suffix}', recursive=True)
 ]
 if use_cython:
     # TODO: get `compile_time_env` from cygraphblas

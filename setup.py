@@ -1,4 +1,5 @@
 from setuptools import Extension, setup, find_packages
+from glob import glob
 from Cython.Build import cythonize
 from Cython.Compiler.Options import get_directive_defaults
 
@@ -16,21 +17,10 @@ else:
 
 ext_modules = [
     Extension(
-        'cygraphblas.*',
-        [f'cygraphblas/*{suffix}'],
-    ),
-    Extension(
-        'cygraphblas.*.*',
-        [f'cygraphblas/*/*{suffix}'],
-    ),
-    Extension(
-        'cygraphblas.*.*.*',
-        [f'cygraphblas/*/*/*{suffix}'],
-    ),
-    Extension(
-        'cygraphblas.*.*.*.*',
-        [f'cygraphblas/*/*/*/*{suffix}'],
-    ),
+        name[:-len(suffix)].replace('/', '.'),
+        [name],
+    )
+    for name in glob(f'cygraphblas/**/*{suffix}', recursive=True)
 ]
 if use_cython:
     ext_modules = cythonize(ext_modules, compile_time_env={'CYGB_SS': support_ss})
